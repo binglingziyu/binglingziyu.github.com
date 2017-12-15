@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Android开发中的tools命名空间的使用 | binglingziyu的博客
+  </title>
+  <meta name="description" content="binglingziyu的博客">
+  
+  <meta name="keywords" content="
+  Android,trick
+  ">
+  
+  <meta name="author" content="binglingziyu">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+<script>
+  var _hmt = _hmt || [];
+  (function(){var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?52e60cf65a47c93f39a0534bb9e6c84d";
+    var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="http://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 10 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 6 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">binglingziyu的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    binglingziyu
+
+    <span class="post-date float-right" title="{{moment(1472211156000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1472211156000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Android开发中的tools命名空间的使用</h1>
+    <p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/Android_logo.jpg?orig" alt="Android"></p>
+<blockquote>
+<p>在Android布局文件中，经常看到 <strong>xmlns:tools=”<a href="http://schemas.android.com/tools" target="_blank" rel="noopener">http://schemas.android.com/tools</a>“</strong>，一直不知道有什么用，直到看到<a href="http://blog.alexsimo.com/mastering-tools-namespace-android/" target="_blank" rel="noopener">这篇博客</a>，看到了tools的强大功能，不仅可以节省开发时间，还可以辅助页面布局</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="在布局文件中使用tools命名空间"><a href="#在布局文件中使用tools命名空间" class="headerlink" title="在布局文件中使用tools命名空间"></a>在布局文件中使用tools命名空间</h2><blockquote>
+<p>Android Studio 布局文件中导入tools命名空间<br>输入toolsNs,点击TAB</p>
+</blockquote>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/android-studio-import-tools.gif?orig" alt="Android Studio 布局文件中导入tools命名空间"></p>
+<p>这样就可以使用tools命名空间了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Tools能干什么"><a href="#Tools能干什么" class="headerlink" title="Tools能干什么"></a>Tools能干什么</h2><ul>
+<li>设计时可以用 tools 覆盖所有已存在于 android 命名空间中的属性（无法覆盖自定义属性）</li>
+<li>提供了一些特有的 tools 属性</li>
+</ul>
+<h3 id="设计时用Tools设置默认值"><a href="#设计时用Tools设置默认值" class="headerlink" title="设计时用Tools设置默认值"></a>设计时用Tools设置默认值</h3><p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/use-tools-set-default-value.png?orig" alt="用Tools设置默认值"></p>
+<p>预览里没有变化，看看运行效果吧：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/use-tools-set-default-value-result.png?orig" alt="用Tools设置默认值"></p>
+<blockquote>
+<p>用tools设置的默认值，只在预览时有用，不会影响运行时</p>
+</blockquote>
+<h3 id="设计时用Tools覆盖默认值"><a href="#设计时用Tools覆盖默认值" class="headerlink" title="设计时用Tools覆盖默认值"></a>设计时用Tools覆盖默认值</h3><p>在TextView中写了一大段描述文本：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/default-value-long-desc.png?orig" alt="用Tools设置默认值"></p>
+<p>现在想要看看短描述的显示效果，该怎么做？<br>删除文本重新写？<br>先复制进剪切板，看完效果再粘贴回来？</p>
+<p>还是用Tools覆盖默认值吧：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/tools-rewrite-default-value.png?orig" alt="用Tools设置默认值"></p>
+<h3 id="Tools其他属性"><a href="#Tools其他属性" class="headerlink" title="Tools其他属性"></a>Tools其他属性</h3><ul>
+<li>tools:context</li>
+</ul>
+<blockquote>
+<p>这个属性通常设置在布局的XML文件的根元素，用来记录这个布局和哪个Activity相关。<br>这样在布局文件中，按住Ctrl+点击鼠标左键，可以定位到相关的Activity。</p>
+</blockquote>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/tools-context.png?orig" alt="用Tools设置默认值"></p>
+<hr>
+<ul>
+<li>tools:layout</li>
+</ul>
+<blockquote>
+<p>这个属性通常设置在 fragment 标签,用于在布局时预览fragment布局文件的预览图。</p>
+</blockquote>
+<p>这是一个Fragment：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/tools-fragment-layout.jpeg?orig" alt="这是一个Fragment"></p>
+<p>在布局文件中加上这个Fragment，没有预览图：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/tools-fragment-no-preview.png?orig" alt="布局文件中加上这个Fragment"></p>
+<p>使用tools:layout给<fragment>指定布局文件：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/tools-fragment-set-preview.png?orig" alt="指定布局文件"></fragment></p>
+<hr>
+<ul>
+<li>tools:showIn</li>
+</ul>
+<blockquote>
+<p>这个属性设置在被别的布局引用的布局里。允许你指定一个布局包裹此布局,在设计时这个指定布局将显示在此布局的外面。</p>
+</blockquote>
+<p>新建一个布局文件 include_test.xml ：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/create-include-test-xml.png?orig" alt="这是一个Fragment"></p>
+<p>在另一个布局文件中include这个布局：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/include-in-another-layout.png?orig" alt="这是一个Fragment"></p>
+<p>在 include_test.xml 使用 tools:showIn 指定引入该布局文件的布局：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/use-tools-showin.png?orig" alt="这是一个Fragment"></p>
+<hr>
+<ul>
+<li>tools:listitem / listheader / listfooter</li>
+</ul>
+<blockquote>
+<p>可以给ListView (或者其他 AdapterView 像 GridView, ExpandableListView 等) 设置列表项、HeaderView和FooterView</p>
+</blockquote>
+<p>ListView默认预览：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/default-listview-preview.png?orig" alt="ListView默认预览"></p>
+<p>ListView指定列表项：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/tools-listview-listitem.png?orig" alt="ListView指定列表项"></p>
+<p>ListView添加Header:<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-develop-tricks/tools-listview-header.png?orig" alt="ListView添加Header"></p>
+<blockquote>
+<p>这里列举了常用的Tools命名空间用法，如果想详细了解相关内容可以去<a href="http://tools.android.com/tech-docs/tools-attributes" target="_blank" rel="noopener">官网</a>查看。</p>
+</blockquote>
+<hr>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.ihubin.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 binglingziyu</li>
+      <li><a href="http://www.ihubin.com">Home</a></li>
+      
+      <li><a href="https://github.com/binglingziyu">Github</a></li>
+      
+      <li><a href="https://weibo.com/p/1005055458444323">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

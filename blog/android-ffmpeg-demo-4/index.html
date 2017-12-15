@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Android最简单的基于FFmpeg的例子(四)---以命令行的形式来使用ffmpeg | binglingziyu的博客
+  </title>
+  <meta name="description" content="binglingziyu的博客">
+  
+  <meta name="keywords" content="
+  Android,FFmpeg,NDK,JNI
+  ">
+  
+  <meta name="author" content="binglingziyu">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+<script>
+  var _hmt = _hmt || [];
+  (function(){var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?52e60cf65a47c93f39a0534bb9e6c84d";
+    var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="http://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 10 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 6 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">binglingziyu的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    binglingziyu
+
+    <span class="post-date float-right" title="{{moment(1463480022000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1463480022000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Android最简单的基于FFmpeg的例子(四)---以命令行的形式来使用ffmpeg</h1>
+    <p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
+<blockquote>
+<p>FFmpeg使用第四步，以命令行的形式来使用ffmpeg.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><blockquote>
+<ul>
+<li>Mac OS X Capitan 10.11.3</li>
+<li>NDK-r10e (64-bit)</li>
+<li>FFmpeg 3.0</li>
+</ul>
+</blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>  在前面<a href="http://www.ihubin.com/blog/android-ffmpeg-demo-1/">编译FFmpeg类库</a>编译ffmpeg时，编译脚本中使用了参数 –disable-ffmpeg，所以是不会生成ffmpeg工具的，即使生成了，<br>在android应用下也无法直接使用。</p>
+<p>  但是,FFmpeg 命令行是十分强大易用的,我们可以用命令行完成大部分的需求,So,Let’s Do it.</p>
+<h2 id="Let’s-Do-it"><a href="#Let’s-Do-it" class="headerlink" title="Let’s Do it !"></a>Let’s Do it !</h2><p>  在<a href="http://www.ihubin.com/blog/android-ffmpeg-demo-3/">编译FFmpeg成一个SO库</a>一文中,已经将 libffmpeg.so 编译好了,这里直接复用这个文件.</p>
+<h3 id="Step-1-新建工程"><a href="#Step-1-新建工程" class="headerlink" title="Step 1: 新建工程"></a>Step 1: 新建工程</h3><blockquote>
+<p>新建一个Android工程,在 src/main/ 目录下新建 jni 目录,如图:</p>
+</blockquote>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/create_newproject_ffmpeg_command_line.png?orig" alt="create_newproject_ffmpeg_command_line"></p>
+<blockquote>
+<p>编写 FFmpegKit.java 代码:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ihubin.ffmpegstudy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FFmpegKit</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        System.loadLibrary(<span class="string">"ffmpeg"</span>);</span><br><span class="line">        System.loadLibrary(<span class="string">"ffmpeginvoke"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">run</span><span class="params">(String[] commands)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>获取C语言的接口函数声明</p>
+</blockquote>
+<p>  在命令行中切换到src/main/java文件夹下，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah com.ihubin.ffmpegstudy.FFmpegKit</span><br></pre></td></tr></table></figure>
+<p>  在 src/main/java 目录生成了 com_ihubin_ffmpegstudy_FFmpegKit.h 文件,将这个文件移动到 jni 目录.</p>
+<h3 id="Step-2-拷贝文件"><a href="#Step-2-拷贝文件" class="headerlink" title="Step 2: 拷贝文件"></a>Step 2: 拷贝文件</h3><blockquote>
+<p>将<a href="http://www.ihubin.com/blog/android-ffmpeg-demo-3/">编译FFmpeg成一个SO库</a>生成的 libffmpeg.so 文件拷贝至 jni 目录.</p>
+<p>复制FFmpeg源码文件 ffmpeg.h, ffmpeg.c, ffmpeg_opt.c, ffmpeg_filter.c，cmdutils.c, cmdutils.h, cmdutils_common_opts.h 到jni目录下.</p>
+<p>在 jni 目录新建文件 Android.mk  Application.mk  com_ihubin_ffmpegstudy_FFmpegKit.c</p>
+</blockquote>
+<p>此时,工程目录是这样的,如图:</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/create_newproject_ffmpeg_command_line_finish.png?orig" alt="create_newproject_ffmpeg_command_line_finish"></p>
+<h3 id="Step-3-代码实现"><a href="#Step-3-代码实现" class="headerlink" title="Step 3: 代码实现"></a>Step 3: 代码实现</h3><blockquote>
+<p>修改ffmpeg.c和ffmpeg.h</p>
+</blockquote>
+<p>找到ffmpeg.c，把int main(int argc, char <strong>argv) 改名为 int run(int argc, char </strong>argv)</p>
+<p>找到ffmpeg.h, 在文件末尾添加函数申明: int run(int argc, char **argv);</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/modify_ffmpegh_file_over.png?orig" alt="cmodify_ffmpegh_file_over"></p>
+<blockquote>
+<p>修改cmdutils.c 和 cmdutils.h</p>
+</blockquote>
+<p>找到cmdutils.c中的exit_program函数，删掉函数中原来的内容, 添加 return ret；并修改函数的返回类型为int</p>
+<p>修改前:</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/before_modify_cmdutils.png?orig" alt="before_modify_cmdutils"></p>
+<p>修改后:</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/after_modify_cmdutils.png?orig" alt="after_modify_cmdutils"></p>
+<p>找到cmdutils.h中exit_program的申明，也把返回类型修改为int。</p>
+<p>修改前:</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/before_modify_cmdutils_header.png?orig" alt="before_modify_cmdutils_header"></p>
+<p>修改后:</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/after_modify_cmdutils_header.png?orig" alt="after_modify_cmdutils_header"></p>
+<blockquote>
+<p>在 com_ihubin_ffmpegstudy_FFmpegKit.c 中实现 com_ihubin_ffmpegstudy_FFmpegKit.h 中的方法</p>
+</blockquote>
+<p>com_ihubin_ffmpegstudy_FFmpegKit.c</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"com_ihubin_ffmpegstudy_FFmpegKit.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ffmpeg.h"</span></span></span><br><span class="line"></span><br><span class="line">JNIEXPORT jint JNICALL Java_com_ihubin_ffmpegstudy_FFmpegKit_run</span><br><span class="line">  (JNIEnv *env, jclass obj, jobjectArray commands)&#123;</span><br><span class="line"><span class="keyword">int</span> argc = (*env)-&gt;GetArrayLength(env, commands);</span><br><span class="line">    <span class="keyword">char</span> *argv[argc];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; argc; i++) &#123;</span><br><span class="line">        jstring js = (jstring) (*env)-&gt;GetObjectArrayElement(env, commands, i);</span><br><span class="line">        argv[i] = (<span class="keyword">char</span>*) (*env)-&gt;GetStringUTFChars(env, js, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> run(argc, argv);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>编写 Android.mk</p>
+</blockquote>
+<p>Android.mk</p>
+<figure class="highlight mk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := ffmpeg</span><br><span class="line">LOCAL_SRC_FILES := libffmpeg.so</span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(PREBUILT_SHARED_LIBRARY)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS)</span></span><br><span class="line">LOCAL_MODULE := ffmpeginvoke</span><br><span class="line">LOCAL_SRC_FILES := com_ihubin_ffmpegstudy_FFmpegKit.c ffmpeg.c ffmpeg_opt.c cmdutils.c ffmpeg_filter.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里的地址改成自己的 FFmpeg 源码目录</span></span><br><span class="line">LOCAL_C_INCLUDES := /Users/hubin/Desktop/ffmpeg-3.0</span><br><span class="line"></span><br><span class="line">LOCAL_LDLIBS := -llog -lz -ldl</span><br><span class="line">LOCAL_SHARED_LIBRARIES := ffmpeg</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>编写 Application.mk 文件</p>
+</blockquote>
+<p>Application.mk</p>
+<figure class="highlight mk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">APP_ABI := armeabi-v7a</span><br><span class="line">APP_PLATFORM := android-14</span><br></pre></td></tr></table></figure>
+<h3 id="Step-4-编译"><a href="#Step-4-编译" class="headerlink" title="Step 4: 编译"></a>Step 4: 编译</h3><p>在命令行中定位到 src/main/jni 目录中，直接执行脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ndk-build</span><br></pre></td></tr></table></figure>
+<p>编译完成后就生成了所要的SO库文件:</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/ffmpeg_command_line_compile_success.png?orig" alt="ffmpeg_command_line_compile_success"></p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/ffmpeg_command_line_compile_so.png?orig" alt="ffmpeg_command_line_compile_so"></p>
+<h2 id="做个Demo测试一下"><a href="#做个Demo测试一下" class="headerlink" title="做个Demo测试一下"></a>做个Demo测试一下</h2><p>△ Demo需要SD卡读写权限,所以先加两个权限:SD卡读写权限</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>△ Demo需要SD卡上有 input.mp4 和 input.mp3 两个文件</p>
+<p>  如果没有小文件,可以使用我提供的这两个文件:</p>
+<p>  <a href="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/input.mp3?orig" target="_blank" rel="noopener">input.mp3</a></p>
+<p>  <a href="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/input.mp4?orig" target="_blank" rel="noopener">input.mp4</a></p>
+<p>  Demo中的功能是:将input.mp4 和 input.mp3 两个文件合并成一段以input.mp3为背景音乐的 merge.mp4 文件</p>
+<p>△ Demo运行命令行在主线程,操作文件比较大就会ANR,直接点取消别关闭,为了Demo简单,就不加异步了,需要的自己实现 3Q</p>
+<p>MainActivity.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ihubin.ffmpegstudy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Environment;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast;</span><br><span class="line"><span class="keyword">import</span> com.ihubin.ffmpeg_command_line.R;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(View view)</span></span>&#123;</span><br><span class="line">        String base = Environment.getExternalStorageDirectory().getPath();</span><br><span class="line">        Log.e(<span class="string">"PATH"</span>, base);</span><br><span class="line">        String[] commands = <span class="keyword">new</span> String[<span class="number">9</span>];</span><br><span class="line">        commands[<span class="number">0</span>] = <span class="string">"ffmpeg"</span>;</span><br><span class="line">        commands[<span class="number">1</span>] = <span class="string">"-i"</span>;</span><br><span class="line">        commands[<span class="number">2</span>] = base + <span class="string">"/input.mp4"</span>;</span><br><span class="line">        commands[<span class="number">3</span>] = <span class="string">"-i"</span>;</span><br><span class="line">        commands[<span class="number">4</span>] = base + <span class="string">"/input.mp3"</span>;</span><br><span class="line">        commands[<span class="number">5</span>] = <span class="string">"-strict"</span>;</span><br><span class="line">        commands[<span class="number">6</span>] = <span class="string">"-2"</span>;</span><br><span class="line">        commands[<span class="number">7</span>] = <span class="string">"-y"</span>;</span><br><span class="line">        commands[<span class="number">8</span>] = base + <span class="string">"/merge.mp4"</span>;</span><br><span class="line">        <span class="keyword">int</span> result = FFmpegKit.run(commands);</span><br><span class="line">        <span class="keyword">if</span>(result == <span class="number">0</span>)&#123;</span><br><span class="line">            Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"命令行执行完成"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>activity_main.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">"com.ihubin.ffmpegstudy.MainActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:onClick</span>=<span class="string">"run"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"Run"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong> FFmpeg 命令行都可以执行了,还不赶紧做个App玩玩 !!  </strong></p>
+</blockquote>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="http://code.taobao.org/p/FFmpeg-Study/src/" target="_blank" rel="noopener"><strong><em> 源码地址在这里 </em></strong></a></p>
+<p>Module:FFmpeg-Command-Line</p>
+<p>Demo APK下载地址:<a href="https://www.pgyer.com/FFmpegCommandLine" target="_blank" rel="noopener">https://www.pgyer.com/FFmpegCommandLine</a></p>
+<p>也可以扫码下载体验:</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/pgyer-app-qrcode/app-qrcode-FFmpegCommandLine.png?orig" alt="app-qrcode-FFmpegCommandLine.png"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<ul>
+<li><a href="https://blog.crazyman.top/2015/05/06/%E7%BC%96%E8%AF%91ffmpeg/" target="_blank" rel="noopener">编译可供Android使用的FFmpeg库</a></li>
+<li><a href="http://enoent.fr/blog/2014/06/20/compile-ffmpeg-for-android/" target="_blank" rel="noopener">Compile FFmpeg for Android</a></li>
+<li><a href="https://github.com/sunnyVolkova/FFmpegKit" target="_blank" rel="noopener">Github FFmpegKit</a></li>
+</ul>
+</blockquote>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.ihubin.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 binglingziyu</li>
+      <li><a href="http://www.ihubin.com">Home</a></li>
+      
+      <li><a href="https://github.com/binglingziyu">Github</a></li>
+      
+      <li><a href="https://weibo.com/p/1005055458444323">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

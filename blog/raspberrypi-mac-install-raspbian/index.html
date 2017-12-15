@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    树莓派---MAC下安装Raspbian | binglingziyu的博客
+  </title>
+  <meta name="description" content="binglingziyu的博客">
+  
+  <meta name="keywords" content="
+  树莓派,Raspbian,Linux
+  ">
+  
+  <meta name="author" content="binglingziyu">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+<script>
+  var _hmt = _hmt || [];
+  (function(){var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?52e60cf65a47c93f39a0534bb9e6c84d";
+    var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="http://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 10 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 6 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">binglingziyu的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    binglingziyu
+
+    <span class="post-date float-right" title="{{moment(1500179682000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1500179682000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>树莓派---MAC下安装Raspbian</h1>
+    <p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/raspberry-logo.png?orig" alt="树莓派"></p>
+<blockquote>
+<p>MAC 下安装 Raspbian .</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="工作环境"><a href="#工作环境" class="headerlink" title="工作环境"></a>工作环境</h2><blockquote>
+<ul>
+<li>macOS Sierra 10.12.5</li>
+<li>Etcher 工具</li>
+</ul>
+</blockquote>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h3><blockquote>
+<p>1.树莓派3(或更高版本) ＋ 电源（ Android 手机充电器就行，或者直接插在电脑上）<br>2.SD 卡(8G+) ＋ 读卡器<br>3.USB 鼠标，USB 键盘，HDMI 接口显示器(有的显示器没有 HDMI 接口，需要准备转换头)， HDMI 线, 网线</p>
+</blockquote>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_prepare.jpg?orig" alt="配件准备"></p>
+<h3 id="下载-Raspbian-系统镜像"><a href="#下载-Raspbian-系统镜像" class="headerlink" title="下载 Raspbian 系统镜像"></a>下载 Raspbian 系统镜像</h3><p>去树莓派官网下载最新镜像：<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">官网地址</a></p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_raspbian.png?orig" alt="下载 Raspbian"></p>
+<p>Raspbian 有两个版本，左边版本有 DESKTOP， 右边版本没有 DESKTOP。（根据自己需要选择）</p>
+<p>将压缩包解压，得到 .img 文件</p>
+<h3 id="安装-Etcher-工具"><a href="#安装-Etcher-工具" class="headerlink" title="安装 Etcher 工具"></a>安装 Etcher 工具</h3><p><a href="https://etcher.io/" target="_blank" rel="noopener">Etcher 官网</a></p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_etcher.png?orig" alt="下载 Etcher"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="step1-格式化SD卡"><a href="#step1-格式化SD卡" class="headerlink" title="step1:格式化SD卡"></a>step1:格式化SD卡</h3><p>将 SD 卡格式化为 FAT32 格式</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_format_sdcard.jpg?orig" alt="格式化 SD 卡"></p>
+<h3 id="step2-使用-Etcher-刻录"><a href="#step2-使用-Etcher-刻录" class="headerlink" title="step2:使用 Etcher 刻录"></a>step2:使用 Etcher 刻录</h3><p>Etcher 是一款由 resin.io 出品的开源的快速刻录软件。Etcher 操作起来非常简单。</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_etcher_burn_image.png?orig" alt="使用 Etcher 刻录"></p>
+<ul>
+<li>选择需要刻录的 xxx.img</li>
+<li>选择目标 SD 卡</li>
+<li>点击 Flash！等待完成</li>
+</ul>
+<p>刻录完成后，就可以取出 SD 卡启动了。</p>
+<h2 id="启动树莓派"><a href="#启动树莓派" class="headerlink" title="启动树莓派"></a>启动树莓派</h2><p>将 SD 卡插到树莓派上，网线接到路由器上，接上显示器，插上电源线：</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_start_androidthings.jpg?orig" alt="启动树莓派"></p>
+<p>Raspbian 默认开启了 SSH，可以使用 SSH 进行登陆：</p>
+<blockquote>
+<p>去路由器里查看 IP ：</p>
+</blockquote>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_get_ip.jpg?orig" alt="Get IP"></p>
+<blockquote>
+<p>使用 SSH 命令登陆树莓派：</p>
+</blockquote>
+<p>Raspbian 默认用户名/密码：pi/raspberry</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@192.168.xxx.xxx</span><br></pre></td></tr></table></figure>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_login_raspberrypi.png?orig" alt="Login RaspberryPi"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="树莓派连接-WiFi"><a href="#树莓派连接-WiFi" class="headerlink" title="树莓派连接 WiFi"></a>树莓派连接 WiFi</h3><blockquote>
+<p>扫描周围的无线网络</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iwlist wlan0 scan</span><br></pre></td></tr></table></figure>
+<p>扫描结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Cell 01 - Address: B8:F8:83:F2:AF:49</span><br><span class="line">                    Channel:11</span><br><span class="line">                    Frequency:2.462 GHz (Channel 11)</span><br><span class="line">                    Quality=70/70  Signal level=-15 dBm</span><br><span class="line">                    Encryption key:on</span><br><span class="line">                    ESSID:&quot;Raspberry&quot;</span><br><span class="line">                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s</span><br><span class="line">                              9 Mb/s; 12 Mb/s; 18 Mb/s</span><br><span class="line">                    Bit Rates:24 Mb/s; 36 Mb/s; 48 Mb/s; 54 Mb/s</span><br><span class="line">                    Mode:Master</span><br><span class="line">                    Extra:tsf=0000000000000000</span><br><span class="line">                    Extra: Last beacon: 30ms ago</span><br><span class="line">                    IE: Unknown: 000864616E69756E6975</span><br><span class="line">                    IE: Unknown: 010882848B960C121824</span><br><span class="line">                    IE: Unknown: 03010B</span><br><span class="line">                    IE: Unknown: 050400010000</span><br><span class="line">                    IE: Unknown: 0706434E20010D23</span><br><span class="line">                    IE: Unknown: 2A0100</span><br><span class="line">                    IE: Unknown: 32043048606C</span><br><span class="line">                    IE: Unknown: 2D1AEE111BFFFFFF0000000000000000000100000000000000000000</span><br><span class="line">                    IE: IEEE 802.11i/WPA2 Version 1</span><br><span class="line">                        Group Cipher : CCMP</span><br><span class="line">                        Pairwise Ciphers (1) : CCMP</span><br><span class="line">                        Authentication Suites (1) : PSK</span><br><span class="line">                    IE: Unknown: 3D160B0F0600000000000000000000000000000000000000</span><br><span class="line">                    IE: Unknown: 7F080000000000000040</span><br><span class="line">                    IE: WPA Version 1</span><br><span class="line">                        Group Cipher : CCMP</span><br><span class="line">                        Pairwise Ciphers (1) : CCMP</span><br><span class="line">                        Authentication Suites (1) : PSK</span><br><span class="line">                    IE: Unknown: DD180050F2020101800003A4000027A4000042435E0062322F00</span><br><span class="line">                    IE: Unknown: DD0900037F01010000FF7F</span><br></pre></td></tr></table></figure></p>
+<p>其中，ESSID:”Raspberry”是 WiFi 网络的名称；</p>
+<p>IE: IEEE 802.11i/WPA2 Version 1是无线网络使用认证的版本，这里使用了WPA2认证。</p>
+<blockquote>
+<p>添加 WIFI 网络</p>
+</blockquote>
+<p>打开wpa-supplicant中的配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure></p>
+<p>然后，在文件的末尾添加WIFI网络的名称以及密码，将要连接的wifi名称和密码替换即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;ESSID&quot;</span><br><span class="line">    psk=&quot;wifi_password&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输入完毕后按 Esc 然后 输入 :wq 按 Enter 键保存。</p>
+<blockquote>
+<p>启动连接</p>
+</blockquote>
+<p>配置完毕，树莓派会自动连接到配置的WIFI网络，如果没有，使用sudo wpa_cli reconfigure 命令启动连接。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wpa_cli reconfigure</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>验证连接</p>
+</blockquote>
+<p>使用 ifconfig wlan0 验证。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig wlan0</span><br></pre></td></tr></table></figure></p>
+<p>我的树莓派连接无线网络成功后详细网络信息如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~ $ ifconfig wlan0</span><br><span class="line">wlan0     Link encap:Ethernet  HWaddr b8:27:eb:5e:96:1c</span><br><span class="line">          inet addr:192.168.1.107  Bcast:192.168.1.255  Mask:255.255.255.0</span><br><span class="line">          inet6 addr: fe80::fff9:a74b:d0da:3933/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:8963 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:2584 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000</span><br><span class="line">          RX bytes:1066044 (1.0 MiB)  TX bytes:263815 (257.6 KiB)</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<ul>
+<li><a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md" target="_blank" rel="noopener">树莓派官网教程</a></li>
+<li><a href="http://www.jianshu.com/p/5dc83db2b78e" target="_blank" rel="noopener">Mac下安装树莓派系统 Raspbian</a></li>
+<li><a href="http://www.jianshu.com/p/0922095f69f3" target="_blank" rel="noopener">ssh免密登录配置</a></li>
+</ul>
+</blockquote>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.ihubin.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 binglingziyu</li>
+      <li><a href="http://www.ihubin.com">Home</a></li>
+      
+      <li><a href="https://github.com/binglingziyu">Github</a></li>
+      
+      <li><a href="https://weibo.com/p/1005055458444323">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

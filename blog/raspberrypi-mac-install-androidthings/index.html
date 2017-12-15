@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    树莓派---MAC下安装AndroidThings | binglingziyu的博客
+  </title>
+  <meta name="description" content="binglingziyu的博客">
+  
+  <meta name="keywords" content="
+  树莓派,AndroidThings
+  ">
+  
+  <meta name="author" content="binglingziyu">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+<script>
+  var _hmt = _hmt || [];
+  (function(){var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?52e60cf65a47c93f39a0534bb9e6c84d";
+    var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="http://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 10 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 6 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">binglingziyu的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    binglingziyu
+
+    <span class="post-date float-right" title="{{moment(1487388521000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1487388521000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>树莓派---MAC下安装AndroidThings</h1>
+    <p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/raspberry-logo.png?orig" alt="树莓派"></p>
+<blockquote>
+<p>MAC 下安装 AndroidThings，并运行官方 Demo。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="工作环境"><a href="#工作环境" class="headerlink" title="工作环境"></a>工作环境</h2><blockquote>
+<ul>
+<li>macOS Sierra 10.12.3</li>
+<li>电脑上装有 Android 开发环境（AndroidStudio、ADB 等工具）</li>
+<li>Etcher 工具</li>
+</ul>
+</blockquote>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h3><blockquote>
+<p>1.树莓派3(或更高版本) ＋ 电源（ Android 手机充电器就行，或者直接插在电脑上）<br>2.SD 卡(8G+) ＋ 读卡器<br>3.USB 鼠标，USB 键盘，HDMI 接口显示器(有的显示器没有 HDMI 接口，需要准备转换头)， HDMI 线, 网线</p>
+</blockquote>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_prepare.jpg?orig" alt="配件准备"></p>
+<h3 id="下载-AndroidThings-系统镜像"><a href="#下载-AndroidThings-系统镜像" class="headerlink" title="下载 AndroidThings 系统镜像"></a>下载 AndroidThings 系统镜像</h3><p>去官网下载最新镜像：<a href="https://developer.android.com/things/preview/download.html" target="_blank" rel="noopener">官网地址</a></p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_androidthings.jpg?orig" alt="下载 AndroidThings"></p>
+<h3 id="将压缩包解压，得到-img-文件"><a href="#将压缩包解压，得到-img-文件" class="headerlink" title="将压缩包解压，得到 .img 文件"></a>将压缩包解压，得到 .img 文件</h3><p>解压出的镜像文件 4.56G，所以 SD 卡要有足够空间</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_unzip_androidthings.jpg?orig" alt="解压 AndroidThings"></p>
+<h3 id="安装-Etcher-工具"><a href="#安装-Etcher-工具" class="headerlink" title="安装 Etcher 工具"></a>安装 Etcher 工具</h3><p><a href="https://etcher.io/" target="_blank" rel="noopener">Etcher 官网</a></p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_etcher.png?orig" alt="下载 Etcher"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="step1-格式化SD卡"><a href="#step1-格式化SD卡" class="headerlink" title="step1:格式化SD卡"></a>step1:格式化SD卡</h3><p>将 SD 卡格式化为 FAT32 格式</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_format_sdcard.jpg?orig" alt="格式化 SD 卡"></p>
+<h3 id="step2-使用-Etcher-刻录"><a href="#step2-使用-Etcher-刻录" class="headerlink" title="step2:使用 Etcher 刻录"></a>step2:使用 Etcher 刻录</h3><p>Etcher 是一款由 resin.io 出品的开源的快速刻录软件。Etcher 操作起来非常简单。</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_etcher_burn_image.png?orig" alt="使用 Etcher 刻录"></p>
+<ul>
+<li>选择需要刻录的 xxx.img</li>
+<li>选择目标 SD 卡</li>
+<li>点击 Flash！等待完成</li>
+</ul>
+<p>刻录完成后，就可以取出 SD 卡启动了。</p>
+<h2 id="启动树莓派"><a href="#启动树莓派" class="headerlink" title="启动树莓派"></a>启动树莓派</h2><p>将 SD 卡插到树莓派上，网线接到路由器上，接上显示器，插上电源线：</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_start_androidthings.jpg?orig" alt="启动树莓派"></p>
+<p>启动页面：</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_start_screen.jpg?orig" alt="AndroidThings 启动页面"></p>
+<p>启动成功后：</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_start_finish.jpg?orig" alt="AndroidThings 启动成功"></p>
+<p>这时在屏幕下方会有 IP 地址</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_start_ip.jpg?orig" alt="AndroidThings IP"></p>
+<p>如果没有显示的话，可以去路由器里查看：</p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_get_ip.jpg?orig" alt="AndroidThings Get IP"></p>
+<p>启用树莓派 Wifi，并通过 Wifi 连接：</p>
+<blockquote>
+<p>ADB 命令是 Android SDK 中的工具，所以这里假设电脑上已经装有 Android 开发环境。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 通过有线连接的 IP 连接树莓派</span><br><span class="line">$ ./adb connect &lt;ip-address&gt;</span><br><span class="line">connected to &lt;ip-address&gt;:5555</span><br><span class="line"></span><br><span class="line"># adb连接上之后配置 Wi-Fi</span><br><span class="line">$ ./adb shell am startservice \</span><br><span class="line">    -n com.google.wifisetup/.WifiSetupService \</span><br><span class="line">    -a WifiSetupService.Connect \</span><br><span class="line">    -e ssid &lt;Network_SSID&gt; \</span><br><span class="line">    -e passphrase &lt;Network_Passcode&gt;</span><br><span class="line"></span><br><span class="line"># 验证是否 Wi-Fi 是否连接成功</span><br><span class="line">$ ./adb logcat -d | grep Wifi</span><br><span class="line">...</span><br><span class="line">V WifiWatcher: Network state changed to CONNECTED  </span><br><span class="line">V WifiWatcher: SSID changed: ...  </span><br><span class="line">I WifiConfigurator: Successfully connected to ...</span><br><span class="line"></span><br><span class="line"># 重启，撤掉网线，获取 Wi-Fi 连接后的设备 IP，可通过 HDMI 显示器获得或从路由器后台获得</span><br><span class="line">$ ./adb connect &lt;wifi-ip-address&gt;</span><br><span class="line">connected to &lt;wifi-ip-address&gt;:5555</span><br><span class="line"></span><br><span class="line"># 查看设备是否attached</span><br><span class="line">$ ./adb devices</span><br><span class="line">List of devices attached  </span><br><span class="line">&lt;wifi-ip-address&gt;:5555    device</span><br></pre></td></tr></table></figure>
+<h2 id="运行-AndroidThings-官方-Demo"><a href="#运行-AndroidThings-官方-Demo" class="headerlink" title="运行 AndroidThings 官方 Demo"></a>运行 AndroidThings 官方 Demo</h2><h3 id="到-Github-上下载-Demo-源码"><a href="#到-Github-上下载-Demo-源码" class="headerlink" title="到 Github 上下载 Demo 源码"></a>到 Github 上下载 Demo 源码</h3><p><a href="https://github.com/androidthings/sample-simpleui" target="_blank" rel="noopener">Demo 源码地址</a></p>
+<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_demo_code.jpg?orig" alt="AndroidThings Demo"></p>
+<h3 id="将下载下来的工程导入-AndroidStudio-并运行"><a href="#将下载下来的工程导入-AndroidStudio-并运行" class="headerlink" title="将下载下来的工程导入 AndroidStudio 并运行"></a>将下载下来的工程导入 AndroidStudio 并运行</h3><p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_run_demo.jpg?orig" alt="AndroidThings Demo"></p>
+<h3 id="查看运行效果"><a href="#查看运行效果" class="headerlink" title="查看运行效果"></a>查看运行效果</h3><p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_demo_preview.jpg?orig" alt="AndroidThings Demo Preview"></p>
+<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 重启命令</span><br><span class="line">adb shell reboot</span><br><span class="line">// 关机命令</span><br><span class="line">adb shell reboot -p</span><br><span class="line">// 连接 Wifi 命令</span><br><span class="line">adb shell am startservice \</span><br><span class="line">    -n com.google.wifisetup/.WifiSetupService \</span><br><span class="line">    -a WifiSetupService.Connect \</span><br><span class="line">    -e ssid &lt;Network_SSID&gt; \</span><br><span class="line">    -e passphrase &lt;Network_Passcode&gt;</span><br></pre></td></tr></table></figure>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.ihubin.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 binglingziyu</li>
+      <li><a href="http://www.ihubin.com">Home</a></li>
+      
+      <li><a href="https://github.com/binglingziyu">Github</a></li>
+      
+      <li><a href="https://weibo.com/p/1005055458444323">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Android最简单的基于FFmpeg的例子(一)---编译FFmpeg类库 | binglingziyu的博客
+  </title>
+  <meta name="description" content="binglingziyu的博客">
+  
+  <meta name="keywords" content="
+  Android,FFmpeg,NDK,JNI
+  ">
+  
+  <meta name="author" content="binglingziyu">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+<script>
+  var _hmt = _hmt || [];
+  (function(){var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?52e60cf65a47c93f39a0534bb9e6c84d";
+    var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="http://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 10 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 6 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">binglingziyu的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    binglingziyu
+
+    <span class="post-date float-right" title="{{moment(1463370807000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1463370807000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Android最简单的基于FFmpeg的例子(一)---编译FFmpeg类库</h1>
+    <p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
+<blockquote>
+<p>FFmpeg使用第一步，编译FFmpeg源码 –&gt; .so 库。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><blockquote>
+<ul>
+<li>Mac OS X Capitan 10.11.3</li>
+<li>NDK-r10e (64-bit)</li>
+<li>FFmpeg 3.0 </li>
+</ul>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
+<ul>
+<li>下载安装NDK  <a href="http://developer.android.com/intl/zh-cn/ndk/downloads/index.html" target="_blank" rel="noopener">下载地址</a></li>
+<li>下载FFmpeg源码  <a href="http://ffmpeg.org/download.html" target="_blank" rel="noopener">下载地址</a></li>
+</ul>
+</blockquote>
+<h2 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h2><h3 id="修改configure文件"><a href="#修改configure文件" class="headerlink" title="修改configure文件"></a>修改configure文件</h3><p>下载FFmpeg源代码之后，首先需要对源代码中的configure文件进行修改。由于编译出来的动态库文件名的版本号在.so之后（例如“libavcodec.so.5.100.1”），而android平台不能识别这样文件名，所以需要修改这种文件名。</p>
+<p>找到 ffmpeg-3.0/configure 文件，找到以下几行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SLIBNAME_WITH_MAJOR=<span class="string">'$(SLIBNAME).$(LIBMAJOR)'</span>  </span><br><span class="line">LIB_INSTALL_EXTRA_CMD=<span class="string">'$$(RANLIB)"$(LIBDIR)/$(LIBNAME)"'</span>  </span><br><span class="line">SLIB_INSTALL_NAME=<span class="string">'$(SLIBNAME_WITH_VERSION)'</span>  </span><br><span class="line">SLIB_INSTALL_LINKS=<span class="string">'$(SLIBNAME_WITH_MAJOR)$(SLIBNAME)'</span></span><br></pre></td></tr></table></figure>
+<p>替换为下面内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SLIBNAME_WITH_MAJOR=<span class="string">'$(SLIBPREF)$(FULLNAME)-$(LIBMAJOR)$(SLIBSUF)'</span>  </span><br><span class="line">LIB_INSTALL_EXTRA_CMD=<span class="string">'$$(RANLIB)"$(LIBDIR)/$(LIBNAME)"'</span>  </span><br><span class="line">SLIB_INSTALL_NAME=<span class="string">'$(SLIBNAME_WITH_MAJOR)'</span>  </span><br><span class="line">SLIB_INSTALL_LINKS=<span class="string">'$(SLIBNAME)'</span></span><br></pre></td></tr></table></figure>
+<h3 id="编写脚本文件"><a href="#编写脚本文件" class="headerlink" title="编写脚本文件"></a>编写脚本文件</h3><p>modified:2016-05-16</p>
+<p>新建脚本文件 ffmpeg-3.0/build_android.sh，保存下面脚本。<br>新建临时文件夹 ffmpeg-3.0/ffmpegtemp,将脚本中的 TMPDIR 改为自己的临时文件夹。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">export</span> TMPDIR=/Users/hubin/Desktop/ffmpeg-3.0/ffmpegtemp <span class="comment">#这句很重要，不然会报错 unable to create temporary file in</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># NDK的路径，根据自己的安装位置进行设置</span></span><br><span class="line">NDK=~/Applications/android-sdk/ndk-bundle</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译针对的平台，可以根据自己的需求进行设置</span></span><br><span class="line"><span class="comment"># 这里选择最低支持android-14, arm架构，生成的so库是放在</span></span><br><span class="line"><span class="comment"># libs/armeabi文件夹下的，若针对x86架构，要选择arch-x86</span></span><br><span class="line">PLATFORM=<span class="variable">$NDK</span>/platforms/android-14/arch-arm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 工具链的路径，根据编译的平台不同而不同</span></span><br><span class="line"><span class="comment"># arm-linux-androideabi-4.9与上面设置的PLATFORM对应，4.9为工具的版本号，</span></span><br><span class="line"><span class="comment"># 根据自己安装的NDK版本来确定，一般使用最新的版本</span></span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> build_one</span><br><span class="line">&#123;</span><br><span class="line">./configure \</span><br><span class="line">    --prefix=<span class="variable">$PREFIX</span> \</span><br><span class="line">    --target-os=linux \</span><br><span class="line">    --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi- \</span><br><span class="line">    --arch=arm \</span><br><span class="line">    --sysroot=<span class="variable">$PLATFORM</span> \</span><br><span class="line">    --extra-cflags=<span class="string">"-I<span class="variable">$PLATFORM</span>/usr/include"</span> \</span><br><span class="line">    --cc=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi-gcc \</span><br><span class="line">    --nm=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi-nm \</span><br><span class="line">    --<span class="built_in">enable</span>-shared \</span><br><span class="line">    --<span class="built_in">enable</span>-runtime-cpudetect \</span><br><span class="line">    --<span class="built_in">enable</span>-gpl \</span><br><span class="line">    --<span class="built_in">enable</span>-small \</span><br><span class="line">    --<span class="built_in">enable</span>-cross-compile \</span><br><span class="line">    --<span class="built_in">disable</span>-debug \</span><br><span class="line">    --<span class="built_in">disable</span>-static \</span><br><span class="line">    --<span class="built_in">disable</span>-doc \</span><br><span class="line">    --<span class="built_in">disable</span>-asm \</span><br><span class="line">    --<span class="built_in">disable</span>-ffmpeg \</span><br><span class="line">    --<span class="built_in">disable</span>-ffplay \</span><br><span class="line">    --<span class="built_in">disable</span>-ffprobe \</span><br><span class="line">    --<span class="built_in">disable</span>-ffserver \</span><br><span class="line">    --<span class="built_in">disable</span>-postproc \</span><br><span class="line">    --<span class="built_in">disable</span>-avdevice \</span><br><span class="line">    --<span class="built_in">disable</span>-symver \</span><br><span class="line">    --<span class="built_in">disable</span>-stripping \</span><br><span class="line"></span><br><span class="line"><span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_LRINT 0/HAVE_LRINT 1/g'</span> config.h</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_LRINTF 0/HAVE_LRINTF 1/g'</span> config.h</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_ROUND 0/HAVE_ROUND 1/g'</span> config.h</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_ROUNDF 0/HAVE_ROUNDF 1/g'</span> config.h</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_TRUNC 0/HAVE_TRUNC 1/g'</span> config.h</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_TRUNCF 0/HAVE_TRUNCF 1/g'</span> config.h</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_CBRT 0/HAVE_CBRT 1/g'</span> config.h</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'s/HAVE_RINT 0/HAVE_RINT 1/g'</span> config.h</span><br><span class="line"></span><br><span class="line">make clean</span><br><span class="line">make -j4</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># arm v7vfp</span></span><br><span class="line">CPU=armv7<span class="_">-a</span></span><br><span class="line">OPTIMIZE_CFLAGS=<span class="string">"-mfloat-abi=softfp -mfpu=vfp -marm -march=<span class="variable">$CPU</span> "</span></span><br><span class="line">PREFIX=./android/<span class="variable">$CPU</span>-vfp</span><br><span class="line">ADDITIONAL_CONFIGURE_FLAG=</span><br><span class="line">build_one</span><br><span class="line"></span><br><span class="line"><span class="comment"># CPU=armv</span></span><br><span class="line"><span class="comment"># PREFIX=$(pwd)/android/$CPU</span></span><br><span class="line"><span class="comment"># ADDI_CFLAGS="-marm"</span></span><br><span class="line"><span class="comment"># build_one</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#arm v6</span></span><br><span class="line"><span class="comment">#CPU=armv6</span></span><br><span class="line"><span class="comment">#OPTIMIZE_CFLAGS="-marm -march=$CPU"</span></span><br><span class="line"><span class="comment">#PREFIX=./android/$CPU </span></span><br><span class="line"><span class="comment">#ADDITIONAL_CONFIGURE_FLAG=</span></span><br><span class="line"><span class="comment">#build_one</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#arm v7vfpv3</span></span><br><span class="line"><span class="comment"># CPU=armv7-a</span></span><br><span class="line"><span class="comment"># OPTIMIZE_CFLAGS="-mfloat-abi=softfp -mfpu=vfpv3-d16 -marm -march=$CPU "</span></span><br><span class="line"><span class="comment"># PREFIX=./android/$CPU</span></span><br><span class="line"><span class="comment"># ADDITIONAL_CONFIGURE_FLAG=</span></span><br><span class="line"><span class="comment"># build_one</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#arm v7n</span></span><br><span class="line"><span class="comment">#CPU=armv7-a</span></span><br><span class="line"><span class="comment">#OPTIMIZE_CFLAGS="-mfloat-abi=softfp -mfpu=neon -marm -march=$CPU -mtune=cortex-a8"</span></span><br><span class="line"><span class="comment">#PREFIX=./android/$CPU </span></span><br><span class="line"><span class="comment">#ADDITIONAL_CONFIGURE_FLAG=--enable-neon</span></span><br><span class="line"><span class="comment">#build_one</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#arm v6+vfp</span></span><br><span class="line"><span class="comment">#CPU=armv6</span></span><br><span class="line"><span class="comment">#OPTIMIZE_CFLAGS="-DCMP_HAVE_VFP -mfloat-abi=softfp -mfpu=vfp -marm -march=$CPU"</span></span><br><span class="line"><span class="comment">#PREFIX=./android/$&#123;CPU&#125;_vfp </span></span><br><span class="line"><span class="comment">#ADDITIONAL_CONFIGURE_FLAG=</span></span><br><span class="line"><span class="comment">#build_one</span></span><br></pre></td></tr></table></figure>
+<h3 id="执行build-android-sh："><a href="#执行build-android-sh：" class="headerlink" title="执行build_android.sh："></a>执行build_android.sh：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x build_android.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./build_android.sh</span><br></pre></td></tr></table></figure>
+<p>我编译时有一个警告:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">****/arm-linux-androideabi-pkg-config not found, library detection may fail.</span><br></pre></td></tr></table></figure></p>
+<p>不影响编译,如果你知道原因,分享一下吧 3Q~</p>
+<p>等待几分钟，不出意外的话会报错的。这时就是讨论时间了。。。</p>
+<p>如果编译成功了。。。如下图<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/FFmpeg_compile_success.png?orig" alt="FFmpeg_compile_success"></p>
+<p>在 ffmpeg-3.0/android 目录下就能找到编译好的文件：<br><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/FFmpeg_compiled_so.png?orig" alt="FFmpeg_compiled_so"></p>
+<p>这里是 <a href="http://pan.baidu.com/s/1nuqKjjF" target="_blank" rel="noopener">可直接编译的源码</a> 可以免去自己配置的麻烦。</p>
+<p>这里有 <a href="http://pan.baidu.com/s/1hr1d6k8" target="_blank" rel="noopener">编译好的SO文件</a> 需要的可以直接下载使用。</p>
+<blockquote>
+<p><strong> 写这篇博客时我也是刚开始要接触FFmpeg,编译的过程也是从<a href="https://www.google.com" target="_blank" rel="noopener">Google</a>和<a href="http://stackoverflow.com/" target="_blank" rel="noopener">stackoverflow</a>上找的，难免写得不够细致详尽，如有遗漏、错误请告知。 </strong></p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<ul>
+<li><a href="http://code-song.xyz/2015/12/17/FFmpeg%E7%A7%BB%E6%A4%8DAndroid%E5%B9%B3%E5%8F%B0/" target="_blank" rel="noopener">FFmpeg移植Android平台</a></li>
+<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/47008825" target="_blank" rel="noopener">最简单的基于FFmpeg的移动端例子(雷霄骅)</a></li>
+<li><a href="http://blog.csdn.net/gobitan/article/details/22750719" target="_blank" rel="noopener">FFmpeg的Android平台移植</a></li>
+<li><a href="https://blog.crazyman.top/2015/05/06/%E7%BC%96%E8%AF%91ffmpeg/" target="_blank" rel="noopener">编译可供Android使用的FFmpeg库</a></li>
+</ul>
+</blockquote>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.ihubin.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 binglingziyu</li>
+      <li><a href="http://www.ihubin.com">Home</a></li>
+      
+      <li><a href="https://github.com/binglingziyu">Github</a></li>
+      
+      <li><a href="https://weibo.com/p/1005055458444323">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
