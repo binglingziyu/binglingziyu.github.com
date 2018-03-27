@@ -16,22 +16,22 @@
 <meta property="og:site_name" content="binglingziyu的博客">
 <meta property="og:description" content="FFmpeg使用第二步，测试编译好的SO库。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/FFmpeg_logo.jpg?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/create_test_project.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/create_header_path.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/copy_so_to_jni.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/generate_header_file.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/move_headerfile_to_jni.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/compile_ffmpegdemo_jni_complete.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/generate_so_file_in_libs.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/test_ffmpeg_demo_error1.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/demo_test_ffmpeg.gif?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/Android/pgyer-app-qrcode/app-qrcode-FFmpegTestSO.png?orig">
-<meta property="og:updated_time" content="2017-04-17T06:10:32.000Z">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/create_test_project.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/create_header_path.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/copy_so_to_jni.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/generate_header_file.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/move_headerfile_to_jni.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/compile_ffmpegdemo_jni_complete.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/generate_so_file_in_libs.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/test_ffmpeg_demo_error1.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/demo_test_ffmpeg.gif?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/pgyer-app-qrcode/app-qrcode-FFmpegTestSO.png?orig">
+<meta property="og:updated_time" content="2018-03-27T08:19:48.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android最简单的基于FFmpeg的例子(二)---测试编译好的SO库">
 <meta name="twitter:description" content="FFmpeg使用第二步，测试编译好的SO库。">
-<meta name="twitter:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/FFmpeg_logo.jpg?orig">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg?orig">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
+        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
 <blockquote>
 <p>FFmpeg使用第二步，测试编译好的SO库。</p>
 </blockquote>
@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
 <h2 id="使用AndroidStudio创建测试工程"><a href="#使用AndroidStudio创建测试工程" class="headerlink" title="使用AndroidStudio创建测试工程"></a>使用AndroidStudio创建测试工程</h2><blockquote>
 <p>创建工程,并新建 jni 目录,如图:</p>
 </blockquote>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/create_test_project.png?orig" alt="create_test_project"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/create_test_project.png?orig" alt="create_test_project"></p>
 <blockquote>
 <p>界面实现</p>
 </blockquote>
@@ -216,9 +216,9 @@ var _hmt = _hmt || [];
 <p>MainActivity.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ihubin.ffmpegstudy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">format</span><span class="params">(View view)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">codec</span><span class="params">(View view)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">filter</span><span class="params">(View view)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">config</span><span class="params">(View view)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>activity_main.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">"com.ihubin.ffmpegstudy.MainActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"format"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Format"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"codec"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Codec"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"filter"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Filter"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"config"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Config"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ScrollView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fillViewport</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/textview"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="将编译好的FFmpeg放入工程"><a href="#将编译好的FFmpeg放入工程" class="headerlink" title="将编译好的FFmpeg放入工程"></a>将编译好的FFmpeg放入工程</h2><p>在jni目录新建目录include存放头文件,如图:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/create_header_path.png?orig" alt="create_header_path"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/create_header_path.png?orig" alt="create_header_path"></p>
 <p>将生成的so库放入jni目录,新建Android.mk\Application.mk\ffmpegdemo.c三个空文件备用,如图:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/copy_so_to_jni.png?orig" alt="copy_so_to_jni"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/copy_so_to_jni.png?orig" alt="copy_so_to_jni"></p>
 <p>准备调用C语言函数。使用JNI调用C语言代码有两点需要做的步骤：</p>
 <p> · 声明C语言函数对应的Java函数</p>
 <p> · 声明要加载的类库</p>
@@ -231,9 +231,9 @@ var _hmt = _hmt || [];
 <p>根据Java对于C语言接口的定义，生成相应的接口函数声明。这一步需要用到JDK中的“javah”命令。命令行切换到src/main/java文件夹下，输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah com.ihubin.ffmpegstudy.MainActivity</span><br></pre></td></tr></table></figure>
 <p>在src/main/java目录下会生成头文件,com_ihubin_ffmpegstudy_MainActivity.h,如图:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/generate_header_file.png?orig" alt="generate_header_file"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/generate_header_file.png?orig" alt="generate_header_file"></p>
 <p>将com_ihubin_ffmpegstudy_MainActivity.h移动到jni目录,如图:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/move_headerfile_to_jni.png?orig" alt="move_headerfile_to_jni"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/move_headerfile_to_jni.png?orig" alt="move_headerfile_to_jni"></p>
 <blockquote>
 <p>在ffmpegdemo.c中实现生成的头文件中的方法</p>
 </blockquote>
@@ -257,21 +257,21 @@ var _hmt = _hmt || [];
 <p>ndk-build本身是一个脚本，位于NDK根目录下。切换到Android程序src/main/jni目录中，直接执行该脚本就可以了。</p>
 <p>△ 需要先配置NDK环境变量!!需要先配置NDK环境变量!!需要先配置NDK环境变量!!</p>
 <p>运行完就可以看到生成的SO文件了,如图:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/compile_ffmpegdemo_jni_complete.png?orig" alt="compile_ffmpegdemo_jni_complete"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/compile_ffmpegdemo_jni_complete.png?orig" alt="compile_ffmpegdemo_jni_complete"></p>
 <p>生成是SO文件在 src/main/libs/armeabi-v7a中:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/generate_so_file_in_libs.png?orig" alt="generate_so_file_in_libs"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/generate_so_file_in_libs.png?orig" alt="generate_so_file_in_libs"></p>
 <p>这时就可以运行程序查看效果了~~Well Done !</p>
 <h2 id="PS-补充"><a href="#PS-补充" class="headerlink" title="PS | 补充"></a>PS | 补充</h2><p>直接运行会报错:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/test_ffmpeg_demo_error1.png?orig" alt="test_ffmpeg_demo_error1"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/test_ffmpeg_demo_error1.png?orig" alt="test_ffmpeg_demo_error1"></p>
 <p>解决方法:</p>
 <p>修改build.gradle文件:</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">23</span></span><br><span class="line">    buildToolsVersion <span class="string">"23.0.2"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"com.ihubin.ffmpeg_study"</span></span><br><span class="line">        minSdkVersion <span class="number">14</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ↓↓↓↓ 加上这几行 ↓↓↓↓</span></span><br><span class="line">    <span class="keyword">sourceSets</span>.main&#123;</span><br><span class="line">        jniLibs.srcDir <span class="string">'src/main/libs'</span></span><br><span class="line">        jni.srcDirs=[]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled <span class="keyword">false</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.2.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h2><p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/android-ffmpeg-demo/demo_test_ffmpeg.gif?orig" alt="demo_test_ffmpeg"></p>
+<h2 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/android-ffmpeg-demo/demo_test_ffmpeg.gif?orig" alt="demo_test_ffmpeg"></p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="http://code.taobao.org/p/FFmpeg-Study/src/" target="_blank" rel="noopener"><strong><em> 源码地址在这里 </em></strong></a></p>
 <p>Module:FFmpeg-Test-SO</p>
 <p>Demo APK下载地址:<a href="https://www.pgyer.com/FFmpegTestSO" target="_blank" rel="noopener">https://www.pgyer.com/FFmpegTestSO</a></p>
 <p>也可以扫码下载体验:</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/Android/pgyer-app-qrcode/app-qrcode-FFmpegTestSO.png?orig" alt="app-qrcode-FFmpegTestSO.png"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/pgyer-app-qrcode/app-qrcode-FFmpegTestSO.png?orig" alt="app-qrcode-FFmpegTestSO.png"></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
 <ul>
 <li><a href="http://blog.csdn.net/leixiaohua1020/article/details/47008825" target="_blank" rel="noopener">最简单的基于FFmpeg的移动端例子(雷霄骅)</a></li>
@@ -458,7 +458,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 binglingziyu
+    		&copy; 2018 binglingziyu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -549,6 +549,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">trick</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -557,19 +565,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">trick</a>
               </li>
             
             <div class="clearfix"></div>

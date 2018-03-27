@@ -16,20 +16,20 @@
 <meta property="og:site_name" content="binglingziyu的博客">
 <meta property="og:description" content="MAC 下安装 Raspbian .">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/raspberry-logo.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_prepare.jpg?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_raspbian.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_etcher.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_format_sdcard.jpg?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_etcher_burn_image.png?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_start_androidthings.jpg?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_get_ip.jpg?orig">
-<meta property="og:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_login_raspberrypi.png?orig">
-<meta property="og:updated_time" content="2017-07-16T05:51:27.000Z">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/raspberry-logo.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_prepare.jpg?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_download_raspbian.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_download_etcher.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_format_sdcard.jpg?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_etcher_burn_image.png?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_start_androidthings.jpg?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_get_ip.jpg?orig">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_login_raspberrypi.png?orig">
+<meta property="og:updated_time" content="2018-03-27T08:19:48.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派---MAC下安装Raspbian">
 <meta name="twitter:description" content="MAC 下安装 Raspbian .">
-<meta name="twitter:image" content="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/raspberry-logo.png?orig">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/common_img/raspberry-logo.png?orig">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/common_img/raspberry-logo.png?orig" alt="树莓派"></p>
+        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/raspberry-logo.png?orig" alt="树莓派"></p>
 <blockquote>
 <p>MAC 下安装 Raspbian .</p>
 </blockquote>
@@ -212,17 +212,17 @@ var _hmt = _hmt || [];
 <h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h3><blockquote>
 <p>1.树莓派3(或更高版本) ＋ 电源（ Android 手机充电器就行，或者直接插在电脑上）<br>2.SD 卡(8G+) ＋ 读卡器<br>3.USB 鼠标，USB 键盘，HDMI 接口显示器(有的显示器没有 HDMI 接口，需要准备转换头)， HDMI 线, 网线</p>
 </blockquote>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_prepare.jpg?orig" alt="配件准备"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_prepare.jpg?orig" alt="配件准备"></p>
 <h3 id="下载-Raspbian-系统镜像"><a href="#下载-Raspbian-系统镜像" class="headerlink" title="下载 Raspbian 系统镜像"></a>下载 Raspbian 系统镜像</h3><p>去树莓派官网下载最新镜像：<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">官网地址</a></p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_raspbian.png?orig" alt="下载 Raspbian"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_download_raspbian.png?orig" alt="下载 Raspbian"></p>
 <p>Raspbian 有两个版本，左边版本有 DESKTOP， 右边版本没有 DESKTOP。（根据自己需要选择）</p>
 <p>将压缩包解压，得到 .img 文件</p>
 <h3 id="安装-Etcher-工具"><a href="#安装-Etcher-工具" class="headerlink" title="安装 Etcher 工具"></a>安装 Etcher 工具</h3><p><a href="https://etcher.io/" target="_blank" rel="noopener">Etcher 官网</a></p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_download_etcher.png?orig" alt="下载 Etcher"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_download_etcher.png?orig" alt="下载 Etcher"></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="step1-格式化SD卡"><a href="#step1-格式化SD卡" class="headerlink" title="step1:格式化SD卡"></a>step1:格式化SD卡</h3><p>将 SD 卡格式化为 FAT32 格式</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_format_sdcard.jpg?orig" alt="格式化 SD 卡"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_format_sdcard.jpg?orig" alt="格式化 SD 卡"></p>
 <h3 id="step2-使用-Etcher-刻录"><a href="#step2-使用-Etcher-刻录" class="headerlink" title="step2:使用 Etcher 刻录"></a>step2:使用 Etcher 刻录</h3><p>Etcher 是一款由 resin.io 出品的开源的快速刻录软件。Etcher 操作起来非常简单。</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_etcher_burn_image.png?orig" alt="使用 Etcher 刻录"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_etcher_burn_image.png?orig" alt="使用 Etcher 刻录"></p>
 <ul>
 <li>选择需要刻录的 xxx.img</li>
 <li>选择目标 SD 卡</li>
@@ -230,18 +230,18 @@ var _hmt = _hmt || [];
 </ul>
 <p>刻录完成后，就可以取出 SD 卡启动了。</p>
 <h2 id="启动树莓派"><a href="#启动树莓派" class="headerlink" title="启动树莓派"></a>启动树莓派</h2><p>将 SD 卡插到树莓派上，网线接到路由器上，接上显示器，插上电源线：</p>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_start_androidthings.jpg?orig" alt="启动树莓派"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_start_androidthings.jpg?orig" alt="启动树莓派"></p>
 <p>Raspbian 默认开启了 SSH，可以使用 SSH 进行登陆：</p>
 <blockquote>
 <p>去路由器里查看 IP ：</p>
 </blockquote>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_get_ip.jpg?orig" alt="Get IP"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_get_ip.jpg?orig" alt="Get IP"></p>
 <blockquote>
 <p>使用 SSH 命令登陆树莓派：</p>
 </blockquote>
 <p>Raspbian 默认用户名/密码：pi/raspberry</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@192.168.xxx.xxx</span><br></pre></td></tr></table></figure>
-<p><img src="http://code.taobao.org/p/hubin_image/src/blog_image/raspberrypi3/raspberrypi3_login_raspberrypi.png?orig" alt="Login RaspberryPi"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/raspberrypi3/raspberrypi3_login_raspberrypi.png?orig" alt="Login RaspberryPi"></p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="树莓派连接-WiFi"><a href="#树莓派连接-WiFi" class="headerlink" title="树莓派连接 WiFi"></a>树莓派连接 WiFi</h3><blockquote>
 <p>扫描周围的无线网络</p>
 </blockquote>
@@ -479,7 +479,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 binglingziyu
+    		&copy; 2018 binglingziyu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -570,6 +570,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">trick</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -578,19 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">trick</a>
               </li>
             
             <div class="clearfix"></div>
