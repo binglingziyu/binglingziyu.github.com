@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>Archives: 2018 | binglingziyu的博客</title>
+  <title>音视频入门-05-RGB-TO-BMP使用开源库 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="binglingziyu的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="binglingziyu的博客">
-<meta property="og:url" content="http://www.ihubin.com/archives/2018/index.html">
+  <meta name="description" content="音视频入门文章目录  RGB-TO-BMP 回顾 将 RGB 数据转成 BMP 图片：  了解 BMP 文件格式 准备 BMP 文件头信息 准备 BMP 信息头 BMP 存储 RGB 的顺序是 B-G-R BitmapInfoHeader 中的 biHeight 字段，biHeight 为正，位图自底向顶扫描，biHeight 为负，位图自顶向底扫描。 BMP 图像四字节对齐   实际开发过程，">
+<meta name="keywords" content="音视频,音视频基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音视频入门-05-RGB-TO-BMP使用开源库">
+<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-05-rgb-to-bmp-library/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="binglingziyu的博客">
+<meta property="og:description" content="音视频入门文章目录  RGB-TO-BMP 回顾 将 RGB 数据转成 BMP 图片：  了解 BMP 文件格式 准备 BMP 文件头信息 准备 BMP 信息头 BMP 存储 RGB 的顺序是 B-G-R BitmapInfoHeader 中的 biHeight 字段，biHeight 为正，位图自底向顶扫描，biHeight 为负，位图自顶向底扫描。 BMP 图像四字节对齐   实际开发过程，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/image-demo-rgb-to-bmp-library.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
+<meta property="og:updated_time" content="2019-09-15T15:46:14.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="binglingziyu的博客">
-<meta name="twitter:description" content="binglingziyu的博客">
+<meta name="twitter:title" content="音视频入门-05-RGB-TO-BMP使用开源库">
+<meta name="twitter:description" content="音视频入门文章目录  RGB-TO-BMP 回顾 将 RGB 数据转成 BMP 图片：  了解 BMP 文件格式 准备 BMP 文件头信息 准备 BMP 信息头 BMP 存储 RGB 的顺序是 B-G-R BitmapInfoHeader 中的 biHeight 字段，biHeight 为正，位图自底向顶扫描，biHeight 为负，位图自顶向底扫描。 BMP 图像四字节对齐   实际开发过程，">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/audio-video/image-demo-rgb-to-bmp-library.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -166,551 +171,252 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-audio-video-basic-05-rgb-to-bmp-library" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      音视频入门-05-RGB-TO-BMP使用开源库
+    </h1>
+  
+
+        
+        <a href="/blog/audio-video-basic-05-rgb-to-bmp-library/" class="archive-article-date">
+  	<time datetime="2019-09-15T15:43:15.165Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="RGB-TO-BMP-回顾"><a href="#RGB-TO-BMP-回顾" class="headerlink" title="RGB-TO-BMP 回顾"></a>RGB-TO-BMP 回顾</h1><blockquote>
+<p>将 RGB 数据转成 BMP 图片：</p>
+<ol>
+<li>了解 BMP 文件格式</li>
+<li>准备 BMP 文件头信息</li>
+<li>准备 BMP 信息头</li>
+<li>BMP 存储 RGB 的顺序是 B-G-R</li>
+<li>BitmapInfoHeader 中的 biHeight 字段，biHeight 为正，位图自底向顶扫描，biHeight 为负，位图自顶向底扫描。</li>
+<li>BMP 图像四字节对齐</li>
+</ol>
+</blockquote>
+<p>实际开发过程，通常会使用第三方开源库来简化开发，屏蔽一些底层的复杂度，节省大量编写代码的时间。</p>
+<a id="more"></a>
+<h1 id="使用开源库的方式"><a href="#使用开源库的方式" class="headerlink" title="使用开源库的方式"></a>使用开源库的方式</h1><h2 id="libbmp-（C-库）"><a href="#libbmp-（C-库）" class="headerlink" title="libbmp （C 库）"></a>libbmp （C 库）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &quot;libbmp/libbmp.h&quot;</span><br><span class="line"></span><br><span class="line">// 彩虹的七种颜色</span><br><span class="line">u_int32_t rainbowColors[] = &#123;</span><br><span class="line">        0XFF0000, // 红</span><br><span class="line">        0XFFA500, // 橙</span><br><span class="line">        0XFFFF00, // 黄</span><br><span class="line">        0X00FF00, // 绿</span><br><span class="line">        0X007FFF, // 青</span><br><span class="line">        0X0000FF, // 蓝</span><br><span class="line">        0X8B00FF  // 紫</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int width = 711, height = 711;</span><br><span class="line">    bmp_img img;</span><br><span class="line">    bmp_img_init_df (&amp;img, width, height);</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; width; ++i) &#123;</span><br><span class="line">        // 当前颜色</span><br><span class="line">        u_int32_t currentColor = rainbowColors[0];</span><br><span class="line">        if(i &lt; 100) &#123;</span><br><span class="line">            currentColor = rainbowColors[0];</span><br><span class="line">        &#125; else if(i &lt; 200) &#123;</span><br><span class="line">            currentColor = rainbowColors[1];</span><br><span class="line">        &#125; else if(i &lt; 300) &#123;</span><br><span class="line">            currentColor = rainbowColors[2];</span><br><span class="line">        &#125; else if(i &lt; 400) &#123;</span><br><span class="line">            currentColor = rainbowColors[3];</span><br><span class="line">        &#125; else if(i &lt; 500) &#123;</span><br><span class="line">            currentColor = rainbowColors[4];</span><br><span class="line">        &#125; else if(i &lt; 600) &#123;</span><br><span class="line">            currentColor = rainbowColors[5];</span><br><span class="line">        &#125; else if(i &lt; 700) &#123;</span><br><span class="line">            currentColor = rainbowColors[6];</span><br><span class="line">        &#125;</span><br><span class="line">        // 当前颜色 R 分量</span><br><span class="line">        u_int8_t R = (currentColor &amp; 0xFF0000) &gt;&gt; 16;</span><br><span class="line">        // 当前颜色 G 分量</span><br><span class="line">        u_int8_t G = (currentColor &amp; 0x00FF00) &gt;&gt; 8;</span><br><span class="line">        // 当前颜色 B 分量</span><br><span class="line">        u_int8_t B = currentColor &amp; 0x0000FF;</span><br><span class="line">        for (int j = 0; j &lt; height; ++j) &#123;</span><br><span class="line">            bmp_pixel_init (&amp;img.img_pixels[i][j], R, G, B);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bmp_img_write (&amp;img, &quot;/Users/staff/Desktop/test-libbmp.bmp&quot;);</span><br><span class="line">    bmp_img_free (&amp;img);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="google-libbmp（C-库）"><a href="#google-libbmp（C-库）" class="headerlink" title="google libbmp（C 库）"></a>google libbmp（C 库）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &quot;google/libbmp/src/bmpfile.h&quot;</span><br><span class="line"></span><br><span class="line">// 彩虹的七种颜色</span><br><span class="line">u_int32_t rainbowColors[] = &#123;</span><br><span class="line">        0XFF0000, // 红</span><br><span class="line">        0XFFA500, // 橙</span><br><span class="line">        0XFFFF00, // 黄</span><br><span class="line">        0X00FF00, // 绿</span><br><span class="line">        0X007FFF, // 青</span><br><span class="line">        0X0000FF, // 蓝</span><br><span class="line">        0X8B00FF  // 紫</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv) &#123;</span><br><span class="line"></span><br><span class="line">    int width = 711, height = 711;</span><br><span class="line">    bmpfile_t *bmp;</span><br><span class="line">    if ((bmp = bmp_create(width, height, 24)) == NULL) &#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; width; ++i) &#123;</span><br><span class="line">        // 当前颜色</span><br><span class="line">        u_int32_t currentColor = rainbowColors[0];</span><br><span class="line">        if(i &lt; 100) &#123;</span><br><span class="line">            currentColor = rainbowColors[0];</span><br><span class="line">        &#125; else if(i &lt; 200) &#123;</span><br><span class="line">            currentColor = rainbowColors[1];</span><br><span class="line">        &#125; else if(i &lt; 300) &#123;</span><br><span class="line">            currentColor = rainbowColors[2];</span><br><span class="line">        &#125; else if(i &lt; 400) &#123;</span><br><span class="line">            currentColor = rainbowColors[3];</span><br><span class="line">        &#125; else if(i &lt; 500) &#123;</span><br><span class="line">            currentColor = rainbowColors[4];</span><br><span class="line">        &#125; else if(i &lt; 600) &#123;</span><br><span class="line">            currentColor = rainbowColors[5];</span><br><span class="line">        &#125; else if(i &lt; 700) &#123;</span><br><span class="line">            currentColor = rainbowColors[6];</span><br><span class="line">        &#125;</span><br><span class="line">        // 当前颜色 R 分量</span><br><span class="line">        u_int8_t R = (currentColor &amp; 0xFF0000) &gt;&gt; 16;</span><br><span class="line">        // 当前颜色 G 分量</span><br><span class="line">        u_int8_t G = (currentColor &amp; 0x00FF00) &gt;&gt; 8;</span><br><span class="line">        // 当前颜色 B 分量</span><br><span class="line">        u_int8_t B = currentColor &amp; 0x0000FF;</span><br><span class="line"></span><br><span class="line">        rgb_pixel_t pixel = &#123;B, G, R, 0&#125;;</span><br><span class="line">        for (int j = 0; j &lt; height; ++j) &#123;</span><br><span class="line">            bmp_set_pixel(bmp, j, i, pixel);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bmp_save(bmp, &quot;/Users/staff/Desktop/test-google-libbmp.bmp&quot;);</span><br><span class="line">    bmp_destroy(bmp);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="bmp（C-库）"><a href="#bmp（C-库）" class="headerlink" title="bmp（C 库）"></a>bmp（C 库）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &quot;bmp/bmp.h&quot;</span><br><span class="line"></span><br><span class="line">// 彩虹的七种颜色</span><br><span class="line">u_int32_t rainbowColors[] = &#123;</span><br><span class="line">        0XFF0000, // 红</span><br><span class="line">        0XFFA500, // 橙</span><br><span class="line">        0XFFFF00, // 黄</span><br><span class="line">        0X00FF00, // 绿</span><br><span class="line">        0X007FFF, // 青</span><br><span class="line">        0X0000FF, // 蓝</span><br><span class="line">        0X8B00FF  // 紫</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    int width = 711, height = 711;</span><br><span class="line">    char bmp[BMP_SIZE(width, height)];</span><br><span class="line">    bmp_init(bmp, width, height);</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; width; ++i) &#123;</span><br><span class="line"></span><br><span class="line">        // 当前颜色</span><br><span class="line">        u_int32_t currentColor = rainbowColors[0];</span><br><span class="line">        if(i &lt; 100) &#123;</span><br><span class="line">            currentColor = rainbowColors[0];</span><br><span class="line">        &#125; else if(i &lt; 200) &#123;</span><br><span class="line">            currentColor = rainbowColors[1];</span><br><span class="line">        &#125; else if(i &lt; 300) &#123;</span><br><span class="line">            currentColor = rainbowColors[2];</span><br><span class="line">        &#125; else if(i &lt; 400) &#123;</span><br><span class="line">            currentColor = rainbowColors[3];</span><br><span class="line">        &#125; else if(i &lt; 500) &#123;</span><br><span class="line">            currentColor = rainbowColors[4];</span><br><span class="line">        &#125; else if(i &lt; 600) &#123;</span><br><span class="line">            currentColor = rainbowColors[5];</span><br><span class="line">        &#125; else if(i &lt; 700) &#123;</span><br><span class="line">            currentColor = rainbowColors[6];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int j = 0; j &lt; height; ++j) &#123;</span><br><span class="line">            bmp_set(bmp, j, i, currentColor);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    FILE *f = fopen(&quot;/Users/hubin/Desktop/test-bmp.bmp&quot;, &quot;wb&quot;);</span><br><span class="line">    fwrite(bmp, sizeof(bmp), 1, f);</span><br><span class="line">    fclose(f);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="qdbmp（C-库）"><a href="#qdbmp（C-库）" class="headerlink" title="qdbmp（C 库）"></a>qdbmp（C 库）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &quot;qdbmp/qdbmp.h&quot;</span><br><span class="line"></span><br><span class="line">// 彩虹的七种颜色</span><br><span class="line">u_int32_t rainbowColors[] = &#123;</span><br><span class="line">        0XFF0000, // 红</span><br><span class="line">        0XFFA500, // 橙</span><br><span class="line">        0XFFFF00, // 黄</span><br><span class="line">        0X00FF00, // 绿</span><br><span class="line">        0X007FFF, // 青</span><br><span class="line">        0X0000FF, // 蓝</span><br><span class="line">        0X8B00FF  // 紫</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int width = 711, height = 711;</span><br><span class="line">    BMP* bmp = BMP_Create(width, height, 24);</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; width; ++i) &#123;</span><br><span class="line">        // 当前颜色</span><br><span class="line">        u_int32_t currentColor = rainbowColors[0];</span><br><span class="line">        if(i &lt; 100) &#123;</span><br><span class="line">            currentColor = rainbowColors[0];</span><br><span class="line">        &#125; else if(i &lt; 200) &#123;</span><br><span class="line">            currentColor = rainbowColors[1];</span><br><span class="line">        &#125; else if(i &lt; 300) &#123;</span><br><span class="line">            currentColor = rainbowColors[2];</span><br><span class="line">        &#125; else if(i &lt; 400) &#123;</span><br><span class="line">            currentColor = rainbowColors[3];</span><br><span class="line">        &#125; else if(i &lt; 500) &#123;</span><br><span class="line">            currentColor = rainbowColors[4];</span><br><span class="line">        &#125; else if(i &lt; 600) &#123;</span><br><span class="line">            currentColor = rainbowColors[5];</span><br><span class="line">        &#125; else if(i &lt; 700) &#123;</span><br><span class="line">            currentColor = rainbowColors[6];</span><br><span class="line">        &#125;</span><br><span class="line">        // 当前颜色 R 分量</span><br><span class="line">        u_int8_t R = (currentColor &amp; 0xFF0000) &gt;&gt; 16;</span><br><span class="line">        // 当前颜色 G 分量</span><br><span class="line">        u_int8_t G = (currentColor &amp; 0x00FF00) &gt;&gt; 8;</span><br><span class="line">        // 当前颜色 B 分量</span><br><span class="line">        u_int8_t B = currentColor &amp; 0x0000FF;</span><br><span class="line">        for (int j = 0; j &lt; height; ++j) &#123;</span><br><span class="line">            BMP_SetPixelRGB(bmp, j, i, R, G, B);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* Save result */</span><br><span class="line">    BMP_WriteFile( bmp, &quot;/Users/hubin/Desktop/test-qdbmp.bmp&quot;);</span><br><span class="line">    BMP_CHECK_ERROR( stderr, -2 );</span><br><span class="line"></span><br><span class="line">    /* Free all memory allocated for the image */</span><br><span class="line">    BMP_Free( bmp );</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="easybmp（C-库）"><a href="#easybmp（C-库）" class="headerlink" title="easybmp（C++ 库）"></a>easybmp（C++ 库）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;EasyBMP/EasyBMP.h&quot;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">// 彩虹的七种颜色</span><br><span class="line">u_int32_t rainbowColors[] = &#123;</span><br><span class="line">        0XFF0000, // 红</span><br><span class="line">        0XFFA500, // 橙</span><br><span class="line">        0XFFFF00, // 黄</span><br><span class="line">        0X00FF00, // 绿</span><br><span class="line">        0X007FFF, // 青</span><br><span class="line">        0X0000FF, // 蓝</span><br><span class="line">        0X8B00FF  // 紫</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main( int argc, char* argv[]) &#123;</span><br><span class="line"></span><br><span class="line">    int width = 711, height = 711;</span><br><span class="line">    int bitDepth = 24;</span><br><span class="line"></span><br><span class="line">    BMP bmp;</span><br><span class="line">    bmp.SetSize(width, height);</span><br><span class="line">    bmp.SetBitDepth(bitDepth);</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; width; ++i) &#123;</span><br><span class="line">        // 当前颜色</span><br><span class="line">        u_int32_t currentColor = rainbowColors[0];</span><br><span class="line">        if(i &lt; 100) &#123;</span><br><span class="line">            currentColor = rainbowColors[0];</span><br><span class="line">        &#125; else if(i &lt; 200) &#123;</span><br><span class="line">            currentColor = rainbowColors[1];</span><br><span class="line">        &#125; else if(i &lt; 300) &#123;</span><br><span class="line">            currentColor = rainbowColors[2];</span><br><span class="line">        &#125; else if(i &lt; 400) &#123;</span><br><span class="line">            currentColor = rainbowColors[3];</span><br><span class="line">        &#125; else if(i &lt; 500) &#123;</span><br><span class="line">            currentColor = rainbowColors[4];</span><br><span class="line">        &#125; else if(i &lt; 600) &#123;</span><br><span class="line">            currentColor = rainbowColors[5];</span><br><span class="line">        &#125; else if(i &lt; 700) &#123;</span><br><span class="line">            currentColor = rainbowColors[6];</span><br><span class="line">        &#125;</span><br><span class="line">        // 当前颜色 R 分量</span><br><span class="line">        u_int8_t R = (currentColor &amp; 0xFF0000) &gt;&gt; 16;</span><br><span class="line">        // 当前颜色 G 分量</span><br><span class="line">        u_int8_t G = (currentColor &amp; 0x00FF00) &gt;&gt; 8;</span><br><span class="line">        // 当前颜色 B 分量</span><br><span class="line">        u_int8_t B = currentColor &amp; 0x0000FF;</span><br><span class="line"></span><br><span class="line">        RGBApixel pixel;</span><br><span class="line">        pixel.Red = R;</span><br><span class="line">        pixel.Green = G;</span><br><span class="line">        pixel.Blue = B;</span><br><span class="line">        pixel.Alpha = 0;</span><br><span class="line">        for (int j = 0; j &lt; height; ++j) &#123;</span><br><span class="line">            bmp.SetPixel(j, i, pixel);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bmp.WriteToFile(&quot;/Users/hubin/Desktop/test-easybmp.bmp&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="bitmap（C-库）"><a href="#bitmap（C-库）" class="headerlink" title="bitmap（C++ 库）"></a>bitmap（C++ 库）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;bitmap/bitmap_image.hpp&quot;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">// 彩虹的七种颜色</span><br><span class="line">u_int32_t rainbowColors[] = &#123;</span><br><span class="line">        0XFF0000, // 红</span><br><span class="line">        0XFFA500, // 橙</span><br><span class="line">        0XFFFF00, // 黄</span><br><span class="line">        0X00FF00, // 绿</span><br><span class="line">        0X007FFF, // 青</span><br><span class="line">        0X0000FF, // 蓝</span><br><span class="line">        0X8B00FF  // 紫</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    int width = 711, height = 711;</span><br><span class="line"></span><br><span class="line">    bitmap_image image(width, height);</span><br><span class="line">    image.clear();</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; width; ++i) &#123;</span><br><span class="line">        // 当前颜色</span><br><span class="line">        u_int32_t currentColor = rainbowColors[0];</span><br><span class="line">        if(i &lt; 100) &#123;</span><br><span class="line">            currentColor = rainbowColors[0];</span><br><span class="line">        &#125; else if(i &lt; 200) &#123;</span><br><span class="line">            currentColor = rainbowColors[1];</span><br><span class="line">        &#125; else if(i &lt; 300) &#123;</span><br><span class="line">            currentColor = rainbowColors[2];</span><br><span class="line">        &#125; else if(i &lt; 400) &#123;</span><br><span class="line">            currentColor = rainbowColors[3];</span><br><span class="line">        &#125; else if(i &lt; 500) &#123;</span><br><span class="line">            currentColor = rainbowColors[4];</span><br><span class="line">        &#125; else if(i &lt; 600) &#123;</span><br><span class="line">            currentColor = rainbowColors[5];</span><br><span class="line">        &#125; else if(i &lt; 700) &#123;</span><br><span class="line">            currentColor = rainbowColors[6];</span><br><span class="line">        &#125;</span><br><span class="line">        // 当前颜色 R 分量</span><br><span class="line">        u_int8_t R = (currentColor &amp; 0xFF0000) &gt;&gt; 16;</span><br><span class="line">        // 当前颜色 G 分量</span><br><span class="line">        u_int8_t G = (currentColor &amp; 0x00FF00) &gt;&gt; 8;</span><br><span class="line">        // 当前颜色 B 分量</span><br><span class="line">        u_int8_t B = currentColor &amp; 0x0000FF;</span><br><span class="line"></span><br><span class="line">        for (int j = 0; j &lt; height; ++j) &#123;</span><br><span class="line">            image.set_pixel(j, i, R, G, B);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    image.save_image(&quot;/Users/hubin/Desktop/test-bitmap.bmp&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="查看开源库的效果"><a href="#查看开源库的效果" class="headerlink" title="查看开源库的效果"></a>查看开源库的效果</h1><p>六个开源库都可以大大减少我们的工作量！</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/image-demo-rgb-to-bmp-library.png" alt="image-demo-rgb-to-bmp-library"></p>
+<hr>
+<p>代码：</p>
+<p><a href="https://github.com/binglingziyu/audio-video-blog-demos/" target="_blank" rel="noopener">rgb-to-bmp</a></p>
+<p>参考资料：</p>
+<p><a href="https://github.com/marc-q/libbmp" target="_blank" rel="noopener">libbmp</a></p>
+<p><a href="https://code.google.com/archive/p/libbmp/" target="_blank" rel="noopener">google libbmp</a></p>
+<p><a href="https://github.com/skeeto/bmp" target="_blank" rel="noopener">bmp</a></p>
+<p><a href="http://qdbmp.sourceforge.net/" target="_blank" rel="noopener">qdbmp</a></p>
+<p><a href="http://easybmp.sourceforge.net/" target="_blank" rel="noopener">easybmp</a></p>
+<p><a href="http://www.partow.net/programming/bitmap/index.html" target="_blank" rel="noopener">bitmap</a></p>
+<p>内容有误？联系作者：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
+<hr>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-ali-pay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-wx-pay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-trick-tools-namespace-1/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-trick-tools-namespace-1/">Android开发中的tools命名空间的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">trick</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-05-rgb-to-bmp-library/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ffmpeg-demo-4/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/blog/audio-video-basic-04-bmp-dword-align/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音视频入门-04-BMP图像四字节对齐的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ffmpeg-demo-4/">Android最简单的基于FFmpeg的例子(四)---以命令行的形式来使用ffmpeg</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-exception-no-host/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-exception-no-host/">java.lang.IllegalStateException:No host</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android-Exception//" class="article-tag-list-link color3">Android Exception</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ffmpeg-demo-2/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ffmpeg-demo-2/">Android最简单的基于FFmpeg的例子(二)---测试编译好的SO库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ffmpeg-demo-5/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ffmpeg-demo-5/">Android最简单的基于FFmpeg的例子(五)---ffmpeg从入门到放弃</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ffmpeg-demo-3/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ffmpeg-demo-3/">Android最简单的基于FFmpeg的例子(三)---编译FFmpeg成一个SO库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/raspberrypi-mac-install-raspbian/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/raspberrypi-mac-install-raspbian/">树莓派---MAC下安装Raspbian</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Raspbian</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派//" class="article-tag-list-link color4">树莓派</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派/Raspbian//" class="article-tag-list-link color4">Raspbian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ffmpeg-demo-1/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ffmpeg-demo-1/">Android最简单的基于FFmpeg的例子(一)---编译FFmpeg类库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/raspberrypi-mac-install-androidthings/" class="archive-article-date">
-  	<time datetime="2018-03-27T08:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/raspberrypi-mac-install-androidthings/">树莓派---MAC下安装AndroidThings</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AndroidThings</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派//" class="article-tag-list-link color4">树莓派</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派/AndroidThings//" class="article-tag-list-link color4">AndroidThings</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="audio-video-basic-05-rgb-to-bmp-library" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytmLy4ty",
+        conf: "prod_a712e98311cb56cb3940af09266b27eb"
+    });
+</script>
+</script>
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'binglingziyu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
+
+  
 
 
           </div>
@@ -733,8 +439,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
