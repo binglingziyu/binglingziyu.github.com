@@ -6,27 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>Spring Boot2 入门 S1P01 Spring Security 使用 | binglingziyu的博客</title>
+  <title>音视频入门-11-PNG文件格式详解 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringBoot2入门目录  Spring Security Spring Security，这是一种基于 Spring AOP 和 Servlet 过滤器的安全框架。它提供全面的安全性解决方案，同时在 Web 请求级和方法调用级处理身份确认和授权。  版本信息Spring Boot: 2.1.8.RELEASE Spring Security: 5.1.6.RELEASE">
-<meta name="keywords" content="Spring Boot,Spring Security">
+  <meta name="description" content="音视频入门文章目录  PNG 文件格式解析PNG 图像格式文件由一个 8 字节的 PNG 文件署名域和 3 个以上的后续数据块（IHDR、IDAT、IEND）组成。 PNG 文件包括 8 字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别 PNG 格式。 用十六进制查看器打开任意一个 PNG 文件，都是可以看到这样的头部:">
+<meta name="keywords" content="音视频,音视频基础,PNG文件格式详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot2 入门 S1P01 Spring Security 使用">
-<meta property="og:url" content="http://www.ihubin.com/blog/spring-boot-2-s1p01-spring-security/index.html">
+<meta property="og:title" content="音视频入门-11-PNG文件格式详解">
+<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-11-png-file-format-detail/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="SpringBoot2入门目录  Spring Security Spring Security，这是一种基于 Spring AOP 和 Servlet 过滤器的安全框架。它提供全面的安全性解决方案，同时在 Web 请求级和方法调用级处理身份确认和授权。  版本信息Spring Boot: 2.1.8.RELEASE Spring Security: 5.1.6.RELEASE">
+<meta property="og:description" content="音视频入门文章目录  PNG 文件格式解析PNG 图像格式文件由一个 8 字节的 PNG 文件署名域和 3 个以上的后续数据块（IHDR、IDAT、IEND）组成。 PNG 文件包括 8 字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别 PNG 格式。 用十六进制查看器打开任意一个 PNG 文件，都是可以看到这样的头部:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-page.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-success.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-custom-user.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-success.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-success.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/spring-boot-footer.png">
-<meta property="og:updated_time" content="2019-09-25T03:40:59.187Z">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-file-signture.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-ihdr.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-indexed-color-hex-plte.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/indexed-color-plte-colors.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-iend.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat-data-extract.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat-uncompress.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat-uncompress-contrast.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-indexed-color-uncompress-data.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-true-color-uncompress-data.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
+<meta property="og:updated_time" content="2019-10-29T10:21:18.472Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot2 入门 S1P01 Spring Security 使用">
-<meta name="twitter:description" content="SpringBoot2入门目录  Spring Security Spring Security，这是一种基于 Spring AOP 和 Servlet 过滤器的安全框架。它提供全面的安全性解决方案，同时在 Web 请求级和方法调用级处理身份确认和授权。  版本信息Spring Boot: 2.1.8.RELEASE Spring Security: 5.1.6.RELEASE">
-<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-page.png">
+<meta name="twitter:title" content="音视频入门-11-PNG文件格式详解">
+<meta name="twitter:description" content="音视频入门文章目录  PNG 文件格式解析PNG 图像格式文件由一个 8 字节的 PNG 文件署名域和 3 个以上的后续数据块（IHDR、IDAT、IEND）组成。 PNG 文件包括 8 字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别 PNG 格式。 用十六进制查看器打开任意一个 PNG 文件，都是可以看到这样的头部:">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-file-signture.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -183,69 +189,534 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-spring-boot-2-s1p01-spring-security" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-audio-video-basic-11-png-file-format-detail" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot2 入门 S1P01 Spring Security 使用
+      音视频入门-11-PNG文件格式详解
     </h1>
   
 
         
-        <a href="/blog/spring-boot-2-s1p01-spring-security/" class="archive-article-date">
-  	<time datetime="2019-09-25T03:35:57.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+        <a href="/blog/audio-video-basic-11-png-file-format-detail/" class="archive-article-date">
+  	<time datetime="2019-10-29T10:05:41.292Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.ihubin.com/blog/spring-boot-2-basic-catagory/"><em> SpringBoot2入门目录 </em></a></p>
-<h1 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h1><blockquote>
-<p>Spring Security，这是一种基于 Spring AOP 和 Servlet 过滤器的安全框架。它提供全面的安全性解决方案，同时在 Web 请求级和方法调用级处理身份确认和授权。</p>
-</blockquote>
-<h1 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h1><pre><code>Spring Boot: 2.1.8.RELEASE
-Spring Security: 5.1.6.RELEASE
-</code></pre><a id="more"></a>
-<h1 id="新建工程"><a href="#新建工程" class="headerlink" title="新建工程"></a>新建工程</h1><h2 id="工程依赖"><a href="#工程依赖" class="headerlink" title="工程依赖"></a>工程依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation &apos;org.springframework.boot:spring-boot-starter&apos;</span><br><span class="line">    implementation &apos;org.springframework.boot:spring-boot-starter-web&apos;</span><br><span class="line">    implementation(&apos;org.springframework.boot:spring-boot-starter-security&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="项目文件"><a href="#项目文件" class="headerlink" title="项目文件"></a>项目文件</h2><p>SpringSecurity01Application.java</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">public class SpringSecurity01Application &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(SpringSecurity01Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>controller/TestController.java</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class TestController &#123;</span><br><span class="line">    @GetMapping(&quot;test&quot;)</span><br><span class="line">    public String test() &#123;</span><br><span class="line">        return &quot;Spring Security!&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="启动工程"><a href="#启动工程" class="headerlink" title="启动工程"></a>启动工程</h1><h2 id="启动日志"><a href="#启动日志" class="headerlink" title="启动日志"></a>启动日志</h2><p>在启动日志里打印出了密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"></span><br><span class="line">Using generated security password: 9e262d11-0440-4328-9b50-e1d2091d853b</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line">2019-09-24 21:25:05.834  INFO 13144 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &apos;&apos;</span><br><span class="line">2019-09-24 21:25:05.834  INFO 13144 --- [           main] c.i.s.SpringSecurity01Application        : Started SpringSecurity01Application in 1.677 seconds (JVM running for 2.968)</span><br></pre></td></tr></table></figure>
-<h2 id="访问接口"><a href="#访问接口" class="headerlink" title="访问接口"></a>访问接口</h2><p>在浏览器中打开：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
-<p>弹出了登录页面：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-page.png" alt="spring-security-login-page.png"></p>
-<h2 id="输入登录信息"><a href="#输入登录信息" class="headerlink" title="输入登录信息"></a>输入登录信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 用户名 user</span><br><span class="line">username： user</span><br><span class="line"></span><br><span class="line">// 控制台中打印的就是登录密码</span><br><span class="line">password: 9e262d11-0440-4328-9b50-e1d2091d853b</span><br></pre></td></tr></table></figure>
-<p>这时就成功登录并打开了测试接口：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-success.png" alt="spring-security-login-success.png"></p>
-<h1 id="修改登录信息"><a href="#修改登录信息" class="headerlink" title="修改登录信息"></a>修改登录信息</h1><h2 id="修改项目配置文件"><a href="#修改项目配置文件" class="headerlink" title="修改项目配置文件"></a>修改项目配置文件</h2><p>application.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.security.user.name=admin</span><br><span class="line">spring.security.user.password=123456</span><br></pre></td></tr></table></figure>
-<h2 id="启动日志-1"><a href="#启动日志-1" class="headerlink" title="启动日志"></a>启动日志</h2><p>在启动日志里没有打印密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">2019-09-24 21:40:22.982  INFO 5100 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &apos;&apos;</span><br><span class="line">2019-09-24 21:40:22.988  INFO 5100 --- [           main] c.i.s.SpringSecurity01Application        : Started SpringSecurity01Application in 1.816 seconds (JVM running for 2.68)</span><br><span class="line">2019-09-24 21:40:27.743  INFO 5100 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &apos;dispatcherServlet&apos;</span><br><span class="line">2019-09-24 21:40:27.744  INFO 5100 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &apos;dispatcherServlet&apos;</span><br><span class="line">2019-09-24 21:40:27.751  INFO 5100 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms</span><br><span class="line">2019-09-24 21:40:28.080  WARN 5100 --- [nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [294] milliseconds.</span><br></pre></td></tr></table></figure>
-<h2 id="访问接口-1"><a href="#访问接口-1" class="headerlink" title="访问接口"></a>访问接口</h2><p>在浏览器中打开：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
-<p>弹出了登录页面：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-custom-user.png" alt="spring-security-custom-user.png"></p>
-<h2 id="输入登录信息-1"><a href="#输入登录信息-1" class="headerlink" title="输入登录信息"></a>输入登录信息</h2><p>这次输入的信息是在配置文件中配置的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username: admin</span><br><span class="line">password: 123456</span><br></pre></td></tr></table></figure>
-<p>成功登录并打开了测试接口：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-success.png" alt="spring-security-login-success.png"></p>
-<h1 id="禁用安全设置"><a href="#禁用安全设置" class="headerlink" title="禁用安全设置"></a>禁用安全设置</h1><p>如果想要禁用安全设置</p>
-<h2 id="SpringSecurity01Application-java"><a href="#SpringSecurity01Application-java" class="headerlink" title="SpringSecurity01Application.java"></a>SpringSecurity01Application.java</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication(exclude = &#123;</span><br><span class="line">        org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class</span><br><span class="line">&#125;)</span><br><span class="line">public class SpringSecurity01Application &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(SpringSecurity01Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="启动项目-amp-访问接口"><a href="#启动项目-amp-访问接口" class="headerlink" title="启动项目 &amp; 访问接口"></a>启动项目 &amp; 访问接口</h2><p>直接打开了测试接口：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/spring-boot/spring-security/demo01/spring-security-login-success.png" alt="spring-security-login-success.png"></p>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="PNG-文件格式解析"><a href="#PNG-文件格式解析" class="headerlink" title="PNG 文件格式解析"></a>PNG 文件格式解析</h1><p>PNG 图像格式文件由一个 8 字节的 PNG 文件署名域和 3 个以上的后续数据块（IHDR、IDAT、IEND）组成。</p>
+<p>PNG 文件包括 8 字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别 PNG 格式。</p>
+<p>用十六进制查看器打开任意一个 PNG 文件，都是可以看到这样的头部:</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-file-signture.png" alt="png-hex-file-signture.png"></p>
+<a id="more"></a>
+<p>PNG 定义了两种类型的数据块：一种是 PNG 文件必须包含、读写软件也都必须要支持的关键块（critical chunk）；另一种叫做辅助块（ancillary chunks），PNG 允许软件忽略它不认识的附加块。这种基于数据块的设计，允许 PNG 格式在扩展时仍能保持与旧版本兼容。</p>
+<h2 id="数据块总览"><a href="#数据块总览" class="headerlink" title="数据块总览"></a>数据块总览</h2><p>下表就是 PNG 中数据块的类别，关键数据块部分突出显示以区分：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据块符号</th>
+<th style="text-align:left">数据块名称</th>
+<th style="text-align:left">多数据块</th>
+<th style="text-align:left">是否可选</th>
+<th style="text-align:left">位置限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>IHDR</code></td>
+<td style="text-align:left"><code>文件头数据块</code></td>
+<td style="text-align:left"><code>否</code></td>
+<td style="text-align:left"><code>否</code></td>
+<td style="text-align:left"><code>第一块</code></td>
+</tr>
+<tr>
+<td style="text-align:left">cHRM</td>
+<td style="text-align:left">基色和白色点数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在PLTE和IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left">gAMA</td>
+<td style="text-align:left">图像γ数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在PLTE和IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left">sBIT</td>
+<td style="text-align:left">样本有效位数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在PLTE和IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PLTE</code></td>
+<td style="text-align:left"><code>调色板数据块</code></td>
+<td style="text-align:left"><code>否</code></td>
+<td style="text-align:left"><code>是</code></td>
+<td style="text-align:left"><code>在IDAT之前</code></td>
+</tr>
+<tr>
+<td style="text-align:left">bKGD</td>
+<td style="text-align:left">背景颜色数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在PLTE之后IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left">hIST</td>
+<td style="text-align:left">图像直方图数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在PLTE之后IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left">tRNS</td>
+<td style="text-align:left">图像透明数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在PLTE之后IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left">oFFs</td>
+<td style="text-align:left">(专用公共数据块)</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left">pHYs</td>
+<td style="text-align:left">物理像素尺寸数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left">sCAL</td>
+<td style="text-align:left">(专用公共数据块)</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">在IDAT之前</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>IDAT</code></td>
+<td style="text-align:left"><code>图像数据块</code></td>
+<td style="text-align:left"><code>是</code></td>
+<td style="text-align:left"><code>否</code></td>
+<td style="text-align:left"><code>与其他IDAT连续</code></td>
+</tr>
+<tr>
+<td style="text-align:left">tIME</td>
+<td style="text-align:left">图像最后修改时间数据块</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">无限制</td>
+</tr>
+<tr>
+<td style="text-align:left">tEXt</td>
+<td style="text-align:left">文本信息数据块</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">无限制</td>
+</tr>
+<tr>
+<td style="text-align:left">zTXt</td>
+<td style="text-align:left">压缩文本数据块</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">无限制</td>
+</tr>
+<tr>
+<td style="text-align:left">fRAc</td>
+<td style="text-align:left">(专用公共数据块)</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">无限制</td>
+</tr>
+<tr>
+<td style="text-align:left">gIFg</td>
+<td style="text-align:left">(专用公共数据块)</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">无限制</td>
+</tr>
+<tr>
+<td style="text-align:left">gIFt</td>
+<td style="text-align:left">(专用公共数据块)</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">无限制</td>
+</tr>
+<tr>
+<td style="text-align:left">gIFx</td>
+<td style="text-align:left">(专用公共数据块)</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">无限制</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>IEND</code></td>
+<td style="text-align:left"><code>图像结束数据</code></td>
+<td style="text-align:left"><code>否</code></td>
+<td style="text-align:left"><code>否</code></td>
+<td style="text-align:left"><code>最后一个数据块</code></td>
+</tr>
+</tbody>
+</table>
+<p>我们目前只需关注关键数据块即可。</p>
+<p>数据块中有 4 个关键数据块：</p>
+<ul>
+<li>文件头数据块 IHDR（header chunk）：包含有图像基本信息，作为第一个数据块出现并只出现一次。</li>
+<li>调色板数据块 PLTE（palette chunk）：必须放在图像数据块之前。</li>
+<li>图像数据块 IDAT（image data chunk）：存储实际图像数据。PNG 数据允许包含多个连续的图像数据块。</li>
+<li>图像结束数据 IEND（image trailer chunk）：放在文件尾部，表示 PNG 数据流结束。</li>
+</ul>
+<p>数据块连起来，大概这个样子：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PNG 标识符</th>
+<th style="text-align:center">PNG 数据块(IHDR)</th>
+<th style="text-align:center">PNG 数据块(其他类型数据块)</th>
+<th style="text-align:center">…</th>
+<th style="text-align:center">PNG 结尾数据块(IEND)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="数据块结构"><a href="#数据块结构" class="headerlink" title="数据块结构"></a>数据块结构</h2><p>PNG 文件中，每个数据块（比如IHDR，IDAT等）由4个部分组成：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">字节数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Length (长度)</td>
+<td style="text-align:left">4 字节</td>
+<td style="text-align:left">指定数据块中数据域的长度，其长度不超过(2^31－1)字节</td>
+</tr>
+<tr>
+<td style="text-align:left">Chunk Type Code (数据块类型码)</td>
+<td style="text-align:left">4 字节</td>
+<td style="text-align:left">数据块类型码由 ASCII 字母(A-Z和a-z)组成</td>
+</tr>
+<tr>
+<td style="text-align:left">Chunk Data (数据块数据)</td>
+<td style="text-align:left">可变长度</td>
+<td style="text-align:left">存储按照 Chunk Type Code 指定的数据</td>
+</tr>
+<tr>
+<td style="text-align:left">CRC (循环冗余检测)</td>
+<td style="text-align:left">4 字节</td>
+<td style="text-align:left">存储用来检测是否有错误的循环冗余码</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CRC(cyclic redundancy check) 域中的值是对 Chunk Type Code 域和 Chunk Data 域中的数据进行计算得到的。</li>
+<li>注意：Length 值的是除：length 本身，Chunk Type Code，CRC 外的长度，也就是 Chunk Data 的长度。</li>
+</ul>
+<h2 id="数据块-文件头数据块-IHDR"><a href="#数据块-文件头数据块-IHDR" class="headerlink" title="数据块-文件头数据块 IHDR"></a>数据块-文件头数据块 IHDR</h2><p>它包含 PNG 文件中存储的图像数据的基本信息，并要作为第一个数据块出现在 PNG 数据流中，而且一个 PNG 数据流中只能有一个文件头数据块。</p>
+<p>文件头数据块由 13 字节组成：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">域的名称</th>
+<th style="text-align:left">字节数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Width</td>
+<td style="text-align:left">4 bytes</td>
+<td style="text-align:left">图像宽度，以像素为单位</td>
+</tr>
+<tr>
+<td style="text-align:left">Height</td>
+<td style="text-align:left">4 bytes</td>
+<td style="text-align:left">图像高度，以像素为单位</td>
+</tr>
+<tr>
+<td style="text-align:left">Bit depth</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">图像深度：  <code>索引彩色图像：1，2，4或8</code>   <code>灰度图像：1，2，4，8或16</code>   <code>真彩色图像：8或16</code></td>
+</tr>
+<tr>
+<td style="text-align:left">ColorType</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">颜色类型：<code>0：灰度图像, 1，2，4，8或16</code> <code>2：真彩色图像，8或16</code> <code>3：索引彩色图像，1，2，4或8</code> <code>4：带α通道数据的灰度图像，8或16</code> <code>6：带α通道数据的真彩色图像，8或16</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Compression method</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left"><a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#10Compression" target="_blank" rel="noopener">PNG Spec 规定此处总为 0</a>，表示使用压缩方法(LZ77派生算法)</td>
+</tr>
+<tr>
+<td style="text-align:left">Filter method</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left"><a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#9Filters" target="_blank" rel="noopener">PNG Spec 规定此处总为 0</a>，滤波器方法</td>
+</tr>
+<tr>
+<td style="text-align:left">Interlace method</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">隔行扫描方法：<code>0：非隔行扫描</code> <code>1： Adam7(由Adam M. Costello开发的7遍隔行扫描方法)</code></td>
+</tr>
+</tbody>
+</table>
+<p>用十六进制查看器打开一个 PNG 文件:</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-ihdr.png" alt="png-hex-ihdr.png"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">十六进制</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">00 00 00 0D</td>
+<td style="text-align:left">数据块长度 13 字节</td>
+</tr>
+<tr>
+<td style="text-align:left">49 48 44 52</td>
+<td style="text-align:left">数据块类型码 “IHDR” 的 ASCII 字母</td>
+</tr>
+<tr>
+<td style="text-align:left">00 00 04 1D</td>
+<td style="text-align:left">图像宽度 1053</td>
+</tr>
+<tr>
+<td style="text-align:left">00 00 02 B3</td>
+<td style="text-align:left">图像高度 691</td>
+</tr>
+<tr>
+<td style="text-align:left">08</td>
+<td style="text-align:left">图像深度 8</td>
+</tr>
+<tr>
+<td style="text-align:left">06</td>
+<td style="text-align:left">带α通道数据的真彩色图</td>
+</tr>
+<tr>
+<td style="text-align:left">00</td>
+<td style="text-align:left">压缩方法</td>
+</tr>
+<tr>
+<td style="text-align:left">00</td>
+<td style="text-align:left">滤波器方法</td>
+</tr>
+<tr>
+<td style="text-align:left">00</td>
+<td style="text-align:left">隔行扫描方法：00非隔行扫描</td>
+</tr>
+<tr>
+<td style="text-align:left">52 C3 75 3A</td>
+<td style="text-align:left">CRC (循环冗余检测)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="数据块-调色板数据块-PLTE"><a href="#数据块-调色板数据块-PLTE" class="headerlink" title="数据块-调色板数据块 PLTE"></a>数据块-调色板数据块 PLTE</h2><p>包含有与索引彩色图像(indexed-color image)相关的彩色变换数据，它仅与索引彩色图像有关，而且要放在图像数据块(image data chunk)之前。</p>
+<p>PLTE 数据块是定义图像的调色板信息，PLTE 可以包含 1~256 个调色板信息，每一个调色板信息由 3 个字节组成：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">颜色</th>
+<th style="text-align:left">字节</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Red</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">0 = 黑色, 255 = 红</td>
+</tr>
+<tr>
+<td style="text-align:left">Green</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">0 = 黑色, 255 = 绿色</td>
+</tr>
+<tr>
+<td style="text-align:left">Blue</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">0 = 黑色, 255 = 蓝色</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>调色板的长度应该是 3 的倍数，否则，这将是一个非法的调色板。</p>
+</li>
+<li><p>对于索引图像，调色板信息是必须的，调色板的颜色索引从 0 开始编号，然后是 1、2……，调色板的颜色数不能超过色深中规定的颜色数（如图像色深为 4 的时候，调色板中的颜色数不可以超过 2^4=16），否则，这将导致 PNG 图像不合法。</p>
+</li>
+<li><p>真彩色图像和带 α 通道数据的真彩色图像也可以有调色板数据块，目的是便于非真彩色显示程序用它来量化图像数据，从而显示该图像。</p>
+</li>
+</ul>
+<p>用十六进制查看器打开一个<a href="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/indexed-color-image.png" target="_blank" rel="noopener">索引图像 PNG 文件</a>:</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-indexed-color-hex-plte.png" alt="png-indexed-color-hex-plte.png"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">十六进制</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">00 00 00 27</td>
+<td style="text-align:left">数据块长度 39 字节</td>
+</tr>
+<tr>
+<td style="text-align:left">50 4C 54 45</td>
+<td style="text-align:left">数据块类型码 “PLTE” 的 ASCII 字母</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>B7 00 34</code> <code>FF 99 00</code> <code>60 00 73</code> <code>FF 0F 00</code> <code>FF ED 00</code> <code>09 00 B2</code> <code>FF 66 00</code> <code>FF 3B 00</code> <code>E2 00 15</code> <code>8B 00 54</code> <code>FF C1 00</code> <code>33 00 99</code> <code>FF FF 00</code></td>
+<td style="text-align:left">调色板颜色 13 个</td>
+</tr>
+<tr>
+<td style="text-align:left">48 29 75 2C</td>
+<td style="text-align:left">CRC (循环冗余检测)</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.sioe.cn/yingyong/yanse-rgb-16/" target="_blank" rel="noopener">预览调色板中的颜色：</a></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/indexed-color-plte-colors.png" alt="indexed-color-plte-colors.png"></p>
+<h2 id="数据块-图像数据块-IDAT"><a href="#数据块-图像数据块-IDAT" class="headerlink" title="数据块-图像数据块 IDAT"></a>数据块-图像数据块 IDAT</h2><p>它存储实际的数据，在数据流中可包含多个连续顺序的图像数据块。</p>
+<p>IDAT 存放着图像真正的数据信息，因此，如果能够了解 IDAT 的结构，我们就可以很方便的生成 PNG 图像。</p>
+<p>用十六进制查看器打开一个<a href="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/indexed-color-image.png" target="_blank" rel="noopener">索引图像 PNG 文件</a>:</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat.png" alt="png-hex-idat.png"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">十六进制</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">00 00 00 D3</td>
+<td style="text-align:left">数据块长度 211 字节</td>
+</tr>
+<tr>
+<td style="text-align:left">49 44 41 54</td>
+<td style="text-align:left">数据块类型码 “IDAT” 的 ASCII 字母</td>
+</tr>
+<tr>
+<td style="text-align:left">78 9C ……</td>
+<td style="text-align:left">压缩的数据 211 字节，LZ77 派生压缩方法</td>
+</tr>
+<tr>
+<td style="text-align:left">52 98 5D 9D</td>
+<td style="text-align:left">CRC (循环冗余检测)</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>图像数据块 IDAT 细节在本文下半部分有详细分析</em></strong></p>
+<h2 id="数据块-图像结束数据-IEND"><a href="#数据块-图像结束数据-IEND" class="headerlink" title="数据块-图像结束数据 IEND"></a>数据块-图像结束数据 IEND</h2><p>它用来标记 PNG 文件或者数据流已经结束，并且必须要放在文件的尾部。</p>
+<p>如果我们仔细观察 PNG 文件，我们会发现，文件的结尾 12 个字符看起来总应该是这样的：</p>
+<p><code>00 00 00 00 49 45 4E 44 AE 42 60 82</code></p>
+<p>用十六进制查看器打开一个 PNG 文件:</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-iend.png" alt="png-hex-iend.png"></p>
+<p>由于数据块结构的定义，IEND 数据块的长度总 是 0（00 00 00 00，除非人为加入信息），数据标识总是 IEND（49 45 4E 44），因此，CRC 码也总是 AE 42 60 82。</p>
+<h1 id="图像数据块-IDAT-细节"><a href="#图像数据块-IDAT-细节" class="headerlink" title="图像数据块 IDAT 细节"></a>图像数据块 IDAT 细节</h1><h2 id="IDAT-压缩数据细节"><a href="#IDAT-压缩数据细节" class="headerlink" title="IDAT 压缩数据细节"></a>IDAT 压缩数据细节</h2><p>在 <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#10Compression" target="_blank" rel="noopener">PNG Spec</a> 压缩算法部分:</p>
+<pre><code>PNG compression method 0 is deflate/inflate compression with a sliding window (which is an upper bound on the distances appearing in the deflate stream) of at most 32768 bytes. Deflate compression is an LZ77 derivative [ZL].
+
+Deflate-compressed datastreams within PNG are stored in the &quot;zlib&quot; format, which has the structure:
+
+- zlib compression method/flags code    1 byte
+- Additional flags/check bits    1 byte
+- Compressed data blocks    n bytes
+- Check value    4 bytes
+
+Further details on this format are given in the zlib specification [RFC-1950].
+</code></pre><ul>
+<li>PNG 使用 DEFLATE 压缩算法。</li>
+<li>DEFLATE 是同时使用了 LZ77 算法与哈夫曼编码（Huffman Coding）的一个无损数据压缩算法。</li>
+<li>DEFLATE 压缩的数据以 zlib 格式存储。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zlib(RFC1950):一种格式，是对 deflate 进行了简单的封装，他也是一个实现库(delphi中有zlib,zlibex)</span><br><span class="line">gzip(RFC1952):一种格式，也是对 deflate 进行的封装。</span><br><span class="line"></span><br><span class="line">gzip = gzip 头 + deflate 编码的实际内容 + gzip 尾</span><br><span class="line">zlib = zlib 头 + deflate 编码的实际内容 + zlib 尾</span><br></pre></td></tr></table></figure>
+<h2 id="提取-amp-解压-IDAT-中压缩数据"><a href="#提取-amp-解压-IDAT-中压缩数据" class="headerlink" title="提取&amp;解压 IDAT 中压缩数据"></a>提取&amp;解压 IDAT 中压缩数据</h2><pre><code>Windows 上可以用 [hexeditor](https://www.hhdsoftware.com/free-hex-editor)
+Mac 上可以用 [hexfiend](http://ridiculousfish.com/hexfiend/)、[Hopper Disassembler](https://www.hopperapp.com/)
+</code></pre><p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat-data-extract.png" alt="png-hex-idat-data-extract.png"></p>
+<p>使用 <a href="http://www.zlib.net/" target="_blank" rel="noopener"><code>zlib</code></a> 解压 <code>78 9C ......</code> 压缩的数据字节：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdint.h&gt;</span><br><span class="line">#include &quot;zlib.h&quot;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    FILE *inFile = fopen(&quot;/Users/staff/Desktop/indexed-color-image.data&quot;, &quot;rb&quot;);</span><br><span class="line">    FILE *outFile = fopen(&quot;/Users/staff/Desktop/indexed-color-image-uncompress.data&quot;, &quot;wb&quot;);</span><br><span class="line"></span><br><span class="line">    fseek(inFile, 0L, SEEK_END);</span><br><span class="line">    long size = ftell(inFile);</span><br><span class="line">    fseek(inFile, 0L, SEEK_SET);</span><br><span class="line"></span><br><span class="line">    uint8_t dataBuf[size];</span><br><span class="line">    fread(dataBuf, size, 1, inFile);</span><br><span class="line">    printf(&quot;压缩文件大小：%ld\n&quot;, size);</span><br><span class="line"></span><br><span class="line">    uint8_t destBuf[1500000]=&#123;0&#125;;</span><br><span class="line">    uint32_t destLen = 0;</span><br><span class="line"></span><br><span class="line">    uncompress(destBuf, &amp;destLen, dataBuf, size);</span><br><span class="line">    printf(&quot;解压后大小：%d\n&quot;, destLen);</span><br><span class="line"></span><br><span class="line">    fwrite(destBuf, destLen, 1, outFile);</span><br><span class="line"></span><br><span class="line">    fflush(outFile);</span><br><span class="line">    fclose(inFile);</span><br><span class="line">    fclose(outFile);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat-uncompress.png" alt="png-hex-idat-uncompress.png"><br><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-idat-uncompress-contrast.png" alt="png-hex-idat-uncompress-contrast.png"></p>
+<h2 id="分析解压后的数据"><a href="#分析解压后的数据" class="headerlink" title="分析解压后的数据"></a>分析解压后的数据</h2><p>在 <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#7Integers-and-byte-order" target="_blank" rel="noopener">PNG Spec 7.1 Integers and byte order</a></p>
+<pre><code>All integers that require more than one byte shall be in network byte order (as illustrated in figure 7.1): the most significant byte comes first, then the less significant bytes in descending order of significance (MSB LSB for two-byte integers, MSB B2 B1 LSB for four-byte integers). The highest bit (value 128) of a byte is numbered bit 7; the lowest bit (value 1) is numbered bit 0. Values are unsigned unless otherwise noted. Values explicitly noted as signed are represented in two&apos;s complement notation.
+</code></pre><ul>
+<li>PNG 使用<code>网络字节序</code> <code>大端字节序（Big Endian）</code>。</li>
+</ul>
+<p>在 <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#7Scanline" target="_blank" rel="noopener">PNG Spec 7.2 Scanlines</a></p>
+<pre><code>In PNG images of colour type 0 (greyscale) each pixel is a single sample, which may have precision less than a byte (1, 2, or 4 bits). These samples are packed into bytes with the leftmost sample in the high-order bits of a byte followed by the other samples for the scanline.
+
+In PNG images of colour type 3 (indexed-colour) each pixel is a single palette index. These indices are packed into bytes in the same way as the samples for colour type 0.
+</code></pre><ul>
+<li>PNG 图像深度小于 1 字节，将会被 <code>packed into bytes</code>。</li>
+</ul>
+<p>在 <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#7Filtering" target="_blank" rel="noopener">PNG Spec 7.3 Filtering</a></p>
+<pre><code>PNG allows the scanline data to be filtered before it is compressed. Filtering can improve the compressibility of the data. The filter step itself results in a sequence of bytes of the same size as the incoming sequence, but in a different representation, preceded by a filter type byte. Filtering does not reduce the size of the actual scanline data. All PNG filters are strictly lossless.
+
+Different filter types can be used for different scanlines, and the filter algorithm is specified for each scanline by a filter type byte. The filter type byte is not considered part of the image data, but it is included in the datastream sent to the compression step. An intelligent encoder can switch filters from one scanline to the next. The method for choosing which filter to employ is left to the encoder.
+</code></pre><ul>
+<li>每一扫描行前有一字节用于指定<code>过滤器类型</code>。</li>
+</ul>
+<p>在 <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#9Filters" target="_blank" rel="noopener">PNG Spec Filters</a>:</p>
+<pre><code>Filtering transforms the PNG image with the goal of improving compression. PNG allows for a number of filter methods. All the reduced images in an interlaced image shall use a single filter method. Only filter method 0 is defined by this International Standard. Other filter methods are reserved for future standardization (see 4.9 Extension and registration). Filter method 0 provides a set of five filter types, and individual scanlines in each reduced image may use different filter types.
+。。。。。。
+</code></pre><ul>
+<li>文件头数据块 IHDR 中 <code>Filter method</code> 过滤方法只能是 0。</li>
+<li><code>Filter method</code>=0 定义了 5 种 <code>Filter Type</code> 过滤器类型: <code>0:None</code>、<code>1:Sub</code>、<code>2:Up</code>、<code>3:Average</code>、<code>4:Paeth</code>。</li>
+</ul>
+<p>当 PNG 图片是索引图像时(下图数据：<code>图像深度: 4</code> <code>尺寸 256X256</code> <code>过滤器类型: 0:None</code> <code>隔行扫描方法：0：非隔行扫描</code>)：</p>
+<p><a href="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/indexed-color-image.png" target="_blank" rel="noopener">indexed-color-image.png</a></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-indexed-color-uncompress-data.png" alt="png-indexed-color-uncompress-data.png"></p>
+<ul>
+<li>每个高亮区域前面一个字节 <code>00</code> 代表 <code>过滤器类型</code> : <code>0:None</code> 【<a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#7Filtering" target="_blank" rel="noopener">PNG Spec 7.3 Filtering</a>】【 <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#9Filters" target="_blank" rel="noopener">PNG Spec Filters</a>】。</li>
+<li>如果高亮区域前面一个字节不是 <code>00</code>，高亮区将不是扫描行索引数据，需要参考 【<a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#9Filter-types" target="_blank" rel="noopener">PNG Spec 9.2 Filter types for filter method 0</a>】</li>
+<li>每种颜色高亮显示的部分 <code>128 字节</code> 是一个扫描行颜色索引数据，因为 <code>图像深度：4</code>，所以每个字节代表两个颜色索引  【<a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#7Scanline" target="_blank" rel="noopener">PNG Spec 7.2 Scanlines</a>】。</li>
+<li>如字节 <code>55</code> 是十六进制，二进制为 <code>01010101</code>，前四 bit 位代表一个颜色索引 <code>0101</code> 十进制为 5，后四 bit 位代表一个颜色索引 <code>0101</code> 十进制为 5 。</li>
+</ul>
+<p>当 PNG 图片是真彩图像时(下图数据：<code>图像深度: 8</code> <code>尺寸 70X70</code> <code>过滤器类型: 0:None</code> <code>隔行扫描方法：0：非隔行扫描</code>)：</p>
+<p><a href="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/true-color-image.png" target="_blank" rel="noopener">true-color-image.png</a></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-true-color-uncompress-data.png" alt="png-true-color-uncompress-data.png"></p>
+<ul>
+<li>每个高亮区域前面一个字节 <code>00</code> 代表 <code>过滤器类型</code> : <code>0:None</code> 【<a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#7Filtering" target="_blank" rel="noopener">PNG Spec 7.3 Filtering</a>】【 <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#9Filters" target="_blank" rel="noopener">PNG Spec Filters</a>】。</li>
+<li>如果高亮区域前面一个字节不是 <code>00</code>，高亮区将不是扫描行颜色数据，需要参考 【<a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#9Filter-types" target="_blank" rel="noopener">PNG Spec 9.2 Filter types for filter method 0</a>】</li>
+<li>每种颜色高亮显示的部分 <code>210 字节</code> 是一个扫描行颜色数据，因为 <code>真彩图片</code> <code>图像深度：8</code>，所以每三个字节代表一个像素颜色。</li>
+<li>如字节 <code>FF 00 00</code>，代表一个像素 RGB 颜色。</li>
+</ul>
+<h1 id="More"><a href="#More" class="headerlink" title="More"></a>More</h1><p>下一步，将用代码手动生成一张 PNG 图片，文章目录：<a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a>。</p>
+<p>所有可能存在问题的答案：<a href="https://www.w3.org/TR/2003/REC-PNG-20031110/" target="_blank" rel="noopener">PNG Specification</a>。</p>
 <hr>
-<p>代码：<br><a href="https://github.com/binglingziyu/spring-boot-demos" target="_blank" rel="noopener">spring-security-01</a></p>
+<p>代码：<br><a href="https://github.com/binglingziyu/audio-video-blog-demos" target="_blank" rel="noopener">demos/demos-zlib</a></p>
 <p>参考资料：</p>
-<p><a href="https://spring.io/projects/spring-security" target="_blank" rel="noopener">spring-security</a></p>
+<p><a href="https://blog.mythsman.com/post/5d2d62b4a2005d74040ef7eb/" target="_blank" rel="noopener">PNG 文件格式详解</a></p>
+<p><a href="https://www.jianshu.com/p/4d8cace82028" target="_blank" rel="noopener">PNG、JPEG、BMP等几种图片格式详解（一）—— PNG</a></p>
+<p><a href="https://www.cnblogs.com/ECJTUACM-873284962/p/8986391.html" target="_blank" rel="noopener">详解PNG文件结构</a></p>
+<p><a href="https://blog.csdn.net/hherima/article/details/45847043" target="_blank" rel="noopener">《PNG文件格式》（二）PNG文件格式分析</a></p>
+<p><a href="https://anywillmark.com/2018/08/23/%E5%9B%BE%E7%89%87%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89-png%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" target="_blank" rel="noopener">图片知识梳理（一）: PNG文件结构</a></p>
+<p><a href="https://3gstudent.github.io/%E9%9A%90%E5%86%99%E6%8A%80%E5%B7%A7-%E5%88%A9%E7%94%A8PNG%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E9%9A%90%E8%97%8FPayload/" target="_blank" rel="noopener">隐写技巧——利用PNG文件格式隐藏Payload</a></p>
+<p><a href="http://www.libpng.org/pub/png/spec/" target="_blank" rel="noopener">Portable Network Graphics (PNG) Specification and Extensions</a></p>
+<p><a href="https://blog.csdn.net/wy_2012/article/details/6304946" target="_blank" rel="noopener">gzip,deflate,zlib辨析</a></p>
+<p><a href="https://www.cnblogs.com/wunaozai/p/3960494.html" target="_blank" rel="noopener">Zlib库的安装与使用</a></p>
 <p>内容有误？联系作者：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/common_img/spring-boot-footer.png" alt="联系作者"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
 <hr>
 
       
@@ -291,11 +762,15 @@ Spring Security: 5.1.6.RELEASE
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring Security</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PNG文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -307,7 +782,7 @@ Spring Security: 5.1.6.RELEASE
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Spring-Boot//" class="article-tag-list-link color2">Spring Boot</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
@@ -362,7 +837,7 @@ Spring Security: 5.1.6.RELEASE
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/spring-boot-2-s1p01-spring-security/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-11-png-file-format-detail/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -376,18 +851,9 @@ Spring Security: 5.1.6.RELEASE
   
 <nav id="article-nav">
   
-    <a href="/blog/audio-video-basic-11-png-file-format-detail/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          音视频入门-11-PNG文件格式详解
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/spring-boot-2-basic-catagory/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot2 入门-目录</div>
+    <a href="/blog/spring-boot-2-s1p01-spring-security/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Boot2 入门 S1P01 Spring Security 使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
