@@ -6,22 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>音视频入门-01-认识RGB | binglingziyu的博客</title>
+  <title>音视频入门-14-JPEG文件格式详解 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="音视频入门文章目录  RGB 简介 RGB 色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB 即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。">
-<meta name="keywords" content="音视频,音视频基础">
+  <meta name="description" content="音视频入门文章目录  JPEG 文件格式解析JPEG 文件使用的数据存储方式有多种。最常用的格式称为 JPEG 文件交换格式（JPEG File Interchange Format，JFIF）。而 JPEG 文件大体上可以分成两个部分：标记码(Tag)和压缩数据。 标记码由两个字节构成，其前一个字节是固定值 0xFF，后一个字节则根据不同意义有不同数值。在每个标记码之前还可以添加数目不限的无意">
+<meta name="keywords" content="音视频,音视频基础,JPEG文件格式详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="音视频入门-01-认识RGB">
-<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-01-rgb-intro/index.html">
+<meta property="og:title" content="音视频入门-14-JPEG文件格式详解">
+<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-14-jpeg-file-format-detail/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="音视频入门文章目录  RGB 简介 RGB 色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB 即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。">
+<meta property="og:description" content="音视频入门文章目录  JPEG 文件格式解析JPEG 文件使用的数据存储方式有多种。最常用的格式称为 JPEG 文件交换格式（JPEG File Interchange Format，JFIF）。而 JPEG 文件大体上可以分成两个部分：标记码(Tag)和压缩数据。 标记码由两个字节构成，其前一个字节是固定值 0xFF，后一个字节则根据不同意义有不同数值。在每个标记码之前还可以添加数目不限的无意">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-soi.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-app0.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-app1~app13.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-dqt.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-sof0.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-dht.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-dri.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-sos.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-eoi.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-all.png">
 <meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
-<meta property="og:updated_time" content="2019-09-12T10:04:41.460Z">
+<meta property="og:updated_time" content="2019-12-02T06:02:52.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="音视频入门-01-认识RGB">
-<meta name="twitter:description" content="音视频入门文章目录  RGB 简介 RGB 色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB 即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。">
-<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
+<meta name="twitter:title" content="音视频入门-14-JPEG文件格式详解">
+<meta name="twitter:description" content="音视频入门文章目录  JPEG 文件格式解析JPEG 文件使用的数据存储方式有多种。最常用的格式称为 JPEG 文件交换格式（JPEG File Interchange Format，JFIF）。而 JPEG 文件大体上可以分成两个部分：标记码(Tag)和压缩数据。 标记码由两个字节构成，其前一个字节是固定值 0xFF，后一个字节则根据不同意义有不同数值。在每个标记码之前还可以添加数目不限的无意">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-soi.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -178,20 +188,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-audio-video-basic-01-rgb-intro" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-audio-video-basic-14-jpeg-file-format-detail" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      音视频入门-01-认识RGB
+      音视频入门-14-JPEG文件格式详解
     </h1>
   
 
         
-        <a href="/blog/audio-video-basic-01-rgb-intro/" class="archive-article-date">
-  	<time datetime="2019-09-09T14:34:50.162Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+        <a href="/blog/audio-video-basic-14-jpeg-file-format-detail/" class="archive-article-date">
+  	<time datetime="2019-12-02T05:58:41.593Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
 </a>
         
       </header>
@@ -199,47 +209,450 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
-<h1 id="RGB-简介"><a href="#RGB-简介" class="headerlink" title="RGB 简介"></a>RGB 简介</h1><blockquote>
-<p>RGB 色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB 即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。</p>
-</blockquote>
+<h1 id="JPEG-文件格式解析"><a href="#JPEG-文件格式解析" class="headerlink" title="JPEG 文件格式解析"></a>JPEG 文件格式解析</h1><p>JPEG 文件使用的数据存储方式有多种。最常用的格式称为 JPEG 文件交换格式（JPEG File Interchange Format，JFIF）。而 JPEG 文件大体上可以分成两个部分：标记码(Tag)和压缩数据。</p>
+<p>标记码由两个字节构成，其前一个字节是固定值 <code>0xFF</code>，后一个字节则根据不同意义有不同数值。在每个标记码之前还可以添加数目不限的无意义的 <code>0xFF</code> 填充，也就说连续的多个 <code>0xFF</code>可以被理解为一个 <code>0xFF</code>，并表示一个标记码的开始。而在一个完整的两字节的标记码后，就是该标记码对应的压缩数据流，记录了关于文件的诸种信息。</p>
+<p>常用的标记有 <code>SOI</code>、<code>APP0</code>、<code>APPn</code>、<code>DQT</code>、<code>SOF0</code>、<code>DHT</code>、<code>DRI</code>、<code>SOS</code>、<code>EOI</code>。</p>
+<p>注意，<code>SOI</code> 等都是标记的名称。在文件中，标记码是以标记代码形式出现。例如 <code>SOI</code> 的标记代码为 <code>0xFFD8</code>，即在 JPEG 文件中的如果出现数据 <code>0xFFD8</code>，则表示此处为一个 <code>SOI</code> 标记。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标记</th>
+<th style="text-align:left">标记代码</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SOI</td>
+<td style="text-align:left">0xD8</td>
+<td style="text-align:left">图像开始</td>
+</tr>
+<tr>
+<td style="text-align:left">APP0</td>
+<td style="text-align:left">0xE0</td>
+<td style="text-align:left">JFIF应用数据块</td>
+</tr>
+<tr>
+<td style="text-align:left">APPn</td>
+<td style="text-align:left">0xE1 - 0xEF</td>
+<td style="text-align:left">其他的应用数据块(n, 1～15)</td>
+</tr>
+<tr>
+<td style="text-align:left">DQT</td>
+<td style="text-align:left">0xDB</td>
+<td style="text-align:left">量化表</td>
+</tr>
+<tr>
+<td style="text-align:left">SOF0</td>
+<td style="text-align:left">0xC0</td>
+<td style="text-align:left">帧开始</td>
+</tr>
+<tr>
+<td style="text-align:left">DHT</td>
+<td style="text-align:left">0xC4</td>
+<td style="text-align:left">霍夫曼(Huffman)表</td>
+</tr>
+<tr>
+<td style="text-align:left">DRI</td>
+<td style="text-align:left">0xDD</td>
+<td style="text-align:left">差分编码累计复位的间隔</td>
+</tr>
+<tr>
+<td style="text-align:left">SOS</td>
+<td style="text-align:left">0xDA</td>
+<td style="text-align:left">扫描线开始</td>
+</tr>
+<tr>
+<td style="text-align:left">EOI</td>
+<td style="text-align:left">0xD9</td>
+<td style="text-align:left">图像结束</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
-<h1 id="RGB格式"><a href="#RGB格式" class="headerlink" title="RGB格式"></a>RGB格式</h1><h2 id="RGB16-格式"><a href="#RGB16-格式" class="headerlink" title="RGB16 格式"></a>RGB16 格式</h2><p>RGB16 数据格式主要有两种：RGB565 和 RGB555。</p>
-<h3 id="1-RGB565"><a href="#1-RGB565" class="headerlink" title="1. RGB565"></a>1. RGB565</h3><blockquote>
-<p>每个像素用 16 比特位表示，占 2 个字节，R，G，B 分量分别使用 5 位、6 位、5 位。</p>
+<p>用来分析的样例图片：<a href="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/libpng-rgb-rainbow.jpg" target="_blank" rel="noopener">libpng-rgb-rainbow.jpg</a>。</p>
+<h2 id="1-SOI-Start-of-Image-图像开始标记"><a href="#1-SOI-Start-of-Image-图像开始标记" class="headerlink" title="(1) SOI (Start of Image)图像开始标记"></a>(1) SOI (Start of Image)图像开始标记</h2><blockquote>
+<p>0xFFD8</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R R R R R G G G G G G B B B B B</span><br></pre></td></tr></table></figure>
-<p>从上面排列格式，得到 RGB565 各分量的值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define RGB565_MASK_RED 0xF800</span><br><span class="line">#define RGB565_MASK_GREEN 0x07E0</span><br><span class="line">#define RGB565_MASK_BLUE 0x001F</span><br><span class="line">R = (color &amp; RGB565_MASK_RED) &gt;&gt; 11; // 取值范围0-31</span><br><span class="line">G = (color &amp; RGB565_MASK_GREEN) &gt;&gt; 5; // 取值范围0-63</span><br><span class="line">B = color &amp; RGB565_MASK_BLUE; // 取值范围0-31</span><br></pre></td></tr></table></figure>
-<h3 id="2-RGB555"><a href="#2-RGB555" class="headerlink" title="2. RGB555"></a>2. RGB555</h3><blockquote>
-<p>每个像素用 16 比特位表示，占 2 个字节，R，G，B 分量都使用 5 位(最高位不用)。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-soi.png" alt="jpeg-tag-soi.png"></p>
+<h2 id="2-APP0-Application-应用程序保留标记0"><a href="#2-APP0-Application-应用程序保留标记0" class="headerlink" title="(2) APP0 (Application) 应用程序保留标记0"></a>(2) APP0 (Application) 应用程序保留标记0</h2><blockquote>
+<p>0xFFE0</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X R R R R R G G G G G B B B B B （X表示不用，可以忽略）</span><br></pre></td></tr></table></figure>
-<p>从上面排列格式，得到 RGB555 各分量的值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define RGB555_MASK_RED 0x7C00</span><br><span class="line">#define RGB555_MASK_GREEN 0x03E0</span><br><span class="line">#define RGB555_MASK_BLUE 0x001F</span><br><span class="line">R = (color &amp; RGB555_MASK_RED) &gt;&gt; 10; // 取值范围0-31</span><br><span class="line">G = (color &amp; RGB555_MASK_GREEN) &gt;&gt; 5; // 取值范围0-31</span><br><span class="line">B = color &amp; RGB555_MASK_BLUE; // 取值范围0-31</span><br></pre></td></tr></table></figure>
-<h2 id="RGB24-格式"><a href="#RGB24-格式" class="headerlink" title="RGB24 格式"></a>RGB24 格式</h2><blockquote>
-<p>每个像素用 24 比特位表示，占 3 个字节，R，G，B 分量都使用 8 位。</p>
+<p>包含9个具体字段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">①</td>
+<td style="text-align:left">数据长度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">①~⑨ 9个字段的总长度,即不包括标记代码，但包括本字段</td>
+</tr>
+<tr>
+<td style="text-align:left">②</td>
+<td style="text-align:left">标识符</td>
+<td style="text-align:left">5 字节</td>
+<td style="text-align:left">固定值 0x4A46494600，即字符串“JFIF0”</td>
+</tr>
+<tr>
+<td style="text-align:left">③</td>
+<td style="text-align:left">版本号</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">一般是 0x0102，表示 JFIF 的版本号 1.2,可能会有其他数值代表其他版本</td>
+</tr>
+<tr>
+<td style="text-align:left">④</td>
+<td style="text-align:left">X 和 Y 的密度单位</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">只有三个值可选 0：无单位；1：点数/英寸；2：点数/厘米</td>
+</tr>
+<tr>
+<td style="text-align:left">⑤</td>
+<td style="text-align:left">X 方向像素密度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">取值范围未知</td>
+</tr>
+<tr>
+<td style="text-align:left">⑥</td>
+<td style="text-align:left">Y 方向像素密度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">取值范围未知</td>
+</tr>
+<tr>
+<td style="text-align:left">⑦</td>
+<td style="text-align:left">缩略图水平像素数目</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">取值范围未知</td>
+</tr>
+<tr>
+<td style="text-align:left">⑧</td>
+<td style="text-align:left">缩略图垂直像素数目</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">取值范围未知</td>
+</tr>
+<tr>
+<td style="text-align:left">⑨</td>
+<td style="text-align:left">缩略图 RGB 位图</td>
+<td style="text-align:left">长度可能是 3 的倍数</td>
+<td style="text-align:left">缩略图 RGB 位图数据</td>
+</tr>
+</tbody>
+</table>
+<p>本标记段可以包含图像的一个微缩版本，存为 24 位的 RGB 像素。如果没有微缩图像（这种情况更常见），则字段 ⑦“ 缩略图水平像素数目”和字段 ⑧“ 缩略图垂直像素数目”的值均为 0 。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-app0.png" alt="jpeg-tag-app0.png"></p>
+<h2 id="3-APPn-Application-应用程序保留标记-n，其中-n-1～15-任选"><a href="#3-APPn-Application-应用程序保留标记-n，其中-n-1～15-任选" class="headerlink" title="(3) APPn (Application) 应用程序保留标记 n，其中 n=1～15(任选)"></a>(3) APPn (Application) 应用程序保留标记 n，其中 n=1～15(任选)</h2><blockquote>
+<p>0xFFE1~0xFFF</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R R R R R R R R G G G G G G G G B B B B B B B B</span><br></pre></td></tr></table></figure>
-<p>从上面排列格式，得到 RGB 各分量的值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define RGB24_MASK_RED 0xFF0000</span><br><span class="line">#define RGB24_MASK_GREEN 0x00FF00</span><br><span class="line">#define RGB24_MASK_BLUE 0x0000FF</span><br><span class="line">R = (color &amp; RGB24_MASK_RED) &gt;&gt; 16;</span><br><span class="line">G = (color &amp; RGB24_MASK_GREEN) &gt;&gt; 8;</span><br><span class="line">B = color &amp; RGB24_MASK_BLUE;</span><br></pre></td></tr></table></figure>
-<h2 id="RGB32-格式"><a href="#RGB32-格式" class="headerlink" title="RGB32 格式"></a>RGB32 格式</h2><blockquote>
-<p>每个像素用 32 比特位表示，占 4 个字节，R，G，B，X 分量都使用 8 位。</p>
+<p>包含 2 个具体字段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">①</td>
+<td style="text-align:left">数据长度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">①~② 2 个字段的总长度,即不包括标记代码，但包括本字段</td>
+</tr>
+<tr>
+<td style="text-align:left">②</td>
+<td style="text-align:left">详细信息</td>
+<td style="text-align:left">数据长度-2 字节</td>
+<td style="text-align:left">内容不定</td>
+</tr>
+</tbody>
+</table>
+<p>例如，Adobe Photoshop 生成的 JPEG 图像中就用了 APP1 和 APP13 两个标记段分别存储了一幅图像的副本。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-app1~app13.png" alt="jpeg-tag-app1~app13.png"></p>
+<h2 id="4-DQT-Define-Quantization-Table-定义量化表"><a href="#4-DQT-Define-Quantization-Table-定义量化表" class="headerlink" title="(4) DQT (Define Quantization Table) 定义量化表"></a>(4) DQT (Define Quantization Table) 定义量化表</h2><blockquote>
+<p>0xFFDB</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R R R R R R R R G G G G G G G G B B B B B B B B X X X X X X X X （X表示不用，保留字节）</span><br></pre></td></tr></table></figure>
-<p>从上面排列格式，得到 RGBX 各分量的值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define RGB32_MASK_RED 0xFF000000</span><br><span class="line">#define RGB32_MASK_GREEN 0x00FF0000</span><br><span class="line">#define RGB32_MASK_BLUE 0x0000FF00</span><br><span class="line">#define RGB32_MASK_X 0x000000FF</span><br><span class="line">R = (color &amp; RGB32_MASK_RED) &gt;&gt; 24;</span><br><span class="line">G = (color &amp; RGB32_MASK_GREEN) &gt;&gt; 16;</span><br><span class="line">B = (color &amp; RGB32_MASK_BLUE) &gt;&gt; 8;</span><br><span class="line">X = color &amp; RGB32_MASK_X;</span><br></pre></td></tr></table></figure>
-<h3 id="ARGB32"><a href="#ARGB32" class="headerlink" title="ARGB32"></a>ARGB32</h3><blockquote>
-<p>与 RGB32 的区别在于，保留的 8 个 bit 用来表示透明度，也就是 alpha 的值。</p>
+<p>包含 2 个具体字段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">①</td>
+<td style="text-align:left">数据长度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">字段 ① 和多个字段 ② 的总长度 ，即不包括标记代码，但包括本字段</td>
+</tr>
+<tr>
+<td style="text-align:left">②</td>
+<td style="text-align:left">量化表</td>
+<td style="text-align:left">数据长度-2 字节</td>
+<td style="text-align:left">《量化表表格》</td>
+</tr>
+</tbody>
+</table>
+<p>量化表表格：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">精度及量化表 ID</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">高 4 位：精度，只有两个可选值  0：8位；1：16位;<br>低 4 位：量化表 ID，取值范围为 0～3</td>
+</tr>
+<tr>
+<td style="text-align:left">表项</td>
+<td style="text-align:left">(64×(精度+1)) 字节</td>
+<td style="text-align:left">例如 8 位精度的量化表,其表项长度为 64×(0+1)=64 字节</td>
+</tr>
+</tbody>
+</table>
+<p>本标记段中，字段 ② 可以重复出现，表示多个量化表，但最多只能出现 4 次。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-dqt.png" alt="jpeg-tag-dqt.png"></p>
+<h2 id="5-SOF0-Start-of-Frame-帧图像开始"><a href="#5-SOF0-Start-of-Frame-帧图像开始" class="headerlink" title="(5) SOF0 (Start of Frame) 帧图像开始"></a>(5) SOF0 (Start of Frame) 帧图像开始</h2><blockquote>
+<p>0xFFC0</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R R R R R R R R G G G G G G G G B B B B B B B B A A A A A A A A</span><br></pre></td></tr></table></figure>
-<p>从上面排列格式，得到 RGBA 各分量的值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define ARGB_MASK_RED 0xFF000000</span><br><span class="line">#define ARGB_MASK_GREEN 0x00FF0000</span><br><span class="line">#define ARGB_MASK_BLUE 0x0000FF00</span><br><span class="line">#define ARGB_MASK_ALPHA 0x000000FF</span><br><span class="line">R = (color &amp; ARGB_MASK_RED) &gt;&gt; 24;</span><br><span class="line">G = (color &amp; ARGB_MASK_GREEN) &gt;&gt; 16;</span><br><span class="line">B = (color &amp; ARGB_MASK_BLUE) &gt;&gt; 8;</span><br><span class="line">A = color &amp; ARGB_MASK_ALPHA;</span><br></pre></td></tr></table></figure>
+<p>包含 6 个具体字段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">①</td>
+<td style="text-align:left">数据长度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">①~⑥ 六个字段的总长度，即不包括标记代码，但包括本字段</td>
+</tr>
+<tr>
+<td style="text-align:left">②</td>
+<td style="text-align:left">精度</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">每个数据样本的位数，通常是 8 位，一般软件都不支持 12 位和 16 位</td>
+</tr>
+<tr>
+<td style="text-align:left">③</td>
+<td style="text-align:left">图像高度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">图像高度（单位：像素），如果不支持 DNL 就必须 &gt; 0</td>
+</tr>
+<tr>
+<td style="text-align:left">④</td>
+<td style="text-align:left">图像宽度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">图像宽度（单位：像素），如果不支持 DNL 就必须 &gt; 0</td>
+</tr>
+<tr>
+<td style="text-align:left">⑤</td>
+<td style="text-align:left">颜色分量数</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">只有 3 个数值可选<br> 1：灰度图；3：YCrCb 或 YIQ；4：CMYK；<br> 而 JFIF 中使用 YCrCb，故这里颜色分量数恒为 3</td>
+</tr>
+<tr>
+<td style="text-align:left">⑥</td>
+<td style="text-align:left">颜色分量信息</td>
+<td style="text-align:left">颜色分量数×3字节（通常为 9 字节）</td>
+<td style="text-align:left">《颜色分量信息表格》</td>
+</tr>
+</tbody>
+</table>
+<p>颜色分量信息：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">颜色分量 ID</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">水平/垂直采样因子</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">高 4 位：水平采样因子，低 4 位：垂直采样因子</td>
+</tr>
+<tr>
+<td style="text-align:left">量化表</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">当前分量使用的量化表的 ID</td>
+</tr>
+</tbody>
+</table>
+<p>本标记段中，字段 ⑥ 应该重复出现，有多少个颜色分量（字段 ⑤），就出现多少次（一般为 3 次）。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-sof0.png" alt="jpeg-tag-sof0.png"></p>
+<h2 id="6-DHT-Define-Huffman-Table-定义哈夫曼表"><a href="#6-DHT-Define-Huffman-Table-定义哈夫曼表" class="headerlink" title="(6) DHT (Define Huffman Table) 定义哈夫曼表"></a>(6) DHT (Define Huffman Table) 定义哈夫曼表</h2><blockquote>
+<p>0xFFC4</p>
+</blockquote>
+<p>包含 2 个具体字段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">①</td>
+<td style="text-align:left">数据长度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">字段 ① 和多个字段 ② 的总长度,即不包括标记代码，但包括本字段</td>
+</tr>
+<tr>
+<td style="text-align:left">②</td>
+<td style="text-align:left">哈夫曼表</td>
+<td style="text-align:left">数据长度-2 字节</td>
+<td style="text-align:left">《哈夫曼表表格》</td>
+</tr>
+</tbody>
+</table>
+<p>哈夫曼表表格：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">表 ID 和表类型</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">高 4 位：类型，只有两个值可选 0：DC 直流；1：AC 交流；<br> 低 4 位：哈夫曼表  ID，注意，DC 表和 AC 表分开编码</td>
+</tr>
+<tr>
+<td style="text-align:left">不同位数的码字数量</td>
+<td style="text-align:left">16 字节</td>
+<td style="text-align:left">编码内容 16 个不同位数的码字数量之和（字节）</td>
+</tr>
+</tbody>
+</table>
+<p>本标记段中，字段 ② 可以重复出现（一般 4 次），也可以只出现1次。例如，Adobe Photoshop  生成的 JPEG 图片文件中只有 1 个 DHT 标记段，里边包含了 4 个哈夫曼表；而 Macromedia Fireworks 生成的 JPEG 图片文件则有 4 个 DHT 标记段，每个 DHT 标记段只有一个哈夫曼表。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-dht.png" alt="jpeg-tag-dht.png"></p>
+<h2 id="7-DRI-Define-Restart-Interval-定义差分编码累计复位的间隔"><a href="#7-DRI-Define-Restart-Interval-定义差分编码累计复位的间隔" class="headerlink" title="(7) DRI (Define Restart Interval) 定义差分编码累计复位的间隔"></a>(7) DRI (Define Restart Interval) 定义差分编码累计复位的间隔</h2><blockquote>
+<p>0xFFDD</p>
+</blockquote>
+<p>包含 2 个具体字段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">①</td>
+<td style="text-align:left">数据长度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">固定值 0x0004，①~② 两个字段的总长度,即不包括标记代码，但包括本字段</td>
+</tr>
+<tr>
+<td style="text-align:left">②</td>
+<td style="text-align:left">MCU 块的单元中的重新开始间隔</td>
+<td style="text-align:left">2字节</td>
+<td style="text-align:left">设其值为 n，则表示每 n 个 MCU 块就有一个 RSTn 标记。第一个标记是 RST0，第二个是 RST1 等，RST7 后再从 RST0 重复。</td>
+</tr>
+</tbody>
+</table>
+<p>如果没有本标记段，或间隔值为 0 时，就表示不存在重开始间隔和标记 RST。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-dri.png" alt="jpeg-tag-dri.png"></p>
+<h2 id="8-SOS-Start-of-Scan-扫描开始-12字节"><a href="#8-SOS-Start-of-Scan-扫描开始-12字节" class="headerlink" title="(8) SOS (Start of Scan) 扫描开始 12字节"></a>(8) SOS (Start of Scan) 扫描开始 12字节</h2><blockquote>
+<p>0xFFDA</p>
+</blockquote>
+<p>包含 4 个具体字段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">①</td>
+<td style="text-align:left">数据长度</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">①~④ 两个字段的总长度,即不包括标记代码，但包括本字段</td>
+</tr>
+<tr>
+<td style="text-align:left">②</td>
+<td style="text-align:left">颜色分量数</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">应该和 SOF 中的字段 ⑤ 的值相同，即： <br> 1：灰度图是；3： YCrCb 或 YIQ；4：CMYK。 <br>  而 JFIF 中使用 YCrCb，故这里颜色分量数恒为 3</td>
+</tr>
+<tr>
+<td style="text-align:left">③</td>
+<td style="text-align:left">颜色分量信息</td>
+<td style="text-align:left">(a) 颜色分量 ID: 1 字节 <br> (b) 直流/交流系数表号: 1 字节 (高 4 位：直流分量使用的哈夫曼树编号,低 4 位：交流分量使用的哈夫曼树编号)</td>
+</tr>
+<tr>
+<td style="text-align:left">④</td>
+<td style="text-align:left">压缩图像数据</td>
+<td style="text-align:left">(a) 谱选择开始:1 字节(固定值 0x00) <br> (b) 谱选择结束:1 字节(固定值 0x3F) <br> (c) 谱选择:1 字节(在基本 JPEG 中总为 0x00)</td>
+</tr>
+</tbody>
+</table>
+<p>本标记段中，字段 ③ 应该重复出现，有多少个颜色分量（字段 ②），就出现多少次（一般为 3 次）。本段结束后，紧接着就是真正的图像信息了。图像信息直至遇到一个标记代码就自动结束，一般就是以 EOI 标记表示结束。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-sos.png" alt="jpeg-tag-sos.png"></p>
+<h2 id="9-EOI-End-of-Image-图像结束标记"><a href="#9-EOI-End-of-Image-图像结束标记" class="headerlink" title="(9) EOI (End of Image) 图像结束标记"></a>(9) EOI (End of Image) 图像结束标记</h2><blockquote>
+<p>0xFFD9</p>
+</blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-eoi.png" alt="jpeg-tag-eoi.png"></p>
+<h2 id="JPEG-标记总览"><a href="#JPEG-标记总览" class="headerlink" title="JPEG 标记总览"></a>JPEG 标记总览</h2><p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-tag-all.png" alt="jpeg-tag-all.png"></p>
+<h1 id="More"><a href="#More" class="headerlink" title="More"></a>More</h1><p>下一步，将用代码手动生成一张 JPEG 图片，文章目录：<a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a>。</p>
 <hr>
+<p>代码：<br><a href="https://github.com/binglingziyu/audio-video-blog-demos" target="_blank" rel="noopener">audio-video-blog-demos</a></p>
 <p>参考资料：</p>
-<p><a href="https://baike.baidu.com/item/RGB" target="_blank" rel="noopener">百度百科 RGB</a></p>
-<p><a href="https://blog.csdn.net/byhook/article/details/84262330" target="_blank" rel="noopener">图解RGB565、RGB555、RGB16、RGB24、RGB32、ARGB32等格式的区别</a></p>
-<p><a href="https://blog.csdn.net/leixiaohua1020/article/details/50534150" target="_blank" rel="noopener">视音频数据处理入门：RGB、YUV像素数据处理</a></p>
-<p>内容有误？联系作者：<br><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
+<p><a href="https://zh.wikipedia.org/zh-cn/JPEG" target="_blank" rel="noopener">JPEG-维基百科</a></p>
+<p><a href="https://jpeg.org/jpeg/" target="_blank" rel="noopener">jpeg.org</a></p>
+<p><a href="https://blog.csdn.net/lpt19832003/article/details/1713718" target="_blank" rel="noopener">JPEG文件编/解码详解</a></p>
+<p><a href="https://www.cnblogs.com/robottech/archive/2008/07/21/1247721.html" target="_blank" rel="noopener">Jpg文件格式[参考]</a></p>
+<p><a href="https://blog.csdn.net/ryfdizuo/article/details/41250775" target="_blank" rel="noopener">理解JPEG文件头的格式</a></p>
+<p><a href="https://blog.csdn.net/yun_hen/article/details/78135122" target="_blank" rel="noopener">jpeg图片格式详解</a></p>
+<p><a href="https://blog.csdn.net/m0_37876745/article/details/80782447" target="_blank" rel="noopener">简述JPEG编码实现的基本步骤</a></p>
+<p><a href="https://blog.csdn.net/asdzheng/article/details/51779038" target="_blank" rel="noopener">JPG的工作原理</a></p>
+<p><a href="https://medium.freecodecamp.com/how-jpg-works-a4dbd2316f35#.y8yys5lh0" target="_blank" rel="noopener">How JPG Works</a></p>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解</a></p>
+<p>内容有误？联系作者：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
 <hr>
 
       
@@ -290,6 +703,10 @@ var _hmt = _hmt || [];
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JPEG文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -356,7 +773,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-01-rgb-intro/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-14-jpeg-file-format-detail/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,18 +787,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/audio-video-basic-02-rgb-puzzle/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          音视频入门-02-RGB拼图
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/audio-video-basic-catagory/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">音视频入门-目录</div>
+    <a href="/blog/audio-video-basic-13-generate-png-with-library/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音视频入门-13-使用开源库生成PNG图片</div>
       <i class="icon-circle-right"></i>
     </a>
   
