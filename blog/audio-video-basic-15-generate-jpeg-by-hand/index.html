@@ -6,21 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>关于我 &amp; 留言板 | binglingziyu的博客</title>
+  <title>音视频入门-15-手动生成一张JPEG图片 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么要写博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我 &amp; 留言板">
-<meta property="og:url" content="http://www.ihubin.com/about/index.html">
+  <meta name="description" content="音视频入门文章目录  JPEG 编码知识 JPEG 是 Joint Photographic Exports Group 的英文缩写，中文称之为联合图像专家小组。该小组隶属于 ISO 国际标准化组织，主要负责定制静态数字图像的编码方法，即所谓的 JPEG 算法。  JPEG 专家组开发了两种基本的压缩算法、两种熵编码方法、四种编码模式。如下所示：   压缩算法：   有损的离散余弦变换 DCT（">
+<meta name="keywords" content="音视频,音视频基础,JPEG文件格式详解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音视频入门-15-手动生成一张JPEG图片">
+<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-15-generate-jpeg-by-hand/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="为什么要写博客">
+<meta property="og:description" content="音视频入门文章目录  JPEG 编码知识 JPEG 是 Joint Photographic Exports Group 的英文缩写，中文称之为联合图像专家小组。该小组隶属于 ISO 国际标准化组织，主要负责定制静态数字图像的编码方法，即所谓的 JPEG 算法。  JPEG 专家组开发了两种基本的压缩算法、两种熵编码方法、四种编码模式。如下所示：   压缩算法：   有损的离散余弦变换 DCT（">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/common_fault_of_blog.png">
-<meta property="og:updated_time" content="2018-03-27T08:15:15.000Z">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/JPEG%E5%88%86%E5%9D%97.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-formula.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-1.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-2.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-3.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-%E9%87%8F%E5%8C%96-1.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-%E9%87%8F%E5%8C%96-2.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-%E9%87%8F%E5%8C%96-3.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-zigzag.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-encode-vli.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/rgb-to-jpeg-final-result.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
+<meta property="og:updated_time" content="2020-02-28T09:31:52.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我 &amp; 留言板">
-<meta name="twitter:description" content="为什么要写博客">
-<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/common_img/common_fault_of_blog.png">
+<meta name="twitter:title" content="音视频入门-15-手动生成一张JPEG图片">
+<meta name="twitter:description" content="音视频入门文章目录  JPEG 编码知识 JPEG 是 Joint Photographic Exports Group 的英文缩写，中文称之为联合图像专家小组。该小组隶属于 ISO 国际标准化组织，主要负责定制静态数字图像的编码方法，即所谓的 JPEG 算法。  JPEG 专家组开发了两种基本的压缩算法、两种熵编码方法、四种编码模式。如下所示：   压缩算法：   有损的离散余弦变换 DCT（">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/JPEG%E5%88%86%E5%9D%97.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -177,27 +189,718 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-audio-video-basic-15-generate-jpeg-by-hand" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于我 &amp; 留言板
+      音视频入门-15-手动生成一张JPEG图片
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2018-11-09T08:53:55.913Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-09</time>
+        <a href="/blog/audio-video-basic-15-generate-jpeg-by-hand/" class="archive-article-date">
+  	<time datetime="2020-02-28T09:27:54.128Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="为什么要写博客"><a href="#为什么要写博客" class="headerlink" title="为什么要写博客"></a>为什么要写博客</h2><p><img src="http://cloudstorage.ihubin.com/blog/common_img/common_fault_of_blog.png" alt="博客的通病"></p>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="JPEG-编码知识"><a href="#JPEG-编码知识" class="headerlink" title="JPEG 编码知识"></a>JPEG 编码知识</h1><p> JPEG 是 Joint Photographic Exports Group 的英文缩写，中文称之为联合图像专家小组。该小组隶属于 ISO 国际标准化组织，主要负责定制静态数字图像的编码方法，即所谓的 JPEG 算法。</p>
+<blockquote>
+<p>JPEG 专家组开发了两种基本的压缩算法、两种熵编码方法、四种编码模式。如下所示：</p>
+</blockquote>
+<ul>
+<li>压缩算法：</li>
+</ul>
+<ol>
+<li><p>有损的离散余弦变换 DCT（Discrete Cosine Transform）</p>
+</li>
+<li><p>无损的预测压缩技术；</p>
+</li>
+</ol>
+<ul>
+<li>熵编码方法：</li>
+</ul>
+<ol>
+<li><p>Huffman 编码；</p>
+</li>
+<li><p>算术编码；</p>
+</li>
+</ol>
+<ul>
+<li>编码模式：</li>
+</ul>
+<ol>
+<li><p>基于 DCT 的顺序模式：编码、解码通过一次扫描完成；</p>
+</li>
+<li><p>基于 DCT 的渐进模式：编码、解码需要多次扫描完成，扫描效果由粗到精，逐级递增；</p>
+</li>
+<li><p>无损模式：基于 DPCM，保证解码后完全精确恢复到原图像采样值；</p>
+</li>
+<li><p>层次模式：图像在多个空间分辨率中进行编码，可以根据需要只对低分辨率数据做解码，放弃高分辨率信息；</p>
+</li>
+</ol>
+<blockquote>
+<p>在实际应用中，JPEG 图像编码算法使用的大多是 <code>离散余弦变换 DCT</code>、<code>Huffman 编码</code>、<code>顺序编码模式</code>。</p>
+</blockquote>
+<p>这被称为 JPEG 的基本系统。这里介绍的 JPEG 编码算法的流程，也是针对基本系统而言。基本系统的 JPEG 压缩编码算法一共分为 11 个步骤：</p>
+<ol>
+<li><code>颜色模式转换</code></li>
+<li><code>采样</code></li>
+<li><code>分块</code></li>
+<li><code>离散余弦变换（DCT）</code></li>
+<li><code>量化</code></li>
+<li><code>Zigzag 扫描排序</code></li>
+<li><code>DC 系数的差分脉冲调制编码</code></li>
+<li><code>DC 系数的中间格式计算</code></li>
+<li><code>AC 系数的游程长度编码</code></li>
+<li><code>AC 系数的中间格式计算</code></li>
+<li><code>熵编码</code></li>
+</ol>
+<a id="more"></a>
+<h1 id="JPEG-编码步骤"><a href="#JPEG-编码步骤" class="headerlink" title="JPEG 编码步骤"></a>JPEG 编码步骤</h1><blockquote>
+<p>JPEG 编码涉及到的知识还是很复杂的，每一个步骤如果展开的话都是非常大的篇幅。我们这里简单了解每一步是干什么的、怎么做，达到每一步的目标就可以了。</p>
+<p>本文使用了 <a href="https://github.com/rockcarry/ffjpeg" target="_blank" rel="noopener">ffjpeg library</a> a simple jpeg codec，几乎所有的编码算法都是使用了这个库里的。</p>
+</blockquote>
+<h2 id="1-颜色模式转换"><a href="#1-颜色模式转换" class="headerlink" title="1. 颜色模式转换"></a>1. 颜色模式转换</h2><p>JPEG 采用的是 YCrCb 颜色空间，YCrCb 颜色空间中，Y 代表亮度，Cr,Cb 则代表色度和饱和度(也有人将 Cb,Cr 两者统称为色度)，三者通常以 Y,U,V 来表示，即用 U 代表 Cb，用 V 代表 Cr。RGB 和 YCrCb 之间的转换关系如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Y = 0.299*R + 0.587*G + 0.114*B</span><br><span class="line"></span><br><span class="line">Cb = -0.169*R - 0.331*G + 0.500*B + 128</span><br><span class="line"></span><br><span class="line">Cr = 0.500*R - 0.419*G - 0.081*B + 128</span><br><span class="line"></span><br><span class="line">取值范围：</span><br><span class="line">R/G/B  [0 ~ 255]</span><br><span class="line">Y/Cb/Cr[0 ~ 255]</span><br></pre></td></tr></table></figure>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// Y = 0.299*R + 0.587*G + 0.114*B</span><br><span class="line">// U = Cb = -0.169*R - 0.331*G + 0.500*B + 128</span><br><span class="line">// V = Cr = 0.500*R - 0.419*G - 0.081*B + 128</span><br><span class="line">// R/G/B  [0 ~ 255]</span><br><span class="line">// Y/Cb/Cr[0 ~ 255]</span><br><span class="line">void rgb_to_yuv(uint8_t R, uint8_t G, uint8_t B, uint8_t *Y, uint8_t *U, uint8_t *V) &#123;</span><br><span class="line">    int y_val = (int)round(0.299*R + 0.587*G + 0.114*B);</span><br><span class="line">    int u_val = (int)round(-0.169*R - 0.331*G + 0.500*B + 128);</span><br><span class="line">    int v_val = (int)round(0.500*R - 0.419*G - 0.081*B + 128);</span><br><span class="line">    *Y = bound(0, y_val, 255);</span><br><span class="line">    *U = bound(0, u_val, 255);</span><br><span class="line">    *V = bound(0, v_val, 255);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://web.archive.org/web/20180421030430/http://www.equasys.de/colorconversion.html" target="_blank" rel="noopener">YUV - RGB Color Format Conversion</a></p>
+<hr>
+<h2 id="2-采样"><a href="#2-采样" class="headerlink" title="2. 采样"></a>2. 采样</h2><p>为节省带宽起见，大多数 YUV 格式平均使用的每像素位数都少于 24 位。主要的采样（subsample）格式有 YCbCr4:2:0、YCbCr4:2:2、YCbCr4:1:1 和 YCbCr4:4:4。YUV 的表示法称为 A:B:C 表示法：</p>
+<ul>
+<li>4:4:4 表示完全取样。</li>
+<li>4:2:2 表示 2:1 的水平取样，垂直完全采样。</li>
+<li>4:2:0 表示 2:1 的水平取样，垂直 2：1 采样。</li>
+<li>4:1:1 表示 4:1 的水平取样，垂直完全采样。</li>
+</ul>
+<p><br></p>
+<blockquote>
+<p>表格中，每一格代表一个像素</p>
+</blockquote>
+<h3 id="未采样前"><a href="#未采样前" class="headerlink" title="未采样前"></a>未采样前</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0  U0  V0</td>
+<td style="text-align:center">Y1  U1  V1</td>
+<td style="text-align:center">Y2  U2  V2</td>
+<td style="text-align:center">Y3  U3  V3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4  U4  V4</td>
+<td style="text-align:center">Y5  U5  V5</td>
+<td style="text-align:center">Y6  U6  V6</td>
+<td style="text-align:center">Y7  U7  V7</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8  U8  V8</td>
+<td style="text-align:center">Y9  U9  V9</td>
+<td style="text-align:center">Y10 U10 V10</td>
+<td style="text-align:center">Y11 U11 V11</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U12 V12</td>
+<td style="text-align:center">Y13 U13 V13</td>
+<td style="text-align:center">Y14 U14 V14</td>
+<td style="text-align:center">Y15 U15 V15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-4-4-采样"><a href="#4-4-4-采样" class="headerlink" title="4:4:4 采样"></a>4:4:4 采样</h3><blockquote>
+<p>4:4:4 表示完全取样</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0  U0  V0</td>
+<td style="text-align:center">Y1  U1  V1</td>
+<td style="text-align:center">Y2  U2  V2</td>
+<td style="text-align:center">Y3  U3  V3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4  U4  V4</td>
+<td style="text-align:center">Y5  U5  V5</td>
+<td style="text-align:center">Y6  U6  V6</td>
+<td style="text-align:center">Y7  U7  V7</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8  U8  V8</td>
+<td style="text-align:center">Y9  U9  V9</td>
+<td style="text-align:center">Y10 U10 V10</td>
+<td style="text-align:center">Y11 U11 V11</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U12 V12</td>
+<td style="text-align:center">Y13 U13 V13</td>
+<td style="text-align:center">Y14 U14 V14</td>
+<td style="text-align:center">Y15 U15 V15</td>
+</tr>
+</tbody>
+</table>
+<p>映射的像素:  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0  U0  V0</td>
+<td style="text-align:center">Y1  U1  V1</td>
+<td style="text-align:center">Y2  U2  V2</td>
+<td style="text-align:center">Y3  U3  V3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4  U4  V4</td>
+<td style="text-align:center">Y5  U5  V5</td>
+<td style="text-align:center">Y6  U6  V6</td>
+<td style="text-align:center">Y7  U7  V7</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8  U8  V8</td>
+<td style="text-align:center">Y9  U9  V9</td>
+<td style="text-align:center">Y10 U10 V10</td>
+<td style="text-align:center">Y11 U11 V11</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U12 V12</td>
+<td style="text-align:center">Y13 U13 V13</td>
+<td style="text-align:center">Y14 U14 V14</td>
+<td style="text-align:center">Y15 U15 V15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-2-2-采样"><a href="#4-2-2-采样" class="headerlink" title="4:2:2 采样"></a>4:2:2 采样</h3><blockquote>
+<p>4:2:2 表示 2:1 的水平取样，垂直完全采样<br>每采样过一个像素点，都会采样其 Y 分量，而 U、V 分量就会间隔一个采集一个。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0  U0  -</td>
+<td style="text-align:center">Y1  -   V1</td>
+<td style="text-align:center">Y2  U2  -</td>
+<td style="text-align:center">Y3  -   V3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4  U4  -</td>
+<td style="text-align:center">Y5  -   V5</td>
+<td style="text-align:center">Y6  U6  -</td>
+<td style="text-align:center">Y7  -   V7</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8  U8  -</td>
+<td style="text-align:center">Y9  -   V9</td>
+<td style="text-align:center">Y10 U10 -</td>
+<td style="text-align:center">Y11 -   V11</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U12 -</td>
+<td style="text-align:center">Y13 -   V13</td>
+<td style="text-align:center">Y14 U14 -</td>
+<td style="text-align:center">Y15 -   V15</td>
+</tr>
+</tbody>
+</table>
+<p>映射的像素:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0  U0  V1</td>
+<td style="text-align:center">Y1  U0  V1</td>
+<td style="text-align:center">Y2  U2  V3</td>
+<td style="text-align:center">Y3  U2  V3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4  U4  V5</td>
+<td style="text-align:center">Y5  U4  V5</td>
+<td style="text-align:center">Y6  U6  V7</td>
+<td style="text-align:center">Y7  U6  V7</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8  U8  V9</td>
+<td style="text-align:center">Y9  U8  V9</td>
+<td style="text-align:center">Y10 U10 V11</td>
+<td style="text-align:center">Y11 U10 V11</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U12 V13</td>
+<td style="text-align:center">Y13 U12 V13</td>
+<td style="text-align:center">Y14 U14 V15</td>
+<td style="text-align:center">Y15 U14 V15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-2-0-采样"><a href="#4-2-0-采样" class="headerlink" title="4:2:0 采样"></a>4:2:0 采样</h3><blockquote>
+<p>4:2:0 表示 2:1 的水平取样，垂直 2：1 采样<br>每采样过一个像素点，都会采样其 Y 分量，而 U、V 分量就会间隔一行按照 2 : 1 进行采样。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0  U0  -</td>
+<td style="text-align:center">Y1  -   -</td>
+<td style="text-align:center">Y2  U2  -</td>
+<td style="text-align:center">Y3  -   -</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4  -   V4</td>
+<td style="text-align:center">Y5  -   -</td>
+<td style="text-align:center">Y6  -   V6</td>
+<td style="text-align:center">Y7  -   -</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8  U8  -</td>
+<td style="text-align:center">Y9  -   -</td>
+<td style="text-align:center">Y10 U10 -</td>
+<td style="text-align:center">Y11 -   -</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 -   V12</td>
+<td style="text-align:center">Y13 -   -</td>
+<td style="text-align:center">Y14 -   V14</td>
+<td style="text-align:center">Y15 -   -</td>
+</tr>
+</tbody>
+</table>
+<p>映射的像素:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0  U0  V4</td>
+<td style="text-align:center">Y1  U0  V4</td>
+<td style="text-align:center">Y2  U2  V6</td>
+<td style="text-align:center">Y3  U2  V6</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4  U0  V4</td>
+<td style="text-align:center">Y5  U0  V4</td>
+<td style="text-align:center">Y6  U2  V6</td>
+<td style="text-align:center">Y7  U2  V6</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8  U8  V12</td>
+<td style="text-align:center">Y9  U8  V12</td>
+<td style="text-align:center">Y10 U10 V14</td>
+<td style="text-align:center">Y11 U10 V14</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U8  V12</td>
+<td style="text-align:center">Y13 U8  V12</td>
+<td style="text-align:center">Y14 U10 V14</td>
+<td style="text-align:center">Y15 U10 V14</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-1-1-采样"><a href="#4-1-1-采样" class="headerlink" title="4:1:1 采样"></a>4:1:1 采样</h3><blockquote>
+<p>4:1:1 表示 4:1 的水平取样，垂直完全采样<br>每采样过一个像素点，都会采样其 Y 分量，而 U、V 分量就会间隔一行按照 2 : 1 进行采样。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0 U0 -</td>
+<td style="text-align:center">Y1 - -</td>
+<td style="text-align:center">Y2 - V2</td>
+<td style="text-align:center">Y3 - -</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4 U4 -</td>
+<td style="text-align:center">Y5 - -</td>
+<td style="text-align:center">Y6 - V6</td>
+<td style="text-align:center">Y7 - -</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8 U8 -</td>
+<td style="text-align:center">Y9 - -</td>
+<td style="text-align:center">Y10 - V10</td>
+<td style="text-align:center">Y11 - -</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U12 -</td>
+<td style="text-align:center">Y13 - -</td>
+<td style="text-align:center">Y14 - V14</td>
+<td style="text-align:center">Y15 - -</td>
+</tr>
+</tbody>
+</table>
+<p>映射的像素:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Y0 U0 V2</td>
+<td style="text-align:center">Y1 U0 V2</td>
+<td style="text-align:center">Y2 U0 V2</td>
+<td style="text-align:center">Y3 U0 V2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Y4 U4 V6</td>
+<td style="text-align:center">Y5 U4 V6</td>
+<td style="text-align:center">Y6 U4 V6</td>
+<td style="text-align:center">Y7 U4 V6</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Y8 U8 V10</td>
+<td style="text-align:center">Y9 U8 V10</td>
+<td style="text-align:center">Y10 U8 V10</td>
+<td style="text-align:center">Y11 U8 V10</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Y12 U12 V14</td>
+<td style="text-align:center">Y13 U12 V14</td>
+<td style="text-align:center">Y14 U12 V14</td>
+<td style="text-align:center">Y15 U12 V14</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void yuv444_to_yuv420(uint8_t *inbuf, uint8_t *outbuf, int w, int h) &#123;</span><br><span class="line">    uint8_t *srcY = NULL, *srcU = NULL, *srcV = NULL;</span><br><span class="line">    uint8_t *desY = NULL, *desU = NULL, *desV = NULL;</span><br><span class="line">    srcY = inbuf;//Y</span><br><span class="line">    srcU = srcY + w * h;//U</span><br><span class="line">    srcV = srcU + w * h;//V</span><br><span class="line"></span><br><span class="line">    desY = outbuf;</span><br><span class="line">    desU = desY + w * h;</span><br><span class="line">    desV = desU + w * h / 4;</span><br><span class="line"></span><br><span class="line">    int half_width = w / 2;</span><br><span class="line">    int half_height = h / 2;</span><br><span class="line">    memcpy(desY, srcY, w * h * sizeof(uint8_t));//Y分量直接拷贝即可</span><br><span class="line">    //UV</span><br><span class="line">    for (int i = 0; i &lt; half_height; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; half_width; j++) &#123;</span><br><span class="line">            *desU = *srcU;</span><br><span class="line">            *desV = *srcV;</span><br><span class="line">            desU++;</span><br><span class="line">            desV++;</span><br><span class="line">            srcU += 2;</span><br><span class="line">            srcV += 2;</span><br><span class="line">        &#125;</span><br><span class="line">        srcU = srcU + w;</span><br><span class="line">        srcV = srcV + w;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://glumes.com/post/ffmpeg/understand-yuv-format/" target="_blank" rel="noopener">一文读懂 YUV 的采样与格式</a></p>
+<p><a href="https://www.ihubin.com/blog/audio-video-basic-07-yuv-intro/">音视频入门-07-认识YUV</a></p>
+<hr>
+<h2 id="3-分块"><a href="#3-分块" class="headerlink" title="3. 分块"></a>3. 分块</h2><p>后面的 DCT 变换是是对 8x8 的子块进行处理的，因此，在进行 DCT 变换之前必须把源图象数据进行分块。源图象经过上面的<code>颜色模式转换</code>、<code>采样</code>变成了 YUV 数据，所以需要分别对 <code>Y</code> <code>U</code> <code>V</code> 三个分量进行分块。由左及右，由上到下依次读取 8x8 的子块，存放在长度为 64 的数组中，即可以进行 DCT 变换。</p>
+<p>图像 YUV444 数据进行分块：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/JPEG%E5%88%86%E5%9D%97.png" alt="JPEG分块"></p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// 计算分块数量</span><br><span class="line">int calc_block_size(int width, int height) &#123;</span><br><span class="line">    int h_block_size = width/8 + (width%8==0?0:1);</span><br><span class="line">    int v_block_size = height/8 + (height%8==0?0:1);</span><br><span class="line">    return h_block_size*v_block_size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取一个子块</span><br><span class="line">void get_8x8_block(const uint8_t *data, uint8_t *block_data, int h_block_pos, int v_block_pos, int width, int height) &#123;</span><br><span class="line">    for(int i = 0; i &lt; 8; i++) &#123;</span><br><span class="line">        for(int j = 0; j &lt; 8; j++) &#123;</span><br><span class="line">            int h_pos = h_block_pos*8 + i;</span><br><span class="line">            int v_pos = v_block_pos*8 + j;</span><br><span class="line">            if(h_pos &gt;= width || v_pos &gt;= height) &#123;</span><br><span class="line">                block_data[8*i+j] = 0;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                block_data[8*i+j] = data[h_pos*width + v_pos];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 对数据进行分块</span><br><span class="line">void block_data_8x8(uint8_t *data, uint8_t blocks[][64], int width, int height) &#123;</span><br><span class="line">    int h_block_size = width/8 + (width%8==0?0:1);</span><br><span class="line">    int v_block_size = height/8 + (height%8==0?0:1);</span><br><span class="line">    for(int i = 0; i &lt; h_block_size; i++) &#123;</span><br><span class="line">        for(int j = 0; j &lt; v_block_size; j++) &#123;</span><br><span class="line">            uint8_t *tmp = blocks[h_block_size*i+j];</span><br><span class="line">            get_8x8_block(data, tmp, i, j, width, height);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://blog.csdn.net/newchenxf/article/details/51719597/" target="_blank" rel="noopener">JPEG压缩原理与DCT离散余弦变换-以8x8的图象块为基本单位进行编码</a></p>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解-分块</a></p>
+<p><a href="https://blog.csdn.net/asdzheng/article/details/51779038" target="_blank" rel="noopener">JPG的工作原理-图像分成8x8像素块</a></p>
+<hr>
+<h2 id="4-离散余弦变换（DCT）"><a href="#4-离散余弦变换（DCT）" class="headerlink" title="4. 离散余弦变换（DCT）"></a>4. 离散余弦变换（DCT）</h2><p>DCT 变换的公式为：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-formula.jpg" alt="DCT 变换的公式"></p>
+<p>将原始图像数据分为 8x8 的数据单元矩阵之后，还必须将每个数值减去 128，然后一一带入 DCT 变换公式，即可达到 DCT 变换的目的。图像的数据值必须减去 128，是因为 DCT 公式所接受的数字范围是 -128 到 127 之间。</p>
+<p>举例来说明一下，例子来自<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">【JPEG 原理详细实例分析及其在嵌入式 Linux 中的应用】</a></p>
+<p>8x8 的原始图像：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-1.jpg" alt="JPEG-DCT-1"></p>
+<p>减去 128 后，使其范围变为 -128~127：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-2.jpg" alt="JPEG-DCT-2"></p>
+<p>使用离散余弦变换，并四舍五入取最接近的整数：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-dct-3.jpg" alt="JPEG-DCT-3"></p>
+<blockquote>
+<p>矩阵最左上角的是直流系数（<code>DC</code>）<br>矩阵其余 63 个是交流系数（<code>AC</code>）</p>
+</blockquote>
+<p>DCT 输出的频率系数矩阵最左上角的直流（<code>DC</code>）系数幅度最大，图中为<code>-415</code>；以 <code>DC</code> 系数为出发点向下、向右的其它 DCT 系数，离 DC 分量越远，频率越高，幅度值越小，图中最右下角为2，即图像信息的大部分集中于直流系数及其附近的低频频谱上，离 DC 系数越来越远的高频频谱几乎不含图像信息，甚至于只含杂波。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">void fdct2d8x8(int *data) &#123;</span><br><span class="line">    int u, v;</span><br><span class="line">    int x, y, i;</span><br><span class="line">    float buf[64];</span><br><span class="line">    float temp;</span><br><span class="line">    for (u=0; u&lt;8; u++) &#123;</span><br><span class="line">        for (v=0; v&lt;8; v++) &#123;</span><br><span class="line">            temp = 0;</span><br><span class="line">            for (x=0; x&lt;8; x++) &#123;</span><br><span class="line">                for (y=0; y&lt;8; y++) &#123;</span><br><span class="line">                    temp += data[y * 8 + x]</span><br><span class="line">                          * (float)cos((2.0f * x + 1.0f) / 16.0f * u * M_PI)</span><br><span class="line">                          * (float)cos((2.0f * y + 1.0f) / 16.0f * v * M_PI);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            buf[v * 8 + u] = alpha(u) * alpha(v) * temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i=0; i&lt;64; i++) data[i] = buf[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(int y_index = 0; y_index &lt; block_size; y_index++) &#123;</span><br><span class="line">    uint8_t *y_block = y_blocks[y_index];</span><br><span class="line">    // DCT 之前减去 128</span><br><span class="line">    for(int i = 0; i &lt; 64; i++) &#123;y_blocks_dct[y_index][i] = y_block[i]-128;&#125;</span><br><span class="line">    fdct2d8x8(y_blocks_dct[y_index]);</span><br><span class="line">&#125;</span><br><span class="line">for(int u_index = 0; u_index &lt; block_size; u_index++) &#123;</span><br><span class="line">    uint8_t *u_block = u_blocks[u_index];</span><br><span class="line">    // DCT 之前减去 128</span><br><span class="line">    for(int i = 0; i &lt; 64; i++) &#123;u_blocks_dct[u_index][i] = u_block[i] - 128;&#125;</span><br><span class="line">    fdct2d8x8(u_blocks_dct[u_index]);</span><br><span class="line">&#125;</span><br><span class="line">for(int v_index = 0; v_index &lt; block_size; v_index++) &#123;</span><br><span class="line">    uint8_t *v_block = v_blocks[v_index];</span><br><span class="line">    // DCT 之前减去 128</span><br><span class="line">    for(int i = 0; i &lt; 64; i++) &#123;v_blocks_dct[v_index][i] = v_block[i] - 128;&#125;</span><br><span class="line">    fdct2d8x8(v_blocks_dct[v_index]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">JPEG 原理详细实例分析及其在嵌入式 Linux 中的应用-3、离散余弦变换 DCT</a></p>
+<p><a href="https://github.com/rockcarry/ffjpeg/blob/master/docs/jpeg-cn.txt" target="_blank" rel="noopener">JPEG 简易文档 - 2. DCT (离散余弦变换)</a></p>
+<p><a href="https://blog.csdn.net/newchenxf/article/details/51719597/" target="_blank" rel="noopener">JPEG压缩原理与DCT离散余弦变换</a></p>
+<p><a href="https://www.iteye.com/blog/dsqiu-1636888" target="_blank" rel="noopener">图像的时频变换——离散余弦变换</a></p>
+<p><a href="http://zhaoxuhui.top/blog/2018/05/26/DCTforImageDenoising.html" target="_blank" rel="noopener">DCT变换与图像压缩、去燥</a></p>
+<p><a href="https://github.com/VersBinarii/dct" target="_blank" rel="noopener">github.com/VersBinarii/dct</a></p>
+<hr>
+<h2 id="5-量化"><a href="#5-量化" class="headerlink" title="5. 量化"></a><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">5. 量化</a></h2><p>量化过程实际上就是对 DCT 系数的一个优化过程。它是利用了人眼对高频部分不敏感的特性来实现数据的大幅简化。</p>
+<p>量化过程实际上是简单地把频率领域上每个成份，除以一个对于该成份的常数，且接着四舍五入取最接近的整数。</p>
+<p>这是整个过程中的主要有损运算。</p>
+<p>以这个结果来说，经常会把很多高频率的成份四舍五入而接近0，且剩下很多会变成小的正或负数。</p>
+<p>整个量化的目的是减小非“0”系数的幅度以及增加“0”值系数的数目。</p>
+<p>量化是图像质量下降的最主要原因。</p>
+<p>因为人眼对亮度信号比对色差信号更敏感，因此使用了两种量化表：亮度量化值和色差量化值。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-%E9%87%8F%E5%8C%96-1.jpg" alt="jpeg-量化-1"></p>
+<p>使用这个量化矩阵与前面所得到的 DCT 系数矩阵：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-%E9%87%8F%E5%8C%96-2.jpg" alt="jpeg-量化-2"></p>
+<p>如，使用−415（DC系数）且四舍五入得到最接近的整数</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-%E9%87%8F%E5%8C%96-3.jpg" alt="jpeg-量化-3"></p>
+<p>总体上来说，DCT 变换实际是空间域的低通滤波器。对 Y 分量采用细量化，对 UV 采用粗量化。</p>
+<p>量化表是控制 JPEG 压缩比的关键，这个步骤除掉了一些高频量；另一个重要原因是所有图片的点与点之间会有一个色彩过渡的过程，大量的图像信息被包含在低频率中，经过量化处理后，在高频率段，将出现大量连续的零。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/* 全局变量定义 */</span><br><span class="line">const int STD_QUANT_TAB_LUMIN[64] = &#123;</span><br><span class="line">    16, 11, 10, 16, 24, 40, 51, 61,</span><br><span class="line">    12, 12, 14, 19, 26, 58, 60, 55,</span><br><span class="line">    14, 13, 16, 24, 40, 57, 69, 56,</span><br><span class="line">    14, 17, 22, 29, 51, 87, 80, 62,</span><br><span class="line">    18, 22, 37, 56, 68, 109,103,77,</span><br><span class="line">    24, 35, 55, 64, 81, 104,113,92,</span><br><span class="line">    49, 64, 78, 87, 103,121,120,101,</span><br><span class="line">    72, 92, 95, 98, 112,100,103,99,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const int STD_QUANT_TAB_CHROM[64] = &#123;</span><br><span class="line">    17, 18, 24, 47, 99, 99, 99, 99,</span><br><span class="line">    18, 21, 26, 66, 99, 99, 99, 99,</span><br><span class="line">    24, 26, 56, 99, 99, 99, 99, 99,</span><br><span class="line">    47, 66, 99, 99, 99, 99, 99, 99,</span><br><span class="line">    99, 99, 99, 99, 99, 99, 99, 99,</span><br><span class="line">    99, 99, 99, 99, 99, 99, 99, 99,</span><br><span class="line">    99, 99, 99, 99, 99, 99, 99, 99,</span><br><span class="line">    99, 99, 99, 99, 99, 99, 99, 99,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/* 函数实现 */</span><br><span class="line">void quant_encode(int du[64], int qtab[64]) &#123;</span><br><span class="line">    int i; for (i=0; i&lt;64; i++) du[i] /= qtab[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int *pqtab[2];</span><br><span class="line">pqtab[0] = malloc(64*sizeof(int));</span><br><span class="line">pqtab[1] = malloc(64*sizeof(int));</span><br><span class="line">memcpy(pqtab[0], STD_QUANT_TAB_LUMIN, 64*sizeof(int));</span><br><span class="line">memcpy(pqtab[1], STD_QUANT_TAB_CHROM, 64*sizeof(int));</span><br><span class="line">for(int y_index = 0; y_index &lt; block_size; y_index++) &#123;</span><br><span class="line">    quant_encode(y_blocks_dct[y_index], pqtab[0]);</span><br><span class="line">&#125;</span><br><span class="line">for(int u_index = 0; u_index &lt; block_size; u_index++) &#123;</span><br><span class="line">    quant_encode(u_blocks_dct[u_index], pqtab[1]);</span><br><span class="line">&#125;</span><br><span class="line">for(int v_index = 0; v_index &lt; block_size; v_index++) &#123;</span><br><span class="line">    quant_encode(v_blocks_dct[v_index], pqtab[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://github.com/rockcarry/ffjpeg/blob/master/docs/jpeg-cn.txt" target="_blank" rel="noopener">JPEG 简易文档-4.量化</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">JPEG 原理详细实例分析及其在嵌入式 Linux 中的应用-4. 量化</a></p>
+<p><a href="http://www.cmsoft.cn/download/technic/multimedia/course1-5-7.html" target="_blank" rel="noopener"> JPEG压缩编码-2. 量化</a></p>
+<p><a href="https://blog.csdn.net/newchenxf/article/details/51719597/" target="_blank" rel="noopener">JPEG压缩原理与DCT离散余弦变换-2.4 量化与反量化</a></p>
+<hr>
+<h2 id="6-Zigzag-扫描排序"><a href="#6-Zigzag-扫描排序" class="headerlink" title="6. Zigzag 扫描排序"></a><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">6. Zigzag 扫描排序</a></h2><p>量化后的数据，有一个很大的特点，就是直流分量相对于交流分量来说要大，而且交流分量中含有大量的 0。这样，对这个量化后的数据如何来进行简化，从而再更大程度地进行压缩呢。</p>
+<p>这就出现了“Z”字形编排，如图：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-zigzag.jpg" alt="jpeg-zigzag"></p>
+<p>对于前面量化的系数所作的 “Z”字形编排结果就是：</p>
+<p>底部 −26，−3，0，−3，−3，−6，2，−4，1 −4，1，1，5，1，2，−1，1，−1，2，0，0，0，0，0，−1，−1，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0 顶部</p>
+<p>这样做的特点就是会连续出现多个0，这样很有利于使用简单而直观的游程编码(RLE：Run Length Coding)对它们进行编码。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/* 内部全局变量定义 */</span><br><span class="line">const int ZIGZAG[64] =</span><br><span class="line">        &#123;</span><br><span class="line">                0,  1,  8, 16,  9,  2,  3, 10,</span><br><span class="line">                17, 24, 32, 25, 18, 11,  4,  5,</span><br><span class="line">                12, 19, 26, 33, 40, 48, 41, 34,</span><br><span class="line">                27, 20, 13,  6,  7, 14, 21, 28,</span><br><span class="line">                35, 42, 49, 56, 57, 50, 43, 36,</span><br><span class="line">                29, 22, 15, 23, 30, 37, 44, 51,</span><br><span class="line">                58, 59, 52, 45, 38, 31, 39, 46,</span><br><span class="line">                53, 60, 61, 54, 47, 55, 62, 63,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">/* 函数实现 */</span><br><span class="line">void zigzag_encode(int data[64]) &#123;</span><br><span class="line">    int buf[64], i;</span><br><span class="line">    for (i=0; i&lt;64; i++) buf [i] = data[ZIGZAG[i]];</span><br><span class="line">    for (i=0; i&lt;64; i++) data[i] = buf[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(int y_index = 0; y_index &lt; block_size; y_index++) &#123;</span><br><span class="line">    zigzag_encode(y_blocks_dct[y_index]);</span><br><span class="line">&#125;</span><br><span class="line">for(int u_index = 0; u_index &lt; block_size; u_index++) &#123;</span><br><span class="line">    zigzag_encode(u_blocks_dct[u_index]);</span><br><span class="line">&#125;</span><br><span class="line">for(int v_index = 0; v_index &lt; block_size; v_index++) &#123;</span><br><span class="line">    zigzag_encode(v_blocks_dct[v_index]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">5、“Z”字形编排</a></p>
+<hr>
+<h2 id="7-DC-系数的差分脉冲调制编码"><a href="#7-DC-系数的差分脉冲调制编码" class="headerlink" title="7. DC 系数的差分脉冲调制编码"></a>7. DC 系数的差分脉冲调制编码</h2><p>8x8 图像块经过 DCT 变换之后得到的 DC 直流系数有两个特点，一是系数的数值比较大，二是相邻 8x8 图像块的 DC 系数值变化不大。根据这个特点，JPEG 算法使用了差分脉冲调制编码 (DPCM) 技术，对相邻图像块之间量化DC系数的差值 (Delta) 进行编码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DC(0)=0</span><br><span class="line"></span><br><span class="line">Delta = DC(i)  - DC(i-1)</span><br></pre></td></tr></table></figure>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void encode_du(HUFCODEC *hfcac, HUFCODEC *hfcdc, int du[64], int *dc) &#123;</span><br><span class="line">    ...</span><br><span class="line">    // 7.  DC 系数的差分脉冲调制编码</span><br><span class="line">    // dc</span><br><span class="line">    diff = du[0] - *dc;</span><br><span class="line">    *dc  = du[0];</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int   dc[3]= &#123;0&#125;;</span><br><span class="line">for(int index = 0; index &lt; block_size; index++) &#123;</span><br><span class="line">    encode_du(phcac[0], phcdc[0], y_blocks_dct[index], &amp;(dc[0]));</span><br><span class="line">    encode_du(phcac[1], phcdc[1], u_blocks_dct[index], &amp;(dc[1]));</span><br><span class="line">    encode_du(phcac[1], phcdc[1], v_blocks_dct[index], &amp;(dc[2]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解-（7）DC系数的差分脉冲调制编码</a></p>
+<p><a href="https://www.geek-share.com/detail/2753081433.html#8DC_67" target="_blank" rel="noopener">JPEG格式与压缩流程分析-7.DC系数的差分脉冲调制编码</a></p>
+<hr>
+<h2 id="8-DC-系数的中间格式计算"><a href="#8-DC-系数的中间格式计算" class="headerlink" title="8. DC 系数的中间格式计算"></a><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">8. DC 系数的中间格式计算</a></h2><p>JPEG 中为了更进一步节约空间，并不直接保存数据的具体数值，而是将数据按照位数分为 16 组，保存在表里面。这也就是所谓的变长整数编码 VLI。即，第 0 组中保存的编码位数为 0，其编码所代表的数字为 0；第 1 组中保存的编码位数为 1，编码所代表的数字为 -1 或者 1 ……，如下面的表格所示，这里，暂且称其为 VLI 编码表：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/jpeg-encode-vli.png" alt="VLI"></p>
+<p>如果 DC 系数差值为 3，通过查找 VLI 可以发现，整数 3 位于 VLI 表格的第 2 组，因此，可以写成（2）（3）的形式，该形式，称之为 DC 系数的中间格式。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void category_encode(int *code, int *size) &#123;</span><br><span class="line">    unsigned absc = abs(*code);</span><br><span class="line">    unsigned mask = (1 &lt;&lt; 15);</span><br><span class="line">    int i    = 15;</span><br><span class="line">    if (absc == 0) &#123; *size = 0; return; &#125;</span><br><span class="line">    while (i &amp;&amp; !(absc &amp; mask)) &#123; mask &gt;&gt;= 1; i--; &#125;</span><br><span class="line">    *size = i + 1;</span><br><span class="line">    if (*code &lt; 0) *code = (1 &lt;&lt; *size) - absc - 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 7.  DC 系数的差分脉冲调制编码</span><br><span class="line">diff = du[0] - *dc;</span><br><span class="line"></span><br><span class="line">// 8.  DC 系数的中间格式计算</span><br><span class="line">code = diff;</span><br><span class="line">category_encode(&amp;code, &amp;size);</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解-（8）DC系数的中间格式计算</a></p>
+<p><a href="https://www.geek-share.com/detail/2753081433.html#8DC_67" target="_blank" rel="noopener">JPEG格式与压缩流程分析-8.DC系数的中间格式计算</a></p>
+<hr>
+<h2 id="9-AC-系数的游程长度编码"><a href="#9-AC-系数的游程长度编码" class="headerlink" title="9. AC 系数的游程长度编码"></a><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">9. AC 系数的游程长度编码</a></h2><p>游程编码 RLC（Run Length Coding）来更进一步降低数据的传输量。利用该编码方式，可以将一个字符串中重复出现的连续字符用两个字节来代替，其中，第一个字节代表重复的次数，第二个字节代表被重复的字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">57, 45, 0, 0, 0, 0, 23, 0, -30, -8, 0, 0, 1, 000…</span><br></pre></td></tr></table></figure>
+<p>经过 0 RLC 之后，将呈现出以下的形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(0,57) ; (0,45) ; (4,23) ; (1,-30) ; (0,-8) ; (2,1) ; (0,0)</span><br></pre></td></tr></table></figure>
+<p>注意，如果 AC 系数之间连续 0 的个数超过 16，则用一个扩展字节 (15,0) 来表示 16 连续的 0。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">    unsigned runlen   : 4;</span><br><span class="line">    unsigned codesize : 4;</span><br><span class="line">    unsigned codedata : 16;</span><br><span class="line">&#125; RLEITEM;</span><br><span class="line"></span><br><span class="line">// 9.  AC 系数的游程长度编码</span><br><span class="line">// 10. AC 系数的中间格式计算</span><br><span class="line">// rle encode for ac</span><br><span class="line">for (i=1, j=0, n=0, eob=0; i&lt;64 &amp;&amp; j&lt;63; i++) &#123;</span><br><span class="line">    if (du[i] == 0 &amp;&amp; n &lt; 15) &#123;</span><br><span class="line">        n++;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        code = du[i]; size = 0;</span><br><span class="line">        // 10. AC 系数的中间格式计算</span><br><span class="line">        category_encode(&amp;code, &amp;size);</span><br><span class="line">        rlelist[j].runlen   = n;</span><br><span class="line">        rlelist[j].codesize = size;</span><br><span class="line">        rlelist[j].codedata = code;</span><br><span class="line">        n = 0;</span><br><span class="line">        j++;</span><br><span class="line">        if (size != 0) eob = j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// set eob</span><br><span class="line">if (du[63] == 0) &#123;</span><br><span class="line">    rlelist[eob].runlen   = 0;</span><br><span class="line">    rlelist[eob].codesize = 0;</span><br><span class="line">    rlelist[eob].codedata = 0;</span><br><span class="line">    j = eob + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解-（9）AC系数的行程长度编码(RLC)</a></p>
+<p><a href="https://www.geek-share.com/detail/2753081433.html#8DC_67" target="_blank" rel="noopener">JPEG格式与压缩流程分析-9. AC系数的行程长度编码(RLC)</a></p>
+<hr>
+<h2 id="10-AC-系数的中间格式计算"><a href="#10-AC-系数的中间格式计算" class="headerlink" title="10. AC 系数的中间格式计算"></a><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">10. AC 系数的中间格式计算</a></h2><p>根据前面提到的 VLI 表格，对于前面的字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(0,57) ; (0,45) ; (4,23) ; (1,-30) ; (0,-8) ; (2,1) ; (0,0)</span><br></pre></td></tr></table></figure>
+<p>只处理每对数右边的那个数据，对其进行 VLI 编码: 查找上面的 VLI 编码表格，可以发现，57 在第 6 组当中，因此，可以将其写成 (0,6),57 的形式，该形式，称之为 AC 系数的中间格式。</p>
+<p>同样的 (0,45) 的中间格式为：(0,6),45；</p>
+<p>(1,-30) 的中间格式为：(1,5),-30；</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">void category_encode(int *code, int *size) &#123;</span><br><span class="line">    unsigned absc = abs(*code);</span><br><span class="line">    unsigned mask = (1 &lt;&lt; 15);</span><br><span class="line">    int i    = 15;</span><br><span class="line">    if (absc == 0) &#123; *size = 0; return; &#125;</span><br><span class="line">    while (i &amp;&amp; !(absc &amp; mask)) &#123; mask &gt;&gt;= 1; i--; &#125;</span><br><span class="line">    *size = i + 1;</span><br><span class="line">    if (*code &lt; 0) *code = (1 &lt;&lt; *size) - absc - 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 9.  AC 系数的游程长度编码</span><br><span class="line">// 10. AC 系数的中间格式计算</span><br><span class="line">// rle encode for ac</span><br><span class="line">for (i=1, j=0, n=0, eob=0; i&lt;64 &amp;&amp; j&lt;63; i++) &#123;</span><br><span class="line">    if (du[i] == 0 &amp;&amp; n &lt; 15) &#123;</span><br><span class="line">        n++;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        code = du[i]; size = 0;</span><br><span class="line">        // 10. AC 系数的中间格式计算</span><br><span class="line">        category_encode(&amp;code, &amp;size);</span><br><span class="line">        rlelist[j].runlen   = n;</span><br><span class="line">        rlelist[j].codesize = size;</span><br><span class="line">        rlelist[j].codedata = code;</span><br><span class="line">        n = 0;</span><br><span class="line">        j++;</span><br><span class="line">        if (size != 0) eob = j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// set eob</span><br><span class="line">if (du[63] == 0) &#123;</span><br><span class="line">    rlelist[eob].runlen   = 0;</span><br><span class="line">    rlelist[eob].codesize = 0;</span><br><span class="line">    rlelist[eob].codedata = 0;</span><br><span class="line">    j = eob + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解-（10）AC系数的中间格式</a></p>
+<p><a href="https://www.geek-share.com/detail/2753081433.html#8DC_67" target="_blank" rel="noopener">JPEG格式与压缩流程分析-10.AC系数的中间格式算</a></p>
+<hr>
+<h2 id="11-熵编码"><a href="#11-熵编码" class="headerlink" title="11. 熵编码"></a><a href="https://zhuanlan.zhihu.com/p/62286932" target="_blank" rel="noopener">11. 熵编码</a></h2><p>在得到 DC 系数的中间格式和 AC 系数的中间格式之后，为进一步压缩图像数据，有必要对两者进行熵编码，通过对出现概率较高的字符采用较小的 bit 数编码达到压缩的目的。JPEG 标准具体规定了两种熵编码方式：Huffman 编码和算术编码。JPEG 基本系统规定采用 Huffman 编码。</p>
+<p>Huffman 编码：对出现概率大的字符分配字符长度较短的二进制编码，对出现概率小的字符分配字符长度较长的二进制编码，从而使得字符的平均编码长度最短。Huffman 编码的原理请参考数据结构中的 Huffman 树或者最优二叉树。</p>
+<p>Huffman 编码时 DC 系数与 AC 系数分别采用不同的 Huffman 编码表，对于亮度和色度也采用不同的 Huffman 编码表。因此，需要 4 张 Huffman 编码表才能完成熵编码的工作。具体的 Huffman 编码采用查表的方式来高效地完成。然而，在 JPEG 标准中没有定义缺省的 Huffman 表，用户可以根据实际应用自由选择，也可以使用J PEG 标准推荐的 Huffman 表。或者预先定义一个通用的 Huffman 表，也可以针对一副特定的图像，在压缩编码前通过搜集其统计特征来计算 Huffman 表的值。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">// huffman codec ac</span><br><span class="line">HUFCODEC *phcac[2];</span><br><span class="line">phcac[0]= calloc(1, sizeof(HUFCODEC));</span><br><span class="line">phcac[1]= calloc(1, sizeof(HUFCODEC));</span><br><span class="line">// huffman codec dc</span><br><span class="line">HUFCODEC *phcdc[2];</span><br><span class="line">phcdc[0] = calloc(1, sizeof(HUFCODEC));</span><br><span class="line">phcdc[1] = calloc(1, sizeof(HUFCODEC));</span><br><span class="line">// init huffman codec</span><br><span class="line">memcpy(phcac[0]-&gt;huftab, STD_HUFTAB_LUMIN_AC, MAX_HUFFMAN_CODE_LEN + 256);</span><br><span class="line">memcpy(phcac[1]-&gt;huftab, STD_HUFTAB_CHROM_AC, MAX_HUFFMAN_CODE_LEN + 256);</span><br><span class="line">memcpy(phcdc[0]-&gt;huftab, STD_HUFTAB_LUMIN_DC, MAX_HUFFMAN_CODE_LEN + 256);</span><br><span class="line">memcpy(phcdc[1]-&gt;huftab, STD_HUFTAB_CHROM_DC, MAX_HUFFMAN_CODE_LEN + 256);</span><br><span class="line">phcac[0]-&gt;output = bs; huffman_encode_init(phcac[0], 1);</span><br><span class="line">phcac[1]-&gt;output = bs; huffman_encode_init(phcac[1], 1);</span><br><span class="line">phcdc[0]-&gt;output = bs; huffman_encode_init(phcdc[0], 1);</span><br><span class="line">phcdc[1]-&gt;output = bs; huffman_encode_init(phcdc[1], 1);</span><br><span class="line"></span><br><span class="line">// 7.  DC 系数的差分脉冲调制编码</span><br><span class="line">// 8.  DC 系数的中间格式计算</span><br><span class="line">// 9.  AC 系数的游程长度编码</span><br><span class="line">// 10. AC 系数的中间格式计算</span><br><span class="line">// 11. 熵编码</span><br><span class="line">// 7、8、9、10、11 在 encode_du 里完成</span><br><span class="line">for(int index = 0; index &lt; block_size; index++) &#123;</span><br><span class="line">    encode_du(phcac[0], phcdc[0], y_blocks_dct[index], &amp;(dc[0]));</span><br><span class="line">    encode_du(phcac[1], phcdc[1], u_blocks_dct[index], &amp;(dc[1]));</span><br><span class="line">    encode_du(phcac[1], phcdc[1], v_blocks_dct[index], &amp;(dc[2]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void encode_du(HUFCODEC *hfcac, HUFCODEC *hfcdc, int du[64], int *dc) &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    // 7.  DC 系数的差分脉冲调制编码</span><br><span class="line">    diff = du[0] - *dc;</span><br><span class="line">    *dc  = du[0];</span><br><span class="line"></span><br><span class="line">    // 8.  DC 系数的中间格式计算</span><br><span class="line">    code = diff;</span><br><span class="line">    category_encode(&amp;code, &amp;size);</span><br><span class="line"></span><br><span class="line">    // 11. 熵编码 DC</span><br><span class="line">    huffman_encode_step(hfcdc, size);</span><br><span class="line">    bitstr_put_bits(bs, code, size);</span><br><span class="line"></span><br><span class="line">    // 9.  AC 系数的游程长度编码</span><br><span class="line">    // 10. AC 系数的中间格式计算</span><br><span class="line">    // rle encode for ac</span><br><span class="line">    for (i=1, j=0, n=0, eob=0; i&lt;64 &amp;&amp; j&lt;63; i++) &#123;</span><br><span class="line">    ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    // 11. 熵编码 AC</span><br><span class="line">    for (i=0; i&lt;j; i++) &#123;</span><br><span class="line">        huffman_encode_step(hfcac, (rlelist[i].runlen &lt;&lt; 4) | (rlelist[i].codesize &lt;&lt; 0));</span><br><span class="line">        bitstr_put_bits(bs, rlelist[i].codedata, rlelist[i].codesize);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关阅读：</p>
+<hr>
+<p><a href="https://github.com/rockcarry/ffjpeg/blob/master/docs/jpeg-cn.txt" target="_blank" rel="noopener">JPEG 简易文档 V2.15</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">JPEG 原理详细分析</a></p>
+<p><a href="http://www.dwenzhao.cn/profession/imgia/jpegcode.html" target="_blank" rel="noopener">JPEG格式图像编解码</a></p>
+<p><a href="https://www.w3.org/Graphics/JPEG/itu-t81.pdf" target="_blank" rel="noopener">JPEG/itu-t81.pdf</a></p>
+<p><a href="https://blog.csdn.net/lpt19832003/article/details/1713718" target="_blank" rel="noopener">JPEG文件编/解码详解</a></p>
+<p><a href="https://blog.csdn.net/m0_37876745/article/details/80782447" target="_blank" rel="noopener">简述JPEG编码实现的基本步骤</a></p>
+<p><a href="https://blog.csdn.net/asdzheng/article/details/51779038" target="_blank" rel="noopener">JPG的工作原理</a></p>
+<p><a href="https://medium.freecodecamp.com/how-jpg-works-a4dbd2316f35#.y8yys5lh0" target="_blank" rel="noopener">How JPG Works</a></p>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/62286932" target="_blank" rel="noopener">JPEG编解码原理</a></p>
+<hr>
+<h1 id="JPEG-文件写入"><a href="#JPEG-文件写入" class="headerlink" title="JPEG 文件写入"></a>JPEG 文件写入</h1><p>根据  <a href="https://www.ihubin.com/blog/audio-video-basic-14-jpeg-file-format-detail/">音视频入门-14-JPEG文件格式详解</a>， JPEG 文件大体上可以分成两个部分：标记码(Tag)和压缩数据。</p>
+<p>常用的标记有 SOI、APP0、APPn、DQT、SOF0、DHT、DRI、SOS、EOI：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标记</th>
+<th style="text-align:left">标记代码</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SOI</td>
+<td style="text-align:left">0xD8</td>
+<td style="text-align:left">图像开始</td>
+</tr>
+<tr>
+<td style="text-align:left">APP0</td>
+<td style="text-align:left">0xE0</td>
+<td style="text-align:left">JFIF应用数据块</td>
+</tr>
+<tr>
+<td style="text-align:left">APPn</td>
+<td style="text-align:left">0xE1 - 0xEF</td>
+<td style="text-align:left">其他的应用数据块(n, 1～15)</td>
+</tr>
+<tr>
+<td style="text-align:left">DQT</td>
+<td style="text-align:left">0xDB</td>
+<td style="text-align:left">量化表</td>
+</tr>
+<tr>
+<td style="text-align:left">SOF0</td>
+<td style="text-align:left">0xC0</td>
+<td style="text-align:left">帧开始</td>
+</tr>
+<tr>
+<td style="text-align:left">DHT</td>
+<td style="text-align:left">0xC4</td>
+<td style="text-align:left">霍夫曼(Huffman)表</td>
+</tr>
+<tr>
+<td style="text-align:left">DRI</td>
+<td style="text-align:left">0xDD</td>
+<td style="text-align:left">差分编码累计复位的间隔</td>
+</tr>
+<tr>
+<td style="text-align:left">SOS</td>
+<td style="text-align:left">0xDA</td>
+<td style="text-align:left">扫描线开始</td>
+</tr>
+<tr>
+<td style="text-align:left">EOI</td>
+<td style="text-align:left">0xD9</td>
+<td style="text-align:left">图像结束</td>
+</tr>
+</tbody>
+</table>
+<p>通过上面的 11 个编码步骤，我们也得到了需要的数据，下一步只需将数据写入文件即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">// 下面开始将数据写入文件</span><br><span class="line">//FILE *fp = fopen(&quot;C:\\Users\\Administrator\\Desktop\\rainbow-rgb-to-jpeg.jpg&quot;, &quot;wb+&quot;);</span><br><span class="line">FILE *fp = fopen(&quot;/Users/staff/Desktop/rainbow-rgb-to-jpeg.jpg&quot;, &quot;wb&quot;);</span><br><span class="line"></span><br><span class="line">// output SOI</span><br><span class="line">fputc(0xff, fp);</span><br><span class="line">fputc(0xd8, fp);</span><br><span class="line"></span><br><span class="line">// output DQT</span><br><span class="line">for (int i = 0; i &lt; 2; i++) &#123;</span><br><span class="line">    int len = 2 + 1 + 64;</span><br><span class="line">    fputc(0xff, fp);</span><br><span class="line">    fputc(0xdb, fp);</span><br><span class="line">    fputc(len &gt;&gt; 8, fp);</span><br><span class="line">    fputc(len &gt;&gt; 0, fp);</span><br><span class="line">    fputc(i   , fp);</span><br><span class="line">    for (int j = 0; j &lt; 64; j++) &#123;</span><br><span class="line">        fputc(pqtab[i][ZIGZAG[j]], fp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// output SOF0</span><br><span class="line">int SOF0Len = 2 + 1 + 2 + 2 + 1 + 3 * 3;</span><br><span class="line">fputc(0xff, fp);</span><br><span class="line">fputc(0xc0, fp);</span><br><span class="line">fputc(SOF0Len &gt;&gt; 8, fp);</span><br><span class="line">fputc(SOF0Len &gt;&gt; 0, fp);</span><br><span class="line">fputc(8   , fp); // precision 8bit</span><br><span class="line">fputc(height &gt;&gt; 8, fp); // height</span><br><span class="line">fputc(height &gt;&gt; 0, fp); // height</span><br><span class="line">fputc(width  &gt;&gt; 8, fp); // width</span><br><span class="line">fputc(width  &gt;&gt; 0, fp); // width</span><br><span class="line">fputc(3, fp);</span><br><span class="line">fputc(0x01, fp); fputc(0x11, fp); fputc(0x00, fp);</span><br><span class="line">fputc(0x02, fp); fputc(0x11, fp); fputc(0x01, fp);</span><br><span class="line">fputc(0x03, fp); fputc(0x11, fp); fputc(0x01, fp);</span><br><span class="line"></span><br><span class="line">// output DHT AC</span><br><span class="line">for (int i = 0; i &lt; 2; i++) &#123;</span><br><span class="line">    fputc(0xff, fp);</span><br><span class="line">    fputc(0xc4, fp);</span><br><span class="line">    int len = 2 + 1 + 16;</span><br><span class="line">    for (int j = 0; j &lt; 16; j++) len += phcac[i]-&gt;huftab[j];</span><br><span class="line">    fputc(len &gt;&gt; 8, fp);</span><br><span class="line">    fputc(len &gt;&gt; 0, fp);</span><br><span class="line">    fputc(i + 0x10, fp);</span><br><span class="line">    fwrite(phcac[i]-&gt;huftab, len - 3, 1, fp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// output DHT DC</span><br><span class="line">for (int i = 0; i &lt; 2; i++) &#123;</span><br><span class="line">    fputc(0xff, fp);</span><br><span class="line">    fputc(0xc4, fp);</span><br><span class="line">    int len = 2 + 1 + 16;</span><br><span class="line">    for (int j = 0; j &lt; 16; j++) len += phcdc[i]-&gt;huftab[j];</span><br><span class="line">    fputc(len &gt;&gt; 8, fp);</span><br><span class="line">    fputc(len &gt;&gt; 0, fp);</span><br><span class="line">    fputc(i + 0x00, fp);</span><br><span class="line">    fwrite(phcdc[i]-&gt;huftab, len - 3, 1, fp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// output SOS</span><br><span class="line">int SOSLen = 2 + 1 + 2 * 3 + 3;</span><br><span class="line">fputc(0xff, fp);</span><br><span class="line">fputc(0xda, fp);</span><br><span class="line">fputc(SOSLen &gt;&gt; 8, fp);</span><br><span class="line">fputc(SOSLen &gt;&gt; 0, fp);</span><br><span class="line">fputc(3, fp);</span><br><span class="line"></span><br><span class="line">fputc(0x01, fp); fputc(0x00, fp);</span><br><span class="line">fputc(0x02, fp); fputc(0x11, fp);</span><br><span class="line">fputc(0x03, fp); fputc(0x11, fp);</span><br><span class="line"></span><br><span class="line">fputc(0x00, fp);</span><br><span class="line">fputc(0x3F, fp);</span><br><span class="line">fputc(0x00, fp);</span><br><span class="line"></span><br><span class="line">// output data</span><br><span class="line">if (buffer) &#123;</span><br><span class="line">    fwrite(buffer, dataLength, 1, fp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// output EOI</span><br><span class="line">fputc(0xff, fp);</span><br><span class="line">fputc(0xd9, fp);</span><br><span class="line"></span><br><span class="line">// 释放各种资源</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<h1 id="JPEG-结果验收"><a href="#JPEG-结果验收" class="headerlink" title="JPEG 结果验收"></a>JPEG 结果验收</h1><p>以上完整代码在 <a href="https://github.com/binglingziyu/audio-video-blog-demos/tree/master/15-rgb-to-jpeg" target="_blank" rel="noopener">binglingziyu/audio-video-blog-demos</a> 可以获取。</p>
+<p>运行代码，生成 JPEG 图片：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-jpeg/rgb-to-jpeg-final-result.png" alt="生成 JPEG 图片"></p>
+<hr>
+<p>代码：<br><a href="https://github.com/binglingziyu/audio-video-blog-demos" target="_blank" rel="noopener">15-rgb-to-jpeg</a></p>
+<p>参考资料：</p>
+<p><a href="https://github.com/rockcarry/ffjpeg/blob/master/docs/jpeg-cn.txt" target="_blank" rel="noopener">JPEG 简易文档 V2.15</a></p>
+<p><a href="http://www.cmsoft.cn/download/technic/multimedia/course1-5-7.html" target="_blank" rel="noopener">5.7 JPEG压缩编码</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-jpeg/index.html" target="_blank" rel="noopener">JPEG 原理详细分析</a></p>
+<p><a href="https://www.cnblogs.com/Torrance/p/9349610.html" target="_blank" rel="noopener">JPEG格式压缩算法</a></p>
+<p><a href="https://recomm.cnblogs.com/blogpost/11263561?page=1" target="_blank" rel="noopener">JPEG压缩编码笔记</a></p>
+<p><a href="http://www.dwenzhao.cn/profession/imgia/jpegcode.html" target="_blank" rel="noopener">JPEG格式图像编解码</a></p>
+<p><a href="https://www.w3.org/Graphics/JPEG/itu-t81.pdf" target="_blank" rel="noopener">JPEG/itu-t81.pdf</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/28108089" target="_blank" rel="noopener">某科学的JPEG编码函数 svjpeg()</a></p>
+<p><a href="https://blog.csdn.net/lpt19832003/article/details/1713718" target="_blank" rel="noopener">JPEG文件编/解码详解</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/40356456" target="_blank" rel="noopener">影像算法解析——JPEG 压缩算法</a></p>
+<p><a href="https://blog.csdn.net/m0_37876745/article/details/80782447" target="_blank" rel="noopener">简述JPEG编码实现的基本步骤</a></p>
+<p><a href="https://blog.csdn.net/asdzheng/article/details/51779038" target="_blank" rel="noopener">JPG的工作原理</a></p>
+<p><a href="https://medium.freecodecamp.com/how-jpg-works-a4dbd2316f35#.y8yys5lh0" target="_blank" rel="noopener">How JPG Works</a></p>
+<p><a href="https://blog.csdn.net/carson2005/article/details/7753499" target="_blank" rel="noopener">JPEG图像压缩算法流程详解</a></p>
+<p><a href="https://www.ihubin.com/blog/audio-video-basic-07-yuv-intro/">音视频入门-07-认识YUV</a></p>
+<p><a href="https://glumes.com/post/ffmpeg/understand-yuv-format/" target="_blank" rel="noopener">一文读懂 YUV 的采样与格式</a></p>
+<p><a href="https://web.archive.org/web/20180421030430/http://www.equasys.de/colorconversion.html" target="_blank" rel="noopener">YUV - RGB Color Format Conversion</a></p>
+<p><a href="https://blog.csdn.net/newchenxf/article/details/51719597/" target="_blank" rel="noopener">JPEG压缩原理与DCT离散余弦变换</a></p>
+<p><a href="https://www.iteye.com/blog/dsqiu-1636888" target="_blank" rel="noopener">图像的时频变换——离散余弦变换</a></p>
+<p><a href="http://zhaoxuhui.top/blog/2018/05/26/DCTforImageDenoising.html" target="_blank" rel="noopener">DCT变换与图像压缩、去燥</a></p>
+<p><a href="https://github.com/VersBinarii/dct" target="_blank" rel="noopener">github.com/VersBinarii/dct</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/62286932" target="_blank" rel="noopener">JPEG编解码原理</a></p>
+<p>内容有误？联系作者：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
+<hr>
 
       
 
@@ -237,7 +940,37 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JPEG文件格式详解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -287,7 +1020,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/about/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-15-generate-jpeg-by-hand/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,6 +1032,16 @@ var _hmt = _hmt || [];
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/blog/audio-video-basic-14-jpeg-file-format-detail/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音视频入门-14-JPEG文件格式详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -353,7 +1096,7 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

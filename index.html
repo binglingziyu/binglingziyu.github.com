@@ -176,6 +176,153 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-audio-video-basic-15-generate-jpeg-by-hand" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/audio-video-basic-15-generate-jpeg-by-hand/">音视频入门-15-手动生成一张JPEG图片</a>
+    </h1>
+  
+
+        
+        <a href="/blog/audio-video-basic-15-generate-jpeg-by-hand/" class="archive-article-date">
+  	<time datetime="2020-02-28T09:27:54.128Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="JPEG-编码知识"><a href="#JPEG-编码知识" class="headerlink" title="JPEG 编码知识"></a>JPEG 编码知识</h1><p> JPEG 是 Joint Photographic Exports Group 的英文缩写，中文称之为联合图像专家小组。该小组隶属于 ISO 国际标准化组织，主要负责定制静态数字图像的编码方法，即所谓的 JPEG 算法。</p>
+<blockquote>
+<p>JPEG 专家组开发了两种基本的压缩算法、两种熵编码方法、四种编码模式。如下所示：</p>
+</blockquote>
+<ul>
+<li>压缩算法：</li>
+</ul>
+<ol>
+<li><p>有损的离散余弦变换 DCT（Discrete Cosine Transform）</p>
+</li>
+<li><p>无损的预测压缩技术；</p>
+</li>
+</ol>
+<ul>
+<li>熵编码方法：</li>
+</ul>
+<ol>
+<li><p>Huffman 编码；</p>
+</li>
+<li><p>算术编码；</p>
+</li>
+</ol>
+<ul>
+<li>编码模式：</li>
+</ul>
+<ol>
+<li><p>基于 DCT 的顺序模式：编码、解码通过一次扫描完成；</p>
+</li>
+<li><p>基于 DCT 的渐进模式：编码、解码需要多次扫描完成，扫描效果由粗到精，逐级递增；</p>
+</li>
+<li><p>无损模式：基于 DPCM，保证解码后完全精确恢复到原图像采样值；</p>
+</li>
+<li><p>层次模式：图像在多个空间分辨率中进行编码，可以根据需要只对低分辨率数据做解码，放弃高分辨率信息；</p>
+</li>
+</ol>
+<blockquote>
+<p>在实际应用中，JPEG 图像编码算法使用的大多是 <code>离散余弦变换 DCT</code>、<code>Huffman 编码</code>、<code>顺序编码模式</code>。</p>
+</blockquote>
+<p>这被称为 JPEG 的基本系统。这里介绍的 JPEG 编码算法的流程，也是针对基本系统而言。基本系统的 JPEG 压缩编码算法一共分为 11 个步骤：</p>
+<ol>
+<li><code>颜色模式转换</code></li>
+<li><code>采样</code></li>
+<li><code>分块</code></li>
+<li><code>离散余弦变换（DCT）</code></li>
+<li><code>量化</code></li>
+<li><code>Zigzag 扫描排序</code></li>
+<li><code>DC 系数的差分脉冲调制编码</code></li>
+<li><code>DC 系数的中间格式计算</code></li>
+<li><code>AC 系数的游程长度编码</code></li>
+<li><code>AC 系数的中间格式计算</code></li>
+<li><code>熵编码</code></li>
+</ol>
+        
+          <a class="article-more-a" href="/blog/audio-video-basic-15-generate-jpeg-by-hand/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JPEG文件格式详解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/audio-video-basic-15-generate-jpeg-by-hand/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-audio-video-basic-14-jpeg-file-format-detail" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1140,111 +1287,6 @@ Spring Security: 5.1.6.RELEASE
 
 
   
-    <article id="post-audio-video-basic-07-yuv-intro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/audio-video-basic-07-yuv-intro/">音视频入门-07-认识YUV</a>
-    </h1>
-  
-
-        
-        <a href="/blog/audio-video-basic-07-yuv-intro/" class="archive-article-date">
-  	<time datetime="2019-09-17T09:21:17.055Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
-<h1 id="YUV-amp-YCbCr-简介"><a href="#YUV-amp-YCbCr-简介" class="headerlink" title="YUV &amp; YCbCr 简介"></a>YUV &amp; YCbCr 简介</h1><ul>
-<li><p>YUV，是一种颜色编码方法。常使用在各个视频处理组件中。 YUV 在对照片或视频编码时，考虑到人类的感知能力，允许降低色度的带宽。</p>
-</li>
-<li><p>Y 表示明亮度（Luminance或Luma），也就是灰阶值，U 和 V 表示的则是色度（Chrominance或Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。</p>
-</li>
-<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr" target="_blank" rel="noopener">Y’CbCr</a> 不是一种绝对的色彩空间，是一种针对 RGB 资讯所做的编码。真正的颜色显示是根据实际 RGB 色盘（colorant）来决定的。因此 Y’CbCr 所表示的值只有在标准 RGB 色盘或是 ICC 数据（ICC profile）有提供的时候才能计算。Y’CbCr 在模拟分量影像（analog component video）中也常被称为 YPbPr。</p>
-</li>
-<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr" target="_blank" rel="noopener">YCbCr</a> 不是一种绝对色彩空间，是 YUV 压缩和偏移的版本。YCbCr 的 Y 与 YUV 中的 Y 含义一致，Cb 和 Cr 与 UV 同样都指色彩，Cb 指蓝色色度，Cr 指红色色度，在应用上很广泛，JPEG、MPEG、DVD、摄影机、数字电视等皆采此一格式。</p>
-</li>
-<li><p>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</p>
-</li>
-<li>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</li>
-<li>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</li>
-</ul>
-        
-          <a class="article-more-a" href="/blog/audio-video-basic-07-yuv-intro/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/audio-video-basic-07-yuv-intro/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1338,6 +1380,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1351,14 +1401,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,6 +1420,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
               </li>
              
@@ -1387,14 +1437,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring Security</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
