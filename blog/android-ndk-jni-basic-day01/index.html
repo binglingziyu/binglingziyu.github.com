@@ -6,22 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>音视频入门-07-认识YUV | binglingziyu的博客</title>
+  <title>Android NDK JNI 入门教程-day01-创建项目并运行 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="音视频入门文章目录  YUV &amp;amp; YCbCr 简介 YUV，是一种颜色编码方法。常使用在各个视频处理组件中。 YUV 在对照片或视频编码时，考虑到人类的感知能力，允许降低色度的带宽。  Y 表示明亮度（Luminance或Luma），也就是灰阶值，U 和 V 表示的则是色度（Chrominance或Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。  Y’CbCr 不是一种">
-<meta name="keywords" content="音视频,音视频基础">
+  <meta name="description" content="Android NDK JNI 入门文章目录">
+<meta name="keywords" content="Android,NDK,JNI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="音视频入门-07-认识YUV">
-<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-07-yuv-intro/index.html">
+<meta property="og:title" content="Android NDK JNI 入门教程-day01-创建项目并运行">
+<meta property="og:url" content="http://www.ihubin.com/blog/android-ndk-jni-basic-day01/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="音视频入门文章目录  YUV &amp;amp; YCbCr 简介 YUV，是一种颜色编码方法。常使用在各个视频处理组件中。 YUV 在对照片或视频编码时，考虑到人类的感知能力，允许降低色度的带宽。  Y 表示明亮度（Luminance或Luma），也就是灰阶值，U 和 V 表示的则是色度（Chrominance或Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。  Y’CbCr 不是一种">
+<meta property="og:description" content="Android NDK JNI 入门文章目录">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
-<meta property="og:updated_time" content="2019-09-17T09:22:31.910Z">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/android-studio-version-3.6.1.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/select-a-project-template.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/configure-your-project.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/customize-cpp-support.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/first-ndk-jni-project.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/run-first-ndk-jni-project.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/rerun-first-ndk-jni-project.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/lookup-first-ndk-jni-project-apk.png">
+<meta property="og:updated_time" content="2020-02-29T15:37:13.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="音视频入门-07-认识YUV">
-<meta name="twitter:description" content="音视频入门文章目录  YUV &amp;amp; YCbCr 简介 YUV，是一种颜色编码方法。常使用在各个视频处理组件中。 YUV 在对照片或视频编码时，考虑到人类的感知能力，允许降低色度的带宽。  Y 表示明亮度（Luminance或Luma），也就是灰阶值，U 和 V 表示的则是色度（Chrominance或Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。  Y’CbCr 不是一种">
-<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
+<meta name="twitter:title" content="Android NDK JNI 入门教程-day01-创建项目并运行">
+<meta name="twitter:description" content="Android NDK JNI 入门文章目录">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/android-studio-version-3.6.1.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -178,683 +185,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-audio-video-basic-07-yuv-intro" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-android-ndk-jni-basic-day01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      音视频入门-07-认识YUV
+      Android NDK JNI 入门教程-day01-创建项目并运行
     </h1>
   
 
         
-        <a href="/blog/audio-video-basic-07-yuv-intro/" class="archive-article-date">
-  	<time datetime="2019-09-17T09:21:17.055Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
+        <a href="/blog/android-ndk-jni-basic-day01/" class="archive-article-date">
+  	<time datetime="2020-02-29T15:33:09.290Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
-<h1 id="YUV-amp-YCbCr-简介"><a href="#YUV-amp-YCbCr-简介" class="headerlink" title="YUV &amp; YCbCr 简介"></a>YUV &amp; YCbCr 简介</h1><ul>
-<li><p>YUV，是一种颜色编码方法。常使用在各个视频处理组件中。 YUV 在对照片或视频编码时，考虑到人类的感知能力，允许降低色度的带宽。</p>
-</li>
-<li><p>Y 表示明亮度（Luminance或Luma），也就是灰阶值，U 和 V 表示的则是色度（Chrominance或Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。</p>
-</li>
-<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr" target="_blank" rel="noopener">Y’CbCr</a> 不是一种绝对的色彩空间，是一种针对 RGB 资讯所做的编码。真正的颜色显示是根据实际 RGB 色盘（colorant）来决定的。因此 Y’CbCr 所表示的值只有在标准 RGB 色盘或是 ICC 数据（ICC profile）有提供的时候才能计算。Y’CbCr 在模拟分量影像（analog component video）中也常被称为 YPbPr。</p>
-</li>
-<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr" target="_blank" rel="noopener">YCbCr</a> 不是一种绝对色彩空间，是 YUV 压缩和偏移的版本。YCbCr 的 Y 与 YUV 中的 Y 含义一致，Cb 和 Cr 与 UV 同样都指色彩，Cb 指蓝色色度，Cr 指红色色度，在应用上很广泛，JPEG、MPEG、DVD、摄影机、数字电视等皆采此一格式。</p>
-</li>
-<li><p>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</p>
-</li>
-<li>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</li>
-<li>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</li>
-</ul>
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门文章目录 </em></a></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/android-studio-version-3.6.1.png" alt="Android Studio 3.6.1"></p>
 <a id="more"></a>
-<p>YUVFormats分成两个格式：</p>
-<ul>
-<li><p>紧缩格式（packedformats）：将 Y、U、V 值存储成 MacroPixels 数组，和 RGB 的存放方式类似。</p>
-</li>
-<li><p>平面格式（planarformats）：将 Y、U、V 的三个分量分别存放在不同的矩阵中。</p>
-</li>
-</ul>
-<p>紧缩格式（packedformat）中的 YUV 是混合在一起的，对于 YUV4:4:4 格式而言，用紧缩格式很合适的，因此就有了 UYVY、YUYV 等。</p>
-<p>平面格式（planarformats）是指每 Y 分量，U 分量和 V 分量都是以独立的平面组织的，也就是说所有的 U 分量必须在 Y 分量后面，而 V 分量在所有的 U 分量后面，此一格式适用于采样（subsample）。平面格式（planarformat）有 I420（4:2:0）、YV12、IYUV 等。</p>
-<h1 id="YUV-采样格式"><a href="#YUV-采样格式" class="headerlink" title="YUV 采样格式"></a>YUV 采样格式</h1><p>为节省带宽起见，大多数 YUV 格式平均使用的每像素位数都少于 24 位。主要的采样（subsample）格式有 YCbCr4:2:0、YCbCr4:2:2、YCbCr4:1:1 和 YCbCr4:4:4。YUV 的表示法称为 A:B:C 表示法：</p>
-<ul>
-<li>4:4:4 表示完全取样。</li>
-<li>4:2:2 表示 2:1 的水平取样，垂直完全采样。</li>
-<li>4:2:0 表示 2:1 的水平取样，垂直 2：1 采样。</li>
-<li>4:1:1 表示 4:1 的水平取样，垂直完全采样。</li>
-</ul>
-<p><br></p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><h2 id="1-选择一个项目模板"><a href="#1-选择一个项目模板" class="headerlink" title="1. 选择一个项目模板"></a>1. 选择一个项目模板</h2><blockquote>
+<p>Native C++</p>
+</blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/select-a-project-template.png" alt="Select a Project Template"></p>
+<h2 id="2-配置我们的项目"><a href="#2-配置我们的项目" class="headerlink" title="2. 配置我们的项目"></a>2. 配置我们的项目</h2><blockquote>
+<p>Name<br>Package name<br>Save location<br>Language<br>Minimum SDK</p>
+</blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/configure-your-project.png" alt="Configure your project"></p>
+<h2 id="3-Customize-C-Support"><a href="#3-Customize-C-Support" class="headerlink" title="3. Customize C++ Support"></a>3. Customize C++ Support</h2><blockquote>
+<p>C++ Standard</p>
+</blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/customize-cpp-support.png" alt="Customize C++ Support"></p>
+<h2 id="4-查看第一个-NDK-JNI-项目"><a href="#4-查看第一个-NDK-JNI-项目" class="headerlink" title="4. 查看第一个 NDK-JNI 项目"></a>4. 查看第一个 NDK-JNI 项目</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/first-ndk-jni-project.png" alt="查看第一个 NDK-JNI 项目"></p>
+<h3 id="build-gradle"><a href="#build-gradle" class="headerlink" title="build.gradle"></a>build.gradle</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;com.android.application&apos;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 29</span><br><span class="line">    buildToolsVersion &quot;29.0.3&quot;</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId &quot;com.ihubin.ndkjni&quot;</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    externalNativeBuild &#123;</span><br><span class="line">        cmake &#123;</span><br><span class="line">            path &quot;src/main/cpp/CMakeLists.txt&quot;</span><br><span class="line">            version &quot;3.10.2&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.4.1)</span><br><span class="line"></span><br><span class="line">add_library(</span><br><span class="line">             native-lib</span><br><span class="line">             SHARED</span><br><span class="line">             native-lib.cpp )</span><br><span class="line"></span><br><span class="line">find_library(</span><br><span class="line">              log-lib</span><br><span class="line">              log )</span><br><span class="line"></span><br><span class="line">target_link_libraries(</span><br><span class="line">                       native-lib</span><br><span class="line">                       $&#123;log-lib&#125; )</span><br></pre></td></tr></table></figure>
+<h3 id="native-lib-cpp"><a href="#native-lib-cpp" class="headerlink" title="native-lib.cpp"></a>native-lib.cpp</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;jni.h&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">extern &quot;C&quot; JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_MainActivity_stringFromJNI(</span><br><span class="line">        JNIEnv* env,</span><br><span class="line">        jobject /* this */) &#123;</span><br><span class="line">    std::string hello = &quot;Hello from C++&quot;;</span><br><span class="line">    return env-&gt;NewStringUTF(hello.c_str());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="MainActivity-java"><a href="#MainActivity-java" class="headerlink" title="MainActivity.java"></a>MainActivity.java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package com.ihubin.ndkjni;</span><br><span class="line"></span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.widget.TextView;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    static &#123;</span><br><span class="line">        System.loadLibrary(&quot;native-lib&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        TextView tv = findViewById(R.id.sample_text);</span><br><span class="line">        tv.setText(stringFromJNI());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public native String stringFromJNI();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h1><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/run-first-ndk-jni-project.png" alt="运行项目"></p>
 <blockquote>
-<p>表格中，每一格代表一个像素</p>
+<p>修改 C++ 代码，重新运行</p>
 </blockquote>
-<h2 id="未采样前"><a href="#未采样前" class="headerlink" title="未采样前"></a>未采样前</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  V0</td>
-<td style="text-align:center">Y1  U1  V1</td>
-<td style="text-align:center">Y2  U2  V2</td>
-<td style="text-align:center">Y3  U3  V3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  U4  V4</td>
-<td style="text-align:center">Y5  U5  V5</td>
-<td style="text-align:center">Y6  U6  V6</td>
-<td style="text-align:center">Y7  U7  V7</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  V8</td>
-<td style="text-align:center">Y9  U9  V9</td>
-<td style="text-align:center">Y10 U10 V10</td>
-<td style="text-align:center">Y11 U11 V11</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 V12</td>
-<td style="text-align:center">Y13 U13 V13</td>
-<td style="text-align:center">Y14 U14 V14</td>
-<td style="text-align:center">Y15 U15 V15</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-4-4-采样"><a href="#4-4-4-采样" class="headerlink" title="4:4:4 采样"></a>4:4:4 采样</h2><blockquote>
-<p>4:4:4 表示完全取样</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  V0</td>
-<td style="text-align:center">Y1  U1  V1</td>
-<td style="text-align:center">Y2  U2  V2</td>
-<td style="text-align:center">Y3  U3  V3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  U4  V4</td>
-<td style="text-align:center">Y5  U5  V5</td>
-<td style="text-align:center">Y6  U6  V6</td>
-<td style="text-align:center">Y7  U7  V7</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  V8</td>
-<td style="text-align:center">Y9  U9  V9</td>
-<td style="text-align:center">Y10 U10 V10</td>
-<td style="text-align:center">Y11 U11 V11</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 V12</td>
-<td style="text-align:center">Y13 U13 V13</td>
-<td style="text-align:center">Y14 U14 V14</td>
-<td style="text-align:center">Y15 U15 V15</td>
-</tr>
-</tbody>
-</table>
-<p>映射的像素:  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  V0</td>
-<td style="text-align:center">Y1  U1  V1</td>
-<td style="text-align:center">Y2  U2  V2</td>
-<td style="text-align:center">Y3  U3  V3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  U4  V4</td>
-<td style="text-align:center">Y5  U5  V5</td>
-<td style="text-align:center">Y6  U6  V6</td>
-<td style="text-align:center">Y7  U7  V7</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  V8</td>
-<td style="text-align:center">Y9  U9  V9</td>
-<td style="text-align:center">Y10 U10 V10</td>
-<td style="text-align:center">Y11 U11 V11</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 V12</td>
-<td style="text-align:center">Y13 U13 V13</td>
-<td style="text-align:center">Y14 U14 V14</td>
-<td style="text-align:center">Y15 U15 V15</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-2-2-采样"><a href="#4-2-2-采样" class="headerlink" title="4:2:2 采样"></a>4:2:2 采样</h2><blockquote>
-<p>4:2:2 表示 2:1 的水平取样，垂直完全采样<br>每采样过一个像素点，都会采样其 Y 分量，而 U、V 分量就会间隔一个采集一个。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  -</td>
-<td style="text-align:center">Y1  -   V1</td>
-<td style="text-align:center">Y2  U2  -</td>
-<td style="text-align:center">Y3  -   V3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  U4  -</td>
-<td style="text-align:center">Y5  -   V5</td>
-<td style="text-align:center">Y6  U6  -</td>
-<td style="text-align:center">Y7  -   V7</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  -</td>
-<td style="text-align:center">Y9  -   V9</td>
-<td style="text-align:center">Y10 U10 -</td>
-<td style="text-align:center">Y11 -   V11</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 -</td>
-<td style="text-align:center">Y13 -   V13</td>
-<td style="text-align:center">Y14 U14 -</td>
-<td style="text-align:center">Y15 -   V15</td>
-</tr>
-</tbody>
-</table>
-<p>映射的像素:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  V1</td>
-<td style="text-align:center">Y1  U0  V1</td>
-<td style="text-align:center">Y2  U2  V3</td>
-<td style="text-align:center">Y3  U2  V3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  U4  V5</td>
-<td style="text-align:center">Y5  U4  V5</td>
-<td style="text-align:center">Y6  U6  V7</td>
-<td style="text-align:center">Y7  U6  V7</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  V9</td>
-<td style="text-align:center">Y9  U8  V9</td>
-<td style="text-align:center">Y10 U10 V11</td>
-<td style="text-align:center">Y11 U10 V11</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 V13</td>
-<td style="text-align:center">Y13 U12 V13</td>
-<td style="text-align:center">Y14 U14 V15</td>
-<td style="text-align:center">Y15 U14 V15</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-2-0-采样"><a href="#4-2-0-采样" class="headerlink" title="4:2:0 采样"></a>4:2:0 采样</h2><blockquote>
-<p>4:2:0 表示 2:1 的水平取样，垂直 2：1 采样<br>每采样过一个像素点，都会采样其 Y 分量，而 U、V 分量就会间隔一行按照 2 : 1 进行采样。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  -</td>
-<td style="text-align:center">Y1  -   -</td>
-<td style="text-align:center">Y2  U2  -</td>
-<td style="text-align:center">Y3  -   -</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  -   V4</td>
-<td style="text-align:center">Y5  -   -</td>
-<td style="text-align:center">Y6  -   V6</td>
-<td style="text-align:center">Y7  -   -</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  -</td>
-<td style="text-align:center">Y9  -   -</td>
-<td style="text-align:center">Y10 U10 -</td>
-<td style="text-align:center">Y11 -   -</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 -   V12</td>
-<td style="text-align:center">Y13 -   -</td>
-<td style="text-align:center">Y14 -   V14</td>
-<td style="text-align:center">Y15 -   -</td>
-</tr>
-</tbody>
-</table>
-<p>映射的像素:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  V4</td>
-<td style="text-align:center">Y1  U0  V4</td>
-<td style="text-align:center">Y2  U2  V6</td>
-<td style="text-align:center">Y3  U2  V6</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  U0  V4</td>
-<td style="text-align:center">Y5  U0  V4</td>
-<td style="text-align:center">Y6  U2  V6</td>
-<td style="text-align:center">Y7  U2  V6</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  V12</td>
-<td style="text-align:center">Y9  U8  V12</td>
-<td style="text-align:center">Y10 U10 V14</td>
-<td style="text-align:center">Y11 U10 V14</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U8  V12</td>
-<td style="text-align:center">Y13 U8  V12</td>
-<td style="text-align:center">Y14 U10 V14</td>
-<td style="text-align:center">Y15 U10 V14</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-1-1-采样"><a href="#4-1-1-采样" class="headerlink" title="4:1:1 采样"></a>4:1:1 采样</h2><blockquote>
-<p>4:1:1 表示 4:1 的水平取样，垂直完全采样<br>每采样过一个像素点，都会采样其 Y 分量，而 U、V 分量就会间隔一行按照 2 : 1 进行采样。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0 U0 -</td>
-<td style="text-align:center">Y1 - -</td>
-<td style="text-align:center">Y2 - V2</td>
-<td style="text-align:center">Y3 - -</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4 U4 -</td>
-<td style="text-align:center">Y5 - -</td>
-<td style="text-align:center">Y6 - V6</td>
-<td style="text-align:center">Y7 - -</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8 U8 -</td>
-<td style="text-align:center">Y9 - -</td>
-<td style="text-align:center">Y10 - V10</td>
-<td style="text-align:center">Y11 - -</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 -</td>
-<td style="text-align:center">Y13 - -</td>
-<td style="text-align:center">Y14 - V14</td>
-<td style="text-align:center">Y15 - -</td>
-</tr>
-</tbody>
-</table>
-<p>映射的像素:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0 U0 V2</td>
-<td style="text-align:center">Y1 U0 V2</td>
-<td style="text-align:center">Y2 U0 V2</td>
-<td style="text-align:center">Y3 U0 V2</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4 U4 V6</td>
-<td style="text-align:center">Y5 U4 V6</td>
-<td style="text-align:center">Y6 U4 V6</td>
-<td style="text-align:center">Y7 U4 V6</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8 U8 V10</td>
-<td style="text-align:center">Y9 U8 V10</td>
-<td style="text-align:center">Y10 U8 V10</td>
-<td style="text-align:center">Y11 U8 V10</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 V14</td>
-<td style="text-align:center">Y13 U12 V14</td>
-<td style="text-align:center">Y14 U12 V14</td>
-<td style="text-align:center">Y15 U12 V14</td>
-</tr>
-</tbody>
-</table>
-<h1 id="YUV-存储方式"><a href="#YUV-存储方式" class="headerlink" title="YUV 存储方式"></a>YUV 存储方式</h1><blockquote>
-<p>YUV 的存储方式，一般有两种方式，一种叫 packed 模式，一种叫 planar 模式。packed 模式 Y，U，V  交错排列，而 planar 模式 Y 和 U，V 的排列是分开的，而具体 U 与 V 继续分开或者继续交错排列根据具体的格式相关。</p>
-</blockquote>
-<p><br><br>常见的基于 YUV422 采样的格式：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">YUV422 采样</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">YUYV 格式</td>
-</tr>
-<tr>
-<td style="text-align:center">UYVY 格式</td>
-</tr>
-<tr>
-<td style="text-align:center">YUV422P 格式</td>
-</tr>
-</tbody>
-</table>
-<p><br><br>常见的基于 YUV420 采样的格式：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">YUV420P 类型</th>
-<th style="text-align:center">YUV420SP 类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">YV12 格式</td>
-<td style="text-align:center">YU12 格式</td>
-</tr>
-<tr>
-<td style="text-align:center">NV12 格式</td>
-<td style="text-align:center">NV21 格式</td>
-</tr>
-</tbody>
-</table>
-<h2 id="基于-YUV444-采样的格式"><a href="#基于-YUV444-采样的格式" class="headerlink" title="基于 YUV444 采样的格式"></a>基于 YUV444 采样的格式</h2><p>4x4 像素 YUV444 采样：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  V0</td>
-<td style="text-align:center">Y1  U1  V1</td>
-<td style="text-align:center">Y2  U2  V2</td>
-<td style="text-align:center">Y3  U3  V3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  U4  V4</td>
-<td style="text-align:center">Y5  U5  V5</td>
-<td style="text-align:center">Y6  U6  V6</td>
-<td style="text-align:center">Y7  U7  V7</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  V8</td>
-<td style="text-align:center">Y9  U9  V9</td>
-<td style="text-align:center">Y10 U10 V10</td>
-<td style="text-align:center">Y11 U11 V11</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 V12</td>
-<td style="text-align:center">Y13 U13 V13</td>
-<td style="text-align:center">Y14 U14 V14</td>
-<td style="text-align:center">Y15 U15 V15</td>
-</tr>
-</tbody>
-</table>
-<h3 id="YUV444P-格式"><a href="#YUV444P-格式" class="headerlink" title="YUV444P 格式"></a>YUV444P 格式</h3><p>存储时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7</span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">U0  U1  U2  U3  U4  U5  U6  U7</span><br><span class="line">U8  U9  U10 U11 U12 U13 U14 U15</span><br><span class="line">V0  V1  V2  V3  V4  V5  V6  V7</span><br><span class="line">V8  V9  V10 V11 V12 V13 V14 V15</span><br></pre></td></tr></table></figure>
-<h2 id="基于-YUV422-采样的格式"><a href="#基于-YUV422-采样的格式" class="headerlink" title="基于 YUV422 采样的格式"></a>基于 YUV422 采样的格式</h2><p>4x4 像素 YUV422 采样：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0 U0 -</td>
-<td style="text-align:center">Y1 - V1</td>
-<td style="text-align:center">Y2 U2 -</td>
-<td style="text-align:center">Y3 - V3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4 U4 -</td>
-<td style="text-align:center">Y5 - V5</td>
-<td style="text-align:center">Y6 U6 -</td>
-<td style="text-align:center">Y7 - V7</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8 U8 -</td>
-<td style="text-align:center">Y9 - V9</td>
-<td style="text-align:center">Y10 U10 -</td>
-<td style="text-align:center">Y11 - V11</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 U12 -</td>
-<td style="text-align:center">Y13 - V13</td>
-<td style="text-align:center">Y14 U14 -</td>
-<td style="text-align:center">Y15 - V15</td>
-</tr>
-</tbody>
-</table>
-<h3 id="YUYV-格式"><a href="#YUYV-格式" class="headerlink" title="YUYV 格式"></a>YUYV 格式</h3><blockquote>
-<p>YUYV 格式是采用打包格式进行存储的，指每个像素点都采样 Y 分量，但是每隔一个像素采样它的 UV 分量。</p>
-</blockquote>
-<p>存储时（每个方括号里是 Macropixel=2 image pixels）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Y0  U0  Y1  V1 ][Y2  U2  Y3  V3 ]</span><br><span class="line">[Y4  U4  Y5  V5 ][Y6  U6  Y7  V7 ]</span><br><span class="line">[Y8  U8  Y9  V9 ][Y10 U10 Y11 V11]</span><br><span class="line">[Y12 U12 Y13 V13][Y14 U14 Y15 V15]</span><br></pre></td></tr></table></figure>
-<p>对 U,V 分量重新编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Y0  U0  Y1  V0 ][Y2  U1  Y3  V1 ]</span><br><span class="line">[Y4  U2  Y5  V2 ][Y6  U3  Y7  V3 ]</span><br><span class="line">[Y8  U4  Y9  V4 ][Y10 U5  Y11 V5 ]</span><br><span class="line">[Y12 U6  Y13 V6 ][Y14 U7  Y15 V7 ]</span><br></pre></td></tr></table></figure>
-<h3 id="UYVY-格式"><a href="#UYVY-格式" class="headerlink" title="UYVY 格式"></a>UYVY 格式</h3><blockquote>
-<p>UYVY 格式也是采用打包格式进行存储，它的顺序和 YUYV 相反，先采样 U 分量再采样 Y 分量。</p>
-</blockquote>
-<p>存储时（每个方括号里是 Macropixel=2 image pixels）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[U0  Y0  V1  Y1 ][U2  Y2  V3  Y3 ]</span><br><span class="line">[U4  Y4  V5  Y5 ][U6  Y6  V7  Y7 ]</span><br><span class="line">[U8  Y8  V9  Y9 ][U10 Y10 V11 Y11]</span><br><span class="line">[U12 Y12 V13 Y13][U14 Y14 V15 Y15]</span><br></pre></td></tr></table></figure>
-<p>对 U,V 分量重新编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[U0 Y0  V0 Y1 ][U1 Y2  V1 Y3 ]</span><br><span class="line">[U2 Y4  V2 Y5 ][U3 Y6  V3 Y7 ]</span><br><span class="line">[U4 Y8  V4 Y9 ][U5 Y10 V5 Y11]</span><br><span class="line">[U6 Y12 V6 Y13][U7 Y14 V7 Y15]</span><br></pre></td></tr></table></figure>
-<h3 id="YUV422P-格式（又叫做-I422）"><a href="#YUV422P-格式（又叫做-I422）" class="headerlink" title="YUV422P 格式（又叫做 I422）"></a>YUV422P 格式（又叫做 I422）</h3><blockquote>
-<p>YUV422P 格式，又叫做 I422，采用的是平面格式进行存储，先存储所有的 Y 分量，再存储所有的 U 分量，再存储所有的 V 分量。</p>
-</blockquote>
-<p>存储时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">U0  U2  U4  U6  U8  U10 U12 U14</span><br><span class="line">V1  V3  V5  V7  V9  V11 V13 V15</span><br></pre></td></tr></table></figure>
-<p>对 U,V 分量重新编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">U0  U1  U2  U3  U4  U5  U6  U7</span><br><span class="line">V0  V1  V2  V3  V4  V5  V6  V7</span><br></pre></td></tr></table></figure>
-<h2 id="基于-YUV420-采样的格式"><a href="#基于-YUV420-采样的格式" class="headerlink" title="基于 YUV420 采样的格式"></a>基于 YUV420 采样的格式</h2><blockquote>
-<p>YUV420P 和 YUV420SP 都是基于 Planar 平面模式进行存储的。</p>
-</blockquote>
-<p>4x4 像素 YUV420 采样：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Y0  U0  -</td>
-<td style="text-align:center">Y1  -   -</td>
-<td style="text-align:center">Y2  U2  -</td>
-<td style="text-align:center">Y3  -   -</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Y4  -   V4</td>
-<td style="text-align:center">Y5  -   -</td>
-<td style="text-align:center">Y6  -   V6</td>
-<td style="text-align:center">Y7  -   -</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Y8  U8  -</td>
-<td style="text-align:center">Y9  -   -</td>
-<td style="text-align:center">Y10 U10 -</td>
-<td style="text-align:center">Y11 -   -</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Y12 -   V12</td>
-<td style="text-align:center">Y13 -   -</td>
-<td style="text-align:center">Y14 -   V14</td>
-<td style="text-align:center">Y15 -   -</td>
-</tr>
-</tbody>
-</table>
-<h3 id="YUV420P-类型"><a href="#YUV420P-类型" class="headerlink" title="YUV420P 类型"></a>YUV420P 类型</h3><blockquote>
-<p>YUV420P 类型先存储所有的 Y 分量后，会先存储所有的 U 分量或者 V 分量。<br>YU12 和 YV12 格式都属于 YUV420P 类型，即先存储 Y 分量，再存储 U、V 分量，区别在于：YU12 是先 Y 再 U 后 V，而 YV12 是先 Y 再 V 后 U 。</p>
-</blockquote>
-<h4 id="YU12-格式（又叫做I420）"><a href="#YU12-格式（又叫做I420）" class="headerlink" title="YU12 格式（又叫做I420）"></a>YU12 格式（又叫做I420）</h4><blockquote>
-<p>YU12 是先 Y 再 U 后 V</p>
-</blockquote>
-<p>存储时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">U0  U2  U8  U10 V4  V6  V12 V14</span><br></pre></td></tr></table></figure>
-<p>对 U,V 分量重新编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">U0  U1  U2  U3  V0  V1  V2  V3</span><br></pre></td></tr></table></figure>
-<h4 id="YV12-格式"><a href="#YV12-格式" class="headerlink" title="YV12 格式"></a>YV12 格式</h4><blockquote>
-<p>YV12 是先 Y 再 V 后 U</p>
-</blockquote>
-<p>存储时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">V4  V6  V12 V14 U0  U2  U8  U10</span><br></pre></td></tr></table></figure>
-<p>对 V，U 分量重新编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">V0  V1  V2  V3  U0  U1  U2  U3</span><br></pre></td></tr></table></figure>
-<h3 id="YUV420SP-类型"><a href="#YUV420SP-类型" class="headerlink" title="YUV420SP 类型"></a>YUV420SP 类型</h3><blockquote>
-<p>YUV420SP 类型先存储所有的 Y 分量后，是按照 UV 或者 VU 的交替顺序进行存储。<br>NV12 和 NV21 格式都属于 YUV420SP 类型。它也是先存储了 Y 分量，但接下来并不是再存储所有的 U 或者 V 分量，而是把 UV 分量交替连续存储。</p>
-</blockquote>
-<h4 id="NV12-格式"><a href="#NV12-格式" class="headerlink" title="NV12 格式"></a>NV12 格式</h4><blockquote>
-<p>NV12 是 iOS 中有的模式，它的存储顺序是先存 Y 分量，再 UV 进行交替存储。</p>
-</blockquote>
-<p>存储时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">U0  V4  U2  V6  U8  V12 U10 V14</span><br></pre></td></tr></table></figure>
-<p>对 U,V 分量重新编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">U0  V0  U1  V1  U2  V2  U3  V3</span><br></pre></td></tr></table></figure>
-<h4 id="NV21-格式"><a href="#NV21-格式" class="headerlink" title="NV21 格式"></a>NV21 格式</h4><blockquote>
-<p>NV21 是 Android 中有的模式，它的存储顺序是先存 Y 分量，在 VU 交替存储。</p>
-</blockquote>
-<p>存储时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">V4  U0  V6  U2  V12 U8  V14 U10</span><br></pre></td></tr></table></figure>
-<p>对 U,V 分量重新编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7  </span><br><span class="line">Y8  Y9  Y10 Y11 Y12 Y13 Y14 Y15</span><br><span class="line">V0  U0  V1  U1  V2  U2  V3  U3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;jni.h&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">extern &quot;C&quot; JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_MainActivity_stringFromJNI(</span><br><span class="line">        JNIEnv* env,</span><br><span class="line">        jobject /* this */) &#123;</span><br><span class="line">//    std::string hello = &quot;Hello from C++&quot;;</span><br><span class="line">    std::string hello = &quot;NDK-JNI-day01&quot;;</span><br><span class="line">    return env-&gt;NewStringUTF(hello.c_str());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/rerun-first-ndk-jni-project.png" alt="重新运行项目"></p>
+<p>可以看到，我们修改的 C++ 代码已经生效了。</p>
+<h1 id="查看-APK"><a href="#查看-APK" class="headerlink" title="查看 APK"></a>查看 APK</h1><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day01/lookup-first-ndk-jni-project-apk.png" alt="查看项目生成的 APK"></p>
+<p>至此，我们已经学会了在 Android 项目中使用 C++ 代码。</p>
 <hr>
+<p>代码：</p>
+<p><a href="https://github.com/binglingziyu/NDK-JNI/tree/master/NDKJNIday01" target="_blank" rel="noopener">NDKJNIday01</a></p>
 <p>参考资料：</p>
-<p><a href="https://zh.wikipedia.org/zh-cn/YUV" target="_blank" rel="noopener">维基百科-YUV</a></p>
-<p><a href="https://zh.wikipedia.org/zh-cn/YCbCr" target="_blank" rel="noopener">维基百科-YCbCr</a></p>
-<p><a href="https://baike.baidu.com/item/YUV" target="_blank" rel="noopener">百度百科-YUV</a></p>
-<p><a href="https://baike.baidu.com/item/YCbCr/" target="_blank" rel="noopener">百度百科-YCbCr</a></p>
-<p><a href="https://glumes.com/post/ffmpeg/understand-yuv-format/" target="_blank" rel="noopener">一文读懂 YUV 的采样与格式</a></p>
-<p>内容有误？联系作者：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
+<p><a href="https://developer.android.com/ndk/guides" target="_blank" rel="noopener">Android Developers NDK 指南</a></p>
 <hr>
 
       
@@ -900,11 +284,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
         		</li>
       		
 		</ul>
@@ -916,7 +304,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
         		</li>
       		
 		</ul>
@@ -971,7 +363,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-07-yuv-intro/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/android-ndk-jni-basic-day01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -985,18 +377,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/audio-video-basic-08-rgb-and-yuv/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          音视频入门-08-RGB&amp;YUV
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/audio-video-basic-06-code-drawing/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">音视频入门-06-代码画图时间</div>
+    <a href="/blog/android-ndk-jni-basic-catagory/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android NDK JNI 入门教程-目录</div>
       <i class="icon-circle-right"></i>
     </a>
   
