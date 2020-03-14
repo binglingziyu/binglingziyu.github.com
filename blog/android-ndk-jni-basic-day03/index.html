@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>Category: NDK | binglingziyu的博客</title>
+  <title>Android NDK JNI 入门笔记-day03-引用数据类型 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="binglingziyu的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="binglingziyu的博客">
-<meta property="og:url" content="http://www.ihubin.com/categories/Android/NDK/index.html">
+  <meta name="description" content="Android NDK JNI 入门笔记目录  Java &amp;amp; JNI 引用数据类型 对应于不同类型的 Java 对象, JNI 包含大量的引用类型      Java 的类类型 JNI 的引用类型 类型描述     java.lang.Object jobject 可以表示任何 Java 的对象，或者没有 JNI 对应类型的 Java 对象（实例方法的强制参数）   java.lang.">
+<meta name="keywords" content="Android,NDK,JNI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android NDK JNI 入门笔记-day03-引用数据类型">
+<meta property="og:url" content="http://www.ihubin.com/blog/android-ndk-jni-basic-day03/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="binglingziyu的博客">
+<meta property="og:description" content="Android NDK JNI 入门笔记目录  Java &amp;amp; JNI 引用数据类型 对应于不同类型的 Java 对象, JNI 包含大量的引用类型      Java 的类类型 JNI 的引用类型 类型描述     java.lang.Object jobject 可以表示任何 Java 的对象，或者没有 JNI 对应类型的 Java 对象（实例方法的强制参数）   java.lang.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/java-jni-reference-types.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/day03-array.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/day03-array-result.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/day03-example-result.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/javap-get-method-signature.jpg">
+<meta property="og:updated_time" content="2020-03-14T06:44:43.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="binglingziyu的博客">
-<meta name="twitter:description" content="binglingziyu的博客">
+<meta name="twitter:title" content="Android NDK JNI 入门笔记-day03-引用数据类型">
+<meta name="twitter:description" content="Android NDK JNI 入门笔记目录  Java &amp;amp; JNI 引用数据类型 对应于不同类型的 Java 对象, JNI 包含大量的引用类型      Java 的类类型 JNI 的引用类型 类型描述     java.lang.Object jobject 可以表示任何 Java 的对象，或者没有 JNI 对应类型的 Java 对象（实例方法的强制参数）   java.lang.">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/java-jni-reference-types.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -174,36 +182,297 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-android-ndk-jni-basic-day03" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Android NDK JNI 入门笔记-day03-引用数据类型
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ndk-jni-basic-day03/" class="archive-article-date">
+
+        
+        <a href="/blog/android-ndk-jni-basic-day03/" class="archive-article-date">
   	<time datetime="2020-03-14T06:43:39.120Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ndk-jni-basic-day03/">Android NDK JNI 入门笔记-day03-引用数据类型</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<h1 id="Java-amp-JNI-引用数据类型"><a href="#Java-amp-JNI-引用数据类型" class="headerlink" title="Java &amp; JNI 引用数据类型"></a>Java &amp; JNI 引用数据类型</h1><blockquote>
+<p>对应于不同类型的 Java 对象, JNI 包含大量的引用类型</p>
+</blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/java-jni-reference-types.png" alt="java-jni-reference-types"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Java 的类类型</th>
+<th style="text-align:left">JNI 的引用类型</th>
+<th style="text-align:left">类型描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">java.lang.Object</td>
+<td style="text-align:left">jobject</td>
+<td style="text-align:left">可以表示任何 Java 的对象，或者没有 JNI 对应类型的 Java 对象（实例方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.String</td>
+<td style="text-align:left">jstring</td>
+<td style="text-align:left">Java 的 String 字符串类型的对象</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Class</td>
+<td style="text-align:left">jclass</td>
+<td style="text-align:left">Java 的 Class 类型对象（静态方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">Object[]</td>
+<td style="text-align:left">jobjectArray</td>
+<td style="text-align:left">Java 任何对象的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean[]</td>
+<td style="text-align:left">jbooleanArray</td>
+<td style="text-align:left">Java 基本类型 boolean 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">byte[]</td>
+<td style="text-align:left">jbyteArray</td>
+<td style="text-align:left">Java 基本类型 byte 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">char[]</td>
+<td style="text-align:left">jcharArray</td>
+<td style="text-align:left">Java 基本类型 char 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">short[]</td>
+<td style="text-align:left">jshortArray</td>
+<td style="text-align:left">Java 基本类型 short 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">int[]</td>
+<td style="text-align:left">jintArray</td>
+<td style="text-align:left">Java 基本类型 int 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">long[]</td>
+<td style="text-align:left">jlongArray</td>
+<td style="text-align:left">Java 基本类型 long 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">float[]</td>
+<td style="text-align:left">jfloatArray</td>
+<td style="text-align:left">Java 基本类型 float 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">double[]</td>
+<td style="text-align:left">jdoubleArray</td>
+<td style="text-align:left">Java 基本类型 double 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Throwable</td>
+<td style="text-align:left">jthrowable</td>
+<td style="text-align:left">Java 的 Throwable 类型，表示异常的所有类型和子类</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="JNI-引用类型-Java-基本数据类型数组"><a href="#JNI-引用类型-Java-基本数据类型数组" class="headerlink" title="JNI 引用类型-Java 基本数据类型数组"></a>JNI 引用类型-Java 基本数据类型数组</h2><p>写几个示例感受一下 JNI 对数组的操作。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/day03-array.png" alt="day03-array"></p>
+<blockquote>
+<p>从 Native 获取数组，Java 进行格式化</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 从 Native 获取数组，Java 进行格式化</span><br><span class="line"> * @param view</span><br><span class="line"> */</span><br><span class="line">public void getNativeArray(View view) &#123;</span><br><span class="line">    boolean[] nativeArray = NativeUtil.getNativeArray();</span><br><span class="line">    StringBuilder stringBuilder = new StringBuilder(&quot;[&quot;);</span><br><span class="line">    for(int i = 0; i &lt; nativeArray.length; i++) &#123;</span><br><span class="line">        stringBuilder.append(nativeArray[i]);</span><br><span class="line">        if(i != nativeArray.length -1) &#123;</span><br><span class="line">            stringBuilder.append(&quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stringBuilder.append(&quot;]&quot;);</span><br><span class="line">    getNativeArrayText.setText(stringBuilder.toString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// JNI 对数组的操作</span><br><span class="line">extern &quot;C&quot;</span><br><span class="line">JNIEXPORT jbooleanArray JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_getNativeArray(JNIEnv *env, jclass clazz) &#123;</span><br><span class="line">    jboolean* jb = new jboolean[5];</span><br><span class="line">    jb[0] = JNI_TRUE;</span><br><span class="line">    jb[1] = JNI_FALSE;</span><br><span class="line">    jb[2] = JNI_TRUE;</span><br><span class="line">    jb[3] = JNI_FALSE;</span><br><span class="line">    jb[4] = JNI_TRUE;</span><br><span class="line"></span><br><span class="line">    jbooleanArray jba = env-&gt;NewBooleanArray(5);</span><br><span class="line">    env-&gt;SetBooleanArrayRegion(jba, 0, 5, jb);</span><br><span class="line"></span><br><span class="line">    return jba;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将 Java 数组传入 Native，Native 格式化</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 将 Java 数组传入 Native，Native 格式化</span><br><span class="line"> * @param view</span><br><span class="line"> */</span><br><span class="line">public void formatArray(View view) &#123;</span><br><span class="line">    int[] intArray = &#123;11, 22, 33, 44, 55&#125;;</span><br><span class="line">    String formatArrayStr = NativeUtil.formatArray(intArray);</span><br><span class="line">    formatArrayText.setText(formatArrayStr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// JNI 对数组的操作</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_formatArray(JNIEnv *env, jclass clazz, jintArray int_array) &#123;</span><br><span class="line">    jint array[5];</span><br><span class="line">    env-&gt;GetIntArrayRegion(int_array, 0, 5, array);</span><br><span class="line">    jsize size = env-&gt;GetArrayLength(int_array);</span><br><span class="line">    char resutStr[100] = &#123;0&#125;;</span><br><span class="line">    char str[10] = &#123;0&#125;;</span><br><span class="line">    strcat(resutStr, &quot;[&quot;);</span><br><span class="line">    for(int i = 0; i &lt; size; i++) &#123;</span><br><span class="line">        sprintf(str, &quot;%d&quot;, array[i]);</span><br><span class="line">        strcat(resutStr, str);</span><br><span class="line">        if(i != size - 1) &#123;</span><br><span class="line">            strcat(resutStr, &quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    strcat(resutStr, &quot;]&quot;);</span><br><span class="line">    return env-&gt;NewStringUTF(resutStr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Native 计算商品总价</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Native 计算商品总价</span><br><span class="line"> * @param view</span><br><span class="line"> */</span><br><span class="line">public void calcTotalMoney(View view) &#123;</span><br><span class="line">    double[] price = &#123;5.5, 6.6, 7.7, 8.8, 9.9&#125;;</span><br><span class="line">    String resultStr = NativeUtil.calcTotalMoney(price);</span><br><span class="line">    calcTotalMoneyText.setText(resultStr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// JNI 对数组的操作</span><br><span class="line">extern &quot;C&quot;</span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_calcTotalMoney(JNIEnv *env, jclass clazz, jdoubleArray price) &#123;</span><br><span class="line">    jdouble array[5];</span><br><span class="line">    env-&gt;GetDoubleArrayRegion(price, 0, 5, array);</span><br><span class="line">    jsize size = env-&gt;GetArrayLength(price);</span><br><span class="line"></span><br><span class="line">    char resutStr[255] = &#123;0&#125;;</span><br><span class="line">    char str[20] = &#123;0&#125;;</span><br><span class="line">    strcat(resutStr, &quot;sum(&quot;);</span><br><span class="line">    jdouble totalMoney = 0.0;</span><br><span class="line">    for(int i = 0; i &lt; size; i++) &#123;</span><br><span class="line">        sprintf(str, &quot;%.1f&quot;, array[i]);</span><br><span class="line">        strcat(resutStr, str);</span><br><span class="line">        if(i != size - 1) &#123;</span><br><span class="line">            strcat(resutStr, &quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        totalMoney += array[i];</span><br><span class="line">    &#125;</span><br><span class="line">    strcat(resutStr, &quot;)&quot;);</span><br><span class="line">    strcat(resutStr, &quot;\n=&quot;);</span><br><span class="line">    sprintf(str, &quot;%.1f&quot;, totalMoney);</span><br><span class="line">    strcat(resutStr, str);</span><br><span class="line">    return env-&gt;NewStringUTF(resutStr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Native 计算各科成绩是否通过</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 计算各科成绩是否通过</span><br><span class="line"> * @param view</span><br><span class="line"> */</span><br><span class="line">public void calcScorePass(View view) &#123;</span><br><span class="line">    float[] yourScore = &#123;59.0F, 88.0F, 76.5F, 45.0F, 98.0F&#125;;</span><br><span class="line">    String[] yourScoreResult = NativeUtil.calcScorePass(yourScore);</span><br><span class="line">    StringBuilder stringBuilder = new StringBuilder();</span><br><span class="line"></span><br><span class="line">    stringBuilder.append(&quot;[&quot;);</span><br><span class="line">    for(int i = 0; i &lt; yourScore.length; i++) &#123;</span><br><span class="line">        stringBuilder.append(yourScore[i]);</span><br><span class="line">        if(i != yourScore.length - 1) &#123;</span><br><span class="line">            stringBuilder.append(&quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stringBuilder.append(&quot;]&quot;);</span><br><span class="line"></span><br><span class="line">    stringBuilder.append(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">    stringBuilder.append(&quot;[&quot;);</span><br><span class="line">    for(int i = 0; i &lt; yourScoreResult.length; i++) &#123;</span><br><span class="line">        stringBuilder.append(yourScoreResult[i]);</span><br><span class="line">        if(i != yourScoreResult.length - 1) &#123;</span><br><span class="line">            stringBuilder.append(&quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stringBuilder.append(&quot;]&quot;);</span><br><span class="line"></span><br><span class="line">    calcScorePassText.setText(stringBuilder.toString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">extern &quot;C&quot;</span><br><span class="line">JNIEXPORT jobjectArray JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_calcScorePass(JNIEnv *env, jclass clazz, jfloatArray your_score) &#123;</span><br><span class="line">    jfloat array[5];</span><br><span class="line">    env-&gt;GetFloatArrayRegion(your_score, 0, 5, array);</span><br><span class="line">    jsize size = env-&gt;GetArrayLength(your_score);</span><br><span class="line"></span><br><span class="line">    jclass objClass = env-&gt;FindClass(&quot;java/lang/String&quot;);</span><br><span class="line">    jobjectArray objArray = env-&gt;NewObjectArray(5, objClass, 0);</span><br><span class="line">    jstring  jstr;</span><br><span class="line">    for(int i = 0; i &lt; size; i++) &#123;</span><br><span class="line">        if(array[i] &gt;= 60.0) &#123;</span><br><span class="line">            jstr = env-&gt;NewStringUTF(&quot;√&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            jstr = env-&gt;NewStringUTF(&quot;×&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        env-&gt;SetObjectArrayElement(objArray, i, jstr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return objArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查看一下结果：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/day03-array-result.png" alt="day03-array-result"></p>
+<blockquote>
+<p>到这里，我们已经‘熟练掌握’了 JNI 对 Java 基本数据类型数组的各种操作。</p>
+<p>在 <code>Native 计算各科成绩是否通过</code> 这个示例中，出现了一段代码 <code>jclass objClass = env-&gt;FindClass(&quot;java/lang/String&quot;);</code> 下面就来探索一下。</p>
+</blockquote>
+<h2 id="JNI-引用类型-Java-对象"><a href="#JNI-引用类型-Java-对象" class="headerlink" title="JNI 引用类型-Java 对象"></a>JNI 引用类型-Java 对象</h2><blockquote>
+<p>之前，都是在 Java 调用 Native 中的方法，现在，Native 代码反调用 Java 层代码。</p>
+</blockquote>
+<h3 id="Class-属性和方法-对象"><a href="#Class-属性和方法-对象" class="headerlink" title="Class/属性和方法/对象"></a>Class/属性和方法/对象</h3><blockquote>
+<p>一、获取 Class 对象</p>
+</blockquote>
+<p>为了能够在 C/C++ 中调用 Java 中的类，jni.h 的头文件专门定义了 jclass 类型表示 Java 中 Class 类。JNIEnv 中有 3 个函数可以获取 jclass。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 通过类的名称(类的全名，这时候包名不是用&apos;&quot;.&quot;点号而是用&quot;/&quot;来区分的)来获取 jclass</span><br><span class="line">jclass FindClass(const char* clsName)</span><br><span class="line"></span><br><span class="line">// 通过对象实例来获取 jclass，相当于 Java 中的 getClass() 函数</span><br><span class="line">jclass GetObjectClass(jobject obj)</span><br><span class="line"></span><br><span class="line">// 通过 jclass 可以获取其父类的 jclass 对象</span><br><span class="line">jclass getSuperClass(jclass obj)</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 获取 Java 中的类 java.lang.String</span><br><span class="line">jclass objClass = env-&gt;FindClass(&quot;java/lang/String&quot;);</span><br><span class="line"></span><br><span class="line">// 获取一个类的父类</span><br><span class="line">jclass superClass = env-&gt;getSuperClass(objClass);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>二、获取属性方法</p>
+</blockquote>
+<p>在 C/C++ 获取 Java 层的属性和方法，JNI 在 jni.h 头文件中定义了 jfieldID 和 jmethodID 这两种类型来分别代表 Java 端的属性和方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 获取属性</span><br><span class="line">jfieldID GetFieldID(JNIEnv *env, jclass clazz, const char *name, const char *sig)</span><br><span class="line"></span><br><span class="line">// 获取方法</span><br><span class="line">jmethodID GetMethodID(JNIEnv *env, jclass clazz, const char *name, const char *sig)</span><br><span class="line"></span><br><span class="line">// 获取静态属性</span><br><span class="line">jfieldID GetStaticFieldID(JNIEnv *env, jclass clazz, const char *name, const char *sig)</span><br><span class="line"></span><br><span class="line">// 获取静态方法</span><br><span class="line">jmethodID GetStaticMethodID(JNIEnv *env, jclass clazz,const char *name, const char *sig)</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">package com.ihubin.ndkjni;</span><br><span class="line"></span><br><span class="line">public class User &#123;</span><br><span class="line"></span><br><span class="line">    public static int staticField = 88;</span><br><span class="line"></span><br><span class="line">    public int normalField = 99;</span><br><span class="line"></span><br><span class="line">    public static String getStaticUserInfo() &#123;</span><br><span class="line">        return &quot;[name:hubin, age:18]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getNormalUserInfo() &#123;</span><br><span class="line">        return &quot;[name:hubin, age:28]&quot;;</span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">     private String name;</span><br><span class="line"></span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    public User() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    public User(String name, int age) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getFormatInfo() &#123;</span><br><span class="line">        return String.format(&quot;[name:%s, age:%d]&quot;, name, age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 获取 jclass</span><br><span class="line">jclass userClass = env-&gt;FindClass(&quot;com/ihubin/ndkjni/User&quot;);</span><br><span class="line"></span><br><span class="line">// 获取属性 ID</span><br><span class="line">jfieldID normalField = env-&gt;GetFieldID(userClass, &quot;normalField&quot;, &quot;I&quot;);</span><br><span class="line">// 获取静态属性 ID</span><br><span class="line">jfieldID staticField = env-&gt;GetStaticFieldID(userClass, &quot;staticField&quot;, &quot;I&quot;);</span><br><span class="line"></span><br><span class="line">// 获取方法 ID</span><br><span class="line">jmethodID normalMethod = env-&gt;GetMethodID(userClass, &quot;getNormalUserInfo&quot;, &quot;()Ljava/lang/String;&quot;);</span><br><span class="line">// 获取静态方法 ID</span><br><span class="line">jmethodID staticMethod = env-&gt;GetStaticMethodID(userClass, &quot;getStaticUserInfo&quot;, &quot;()Ljava/lang/String;&quot;);</span><br><span class="line"></span><br><span class="line">// 获取无参构造函数</span><br><span class="line">jmethodID voidInitMethod = env-&gt;GetMethodID(userClass, &quot;&lt;init&gt;&quot;, &quot;()V&quot;);</span><br><span class="line">// 获取有参构造函数</span><br><span class="line">jmethodID paramInitMethod = env-&gt;GetMethodID(userClass, &quot;&lt;init&gt;&quot;, &quot;(Ljava/lang/String;I)V&quot;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>三、构造对象</p>
+</blockquote>
+<p>类实例化以后才能访问里面的非静态属性、方法，下面通过上面获取到的 jclass 和构造函数 jmethodID 构造对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 通过 clazz/methodID/...(可变参数列表) 创建一个对象</span><br><span class="line">jobject NewObject(JNIEnv *env, jclass clazz, jmethodID methodID, ...);</span><br><span class="line"></span><br><span class="line">// args(参数数组)</span><br><span class="line">jobject NewObjectA(JNIEnv *env, jclass clazz, jmethodID methodID, const jvalue *args);</span><br><span class="line"></span><br><span class="line">// args(指向变参列表的指针)</span><br><span class="line">jobject NewObjectV(JNIEnv *env, jclass clazz, jmethodID methodID, va_list args);</span><br><span class="line"></span><br><span class="line">// 通过一个类创建一个对象，默认构造函数</span><br><span class="line">jobject AllocObject(JNIEnv *env, jclass clazz)</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 通过无参构造函数</span><br><span class="line">jobject userOne = env-&gt;NewObject(userClass, voidInitMethod);</span><br><span class="line"></span><br><span class="line">// 通过有参构造函数</span><br><span class="line">jstring name = env-&gt;NewStringUTF(&quot;HUBIN&quot;);</span><br><span class="line">jint age = 8;</span><br><span class="line">jobject userTwo = env-&gt;NewObject(userClass, paramInitMethod, name, age);</span><br><span class="line"></span><br><span class="line">// 默认构造函数</span><br><span class="line">jobject userThree = env-&gt;AllocObject(userClass);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>四、获取属性、调用方法</p>
+</blockquote>
+<p>之前的准备都是为了能使用 Java 对象中的属性、方法。</p>
+<p>获取、设置属性值：<br><code>XXX Get&lt;type&gt;Field(jobject obj, jfieldID fieldID)</code><br><code>Set&lt;type&gt;Field(jobject obj, jfieldID fieldID, XXX value)</code></p>
+<p>获取、设置静态属性值：<br><code>XXX GetStatic&lt;type&gt;Field(jclass clazz, jfieldID fieldID)</code><br><code>SetStatic&lt;type&gt;Field(jclass clazz, jfieldID fieldID, XXX value)</code></p>
+<p>调用方法：<br><code>NativeType Call&lt;type&gt;Method(JNIEnv *env, jobject obj, jmethodID methodID, ...)</code><br><code>NativeType Call&lt;type&gt;MethodA(JNIEnv *env, jobject obj, jmethodID methodID, const jvalue *args)</code><br><code>NativeType Call&lt;type&gt;MethodV(JNIEnv *env, jobject obj, jmethodID methodID, va_list args)</code></p>
+<p>调用静态方法：<br><code>NativeType CallStatic&lt;type&gt;Method(JNIEnv *env, jclass clazz, jmethodID methodID, ...)</code><br><code>NativeType CallStatic&lt;type&gt;MethodA(JNIEnv *env, jclass clazz, jmethodID methodID, jvalue *args)</code><br><code>NativeType CallStatic&lt;type&gt;MethodV(JNIEnv *env, jclass clazz, jmethodID methodID, va_list args)</code></p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 获取对象中的属性</span><br><span class="line">jint normalFieldValue = env-&gt;GetIntField(userOne, normalField);</span><br><span class="line">LOGD(&quot;normalField: %d&quot;, normalFieldValue);</span><br><span class="line"></span><br><span class="line">// 获取 class 中静态属性</span><br><span class="line">jint staticFieldValue = env-&gt;GetStaticIntField(userClass, staticField);</span><br><span class="line">LOGD(&quot;staticField: %d&quot;, staticFieldValue);</span><br><span class="line"></span><br><span class="line">// 调用对象中的方法</span><br><span class="line">jobject normalMethodResultObj = env-&gt;CallObjectMethod(userOne, normalMethod);</span><br><span class="line">jstring normalMethodResult = static_cast&lt;jstring&gt;(normalMethodResultObj);</span><br><span class="line">const char *normalMethodResultNativeString = env-&gt;GetStringUTFChars(normalMethodResult, 0);</span><br><span class="line">LOGD(&quot;normalMethodResult: %s&quot;, normalMethodResultNativeString);</span><br><span class="line"></span><br><span class="line">// 调用 class 中的静态方法</span><br><span class="line">jobject staticMethodResultObj = env-&gt;CallStaticObjectMethod(userClass, staticMethod);</span><br><span class="line">jstring staticMethodResult = static_cast&lt;jstring&gt;(staticMethodResultObj);</span><br><span class="line">const char *staticMethodResultNativeString = env-&gt;GetStringUTFChars(staticMethodResult, 0);</span><br><span class="line">LOGD(&quot;staticMethodResult: %s&quot;, staticMethodResultNativeString);</span><br><span class="line"></span><br><span class="line">// 调用对象中的方法</span><br><span class="line">jobject getFormatInfoMethodResultObj = env-&gt;CallObjectMethod(userTwo, getFormatInfoMethod);</span><br><span class="line">jstring getFormatInfoMethodResult = static_cast&lt;jstring&gt;(getFormatInfoMethodResultObj);</span><br><span class="line">const char *getFormatInfoMethodResultNativeString = env-&gt;GetStringUTFChars(getFormatInfoMethodResult, 0);</span><br><span class="line">LOGD(&quot;getFormatInfoMethodResult: %s&quot;, getFormatInfoMethodResultNativeString);</span><br><span class="line"></span><br><span class="line">// 测试 jobject AllocObject(JNIEnv *env, jclass clazz) 创建的对象</span><br><span class="line">jobject userThreeMethodResultObj = env-&gt;CallObjectMethod(userThree, normalMethod);</span><br><span class="line">jstring userThreeMethodResult = static_cast&lt;jstring&gt;(userThreeMethodResultObj);</span><br><span class="line">const char *userThreeMethodResultNativeString = env-&gt;GetStringUTFChars(userThreeMethodResult, 0);</span><br><span class="line">LOGD(&quot;userThreeMethodResult: %s&quot;, userThreeMethodResultNativeString);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/day03-example-result.png" alt="day03-example-result"></p>
+<blockquote>
+<p>在获取 jfieldID 、 jmethodID 时，出现了一些奇怪的字符串 <code>I</code> <code>()Ljava/lang/String;</code> <code>()V</code> <code>(Ljava/lang/String;I)V</code>，下面就来研究一下。</p>
+</blockquote>
+<h3 id="数据类型签名"><a href="#数据类型签名" class="headerlink" title="数据类型签名"></a>数据类型签名</h3><blockquote>
+<p>在 JVM 虚拟机中，存储数据类型的名称时，是使用指定的类型签名来存储，而不是我们习惯的 int，float 等。<br>JNI 使用的就是这种类型签名。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Java 类型</th>
+<th style="text-align:left">类型签名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:left">I</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:left">J</td>
+</tr>
+<tr>
+<td style="text-align:left">byte</td>
+<td style="text-align:left">B</td>
+</tr>
+<tr>
+<td style="text-align:left">short</td>
+<td style="text-align:left">S</td>
+</tr>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:left">C</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:left">F</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">D</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">Z</td>
+</tr>
+<tr>
+<td style="text-align:left">void</td>
+<td style="text-align:left">V</td>
+</tr>
+<tr>
+<td style="text-align:left">其他引用类型</td>
+<td style="text-align:left">L+类全名+;</td>
+</tr>
+<tr>
+<td style="text-align:left">数组</td>
+<td style="text-align:left">[</td>
+</tr>
+<tr>
+<td style="text-align:left">方法</td>
+<td style="text-align:left">(参数)返回值</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>例子1</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Java 类型：java.lang.String</span><br><span class="line">类型签名：Ljava/lang/String;</span><br><span class="line">即一个 Java 类对应的签名，就是 L 加上类的全名，其中 . 要换成 / ，最后不要忘掉末尾的分号。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>例子2</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Java 类型：String[]</span><br><span class="line">类型签名：[Ljava/lang/String;</span><br><span class="line"></span><br><span class="line">Java 类型：int[][]</span><br><span class="line">类型签名：[[I</span><br><span class="line"></span><br><span class="line">数组就是简单的在类型描述符前加 [ 即可，二维数组就是两个 [ ，以此类推。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>例子3</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Java 方法：long f (int n, String s, int[] arr);</span><br><span class="line">类型签名：(ILjava/lang/String;[I)J</span><br><span class="line"></span><br><span class="line">Java 方法：void f ();</span><br><span class="line">类型签名：()V</span><br><span class="line"></span><br><span class="line">括号内是每个参数的类型符，括号外就是返回值的类型符。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用 <code>javap -s &lt;Class&gt;</code> 查看签名</p>
+</blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day03/javap-get-method-signature.jpg" alt="javap-get-method-signature"></p>
+<blockquote>
+<p>至此，我们已经学会了在 Android 项目中 Native 操作 Java 对象。</p>
+</blockquote>
+<hr>
+<p>代码：</p>
+<p><a href="https://github.com/binglingziyu/NDK-JNI/tree/master/NDKJNIday03" target="_blank" rel="noopener">NDKJNIday03</a></p>
+<p>参考资料：</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html" target="_blank" rel="noopener">Oracle - JNI Types and Data Structures</a></p>
+<p><a href="https://blog.csdn.net/afei__/article/details/80899758" target="_blank" rel="noopener">JNI基础：JNI数据类型和类型描述符</a></p>
+<p><a href="https://www.jianshu.com/p/b71aeb4ed13d" target="_blank" rel="noopener">Android JNI学习(三)——Java与Native相互调用</a></p>
+<p><a href="https://www.jianshu.com/p/caad51c9cc34" target="_blank" rel="noopener">JNI完全指南(四)——对象操作</a></p>
+<hr>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-ali-pay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-wx-pay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -223,7 +492,7 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -240,200 +509,104 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/android-ndk-jni-basic-day03/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ndk-jni-basic-day02/" class="archive-article-date">
-  	<time datetime="2020-03-03T08:47:49.770Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/blog/android-ndk-jni-basic-day02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android NDK JNI 入门笔记-day02-基本数据类型数据传递</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ndk-jni-basic-day02/">Android NDK JNI 入门笔记-day02-基本数据类型数据传递</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ndk-jni-basic-day01/" class="archive-article-date">
-  	<time datetime="2020-02-29T15:33:09.290Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ndk-jni-basic-day01/">Android NDK JNI 入门笔记-day01-创建项目并运行</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-ndk-jni-basic-catagory/" class="archive-article-date">
-  	<time datetime="2020-02-29T15:29:59.699Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-ndk-jni-basic-catagory/">Android NDK JNI 入门笔记-目录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -460,10 +633,10 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

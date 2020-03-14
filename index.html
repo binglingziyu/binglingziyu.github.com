@@ -176,6 +176,185 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-android-ndk-jni-basic-day03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/android-ndk-jni-basic-day03/">Android NDK JNI 入门笔记-day03-引用数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/blog/android-ndk-jni-basic-day03/" class="archive-article-date">
+  	<time datetime="2020-03-14T06:43:39.120Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<h1 id="Java-amp-JNI-引用数据类型"><a href="#Java-amp-JNI-引用数据类型" class="headerlink" title="Java &amp; JNI 引用数据类型"></a>Java &amp; JNI 引用数据类型</h1><blockquote>
+<p>对应于不同类型的 Java 对象, JNI 包含大量的引用类型</p>
+</blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/java-jni-reference-types.png" alt="java-jni-reference-types"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Java 的类类型</th>
+<th style="text-align:left">JNI 的引用类型</th>
+<th style="text-align:left">类型描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">java.lang.Object</td>
+<td style="text-align:left">jobject</td>
+<td style="text-align:left">可以表示任何 Java 的对象，或者没有 JNI 对应类型的 Java 对象（实例方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.String</td>
+<td style="text-align:left">jstring</td>
+<td style="text-align:left">Java 的 String 字符串类型的对象</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Class</td>
+<td style="text-align:left">jclass</td>
+<td style="text-align:left">Java 的 Class 类型对象（静态方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">Object[]</td>
+<td style="text-align:left">jobjectArray</td>
+<td style="text-align:left">Java 任何对象的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean[]</td>
+<td style="text-align:left">jbooleanArray</td>
+<td style="text-align:left">Java 基本类型 boolean 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">byte[]</td>
+<td style="text-align:left">jbyteArray</td>
+<td style="text-align:left">Java 基本类型 byte 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">char[]</td>
+<td style="text-align:left">jcharArray</td>
+<td style="text-align:left">Java 基本类型 char 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">short[]</td>
+<td style="text-align:left">jshortArray</td>
+<td style="text-align:left">Java 基本类型 short 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">int[]</td>
+<td style="text-align:left">jintArray</td>
+<td style="text-align:left">Java 基本类型 int 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">long[]</td>
+<td style="text-align:left">jlongArray</td>
+<td style="text-align:left">Java 基本类型 long 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">float[]</td>
+<td style="text-align:left">jfloatArray</td>
+<td style="text-align:left">Java 基本类型 float 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">double[]</td>
+<td style="text-align:left">jdoubleArray</td>
+<td style="text-align:left">Java 基本类型 double 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Throwable</td>
+<td style="text-align:left">jthrowable</td>
+<td style="text-align:left">Java 的 Throwable 类型，表示异常的所有类型和子类</td>
+</tr>
+</tbody>
+</table>
+        
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day03/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day03/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-android-ndk-jni-basic-day02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1259,97 +1438,6 @@ Spring Security: 5.1.6.RELEASE
 
 
   
-    <article id="post-spring-boot-2-basic-catagory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/spring-boot-2-basic-catagory/">Spring Boot2 入门-目录</a>
-    </h1>
-  
-
-        
-        <a href="/blog/spring-boot-2-basic-catagory/" class="archive-article-date">
-  	<time datetime="2019-09-25T03:31:41.066Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  Spring Boot2 入门文章记录</p>
-        
-          <a class="article-more-a" href="/blog/spring-boot-2-basic-catagory/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring Security</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Spring-Boot//" class="article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/spring-boot-2-basic-catagory/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1443,22 +1531,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">FFmpeg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
@@ -1467,7 +1539,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">FFmpeg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JNI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1491,15 +1579,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
               </li>
              
               <li class="article-tag-list-item">
