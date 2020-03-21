@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>Archives: 2016/12 | binglingziyu的博客</title>
+  <title>Android NDK JNI 入门笔记-day05-NDK应用签名校验 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="binglingziyu的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="binglingziyu的博客">
-<meta property="og:url" content="http://www.ihubin.com/archives/2016/12/index.html">
+  <meta name="description" content="Android NDK JNI 入门笔记目录  开头NDK 实践-应用签名校验。 应用签名Android 应用签名是应用打包过程的重要步骤之一，Google 要求所有的应用必须被签名才可以安装到 Android 操作系统中。 应用签名不能保证 APK 不被篡改，只是为了能够校验出 APK 是否被篡改。在系统安装过程中，如果发现 APK 被篡改，安装就会失败。 NDK 应用签名校验为了相对安全，一">
+<meta name="keywords" content="Android,NDK,JNI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android NDK JNI 入门笔记-day05-NDK应用签名校验">
+<meta property="og:url" content="http://www.ihubin.com/blog/android-ndk-jni-basic-day05/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="binglingziyu的博客">
+<meta property="og:description" content="Android NDK JNI 入门笔记目录  开头NDK 实践-应用签名校验。 应用签名Android 应用签名是应用打包过程的重要步骤之一，Google 要求所有的应用必须被签名才可以安装到 Android 操作系统中。 应用签名不能保证 APK 不被篡改，只是为了能够校验出 APK 是否被篡改。在系统安装过程中，如果发现 APK 被篡改，安装就会失败。 NDK 应用签名校验为了相对安全，一">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day05/day05-example-preview.jpeg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day05/android-default-debug-keystore.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day05/day05-example-result.jpeg">
+<meta property="og:updated_time" content="2020-03-21T03:50:38.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="binglingziyu的博客">
-<meta name="twitter:description" content="binglingziyu的博客">
+<meta name="twitter:title" content="Android NDK JNI 入门笔记-day05-NDK应用签名校验">
+<meta name="twitter:description" content="Android NDK JNI 入门笔记目录  开头NDK 实践-应用签名校验。 应用签名Android 应用签名是应用打包过程的重要步骤之一，Google 要求所有的应用必须被签名才可以安装到 Android 操作系统中。 应用签名不能保证 APK 不被篡改，只是为了能够校验出 APK 是否被篡改。在系统安装过程中，如果发现 APK 被篡改，安装就会失败。 NDK 应用签名校验为了相对安全，一">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day05/day05-example-preview.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -103,6 +110,10 @@ var _hmt = _hmt || [];
 		        
 					<a class="weibo" target="_blank" href="https://weibo.com/u/5458444323" title="weibo"><i class="icon-weibo"></i></a>
 		        
+					<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/de78e47927e6" title="jianshu"><i class="icon-jianshu"></i></a>
+		        
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/binglingziyu/articles" title="segmentfault"><i class="icon-segmentfault"></i></a>
+		        
 					<a class="mail" target="_blank" href="mailto:hubin.android@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
@@ -142,6 +153,10 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="https://weibo.com/u/5458444323" title="weibo"><i class="icon-weibo"></i></a>
 			        
+						<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/de78e47927e6" title="jianshu"><i class="icon-jianshu"></i></a>
+			        
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/binglingziyu/articles" title="segmentfault"><i class="icon-segmentfault"></i></a>
+			        
 						<a class="mail" target="_blank" href="mailto:hubin.android@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
@@ -166,36 +181,93 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-android-ndk-jni-basic-day05" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/android-exception-no-host/" class="archive-article-date">
-  	<time datetime="2016-12-27T02:34:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/android-exception-no-host/">java.lang.IllegalStateException:No host</a>
+    <h1 class="article-title" itemprop="name">
+      Android NDK JNI 入门笔记-day05-NDK应用签名校验
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/blog/android-ndk-jni-basic-day05/" class="archive-article-date">
+  	<time datetime="2020-03-21T03:49:20.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>NDK 实践-应用签名校验。</p>
+<h2 id="应用签名"><a href="#应用签名" class="headerlink" title="应用签名"></a>应用签名</h2><p>Android 应用签名是应用打包过程的重要步骤之一，Google 要求所有的应用必须被签名才可以安装到 Android 操作系统中。</p>
+<p>应用签名不能保证 APK 不被篡改，只是为了能够校验出 APK 是否被篡改。在系统安装过程中，如果发现 APK 被篡改，安装就会失败。</p>
+<h2 id="NDK-应用签名校验"><a href="#NDK-应用签名校验" class="headerlink" title="NDK 应用签名校验"></a>NDK 应用签名校验</h2><p>为了相对安全，一些敏感操作往往会使用 Native 的方式来实现。但是别人可以通过 APK 文件获取到我们的 <code>.so</code> 文件，进而使用我们的 <code>.so</code>。</p>
+<p>但是应用签名的证书只有我们持有，我们可以通过 Native 校验签名来判断是否是我们自己的应用，如果不是可以返回错误或直接退出应用。</p>
+<a id="more"></a>
+<h1 id="动手实践"><a href="#动手实践" class="headerlink" title="动手实践"></a>动手实践</h1><p>像之前一样<a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day01/">创建一个 Native C++ 模板项目</a></p>
+<h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day05/day05-example-preview.jpeg" alt="day05-example-preview"></p>
+<h2 id="查看证书指纹："><a href="#查看证书指纹：" class="headerlink" title="查看证书指纹："></a>查看证书指纹：</h2><p>新建的 Android 项目，默认的签名证书在用户根目录的 .android 目录中 <code>~/.android/debug.keystore</code></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day05/android-default-debug-keystore.png" alt="android-default-debug-keystore"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ keytool -list -v -keystore debug.keystore</span><br><span class="line">输入密钥库口令:</span><br><span class="line">android</span><br></pre></td></tr></table></figure>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg" alt="android-cert-fingerprint"></p>
+<h2 id="Java-获取证书指纹"><a href="#Java-获取证书指纹" class="headerlink" title="Java 获取证书指纹"></a>Java 获取证书指纹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">public class SignatureUtil &#123;</span><br><span class="line"></span><br><span class="line">    public static String getSignatureStr(Context context) &#123;</span><br><span class="line">        Signature signature = getSignature(context);</span><br><span class="line">        byte[] cert = signature.toByteArray();</span><br><span class="line">        try &#123;</span><br><span class="line">            MessageDigest md5 = MessageDigest.getInstance(&quot;MD5&quot;);</span><br><span class="line">            MessageDigest sha1 = MessageDigest.getInstance(&quot;SHA1&quot;);</span><br><span class="line">            MessageDigest sha256 = MessageDigest.getInstance(&quot;SHA256&quot;);</span><br><span class="line">            byte[] md5Key = md5.digest(cert);</span><br><span class="line">            byte[] sha1Key = sha1.digest(cert);</span><br><span class="line">            byte[] sha256Key = sha256.digest(cert);</span><br><span class="line">            return String.format(&quot;MD5: %s\n\nSHA1: %s\n\nSHA-256: %s&quot;,</span><br><span class="line">                    byteArrayToString(md5Key),</span><br><span class="line">                    byteArrayToString(sha1Key),</span><br><span class="line">                    byteArrayToString(sha256Key)</span><br><span class="line">            );</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Signature getSignature(Context argContext) &#123;</span><br><span class="line">        Signature signature = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            String packageName = argContext.getPackageName();</span><br><span class="line">            PackageManager packageManager = argContext.getPackageManager();</span><br><span class="line">            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, GET_SIGNATURES);</span><br><span class="line">            Signature[] signatures = packageInfo.signatures;</span><br><span class="line">            signature = signatures[0];</span><br><span class="line">        &#125; catch (NameNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return signature;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static String byteArrayToString(byte[] array) &#123;</span><br><span class="line">        StringBuilder hexString = new StringBuilder();</span><br><span class="line">        for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">            String appendString = Integer.toHexString(0xFF &amp; array[i]).toUpperCase();</span><br><span class="line">            if (appendString.length() == 1)</span><br><span class="line">                hexString.append(&quot;0&quot;);</span><br><span class="line">            hexString.append(appendString);</span><br><span class="line">            if(i &lt; array.length - 1)</span><br><span class="line">                hexString.append(&quot;:&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return hexString.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Native-获取证书指纹"><a href="#Native-获取证书指纹" class="headerlink" title="Native 获取证书指纹"></a>Native 获取证书指纹</h2><p>这里用到了 HASH 算法，<a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day04/">Android NDK JNI 入门笔记-day04-NDK实现Hash算法</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">jbyteArray getSignatureByte(JNIEnv *env, jobject context);</span><br><span class="line">void hashByteArray(HASH type, const void* data, size_t numBytes, char* resultData);</span><br><span class="line">void formatSignature(char* data, char* resultData);</span><br><span class="line"></span><br><span class="line">extern &quot;C&quot;</span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_getSignature(JNIEnv *env, jclass clazz, jobject context) &#123;</span><br><span class="line">    jbyteArray cert_byteArray = getSignatureByte(env, context);</span><br><span class="line">    jsize size = env-&gt;GetArrayLength(cert_byteArray);</span><br><span class="line">    jbyte* jbyteArray = new jbyte[size];</span><br><span class="line">    env-&gt;GetByteArrayRegion(cert_byteArray, 0, size, jbyteArray);</span><br><span class="line"></span><br><span class="line">    char certMD5[128] = &#123;0&#125;;</span><br><span class="line">    hashByteArray(HASH_MD5, jbyteArray, size, certMD5);</span><br><span class="line">    char certSHA1[128] = &#123;0&#125;;</span><br><span class="line">    hashByteArray(HASH_SHA1, jbyteArray, size, certSHA1);</span><br><span class="line">    char certSHA256[128] = &#123;0&#125;;</span><br><span class="line">    hashByteArray(HASH_SHA256, jbyteArray, size, certSHA256);</span><br><span class="line">    LOGD(&quot;MD5: %s&quot;, certMD5);</span><br><span class="line">    LOGD(&quot;SHA1: %s&quot;, certSHA1);</span><br><span class="line">    LOGD(&quot;SHA256: %s&quot;, certSHA256);</span><br><span class="line"></span><br><span class="line">    char resultStr[1000] = &#123;0&#125;;</span><br><span class="line">    strcat(resultStr, &quot;MD5: &quot;);</span><br><span class="line">    strcat(resultStr, certMD5);</span><br><span class="line">    strcat(resultStr, &quot;\n\nSHA1: &quot;);</span><br><span class="line">    strcat(resultStr, certSHA1);</span><br><span class="line">    strcat(resultStr, &quot;\n\nSHA256: &quot;);</span><br><span class="line">    strcat(resultStr, certSHA256);</span><br><span class="line"></span><br><span class="line">    return env-&gt;NewStringUTF(resultStr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Native 从 Context 中获取签名</span><br><span class="line">jbyteArray getSignatureByte(JNIEnv *env, jobject context) &#123;</span><br><span class="line">    // Context 的类</span><br><span class="line">    jclass context_clazz = env-&gt;GetObjectClass(context);</span><br><span class="line"></span><br><span class="line">    // 得到 getPackageManager 方法的 ID</span><br><span class="line">    jmethodID methodID_getPackageManager = env-&gt;GetMethodID(context_clazz, &quot;getPackageManager&quot;, &quot;()Landroid/content/pm/PackageManager;&quot;);</span><br><span class="line"></span><br><span class="line">    // 获得 PackageManager 对象</span><br><span class="line">    jobject packageManager = env-&gt;CallObjectMethod(context, methodID_getPackageManager);</span><br><span class="line"></span><br><span class="line">    // 获得 PackageManager 类</span><br><span class="line">    jclass packageManager_clazz=env-&gt;GetObjectClass(packageManager);</span><br><span class="line"></span><br><span class="line">    // 得到 getPackageInfo 方法的 ID</span><br><span class="line">    jmethodID methodID_getPackageInfo=env-&gt;GetMethodID(packageManager_clazz,&quot;getPackageInfo&quot;, &quot;(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;&quot;);</span><br><span class="line"></span><br><span class="line">    // 得到 getPackageName 方法的 ID</span><br><span class="line">    jmethodID methodID_getPackageName = env-&gt;GetMethodID(context_clazz,&quot;getPackageName&quot;, &quot;()Ljava/lang/String;&quot;);</span><br><span class="line"></span><br><span class="line">    // 获得当前应用的包名</span><br><span class="line">    jobject application_package_obj = env-&gt;CallObjectMethod(context, methodID_getPackageName);</span><br><span class="line">    jstring application_package = static_cast&lt;jstring&gt;(application_package_obj);</span><br><span class="line">    const char* package_name = env-&gt;GetStringUTFChars(application_package, 0);</span><br><span class="line">    LOGD(&quot;packageName: %s&quot;, package_name);</span><br><span class="line"></span><br><span class="line">    // 获得 PackageInfo</span><br><span class="line">    jobject packageInfo = env-&gt;CallObjectMethod(packageManager, methodID_getPackageInfo, application_package, 64);</span><br><span class="line">    jclass packageinfo_clazz = env-&gt;GetObjectClass(packageInfo);</span><br><span class="line"></span><br><span class="line">    // 获取签名</span><br><span class="line">    jfieldID fieldID_signatures = env-&gt;GetFieldID(packageinfo_clazz, &quot;signatures&quot;, &quot;[Landroid/content/pm/Signature;&quot;);</span><br><span class="line">    jobjectArray signature_arr = (jobjectArray)env-&gt;GetObjectField(packageInfo, fieldID_signatures);</span><br><span class="line"></span><br><span class="line">    // Signature 数组中取出第一个元素</span><br><span class="line">    jobject signature = env-&gt;GetObjectArrayElement(signature_arr, 0);</span><br><span class="line"></span><br><span class="line">    // 读 signature 的 ByteArray</span><br><span class="line">    jclass signature_clazz = env-&gt;GetObjectClass(signature);</span><br><span class="line">    jmethodID methodID_byteArray = env-&gt;GetMethodID(signature_clazz, &quot;toByteArray&quot;, &quot;()[B&quot;);</span><br><span class="line">    jobject cert_obj = env-&gt;CallObjectMethod(signature, methodID_byteArray);</span><br><span class="line">    jbyteArray cert_byteArray = static_cast&lt;jbyteArray&gt;(cert_obj);</span><br><span class="line"></span><br><span class="line">    return cert_byteArray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获得签名的 MD5 SHA1 SHA256</span><br><span class="line">void hashByteArray(HASH type, const void* data, size_t numBytes, char* resultData)&#123;</span><br><span class="line">    if(type == HASH_MD5) &#123;</span><br><span class="line">        MD5 md5;</span><br><span class="line">        std::string md5String = md5(data, numBytes);</span><br><span class="line">        int len = md5String.length()+1;</span><br><span class="line">        char * tabStr = new char [md5String.length()+1];</span><br><span class="line">        strcpy(tabStr, md5String.c_str());</span><br><span class="line">        formatSignature(tabStr, resultData);</span><br><span class="line">    &#125; else if(type == HASH_SHA1) &#123;</span><br><span class="line">        SHA1 sha1;</span><br><span class="line">        std::string sha1String = sha1(data, numBytes);</span><br><span class="line">        char * tabStr = new char [sha1String.length()+1];</span><br><span class="line">        strcpy(tabStr, sha1String.c_str());</span><br><span class="line">        formatSignature(tabStr, resultData);</span><br><span class="line">    &#125; else if(type == HASH_SHA256) &#123;</span><br><span class="line">        SHA256 sha256;</span><br><span class="line">        std::string sha256String = sha256(data, numBytes);</span><br><span class="line">        char * tabStr = new char [sha256String.length()+1];</span><br><span class="line">        strcpy(tabStr, sha256String.c_str());</span><br><span class="line">        formatSignature(tabStr, resultData);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 格式化输出</span><br><span class="line">void formatSignature(char* data, char* resultData) &#123;</span><br><span class="line">    int resultIndex = 0;</span><br><span class="line">    int length = strlen(data);</span><br><span class="line">    for(int i = 0; i &lt; length; i++) &#123;</span><br><span class="line">        resultData[resultIndex] = static_cast&lt;char&gt;(toupper(data[i]));</span><br><span class="line">        if(i % 2 == 1 &amp;&amp; i != length -1) &#123;</span><br><span class="line">            resultData[resultIndex+1] = &apos;:&apos;;</span><br><span class="line">            resultIndex+=2;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            resultIndex++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day05/day05-example-result.jpeg" alt="day05-example-result"></p>
+<blockquote>
+<p>至此，我们已经学会了在 Android 项目中 Native 进行签名校验，应用安全提升了。</p>
+</blockquote>
+<hr>
+<p>代码：</p>
+<p><a href="https://github.com/binglingziyu/NDK-JNI/tree/master/NDKJNIday05" target="_blank" rel="noopener">NDKJNIday05</a></p>
+<p>参考资料：</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html" target="_blank" rel="noopener">Oracle - JNI Types and Data Structures</a></p>
+<p><a href="https://www.jianshu.com/p/d00e9754df43" target="_blank" rel="noopener">获取Android应用签名的几种方式</a></p>
+<p><a href="https://blog.csdn.net/zhangmiaoping23/article/details/80179371" target="_blank" rel="noopener">签名校验通过NDK实现</a></p>
+<hr>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-ali-pay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-wx-pay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,36 +277,131 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Android-Exception//" class="article-tag-list-link color3">Android Exception</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/android-ndk-jni-basic-day05/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/android-ndk-jni-basic-day04/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android NDK JNI 入门笔记-day04-NDK实现Hash算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -244,21 +411,25 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 binglingziyu
+    		&copy; 2020 binglingziyu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+    <div id="footer-icp">
+      <a href="http://www.beian.miit.gov.cn/" target="_blank">京ICP备17012557号</a>
+    </div>
   </div>
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -335,6 +506,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
@@ -343,11 +526,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring Security</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -356,6 +543,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JPEG文件格式详解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PNG文件格式详解</a>
               </li>
             
             <div class="clearfix"></div>
@@ -406,7 +605,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">程序员博客</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Just Coding!</div>
   	  	
     	</section>
     
