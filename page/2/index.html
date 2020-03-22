@@ -176,6 +176,234 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-audio-video-basic-13-generate-png-with-library" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/audio-video-basic-13-generate-png-with-library/">音视频入门-13-使用开源库生成PNG图片</a>
+    </h1>
+  
+
+        
+        <a href="/blog/audio-video-basic-13-generate-png-with-library/" class="archive-article-date">
+  	<time datetime="2019-11-06T07:04:11.052Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="RGB-to-PNG-回顾"><a href="#RGB-to-PNG-回顾" class="headerlink" title="RGB-to-PNG 回顾"></a>RGB-to-PNG 回顾</h1><p>上一篇 <a href="https://www.ihubin.com/blog/audio-video-basic-12-generate-png-by-hand/">【手动生成一张PNG图片】</a> 根据 <a href="https://www.ihubin.com/blog/audio-video-basic-11-png-file-format-detail/">【PNG文件格式详解】</a> 一步一步地手动实现了将 RGB 数据生成了一张 PNG 图片。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/generate-png-by-hand.jpg" alt="generate-png-by-hand.jpg"></p>
+<p>有许多开源的 PNG 相关的库可以简化开发：</p>
+<ul>
+<li><a href="https://github.com/miloyip/svpng" target="_blank" rel="noopener">svpng</a></li>
+<li><a href="https://github.com/misc0110/libattopng" target="_blank" rel="noopener">libattopng</a></li>
+<li><a href="https://github.com/lvandeve/lodepng" target="_blank" rel="noopener">lodepng</a></li>
+<li><a href="http://www.libpng.org/" target="_blank" rel="noopener">libpng</a></li>
+</ul>
+        
+          <a class="article-more-a" href="/blog/audio-video-basic-13-generate-png-with-library/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PNG文件格式详解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/audio-video-basic-13-generate-png-with-library/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-audio-video-basic-12-generate-png-by-hand" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/audio-video-basic-12-generate-png-by-hand/">音视频入门-12-手动生成一张PNG图片</a>
+    </h1>
+  
+
+        
+        <a href="/blog/audio-video-basic-12-generate-png-by-hand/" class="archive-article-date">
+  	<time datetime="2019-10-30T13:50:11.772Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="预热"><a href="#预热" class="headerlink" title="预热"></a>预热</h1><p><a href="https://www.ihubin.com/blog/audio-video-basic-11-png-file-format-detail/">上一篇 【PNG文件格式详解】</a>详细介绍了 PNG 文件的格式。</p>
+<p>PNG 图像格式文件由一个 8 字节的 PNG 文件署名域和 3 个以上的后续数据块（IHDR、IDAT、IEND）组成。</p>
+<p>PNG 文件包括 8 字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别 PNG 格式。</p>
+<p>数据块中有 4 个关键数据块：</p>
+<ul>
+<li>文件头数据块 IHDR（header chunk）：包含有图像基本信息，作为第一个数据块出现并只出现一次。</li>
+<li>调色板数据块 PLTE（palette chunk）：必须放在图像数据块之前。</li>
+<li>图像数据块 IDAT（image data chunk）：存储实际图像数据。PNG 数据允许包含多个连续的图像数据块。</li>
+<li>图像结束数据 IEND（image trailer chunk）：放在文件尾部，表示 PNG 数据流结束。</li>
+</ul>
+<p>数据块连起来，大概这个样子：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PNG 标识符</th>
+<th style="text-align:center">PNG 数据块(IHDR)</th>
+<th style="text-align:center">PNG 数据块(其他类型数据块)</th>
+<th style="text-align:center">…</th>
+<th style="text-align:center">PNG 结尾数据块(IEND)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>目标图：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/image-demo-rainbow.png" alt="彩虹条"></p>
+        
+          <a class="article-more-a" href="/blog/audio-video-basic-12-generate-png-by-hand/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PNG文件格式详解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/audio-video-basic-12-generate-png-by-hand/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-audio-video-basic-11-png-file-format-detail" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -956,205 +1184,6 @@ Spring Security: 5.1.6.RELEASE
 
 
   
-    <article id="post-audio-video-basic-05-rgb-to-bmp-library" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/audio-video-basic-05-rgb-to-bmp-library/">音视频入门-05-RGB-TO-BMP使用开源库</a>
-    </h1>
-  
-
-        
-        <a href="/blog/audio-video-basic-05-rgb-to-bmp-library/" class="archive-article-date">
-  	<time datetime="2019-09-15T15:43:15.165Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
-<h1 id="RGB-TO-BMP-回顾"><a href="#RGB-TO-BMP-回顾" class="headerlink" title="RGB-TO-BMP 回顾"></a>RGB-TO-BMP 回顾</h1><blockquote>
-<p>将 RGB 数据转成 BMP 图片：</p>
-<ol>
-<li>了解 BMP 文件格式</li>
-<li>准备 BMP 文件头信息</li>
-<li>准备 BMP 信息头</li>
-<li>BMP 存储 RGB 的顺序是 B-G-R</li>
-<li>BitmapInfoHeader 中的 biHeight 字段，biHeight 为正，位图自底向顶扫描，biHeight 为负，位图自顶向底扫描。</li>
-<li>BMP 图像四字节对齐</li>
-</ol>
-</blockquote>
-<p>实际开发过程，通常会使用第三方开源库来简化开发，屏蔽一些底层的复杂度，节省大量编写代码的时间。</p>
-        
-          <a class="article-more-a" href="/blog/audio-video-basic-05-rgb-to-bmp-library/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/audio-video-basic-05-rgb-to-bmp-library/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-audio-video-basic-04-bmp-dword-align" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/audio-video-basic-04-bmp-dword-align/">音视频入门-04-BMP图像四字节对齐的问题</a>
-    </h1>
-  
-
-        
-        <a href="/blog/audio-video-basic-04-bmp-dword-align/" class="archive-article-date">
-  	<time datetime="2019-09-14T06:47:13.841Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
-<h1 id="BMP-图像四字节对齐"><a href="#BMP-图像四字节对齐" class="headerlink" title="BMP 图像四字节对齐"></a>BMP 图像四字节对齐</h1><blockquote>
-<p>表示 BMP 位图中像素的位元是以行为单位对齐存储的，每一行的大小都向上取整为4字节（32 位 DWORD）的倍数。如果图像的高度大于 1，多个经过填充实现对齐的行就形成了像素数组。</p>
-</blockquote>
-<p>完整存储的一行像素所需的字节数可以通过这个公式计算：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/image-demo-bmp-dword-align.png" alt="image-demo-bmp-dword-align"></p>
-        
-          <a class="article-more-a" href="/blog/audio-video-basic-04-bmp-dword-align/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/audio-video-basic-04-bmp-dword-align/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1256,6 +1285,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NDK</a>
               </li>
              
@@ -1269,10 +1302,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1296,15 +1325,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
               </li>
              
               <li class="article-tag-list-item">

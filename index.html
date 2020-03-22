@@ -176,6 +176,213 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ffmpeg-and-ffplay-command-usage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/ffmpeg-and-ffplay-command-usage/">FFmpeg &amp; FFPlay 命令基本用法</a>
+    </h1>
+  
+
+        
+        <a href="/blog/ffmpeg-and-ffplay-command-usage/" class="archive-article-date">
+  	<time datetime="2020-03-22T09:36:27.516Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h1><h2 id="图片转换成-YUV-格式"><a href="#图片转换成-YUV-格式" class="headerlink" title="图片转换成 YUV 格式"></a>图片转换成 YUV 格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i rainbow.jpeg -video_size 700x700 -pix_fmt yuv420p rainbow-yuv420p.yuv</span><br></pre></td></tr></table></figure>
+<h2 id="图片转换成-RGB-格式"><a href="#图片转换成-RGB-格式" class="headerlink" title="图片转换成 RGB 格式"></a>图片转换成 RGB 格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i rainbow.bmp -video_size 700x700 -pix_fmt rgb24 rainbow-rgb24.rgb</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/blog/ffmpeg-and-ffplay-command-usage/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/ffmpeg-and-ffplay-command-usage/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-audio-video-basic-16-libjpeg-turbo-handle-jpeg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/">音视频入门-16-使用libjpeg-trubo处理JPEG图片</a>
+    </h1>
+  
+
+        
+        <a href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/" class="archive-article-date">
+  	<time datetime="2020-03-22T09:32:55.792Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="RGB-to-JPEG-回顾"><a href="#RGB-to-JPEG-回顾" class="headerlink" title="RGB-to-JPEG 回顾"></a>RGB-to-JPEG 回顾</h1><p>上一篇 <a href="https://www.ihubin.com/blog/audio-video-basic-15-generate-jpeg-by-hand/">【手动生成一张JPEG图片】</a> 根据 <a href="https://www.ihubin.com/blog/audio-video-basic-14-jpeg-file-format-detail/">【JPEG文件格式详解】</a> 一步一步地实现了将 RGB 数据生成了一张 JPEG 图片。</p>
+<p>可以感受到，自己来实现 JPEG 的基本系统编码还是有相当的复杂度的，JPEG 压缩编码算法一共分为 11 个步骤：</p>
+<ol>
+<li><code>颜色模式转换</code></li>
+<li><code>采样</code></li>
+<li><code>分块</code></li>
+<li><code>离散余弦变换（DCT）</code></li>
+<li><code>量化</code></li>
+<li><code>Zigzag 扫描排序</code></li>
+<li><code>DC 系数的差分脉冲调制编码</code></li>
+<li><code>DC 系数的中间格式计算</code></li>
+<li><code>AC 系数的游程长度编码</code></li>
+<li><code>AC 系数的中间格式计算</code></li>
+<li><code>熵编码</code></li>
+</ol>
+<p>下面，我们使用 <a href="https://github.com/libjpeg-turbo/libjpeg-turbo" target="_blank" rel="noopener">libjpeg-turbo</a> 来处理 JPEG 图片。</p>
+        
+          <a class="article-more-a" href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JPEG文件格式详解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-android-ndk-jni-basic-day05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1225,234 +1432,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video-basic-13-generate-png-with-library" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/audio-video-basic-13-generate-png-with-library/">音视频入门-13-使用开源库生成PNG图片</a>
-    </h1>
-  
-
-        
-        <a href="/blog/audio-video-basic-13-generate-png-with-library/" class="archive-article-date">
-  	<time datetime="2019-11-06T07:04:11.052Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
-<h1 id="RGB-to-PNG-回顾"><a href="#RGB-to-PNG-回顾" class="headerlink" title="RGB-to-PNG 回顾"></a>RGB-to-PNG 回顾</h1><p>上一篇 <a href="https://www.ihubin.com/blog/audio-video-basic-12-generate-png-by-hand/">【手动生成一张PNG图片】</a> 根据 <a href="https://www.ihubin.com/blog/audio-video-basic-11-png-file-format-detail/">【PNG文件格式详解】</a> 一步一步地手动实现了将 RGB 数据生成了一张 PNG 图片。</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/generate-png-by-hand.jpg" alt="generate-png-by-hand.jpg"></p>
-<p>有许多开源的 PNG 相关的库可以简化开发：</p>
-<ul>
-<li><a href="https://github.com/miloyip/svpng" target="_blank" rel="noopener">svpng</a></li>
-<li><a href="https://github.com/misc0110/libattopng" target="_blank" rel="noopener">libattopng</a></li>
-<li><a href="https://github.com/lvandeve/lodepng" target="_blank" rel="noopener">lodepng</a></li>
-<li><a href="http://www.libpng.org/" target="_blank" rel="noopener">libpng</a></li>
-</ul>
-        
-          <a class="article-more-a" href="/blog/audio-video-basic-13-generate-png-with-library/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PNG文件格式详解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/audio-video-basic-13-generate-png-with-library/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-audio-video-basic-12-generate-png-by-hand" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/audio-video-basic-12-generate-png-by-hand/">音视频入门-12-手动生成一张PNG图片</a>
-    </h1>
-  
-
-        
-        <a href="/blog/audio-video-basic-12-generate-png-by-hand/" class="archive-article-date">
-  	<time datetime="2019-10-30T13:50:11.772Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
-<h1 id="预热"><a href="#预热" class="headerlink" title="预热"></a>预热</h1><p><a href="https://www.ihubin.com/blog/audio-video-basic-11-png-file-format-detail/">上一篇 【PNG文件格式详解】</a>详细介绍了 PNG 文件的格式。</p>
-<p>PNG 图像格式文件由一个 8 字节的 PNG 文件署名域和 3 个以上的后续数据块（IHDR、IDAT、IEND）组成。</p>
-<p>PNG 文件包括 8 字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别 PNG 格式。</p>
-<p>数据块中有 4 个关键数据块：</p>
-<ul>
-<li>文件头数据块 IHDR（header chunk）：包含有图像基本信息，作为第一个数据块出现并只出现一次。</li>
-<li>调色板数据块 PLTE（palette chunk）：必须放在图像数据块之前。</li>
-<li>图像数据块 IDAT（image data chunk）：存储实际图像数据。PNG 数据允许包含多个连续的图像数据块。</li>
-<li>图像结束数据 IEND（image trailer chunk）：放在文件尾部，表示 PNG 数据流结束。</li>
-</ul>
-<p>数据块连起来，大概这个样子：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">PNG 标识符</th>
-<th style="text-align:center">PNG 数据块(IHDR)</th>
-<th style="text-align:center">PNG 数据块(其他类型数据块)</th>
-<th style="text-align:center">…</th>
-<th style="text-align:center">PNG 结尾数据块(IEND)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<p>目标图：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/image-demo-rainbow.png" alt="彩虹条"></p>
-        
-          <a class="article-more-a" href="/blog/audio-video-basic-12-generate-png-by-hand/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PNG文件格式详解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/audio-video-basic-12-generate-png-by-hand/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1554,6 +1533,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NDK</a>
               </li>
              
@@ -1567,10 +1550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1594,15 +1573,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
               </li>
              
               <li class="article-tag-list-item">
