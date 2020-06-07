@@ -6,26 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>Android NDK JNI 入门笔记-day04-NDK实现Hash算法 | binglingziyu的博客</title>
+  <title>Tag: GIF文件格式详解 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android NDK JNI 入门笔记目录  开头前面的学习，我们已经掌握了 NDK 开发的必备知识。 下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。 日常开发中，经常会用到 MD5 SHA1 SHA256 等 HASH 算法，我们可以在 Native 实现这些功能。 Hash 算法 HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的">
-<meta name="keywords" content="Android,NDK,JNI">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android NDK JNI 入门笔记-day04-NDK实现Hash算法">
-<meta property="og:url" content="http://www.ihubin.com/blog/android-ndk-jni-basic-day04/index.html">
+  <meta name="description" content="binglingziyu的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="binglingziyu的博客">
+<meta property="og:url" content="http://www.ihubin.com/tags/GIF文件格式详解/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="Android NDK JNI 入门笔记目录  开头前面的学习，我们已经掌握了 NDK 开发的必备知识。 下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。 日常开发中，经常会用到 MD5 SHA1 SHA256 等 HASH 算法，我们可以在 Native 实现这些功能。 Hash 算法 HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的">
+<meta property="og:description" content="binglingziyu的博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-preview.jpeg">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/cpp-hash-library-file-tree.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-use-cpp-library-source.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-result.jpeg">
-<meta property="og:updated_time" content="2020-03-15T12:37:48.957Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android NDK JNI 入门笔记-day04-NDK实现Hash算法">
-<meta name="twitter:description" content="Android NDK JNI 入门笔记目录  开头前面的学习，我们已经掌握了 NDK 开发的必备知识。 下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。 日常开发中，经常会用到 MD5 SHA1 SHA256 等 HASH 算法，我们可以在 Native 实现这些功能。 Hash 算法 HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的">
-<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg">
+<meta name="twitter:title" content="binglingziyu的博客">
+<meta name="twitter:description" content="binglingziyu的博客">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -182,262 +174,79 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-android-ndk-jni-basic-day04" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Android NDK JNI 入门笔记-day04-NDK实现Hash算法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/blog/audio-video-basic-17-gif-file-format-detail/" class="archive-article-date">
+  	<time datetime="2020-06-07T17:37:04.384Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/blog/audio-video-basic-17-gif-file-format-detail/">音视频入门-17-GIF文件格式详解</a>
     </h1>
   
 
-        
-        <a href="/blog/android-ndk-jni-basic-day04/" class="archive-article-date">
-  	<time datetime="2020-03-15T12:36:38.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
-<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>前面的学习，我们已经掌握了 NDK 开发的必备知识。</p>
-<p>下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。</p>
-<p>日常开发中，经常会用到 <code>MD5</code> <code>SHA1</code> <code>SHA256</code> 等 HASH 算法，我们可以在 Native 实现这些功能。</p>
-<h1 id="Hash-算法"><a href="#Hash-算法" class="headerlink" title="Hash 算法"></a>Hash 算法</h1><blockquote>
-<p>HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的编码里，叫做 HASH 值。也可以说，hash 就是找到一种数据内容和数据存放地址之间的映射关系。</p>
-</blockquote>
-<p>Android 开发中，查看证书指纹：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg" alt="android-cert-fingerprint"></p>
-<a id="more"></a>
-<h1 id="动手实践"><a href="#动手实践" class="headerlink" title="动手实践"></a>动手实践</h1><p>像之前一样<a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day01/">创建一个 Native C++ 模板项目</a></p>
-<h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-preview.jpeg" alt="day04-example-preview"></p>
-<h2 id="选用-C-开源-HASH-算法实现库"><a href="#选用-C-开源-HASH-算法实现库" class="headerlink" title="选用 C++ 开源 HASH 算法实现库"></a>选用 C++ 开源 HASH 算法实现库</h2><blockquote>
-<p><a href="https://github.com/stbrumme/hash-library" target="_blank" rel="noopener">Portable C++ hashing library</a></p>
-</blockquote>
-<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/cpp-hash-library-file-tree.png" alt="cpp-hash-library"></p>
-<h2 id="Android-工程引入-C-库源码"><a href="#Android-工程引入-C-库源码" class="headerlink" title="Android 工程引入 C++ 库源码"></a>Android 工程引入 C++ 库源码</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-use-cpp-library-source.png" alt="android-use-cpp-library-source"></p>
-<h2 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.4.1)</span><br><span class="line"></span><br><span class="line"># 该命令会查找指定目录下的所有源文件，然后将结果存进指定变量名</span><br><span class="line">aux_source_directory(hash-library HASH_LIBRARY_SRC)</span><br><span class="line"># 添加头文件搜索目录</span><br><span class="line">include_directories(hash-library)</span><br><span class="line"></span><br><span class="line">add_library(</span><br><span class="line">             native-lib</span><br><span class="line"></span><br><span class="line">             SHARED</span><br><span class="line"></span><br><span class="line">             # 将 hash-library 源文件添加进来</span><br><span class="line">             native-lib.cpp $&#123;HASH_LIBRARY_SRC&#125;)</span><br><span class="line"></span><br><span class="line">find_library(</span><br><span class="line">              log-lib</span><br><span class="line">              log )</span><br><span class="line"></span><br><span class="line">target_link_libraries(</span><br><span class="line">                       native-lib</span><br><span class="line">                       $&#123;log-lib&#125; )</span><br></pre></td></tr></table></figure>
-<h2 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h2><h3 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h3><blockquote>
-<p>Java 版本：</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MessageDigest md5 = MessageDigest.getInstance(<span class="string">"MD5"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] md5Byte = md5.digest(plainText.getBytes());</span><br><span class="line">        <span class="keyword">return</span> byteArrayToString(md5Byte);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Native 版本：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_md5(JNIEnv *env, jclass clazz, jstring plaintext) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> * plaintextChar = env-&gt;GetStringUTFChars(plaintext, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> plaintextStr = <span class="built_in">std</span>::<span class="built_in">string</span>(plaintextChar);</span><br><span class="line"></span><br><span class="line">    MD5 md5;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> md5String = md5(plaintextStr);</span><br><span class="line">    <span class="keyword">char</span> * tabStr = <span class="keyword">new</span> <span class="keyword">char</span> [md5String.length()+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(tabStr, md5String.c_str());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> md5Result[<span class="number">128</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    formatSignature(tabStr, md5Result);</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(md5Result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="SHA1"><a href="#SHA1" class="headerlink" title="SHA1"></a>SHA1</h3><blockquote>
-<p>Java 版本：</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sha1</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MessageDigest sha1 = MessageDigest.getInstance(<span class="string">"SHA1"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] sha1Byte = sha1.digest(plainText.getBytes());</span><br><span class="line">        <span class="keyword">return</span> byteArrayToString(sha1Byte);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Native 版本：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_sha1(JNIEnv *env, jclass clazz, jstring plaintext) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> * plaintextChar = env-&gt;GetStringUTFChars(plaintext, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> plaintextStr = <span class="built_in">std</span>::<span class="built_in">string</span>(plaintextChar);</span><br><span class="line"></span><br><span class="line">    SHA1 sha1;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> sha1String = sha1(plaintextStr);</span><br><span class="line">    <span class="keyword">char</span> * tabStr = <span class="keyword">new</span> <span class="keyword">char</span> [sha1String.length()+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(tabStr, sha1String.c_str());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> sha1Result[<span class="number">128</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    formatSignature(tabStr, sha1Result);</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(sha1Result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="SHA256"><a href="#SHA256" class="headerlink" title="SHA256"></a>SHA256</h3><blockquote>
-<p>Java 版本：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static String sha256(String plainText) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        MessageDigest sha256 = MessageDigest.getInstance(&quot;SHA256&quot;);</span><br><span class="line">        byte[] sha256Byte = sha256.digest(plainText.getBytes());</span><br><span class="line">        return byteArrayToString(sha256Byte);</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        return &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Native 版本：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">extern &quot;C&quot;</span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_sha256(JNIEnv *env, jclass clazz, jstring plaintext) &#123;</span><br><span class="line">    const char * plaintextChar = env-&gt;GetStringUTFChars(plaintext, 0);</span><br><span class="line">    std::string plaintextStr = std::string(plaintextChar);</span><br><span class="line"></span><br><span class="line">    SHA256 sha256;</span><br><span class="line">    std::string sha256String = sha256(plaintextStr);</span><br><span class="line">    char * tabStr = new char [sha256String.length()+1];</span><br><span class="line">    strcpy(tabStr, sha256String.c_str());</span><br><span class="line"></span><br><span class="line">    char sha256Result[128] = &#123;0&#125;;</span><br><span class="line">    formatSignature(tabStr, sha256Result);</span><br><span class="line">    return env-&gt;NewStringUTF(sha256Result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-result.jpeg" alt="day04-example-result"></p>
-<blockquote>
-<p>至此，我们已经学会了在 Android 项目中引用开源 C++ 库，同时我们也实现在 Native 实现 HASH 算法。</p>
-</blockquote>
-<hr>
-<p>代码：</p>
-<p><a href="https://github.com/binglingziyu/NDK-JNI/tree/master/NDKJNIday04" target="_blank" rel="noopener">NDKJNIday04</a></p>
-<p>参考资料：</p>
-<p><a href="https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html" target="_blank" rel="noopener">Oracle - JNI Types and Data Structures</a></p>
-<p><a href="https://github.com/stbrumme/hash-library" target="_blank" rel="noopener">C++ hash-library</a></p>
-<p><a href="https://www.cnblogs.com/binglingziyu/tag/CMake/" target="_blank" rel="noopener">CMake入门</a></p>
-<hr>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-ali-pay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://cloudstorage.ihubin.com/blog/profile/qr-wx-pay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GIF文件格式详解</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/android-ndk-jni-basic-day04/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/blog/android-ndk-jni-basic-day05/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android NDK JNI 入门笔记-day05-NDK应用签名校验
-        
-      </div>
-    </a>
   
   
-    <a href="/blog/android-ndk-jni-basic-day03/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android NDK JNI 入门笔记-day03-引用数据类型</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -464,9 +273,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

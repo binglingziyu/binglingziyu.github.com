@@ -6,26 +6,38 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>Android NDK JNI 入门笔记-day04-NDK实现Hash算法 | binglingziyu的博客</title>
+  <title>音视频入门-17-GIF文件格式详解 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android NDK JNI 入门笔记目录  开头前面的学习，我们已经掌握了 NDK 开发的必备知识。 下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。 日常开发中，经常会用到 MD5 SHA1 SHA256 等 HASH 算法，我们可以在 Native 实现这些功能。 Hash 算法 HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的">
-<meta name="keywords" content="Android,NDK,JNI">
+  <meta name="description" content="音视频入门文章目录  GIF 文件格式解析图像互换格式主要分为两个版本，即图像互换格式 87a 和图像互换格式 89a。图像互换格式 87a：是在 1987 年制定的版本。图像互换格式 89a：是在 1989 年制定的版本。在这个版本中，为图像互换格式文档扩充了图形控制区块、备注、说明、应用程序接口等四个区块，并提供了对透明色和多帧动画的支持。 现在我们一般所说的 GIF 动画都是指 89a 的">
+<meta name="keywords" content="音视频,音视频基础,GIF文件格式详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android NDK JNI 入门笔记-day04-NDK实现Hash算法">
-<meta property="og:url" content="http://www.ihubin.com/blog/android-ndk-jni-basic-day04/index.html">
+<meta property="og:title" content="音视频入门-17-GIF文件格式详解">
+<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-17-gif-file-format-detail/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="Android NDK JNI 入门笔记目录  开头前面的学习，我们已经掌握了 NDK 开发的必备知识。 下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。 日常开发中，经常会用到 MD5 SHA1 SHA256 等 HASH 算法，我们可以在 Native 实现这些功能。 Hash 算法 HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的">
+<meta property="og:description" content="音视频入门文章目录  GIF 文件格式解析图像互换格式主要分为两个版本，即图像互换格式 87a 和图像互换格式 89a。图像互换格式 87a：是在 1987 年制定的版本。图像互换格式 89a：是在 1989 年制定的版本。在这个版本中，为图像互换格式文档扩充了图形控制区块、备注、说明、应用程序接口等四个区块，并提供了对透明色和多帧动画的支持。 现在我们一般所说的 GIF 动画都是指 89a 的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-preview.jpeg">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/cpp-hash-library-file-tree.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-use-cpp-library-source.png">
-<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-result.jpeg">
-<meta property="og:updated_time" content="2020-03-15T12:37:48.957Z">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/rainbow.gif">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-header.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-logical-screen-descriptor.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-logical-screen-descriptor-hex.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-global-color-table.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-global-color-table-item.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-application-extention.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-graphic-control-extension.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-graphic-control-extension-hex.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-comment-extention.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-comment-extention-hex.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-image-descriptor.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-image-descriptor-hex.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-image-data-hex.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-one-frame-rgb-file-preview.jpg">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
+<meta property="og:updated_time" content="2020-06-07T17:39:17.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android NDK JNI 入门笔记-day04-NDK实现Hash算法">
-<meta name="twitter:description" content="Android NDK JNI 入门笔记目录  开头前面的学习，我们已经掌握了 NDK 开发的必备知识。 下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。 日常开发中，经常会用到 MD5 SHA1 SHA256 等 HASH 算法，我们可以在 Native 实现这些功能。 Hash 算法 HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的">
-<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg">
+<meta name="twitter:title" content="音视频入门-17-GIF文件格式详解">
+<meta name="twitter:description" content="音视频入门文章目录  GIF 文件格式解析图像互换格式主要分为两个版本，即图像互换格式 87a 和图像互换格式 89a。图像互换格式 87a：是在 1987 年制定的版本。图像互换格式 89a：是在 1989 年制定的版本。在这个版本中，为图像互换格式文档扩充了图形控制区块、备注、说明、应用程序接口等四个区块，并提供了对透明色和多帧动画的支持。 现在我们一般所说的 GIF 动画都是指 89a 的">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -182,79 +194,196 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-android-ndk-jni-basic-day04" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-audio-video-basic-17-gif-file-format-detail" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android NDK JNI 入门笔记-day04-NDK实现Hash算法
+      音视频入门-17-GIF文件格式详解
     </h1>
   
 
         
-        <a href="/blog/android-ndk-jni-basic-day04/" class="archive-article-date">
-  	<time datetime="2020-03-15T12:36:38.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
+        <a href="/blog/audio-video-basic-17-gif-file-format-detail/" class="archive-article-date">
+  	<time datetime="2020-06-07T17:37:04.384Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
-<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>前面的学习，我们已经掌握了 NDK 开发的必备知识。</p>
-<p>下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。</p>
-<p>日常开发中，经常会用到 <code>MD5</code> <code>SHA1</code> <code>SHA256</code> 等 HASH 算法，我们可以在 Native 实现这些功能。</p>
-<h1 id="Hash-算法"><a href="#Hash-算法" class="headerlink" title="Hash 算法"></a>Hash 算法</h1><blockquote>
-<p>HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的编码里，叫做 HASH 值。也可以说，hash 就是找到一种数据内容和数据存放地址之间的映射关系。</p>
-</blockquote>
-<p>Android 开发中，查看证书指纹：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg" alt="android-cert-fingerprint"></p>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="GIF-文件格式解析"><a href="#GIF-文件格式解析" class="headerlink" title="GIF 文件格式解析"></a>GIF 文件格式解析</h1><p>图像互换格式主要分为两个版本，即图像互换格式 87a 和图像互换格式 89a。<br>图像互换格式 87a：是在 1987 年制定的版本。<br>图像互换格式 89a：是在 1989 年制定的版本。在这个版本中，为图像互换格式文档扩充了图形控制区块、备注、说明、应用程序接口等四个区块，并提供了对透明色和多帧动画的支持。</p>
+<p>现在我们一般所说的 GIF 动画都是指 89a 的格式。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png" alt="GIF File Format"></p>
 <a id="more"></a>
-<h1 id="动手实践"><a href="#动手实践" class="headerlink" title="动手实践"></a>动手实践</h1><p>像之前一样<a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day01/">创建一个 Native C++ 模板项目</a></p>
-<h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-preview.jpeg" alt="day04-example-preview"></p>
-<h2 id="选用-C-开源-HASH-算法实现库"><a href="#选用-C-开源-HASH-算法实现库" class="headerlink" title="选用 C++ 开源 HASH 算法实现库"></a>选用 C++ 开源 HASH 算法实现库</h2><blockquote>
-<p><a href="https://github.com/stbrumme/hash-library" target="_blank" rel="noopener">Portable C++ hashing library</a></p>
+<p>GIF 包含的数据块：</p>
+<ul>
+<li>文件头（Header）</li>
+<li>逻辑屏幕标识符（Logical Screen Descriptor）</li>
+<li><p>全局颜色表（Global Color Table）</p>
+</li>
+<li><p>图形控制扩展(Graphic Control Extension)</p>
+</li>
+<li>图像标识符（Image Descriptor）</li>
+<li>局部颜色表（Local Color Table）</li>
+<li><p>基于颜色表的图像数据（Image Data）</p>
+</li>
+<li><p>Plain Text Extension</p>
+</li>
+<li>Application Extension</li>
+<li><p>Comment Extension</p>
+</li>
+<li><p>文件结尾（Trailer）</p>
+</li>
+</ul>
+<h2 id="0-准备-GIF-图片-amp-十六进制查看工具"><a href="#0-准备-GIF-图片-amp-十六进制查看工具" class="headerlink" title="(0) 准备 GIF 图片 &amp; 十六进制查看工具"></a>(0) 准备 GIF 图片 &amp; 十六进制查看工具</h2><blockquote>
+<p>本文所有分析，都是基于下面这张 GIF 图片。</p>
 </blockquote>
-<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/cpp-hash-library-file-tree.png" alt="cpp-hash-library"></p>
-<h2 id="Android-工程引入-C-库源码"><a href="#Android-工程引入-C-库源码" class="headerlink" title="Android 工程引入 C++ 库源码"></a>Android 工程引入 C++ 库源码</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-use-cpp-library-source.png" alt="android-use-cpp-library-source"></p>
-<h2 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.4.1)</span><br><span class="line"></span><br><span class="line"># 该命令会查找指定目录下的所有源文件，然后将结果存进指定变量名</span><br><span class="line">aux_source_directory(hash-library HASH_LIBRARY_SRC)</span><br><span class="line"># 添加头文件搜索目录</span><br><span class="line">include_directories(hash-library)</span><br><span class="line"></span><br><span class="line">add_library(</span><br><span class="line">             native-lib</span><br><span class="line"></span><br><span class="line">             SHARED</span><br><span class="line"></span><br><span class="line">             # 将 hash-library 源文件添加进来</span><br><span class="line">             native-lib.cpp $&#123;HASH_LIBRARY_SRC&#125;)</span><br><span class="line"></span><br><span class="line">find_library(</span><br><span class="line">              log-lib</span><br><span class="line">              log )</span><br><span class="line"></span><br><span class="line">target_link_libraries(</span><br><span class="line">                       native-lib</span><br><span class="line">                       $&#123;log-lib&#125; )</span><br></pre></td></tr></table></figure>
-<h2 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h2><h3 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h3><blockquote>
-<p>Java 版本：</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MessageDigest md5 = MessageDigest.getInstance(<span class="string">"MD5"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] md5Byte = md5.digest(plainText.getBytes());</span><br><span class="line">        <span class="keyword">return</span> byteArrayToString(md5Byte);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/rainbow.gif" alt="用来分析的样例图片"></p>
+<p><a href="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/rainbow.gif" target="_blank" rel="noopener">用来分析的样例图片</a></p>
+<p><a href="http://ridiculousfish.com/hexfiend/" target="_blank" rel="noopener">十六进制编辑器</a></p>
+<h2 id="1-文件头（Header）"><a href="#1-文件头（Header）" class="headerlink" title="(1) 文件头（Header）"></a>(1) 文件头（Header）</h2><p>GIF 的前 6 个字节内容是 GIF 的署名和版本号。<br>我们可以通过前 3 个字节判断文件是否为 GIF 格式，后 3 个字节判断 GIF 格式的版本：</p>
+<ul>
+<li>87a：是在 1987 年制定的版本</li>
+<li>89a：是在 1989 年制定的版本</li>
+</ul>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-header.png" alt="文件头（Header）"></p>
+<h2 id="2-逻辑屏幕标识符（Logical-Screen-Descriptor）"><a href="#2-逻辑屏幕标识符（Logical-Screen-Descriptor）" class="headerlink" title="(2) 逻辑屏幕标识符（Logical Screen Descriptor）"></a>(2) 逻辑屏幕标识符（Logical Screen Descriptor）</h2><p>逻辑屏幕标识符配置了 GIF 一些全局属性，我们通过读取解析它，获取 GIF 全局的一些配置。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-logical-screen-descriptor.png" alt="逻辑屏幕标识符（Logical Screen Descriptor）"></p>
+<p>逻辑屏幕标识符（7 个字节）：</p>
+<ul>
+<li>屏幕逻辑宽度：定义了 GIF 图像的像素宽度，大小为 2 字节;</li>
+<li><p>屏幕逻辑高度：定义了 GIF 图像的像素高度，大小为 2 字节;</p>
+</li>
+<li><p>打包值，大小为 1 字节</p>
+<ul>
+<li>m - 全局颜色表标志(Global Color Table Flag)，当置位时表示有全局颜色列表，pixel 值有意义;</li>
+<li>cr - 颜色深度(Color ResoluTion)，cr+1 确定图象的颜色深度;</li>
+<li>s - 分类标志(Sort Flag)，如果置位表示全局颜色列表分类排列;</li>
+<li>pixel - 全局颜色列表大小，pixel+1 确定颜色列表的索引数（2^(pixel+1)）;</li>
+</ul>
+</li>
+<li><p>背景颜色：背景颜色在全局颜色列表中的索引（PS:是索引而不是 RGB 值，所以如果没有全局颜色列表时，该值没有意义），大小为 1 字节;</p>
+</li>
+<li>像素宽高比：全局像素的宽度与高度的比值，大小为 1 字节;</li>
+</ul>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-logical-screen-descriptor-hex.png" alt="逻辑屏幕标识符（Logical Screen Descriptor"></p>
+<p>从图中可以看出，这张 GIF 图片：</p>
+<ul>
+<li>宽度：700</li>
+<li>高度：700</li>
+<li>有全局颜色表</li>
+<li>颜色深度 8</li>
+<li>全局颜色表大小 8</li>
+</ul>
+<p>PS: <a href="https://www.jianshu.com/p/38743ef278ac" target="_blank" rel="noopener">Glide 中在读取了全局的宽高之后，忽略了颜色深度和分类标志,像素宽高比也只是读取，后续并没有使用到</a>。</p>
+<h1 id="3-全局颜色表（Global-Color-Table）"><a href="#3-全局颜色表（Global-Color-Table）" class="headerlink" title="(3) 全局颜色表（Global Color Table）"></a>(3) 全局颜色表（Global Color Table）</h1><p>全局颜色表，在逻辑屏幕标识之后，每个颜色索引由三字节组成，按 RGB 顺序排列。</p>
+<p>在 <code>(2) 逻辑屏幕标识符（Logical Screen Descriptor）</code> 中得到，全局颜色表大小是 8 个颜色，每个颜色占 3 字节（R、G、B）。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-global-color-table.png" alt="全局颜色表（Global Color Table）"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-global-color-table-item.png" alt="全局颜色表-颜色"></p>
+<h1 id="4-Application-Extension"><a href="#4-Application-Extension" class="headerlink" title="(4) Application Extension"></a>(4) Application Extension</h1><p>接下来出现的是 <code>21</code> <code>FF</code>，特定于应用程序的信息，<a href="http://giflib.sourceforge.net/whatsinagif/bits_and_bytes.html" target="_blank" rel="noopener">这个并没有太大用处。唯一已知的公共文件是 Netscape 2.0 扩展（如下所述），用于循环动画GIF文件。</a></p>
+<p>Netscape 2.0 循环块扩展必须立即出现在逻辑屏幕描述符的全局颜色表之后。它有19个字节长。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">byte  1        : 33 (hex 0x21) GIF Extension code</span><br><span class="line">byte  2        : 255 (hex 0xFF) Application Extension Label</span><br><span class="line">byte  3        : 11 (hex 0x0B) Length of Application Block</span><br><span class="line">                 (eleven bytes of data to follow)</span><br><span class="line">bytes 4 to 11  : &quot;NETSCAPE&quot;</span><br><span class="line">bytes 12 to 14 : &quot;2.0&quot;</span><br><span class="line">byte  15       : 3 (hex 0x03) Length of Data Sub-Block</span><br><span class="line">                 (three bytes of data to follow)</span><br><span class="line">byte  16       : 1 (hex 0x01)</span><br><span class="line">bytes 17 to 18 : 0 to 65535, an unsigned integer in</span><br><span class="line">                 little-endian byte format. This specifies the</span><br><span class="line">                 number of times the loop should</span><br><span class="line">                 be executed.</span><br><span class="line">byte  19       : 0 (hex 0x00) a Data Sub-Block Terminator.</span><br></pre></td></tr></table></figure>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-application-extention.png" alt="(4) Application Extension"></p>
+<p>Application Extension 这 19 个字节基本上目前所有 GIF 都一样。</p>
+<h1 id="5-图形控制扩展-Graphic-Control-Extension"><a href="#5-图形控制扩展-Graphic-Control-Extension" class="headerlink" title="(5) 图形控制扩展(Graphic Control Extension)"></a>(5) 图形控制扩展(Graphic Control Extension)</h1><p>在 89a 版本，GIF 添加了图形控制扩展块。放在一个图象块(图象标识符)的前面，用来控制它后面的第一个图象的显示。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-graphic-control-extension.png" alt="(5) 图形控制扩展(Graphic Control Extension)"></p>
+<p>处置方法(Disposal Method)：指出处置图形的方法：</p>
+<ul>
+<li>0 - 不使用处置方法</li>
+<li>1 - 不处置图形，把图形从当前位置移去</li>
+<li>2 - 回复到背景色</li>
+<li>3 - 回复到先前状态</li>
+<li>4-7 - 自定义用户输入标志(Use Input Flag)：指出是否期待用户有输入之后才继续进行下去，置位表示期待，值否表示不期待。</li>
+</ul>
+<p>用户输入可以是按回车键、鼠标点击等，可以和延迟时间一起使用，在设置的延迟时间内用户有输入则马上继续进行，或者没有输入直到延迟时间到达而继续。</p>
+<p>透明颜色标志(Transparent Color Flag)：置位表示使用透明颜色。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-graphic-control-extension-hex.png" alt="图形控制扩展-Hex"></p>
+<p>从图中可以看出，这张 GIF 图片：</p>
+<ul>
+<li>不使用处置方法</li>
+<li>不使用透明色</li>
+<li>后面的图像延迟 50 （单位：1/100 秒）</li>
+</ul>
+<h1 id="6-Comment-Extension"><a href="#6-Comment-Extension" class="headerlink" title="(6) Comment Extension"></a>(6) Comment Extension</h1><p>接下来出现的是 <code>21</code> <code>FE</code>，这允许你将 ASCII 文本嵌入到 GIF 文件，有时被用来图像描述、图像信贷或其他人类可读的元数据,如图像捕获的 GPS 定位。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-comment-extention.png" alt="(6) Comment Extension"></p>
+<p>下面是这张图片的 Comment Extension：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-comment-extention-hex.png" alt="Comment Extension Hex"></p>
+<h1 id="7-图像标识符（Image-Descriptor）"><a href="#7-图像标识符（Image-Descriptor）" class="headerlink" title="(7) 图像标识符（Image Descriptor）"></a>(7) 图像标识符（Image Descriptor）</h1><p>一个 GIF 文件中可以有多个图像块，每个图像块就会有图像标识符，描述了当前帧的一些属性。下面我们来看看图像标识符中包含的一些信息。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-image-descriptor.png" alt="图像标识符（Image Descriptor）"></p>
+<p>图像标识符以 ‘,’ (0x2c) 作为开始标志。接着定义了当前帧的偏移量和宽高。</p>
+<p>最后 5 个标志的意义分别为：</p>
+<ul>
+<li>m - 局部颜色表标志(Local Color Table Flag)<br>置位时标识紧接在图象标识符之后有一个局部颜色列表，供紧跟在它之后的一幅图象使用；值否时使用全局颜色列表，忽略 pixel 值。</li>
+<li>i - 交织标志(Interlace Flag)，置位时图象数据使用交织方式排列，否则使用顺序排列。</li>
+<li>s - 分类标志(Sort Flag)，如果置位表示紧跟着的局部颜色列表分类排列.</li>
+<li>r - 保留，必须初始化为 0.</li>
+<li>pixel - 局部颜色表大小(Size of Local Color Table)，pixel+1 就为颜色表的大小</li>
+</ul>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-image-descriptor-hex.png" alt="Image Descriptor Hex"></p>
+<p>从图中可以看出，这张 GIF 图片：</p>
+<ul>
+<li>没有局部颜色表</li>
+<li>顺序排列</li>
+<li>局部颜色表大小为 0</li>
+</ul>
+<h1 id="8-局部颜色表（Local-Color-Table）"><a href="#8-局部颜色表（Local-Color-Table）" class="headerlink" title="(8) 局部颜色表（Local Color Table）"></a>(8) 局部颜色表（Local Color Table）</h1><p>如果有局部颜色表，则跟 <code>(3) 全局颜色表（Global Color Table）</code> 一样的格式。</p>
+<h1 id="9-基于颜色表的图像数据（Image-Data）"><a href="#9-基于颜色表的图像数据（Image-Data）" class="headerlink" title="(9) 基于颜色表的图像数据（Image Data）"></a>(9) 基于颜色表的图像数据（Image Data）</h1><p>接下来就是图像数据（已使用 LZW 算法压缩，解压后才是真正的 <code>基于颜色表的图像数据</code> ）。</p>
+<p>数据的第一个字节表示 LZW 编码初始表大小的位数，用于使用 LZW 算法解压数据。</p>
+<p>后面的是图像数据块：</p>
+<ul>
+<li>每个数据块第一个字节表示数据块大小（不包括这个字节）</li>
+<li>数据块后面的一个字节表示后续数据块大小</li>
+<li>当数据块后面的一个字节是 <code>0</code> ，表示数据结束了</li>
+</ul>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-block-image-data-hex.jpg" alt="基于颜色表的图像数据"></p>
+<p>如上图所示：</p>
+<ul>
+<li>LZW 编码初始表大小的位数：3</li>
+<li>标蓝色的所有字节就是完整图像块数据</li>
+</ul>
 <blockquote>
-<p>Native 版本：</p>
+<p>最后一步，我们将使用 LZW 算法解压图像数据块，并根据颜色表还原出整张图像（GIF 的一帧）的 RGB 文件。<br>需要删除标蓝色以外的所有字节，保存为 <code>rainbow-compressed.gif.frame</code>。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_md5(JNIEnv *env, jclass clazz, jstring plaintext) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> * plaintextChar = env-&gt;GetStringUTFChars(plaintext, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> plaintextStr = <span class="built_in">std</span>::<span class="built_in">string</span>(plaintextChar);</span><br><span class="line"></span><br><span class="line">    MD5 md5;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> md5String = md5(plaintextStr);</span><br><span class="line">    <span class="keyword">char</span> * tabStr = <span class="keyword">new</span> <span class="keyword">char</span> [md5String.length()+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(tabStr, md5String.c_str());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> md5Result[<span class="number">128</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    formatSignature(tabStr, md5Result);</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(md5Result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="SHA1"><a href="#SHA1" class="headerlink" title="SHA1"></a>SHA1</h3><blockquote>
-<p>Java 版本：</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sha1</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MessageDigest sha1 = MessageDigest.getInstance(<span class="string">"SHA1"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] sha1Byte = sha1.digest(plainText.getBytes());</span><br><span class="line">        <span class="keyword">return</span> byteArrayToString(sha1Byte);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="10-Plain-Text-Extension"><a href="#10-Plain-Text-Extension" class="headerlink" title="(10) Plain Text Extension"></a>(10) Plain Text Extension</h1><p><a href="http://giflib.sourceforge.net/whatsinagif/bits_and_bytes.html" target="_blank" rel="noopener">这个特性不起作用; 浏览器和图片处理应用程序,如 Photoshop 忽略它, GIFLIB 并不试图解释它。</a></p>
+<h1 id="11-文件结尾（Trailer）"><a href="#11-文件结尾（Trailer）" class="headerlink" title="(11) 文件结尾（Trailer）"></a>(11) 文件结尾（Trailer）</h1><p>标识 GIF 文件结束，固定值 0x3B。</p>
+<p>当解析程序读到 0x3B 时，文件终结。</p>
+<h1 id="根据图像数据块-amp-颜色表还原图像"><a href="#根据图像数据块-amp-颜色表还原图像" class="headerlink" title="根据图像数据块 &amp; 颜色表还原图像"></a>根据图像数据块 &amp; 颜色表还原图像</h1><p>根据 <code>(9) 基于颜色表的图像数据（Image Data）</code> ，可以得到 GIF 一帧图像的数据（已使用 LZW 算法压缩）。</p>
 <blockquote>
-<p>Native 版本：</p>
+<p>文 件 名：rainbow-compressed.gif.frame<br>文件大小：3428字节</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_sha1(JNIEnv *env, jclass clazz, jstring plaintext) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> * plaintextChar = env-&gt;GetStringUTFChars(plaintext, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> plaintextStr = <span class="built_in">std</span>::<span class="built_in">string</span>(plaintextChar);</span><br><span class="line"></span><br><span class="line">    SHA1 sha1;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> sha1String = sha1(plaintextStr);</span><br><span class="line">    <span class="keyword">char</span> * tabStr = <span class="keyword">new</span> <span class="keyword">char</span> [sha1String.length()+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(tabStr, sha1String.c_str());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> sha1Result[<span class="number">128</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    formatSignature(tabStr, sha1Result);</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(sha1Result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="SHA256"><a href="#SHA256" class="headerlink" title="SHA256"></a>SHA256</h3><blockquote>
-<p>Java 版本：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static String sha256(String plainText) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        MessageDigest sha256 = MessageDigest.getInstance(&quot;SHA256&quot;);</span><br><span class="line">        byte[] sha256Byte = sha256.digest(plainText.getBytes());</span><br><span class="line">        return byteArrayToString(sha256Byte);</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        return &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="LZW-解压"><a href="#LZW-解压" class="headerlink" title="LZW 解压"></a>LZW 解压</h2><p>这里直接使用 <a href="https://github.com/jefftime/lzw" target="_blank" rel="noopener">github.com/jefftime/lzw</a> 这个库。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdlib.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lzw/src/lzw.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// LZW 编码初始表大小的位数：3</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> code_size = <span class="number">3</span>;</span><br><span class="line">    <span class="comment">//  GIF 一帧图像的数据压缩文件（rainbow-compressed.gif.frame）大小</span></span><br><span class="line">    <span class="keyword">long</span> total_bytes;</span><br><span class="line">    <span class="comment">// GIF 一帧图像的数据压缩数据</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> *img_compressed;</span><br><span class="line">    <span class="comment">// GIF 一帧图像的数据解压后的数据</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> *img;</span><br><span class="line">    <span class="comment">//  GIF 一帧图像的数据解压后大小</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> decompressed_size;</span><br><span class="line"></span><br><span class="line">    FILE *gif_compressed_frame = fopen(<span class="string">"/Users/staff/Desktop/rainbow-compressed.gif.frame"</span>, <span class="string">"rb+"</span>);</span><br><span class="line">    fseek(gif_compressed_frame, <span class="number">0L</span>, SEEK_END);</span><br><span class="line">    total_bytes = ftell(gif_compressed_frame);</span><br><span class="line">    fseek(gif_compressed_frame, <span class="number">0L</span>, SEEK_SET);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Gif 一帧压缩文件大小：%li\n"</span>, total_bytes);</span><br><span class="line"></span><br><span class="line">    img_compressed = <span class="built_in">malloc</span>((<span class="keyword">unsigned</span> <span class="keyword">long</span>) total_bytes);</span><br><span class="line">    fread(img_compressed, total_bytes, <span class="number">1</span>, gif_compressed_frame);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 进行 LZW 解压</span></span><br><span class="line">    lzw_decompress(</span><br><span class="line">        code_size,</span><br><span class="line">        total_bytes,</span><br><span class="line">        img_compressed,</span><br><span class="line">        &amp;decompressed_size,</span><br><span class="line">        &amp;img</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Gif 一帧解压文件大小：%li\n"</span>, decompressed_size);</span><br><span class="line"></span><br><span class="line">    FILE *gif_decompressed_frame = fopen(<span class="string">"/Users/staff/Desktop/rainbow-decompressed.gif.frame"</span>, <span class="string">"wb+"</span>);</span><br><span class="line">    fwrite(img, decompressed_size, <span class="number">1</span>, gif_decompressed_frame);</span><br><span class="line">    fflush(gif_decompressed_frame);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(img_compressed);</span><br><span class="line">    <span class="built_in">free</span>(img);</span><br><span class="line">    fclose(gif_compressed_frame);</span><br><span class="line">    fclose(gif_decompressed_frame);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Native 版本：</p>
+<p>解压后得到解压文件：rainbow-decompressed.gif.frame<br>解压后文件大小：490000字节 （700x700x1）<br>解压后文件中每一个字节代表颜色表的一个颜色索引</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">extern &quot;C&quot;</span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_ihubin_ndkjni_NativeUtil_sha256(JNIEnv *env, jclass clazz, jstring plaintext) &#123;</span><br><span class="line">    const char * plaintextChar = env-&gt;GetStringUTFChars(plaintext, 0);</span><br><span class="line">    std::string plaintextStr = std::string(plaintextChar);</span><br><span class="line"></span><br><span class="line">    SHA256 sha256;</span><br><span class="line">    std::string sha256String = sha256(plaintextStr);</span><br><span class="line">    char * tabStr = new char [sha256String.length()+1];</span><br><span class="line">    strcpy(tabStr, sha256String.c_str());</span><br><span class="line"></span><br><span class="line">    char sha256Result[128] = &#123;0&#125;;</span><br><span class="line">    formatSignature(tabStr, sha256Result);</span><br><span class="line">    return env-&gt;NewStringUTF(sha256Result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/day04-example-result.jpeg" alt="day04-example-result"></p>
+<h2 id="还原出-RGB-文件"><a href="#还原出-RGB-文件" class="headerlink" title="还原出 RGB 文件"></a>还原出 RGB 文件</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdlib.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lzw/src/lzw.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 颜色表</span></span><br><span class="line"><span class="keyword">uint32_t</span> rainbowColors[] = &#123;</span><br><span class="line">        <span class="number">0XFF0000</span>, <span class="comment">// 赤</span></span><br><span class="line">        <span class="number">0X00FF00</span>, <span class="comment">// 绿</span></span><br><span class="line">        <span class="number">0XFFA500</span>, <span class="comment">// 橙</span></span><br><span class="line">        <span class="number">0XFFFF00</span>, <span class="comment">// 黄</span></span><br><span class="line">        <span class="number">0X0000FF</span>, <span class="comment">// 蓝</span></span><br><span class="line">        <span class="number">0X007FFF</span>, <span class="comment">// 青</span></span><br><span class="line">        <span class="number">0X8B00FF</span>, <span class="comment">// 紫</span></span><br><span class="line">        <span class="number">0X000000</span>  <span class="comment">// 黑</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    FILE *gif_frame_rgb = fopen(<span class="string">"/Users/staff/Desktop/rainbow-decompressed.gif.frame.rgb"</span>, <span class="string">"wb+"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; decompressed_size; i++) &#123;</span><br><span class="line">        <span class="comment">// 颜色索引值</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span> color_index = img[i];</span><br><span class="line">        <span class="comment">// 根据颜色索引取出颜色表中的颜色</span></span><br><span class="line">        <span class="keyword">uint32_t</span> color_rgb = rainbowColors[color_index];</span><br><span class="line">        <span class="comment">// 当前颜色 R 分量</span></span><br><span class="line">        <span class="keyword">uint8_t</span> R = (color_rgb &amp; <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>;</span><br><span class="line">        <span class="comment">// 当前颜色 G 分量</span></span><br><span class="line">        <span class="keyword">uint8_t</span> G = (color_rgb &amp; <span class="number">0x00FF00</span>) &gt;&gt; <span class="number">8</span>;</span><br><span class="line">        <span class="comment">// 当前颜色 B 分量</span></span><br><span class="line">        <span class="keyword">uint8_t</span> B = color_rgb &amp; <span class="number">0x0000FF</span>;</span><br><span class="line">        fputc(R, gif_frame_rgb);</span><br><span class="line">        fputc(G, gif_frame_rgb);</span><br><span class="line">        fputc(B, gif_frame_rgb);</span><br><span class="line">    &#125;</span><br><span class="line">    fflush(gif_frame_rgb);</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>至此，我们已经学会了在 Android 项目中引用开源 C++ 库，同时我们也实现在 Native 实现 HASH 算法。</p>
+<p>这一步，得到了 GIF 一帧图像的 RGB 文件：rainbow-decompressed.gif.frame.rgb<br>GIF 一帧图像的 RGB 文件大小为：1470000 字节（700x700x3）</p>
 </blockquote>
+<h2 id="查看还原出来的-RGB-文件"><a href="#查看还原出来的-RGB-文件" class="headerlink" title="查看还原出来的 RGB 文件"></a>查看还原出来的 RGB 文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f rawvideo -pixel_format rgb24 -s 700x700 rainbow-decompressed.gif.frame.rgb</span><br></pre></td></tr></table></figure>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif-one-frame-rgb-file-preview.jpg" alt="gif-one-frame-rgb-file-preview.jpg"></p>
 <hr>
-<p>代码：</p>
-<p><a href="https://github.com/binglingziyu/NDK-JNI/tree/master/NDKJNIday04" target="_blank" rel="noopener">NDKJNIday04</a></p>
+<p>代码：<br><a href="https://github.com/binglingziyu/audio-video-blog-demos" target="_blank" rel="noopener">audio-video-blog-demos</a></p>
 <p>参考资料：</p>
-<p><a href="https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html" target="_blank" rel="noopener">Oracle - JNI Types and Data Structures</a></p>
-<p><a href="https://github.com/stbrumme/hash-library" target="_blank" rel="noopener">C++ hash-library</a></p>
-<p><a href="https://www.cnblogs.com/binglingziyu/tag/CMake/" target="_blank" rel="noopener">CMake入门</a></p>
+<p><a href="http://giflib.sourceforge.net/whatsinagif/index.html" target="_blank" rel="noopener">What’s In A GIF</a></p>
+<p><a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt" target="_blank" rel="noopener">Gif 89a specification</a></p>
+<p><a href="https://www.jianshu.com/p/38743ef278ac" target="_blank" rel="noopener">GIF 格式解析</a></p>
+<p><a href="https://www.techug.com/post/gif-image-structure-intro.html" target="_blank" rel="noopener">GIF 图片原理和储存结构</a></p>
+<p><a href="https://www.techug.com/post/understand-spec-gif.html" target="_blank" rel="noopener">Gif 图片格式完全理解</a></p>
+<p><a href="http://www.ks7.net/Program/cpp/276fb72618e35f0d.shtml" target="_blank" rel="noopener">GIF 文件格式详解</a></p>
+<p><a href="https://www.cnblogs.com/think/archive/2006/04/12/372942.html" target="_blank" rel="noopener">GIF 图形文件格式文档</a></p>
+<p><a href="https://blog.csdn.net/Swallow_he/article/details/76165202" target="_blank" rel="noopener">GIF 文件格式详解</a></p>
+<p><a href="https://blog.csdn.net/abcjennifer/article/details/7995426" target="_blank" rel="noopener">LZW 压缩算法——简明原理与实现</a></p>
+<p><a href="https://github.com/jefftime/lzw" target="_blank" rel="noopener">github.com/jefftime/lzw</a></p>
+<p><a href="https://github.com/jcraveiro/TI-Pl2" target="_blank" rel="noopener">https://github.com/jcraveiro</a></p>
+<p><a href="https://github.com/dbry/lzw-ab" target="_blank" rel="noopener">LZW compressor / decompressor</a></p>
+<p><a href="https://ascii.cl/" target="_blank" rel="noopener">ASCII Codes Table</a></p>
+<p>内容有误？联系作者：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
 <hr>
 
       
@@ -300,15 +429,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GIF文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -320,11 +449,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
@@ -379,7 +504,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/android-ndk-jni-basic-day04/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-17-gif-file-format-detail/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -393,18 +518,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/android-ndk-jni-basic-day05/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android NDK JNI 入门笔记-day05-NDK应用签名校验
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/android-ndk-jni-basic-day03/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android NDK JNI 入门笔记-day03-引用数据类型</div>
+    <a href="/blog/ffmpeg-and-ffplay-command-usage/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FFmpeg &amp; FFPlay 命令基本用法</div>
       <i class="icon-circle-right"></i>
     </a>
   
