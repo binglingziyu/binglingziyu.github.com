@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.ihubin.com">
-  <title>Android NDK JNI 入门笔记-目录 | binglingziyu的博客</title>
+  <title>音视频入门-18-手动生成一张GIF图片 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android NDK JNI 入门笔记记录">
-<meta name="keywords" content="Android,NDK,JNI">
+  <meta name="description" content="音视频入门文章目录  GIF 编码知识 GIF 包含的数据块：  文件头（Header） 逻辑屏幕标识符（Logical Screen Descriptor） 全局颜色表（Global Color Table）  Application Extension  Comment Extension  图形控制扩展(Graphic Control Extension)  图像标识符（Image Des">
+<meta name="keywords" content="音视频,音视频基础,GIF文件格式详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android NDK JNI 入门笔记-目录">
-<meta property="og:url" content="http://www.ihubin.com/blog/android-ndk-jni-basic-catagory/index.html">
+<meta property="og:title" content="音视频入门-18-手动生成一张GIF图片">
+<meta property="og:url" content="http://www.ihubin.com/blog/audio-video-basic-18-generate-gif-by-hand/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
-<meta property="og:description" content="Android NDK JNI 入门笔记记录">
+<meta property="og:description" content="音视频入门文章目录  GIF 编码知识 GIF 包含的数据块：  文件头（Header） 逻辑屏幕标识符（Logical Screen Descriptor） 全局颜色表（Global Color Table）  Application Extension  Comment Extension  图形控制扩展(Graphic Control Extension)  图像标识符（Image Des">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T03:49:02.900Z">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/example-rainbow.gif">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/example-rainbow.gif">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
+<meta property="og:updated_time" content="2020-12-03T14:18:27.305Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android NDK JNI 入门笔记-目录">
-<meta name="twitter:description" content="Android NDK JNI 入门笔记记录">
+<meta name="twitter:title" content="音视频入门-18-手动生成一张GIF图片">
+<meta name="twitter:description" content="音视频入门文章目录  GIF 编码知识 GIF 包含的数据块：  文件头（Header） 逻辑屏幕标识符（Logical Screen Descriptor） 全局颜色表（Global Color Table）  Application Extension  Comment Extension  图形控制扩展(Graphic Control Extension)  图像标识符（Image Des">
+<meta name="twitter:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -176,33 +181,145 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-android-ndk-jni-basic-catagory" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-audio-video-basic-18-generate-gif-by-hand" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android NDK JNI 入门笔记-目录
+      音视频入门-18-手动生成一张GIF图片
     </h1>
   
 
         
-        <a href="/blog/android-ndk-jni-basic-catagory/" class="archive-article-date">
-  	<time datetime="2020-02-29T15:29:59.699Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
+        <a href="/blog/audio-video-basic-18-generate-gif-by-hand/" class="archive-article-date">
+  	<time datetime="2020-12-03T14:16:44.175Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  Android NDK JNI 入门笔记记录</p>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="GIF-编码知识"><a href="#GIF-编码知识" class="headerlink" title="GIF 编码知识"></a>GIF 编码知识</h1><p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png" alt="GIF File Format"></p>
+<p>GIF 包含的数据块：</p>
+<ul>
+<li>文件头（Header）</li>
+<li>逻辑屏幕标识符（Logical Screen Descriptor）</li>
+<li><p>全局颜色表（Global Color Table）</p>
+</li>
+<li><p>Application Extension</p>
+</li>
+<li><p>Comment Extension</p>
+</li>
+<li><p>图形控制扩展(Graphic Control Extension)</p>
+</li>
+<li>图像标识符（Image Descriptor）</li>
+<li>局部颜色表（Local Color Table）</li>
+<li><p>基于颜色表的图像数据（Image Data）</p>
+</li>
+<li><p>Plain Text Extension</p>
+</li>
+<li><p>文件结尾（Trailer）</p>
+</li>
+</ul>
 <a id="more"></a>
-<p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day01/">Android NDK JNI 入门笔记-day01-创建项目并运行</a></p>
-<p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day02/">Android NDK JNI 入门笔记-day02-基本数据类型数据传递</a></p>
-<p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day03/">Android NDK JNI 入门笔记-day03-引用数据类型</a></p>
-<p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day04/">Android NDK JNI 入门笔记-day04-NDK实现Hash算法</a></p>
-<p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-day05/">Android NDK JNI 入门笔记-day05-NDK应用签名校验</a></p>
+<h1 id="GIF-编码步骤"><a href="#GIF-编码步骤" class="headerlink" title="GIF 编码步骤"></a>GIF 编码步骤</h1><p>今天的目标是做出一张尺寸 700x700、7 个颜色画面切换的 GIF 动画。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/example-rainbow.gif" alt="example-rainbow.gif"></p>
+<h2 id="文件头（Header）"><a href="#文件头（Header）" class="headerlink" title="文件头（Header）"></a>文件头（Header）</h2><p>GIF 的前 6 个字节内容是 GIF 的署名和版本号。有两个版本 <code>GIF87a</code> <code>GIF89a</code>，<code>GIF89a</code> 版本才有多帧动画，所有这里使用 <code>89a</code> 版本。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// GIF 文件头，6 个字节内容是 GIF 的署名和版本号</span><br><span class="line">uint8_t gif_header[] = &#123;0x47, 0x49, 0x46, 0x38, 0x39, 0x61&#125;;</span><br><span class="line">fwrite(gif_header, 6, 1, gif_file);</span><br></pre></td></tr></table></figure>
+<h2 id="逻辑屏幕标识符（Logical-Screen-Descriptor）"><a href="#逻辑屏幕标识符（Logical-Screen-Descriptor）" class="headerlink" title="逻辑屏幕标识符（Logical Screen Descriptor）"></a>逻辑屏幕标识符（Logical Screen Descriptor）</h2><p>从上一篇 <a href="https://www.ihubin.com/blog/audio-video-basic-17-gif-file-format-detail/">音视频入门-17-GIF文件格式详解</a> 我们知道：</p>
+<p>逻辑屏幕标识符（7 个字节）：</p>
+<ul>
+<li>屏幕逻辑宽度：2 字节;</li>
+<li><p>屏幕逻辑高度：2 字节;</p>
+</li>
+<li><p>打包值，大小为 1 字节</p>
+<ul>
+<li>m - 全局颜色表标志，1 bit;</li>
+<li>cr - 颜色深度，3 bit;（x: 可忽略）</li>
+<li>s - 分类标志， 1 bit; （x: 不使用，设为 0）</li>
+<li>pixel - 全局颜色列表大小，3 bit;</li>
+</ul>
+</li>
+<li>背景颜色索引： 1 字节;</li>
+<li>像素宽高比： 1 字节;（x: 不使用，设为 0）</li>
+</ul>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 逻辑屏幕标识符</span><br><span class="line">uint16_t gif_width = 700;</span><br><span class="line">uint16_t gif_height = 700;</span><br><span class="line">// 0xF2 = 1   1 1 1   0   0 1 0</span><br><span class="line">uint8_t gif_logical_screen_pack_byte = 0xF2;</span><br><span class="line">uint8_t gif_bg_color_index = 0;</span><br><span class="line">uint8_t gif_pixel_aspect = 0;</span><br><span class="line"></span><br><span class="line">fputc(gif_width &gt;&gt; 0, gif_file); // width low 8</span><br><span class="line">fputc(gif_width &gt;&gt; 8, gif_file); // width high 8</span><br><span class="line">fputc(gif_height  &gt;&gt; 0, gif_file); // height low 8</span><br><span class="line">fputc(gif_height  &gt;&gt; 8, gif_file); // height high 8</span><br><span class="line">fputc(gif_logical_screen_pack_byte, gif_file);</span><br><span class="line">fputc(gif_bg_color_index, gif_file);</span><br><span class="line">fputc(gif_pixel_aspect, gif_file);</span><br></pre></td></tr></table></figure>
+<h2 id="全局颜色表（Global-Color-Table）"><a href="#全局颜色表（Global-Color-Table）" class="headerlink" title="全局颜色表（Global Color Table）"></a>全局颜色表（Global Color Table）</h2><p>每个颜色索引由三字节组成，按 RGB 顺序排列。</p>
+<p>由 【逻辑屏幕标识符】可知，颜色的索引数（2^(pixel+1)）是 2 的倍数，如果图片颜色数目不够要补足。</p>
+<p>比如，我们的图片用了 7 个颜色，颜色索引数是 8，所以最后再加一个颜色（占位，不使用）。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 颜色表</span><br><span class="line">uint32_t rainbowColors[] = &#123;</span><br><span class="line">        0XFF0000, // 赤</span><br><span class="line">        0XFFA500, // 橙</span><br><span class="line">        0XFFFF00, // 黄</span><br><span class="line">        0X00FF00, // 绿</span><br><span class="line">        0X007FFF, // 青</span><br><span class="line">        0X0000FF, // 蓝</span><br><span class="line">        0X8B00FF, // 紫</span><br><span class="line">        0X000000  // 黑</span><br><span class="line">&#125;;</span><br><span class="line">// 全局颜色表、</span><br><span class="line">for(int i = 0; i &lt; 8; i++) &#123;</span><br><span class="line">    // 根据颜色索引取出颜色表中的颜色</span><br><span class="line">    uint32_t color_rgb = rainbowColors[i];</span><br><span class="line">    // 当前颜色 R 分量</span><br><span class="line">    uint8_t R = (color_rgb &amp; 0xFF0000) &gt;&gt; 16;</span><br><span class="line">    // 当前颜色 G 分量</span><br><span class="line">    uint8_t G = (color_rgb &amp; 0x00FF00) &gt;&gt; 8;</span><br><span class="line">    // 当前颜色 B 分量</span><br><span class="line">    uint8_t B = color_rgb &amp; 0x0000FF;</span><br><span class="line">    fputc(R, gif_file);</span><br><span class="line">    fputc(G, gif_file);</span><br><span class="line">    fputc(B, gif_file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Application-Extension"><a href="#Application-Extension" class="headerlink" title="Application Extension"></a>Application Extension</h2><p>Application Extension 这 19 个字节基本上 GIF 都一样。</p>
+<p><code>0x21, 0xFF, 0x0B, 0x4E, 0x45, 0x54, 0x53, 0x43, 0x41, 0x50, 0x45, 0x32, 0x2E, 0x30, 0x03, 0x01, 0x00, 0x00, 0x00</code></p>
+<p>代表的内容是 <code>NETSCAPE2.0</code></p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Application Extension</span><br><span class="line">uint8_t gif_application_extension[] = &#123;0x21, 0xFF, 0x0B, 0x4E, 0x45, 0x54, 0x53, 0x43, 0x41, 0x50, 0x45, 0x32, 0x2E, 0x30, 0x03, 0x01, 0x00, 0x00, 0x00&#125;;</span><br><span class="line">fwrite(gif_application_extension, 19, 1, gif_file);</span><br></pre></td></tr></table></figure>
+<h2 id="Comment-Extension"><a href="#Comment-Extension" class="headerlink" title="Comment Extension"></a>Comment Extension</h2><p>这里允许你将 ASCII 文本嵌入到 GIF 文件，有时被用来图像描述、图像信贷或其他人类可读的元数据,如图像捕获的 GPS 定位。</p>
+<p><code>0x21, 0xFE, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x20, 0x77, 0x69, 0x74, 0x68, 0x20, 0x65, 0x7A, 0x67, 0x69, 0x66, 0x2E, 0x63, 0x6F, 0x6D, 0x20, 0x47, 0x49, 0x46, 0x20, 0x6D, 0x61, 0x6B, 0x65, 0x72, 0x00</code></p>
+<p>代表的内容是 <code>Created with ezgif.com GIF maker</code></p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// Comment Extension</span><br><span class="line">// Created with ezgif.com GIF maker</span><br><span class="line">uint8_t gif_comment_extension[] = &#123;0x21, 0xFE, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x20, 0x77, 0x69, 0x74, 0x68, 0x20, 0x65, 0x7A, 0x67, 0x69, 0x66, 0x2E, 0x63, 0x6F, 0x6D, 0x20, 0x47, 0x49, 0x46, 0x20, 0x6D, 0x61, 0x6B, 0x65, 0x72, 0x00&#125;;</span><br><span class="line">fwrite(gif_comment_extension, 36, 1, gif_file);</span><br></pre></td></tr></table></figure>
+<h2 id="图形控制扩展（Graphic-Control-Extension）"><a href="#图形控制扩展（Graphic-Control-Extension）" class="headerlink" title="图形控制扩展（Graphic Control Extension）"></a>图形控制扩展（Graphic Control Extension）</h2><p>我们的 GIF <code>不使用处置方法</code> <code>不使用透明色</code> <code>图像延迟 50</code>。</p>
+<p>所以，这里就是 <code>0x21, 0xF9, 0x04, 0x00, 0x32, 0x00, 0xFF, 0x00</code>。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 图形控制扩展</span><br><span class="line">uint8_t gif_graphic_control_extension[] = &#123;0x21, 0xF9, 0x04, 0x00, 0x32, 0x00, 0xFF, 0x00&#125;;</span><br><span class="line">fwrite(gif_graphic_control_extension, 8, 1, gif_file);</span><br></pre></td></tr></table></figure>
+<h2 id="图像标识符（Image-Descriptor）"><a href="#图像标识符（Image-Descriptor）" class="headerlink" title="图像标识符（Image Descriptor）"></a>图像标识符（Image Descriptor）</h2><p>我们的 GIF <code>没有局部颜色表</code> <code>顺序排列</code> <code>局部颜色表大小为 0</code>。</p>
+<p>所以，这里就是 <code>0x2C, 0x00, 0x00, 0x00, 0x00, 0xBC, 0x02, 0xBC, 0x02, 0x00</code>。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 图像标识符</span><br><span class="line">uint8_t gif_image_descriptor[] = &#123;0x2C, 0x00, 0x00, 0x00, 0x00, 0xBC, 0x02, 0xBC, 0x02, 0x00&#125;;</span><br><span class="line">fwrite(gif_image_descriptor, 10, 1, gif_file);</span><br></pre></td></tr></table></figure>
+<h2 id="局部颜色表（Local-Color-Table）"><a href="#局部颜色表（Local-Color-Table）" class="headerlink" title="局部颜色表（Local Color Table）"></a>局部颜色表（Local Color Table）</h2><p>如果有局部颜色表，则跟 全局颜色表（Global Color Table） 一样的格式。</p>
+<h2 id="基于颜色表的图像数据（Image-Data）"><a href="#基于颜色表的图像数据（Image-Data）" class="headerlink" title="基于颜色表的图像数据（Image Data）"></a>基于颜色表的图像数据（Image Data）</h2><p>这里是最关键的图像数据，生成步骤如下：</p>
+<ul>
+<li>1，根据全局颜色表或者局部颜色表，生成一张图像的颜色索引数据</li>
+<li>2.使用 LZW 算法压缩上一步生成的数据</li>
+<li>3.将压缩后的数据按照格式写入文件</li>
+</ul>
+<h3 id="1-生成索引数据"><a href="#1-生成索引数据" class="headerlink" title="1.生成索引数据"></a>1.生成索引数据</h3><p>我们要生成的 GIF 尺寸 700x700，有 7 张图像，每张图像一个颜色 <code>赤</code> <code>橙</code> <code>黄</code> <code>绿</code> <code>青</code> <code>蓝</code> <code>紫</code>；</p>
+<p>颜色已经写入全局颜色表中；</p>
+<p>每个颜色索引 1 字节；</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 基于颜色表的图像数据</span><br><span class="line">uint8_t *gif_one_frame_raw = malloc(700 * 700);</span><br><span class="line">memset(gif_one_frame_raw, i, 700*700);</span><br></pre></td></tr></table></figure>
+<h3 id="2-LZW-压缩数据"><a href="#2-LZW-压缩数据" class="headerlink" title="2.LZW 压缩数据"></a>2.LZW 压缩数据</h3><p>LZW 压缩算法不在本次研究范围，直接用即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//  GIF 一帧图像的数据压缩后大小</span><br><span class="line">unsigned long compressed_size;</span><br><span class="line">// GIF 一帧图像的数据解压后的数据</span><br><span class="line">unsigned char *img;</span><br><span class="line">lzw_compress_gif(</span><br><span class="line">        3,</span><br><span class="line">        700*700,</span><br><span class="line">        gif_one_frame_raw,</span><br><span class="line">        &amp;compressed_size,</span><br><span class="line">        &amp;img</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="3-按照格式写入文件"><a href="#3-按照格式写入文件" class="headerlink" title="3.按照格式写入文件"></a>3.按照格式写入文件</h3><p>第一个字节表示 LZW 编码初始表大小的位数，用于使用 LZW 算法解压数据。</p>
+<p>后面的是图像数据块：</p>
+<p>每个数据块第一个字节表示数据块大小（不包括这个字节）<br>数据块后面的一个字节表示后续数据块大小<br>当数据块后面的一个字节是 0 ，表示数据结束了</p>
+<p><a href="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/gif-block-image-data-hex.jpg" target="_blank" rel="noopener">gif-block-image-data-hex.jpg</a></p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fputc(0x03, gif_file);</span><br><span class="line">unsigned long current_index = 0;</span><br><span class="line">while (current_index &lt; compressed_size) &#123;</span><br><span class="line">    if((current_index + 0xFF) &gt;= compressed_size) &#123;</span><br><span class="line">        unsigned long diff = compressed_size - current_index;</span><br><span class="line">        fputc(diff, gif_file);</span><br><span class="line">        fwrite(img+current_index, diff, 1, gif_file);</span><br><span class="line">        fputc(0x00, gif_file);</span><br><span class="line">        current_index += diff;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        fputc(0xFF, gif_file);</span><br><span class="line">        fwrite(img+current_index, 0xFF, 1, gif_file);</span><br><span class="line">        current_index += 0xFF;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Plain-Text-Extension"><a href="#Plain-Text-Extension" class="headerlink" title="Plain Text Extension"></a>Plain Text Extension</h2><p>这个特性不起作用; 浏览器和图片处理应用程序,如 Photoshop 忽略它, GIFLIB 并不试图解释它。</p>
+<p>所以直接忽略。</p>
+<h2 id="文件结尾（Trailer）"><a href="#文件结尾（Trailer）" class="headerlink" title="文件结尾（Trailer）"></a>文件结尾（Trailer）</h2><p>标识 GIF 文件结束，固定值 0x3B。</p>
+<p>当解析程序读到 0x3B 时，文件终结。</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// GIF 文件结束: 0x3B</span><br><span class="line">fputc(0x3B, gif_file);</span><br></pre></td></tr></table></figure>
+<h1 id="查看-GIF"><a href="#查看-GIF" class="headerlink" title="查看 GIF"></a>查看 GIF</h1><p>以上完整代码在 <a href="https://github.com/binglingziyu/audio-video-blog-demos" target="_blank" rel="noopener">binglingziyu/audio-video-blog-demos</a> 可以获取。</p>
+<p>运行代码，生成 GIF 图片：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/example-rainbow.gif" alt="example-rainbow.gif"></p>
+<hr>
+<p>代码：<br><a href="https://github.com/binglingziyu/audio-video-blog-demos" target="_blank" rel="noopener">audio-video-blog-demos</a></p>
+<p>参考资料：</p>
+<p><a href="http://giflib.sourceforge.net/whatsinagif/index.html" target="_blank" rel="noopener">What’s In A GIF</a></p>
+<p><a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt" target="_blank" rel="noopener">Gif 89a specification</a></p>
+<p><a href="https://www.jianshu.com/p/38743ef278ac" target="_blank" rel="noopener">GIF 格式解析</a></p>
+<p><a href="https://www.techug.com/post/gif-image-structure-intro.html" target="_blank" rel="noopener">GIF 图片原理和储存结构</a></p>
+<p><a href="https://www.techug.com/post/understand-spec-gif.html" target="_blank" rel="noopener">Gif 图片格式完全理解</a></p>
+<p><a href="http://www.ks7.net/Program/cpp/276fb72618e35f0d.shtml" target="_blank" rel="noopener">GIF 文件格式详解</a></p>
+<p><a href="https://www.cnblogs.com/think/archive/2006/04/12/372942.html" target="_blank" rel="noopener">GIF 图形文件格式文档</a></p>
+<p><a href="https://blog.csdn.net/Swallow_he/article/details/76165202" target="_blank" rel="noopener">GIF 文件格式详解</a></p>
+<p><a href="https://blog.csdn.net/abcjennifer/article/details/7995426" target="_blank" rel="noopener">LZW 压缩算法——简明原理与实现</a></p>
+<p><a href="https://github.com/jefftime/lzw" target="_blank" rel="noopener">github.com/jefftime/lzw</a></p>
+<p><a href="https://github.com/jcraveiro/TI-Pl2" target="_blank" rel="noopener">https://github.com/jcraveiro</a></p>
+<p><a href="https://github.com/dbry/lzw-ab" target="_blank" rel="noopener">LZW compressor / decompressor</a></p>
+<p><a href="https://ascii.cl/" target="_blank" rel="noopener">ASCII Codes Table</a></p>
+<p>内容有误？联系作者：</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png" alt="联系作者"></p>
+<hr>
 
       
 
@@ -247,15 +364,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GIF文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -267,11 +384,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
@@ -326,7 +439,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/android-ndk-jni-basic-catagory/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ihubin.com/blog/audio-video-basic-18-generate-gif-by-hand/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +453,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/android-ndk-jni-basic-day01/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android NDK JNI 入门笔记-day01-创建项目并运行
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/audio-video-basic-15-generate-jpeg-by-hand/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">音视频入门-15-手动生成一张JPEG图片</div>
+    <a href="/blog/audio-video-basic-17-gif-file-format-detail/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音视频入门-17-GIF文件格式详解</div>
       <i class="icon-circle-right"></i>
     </a>
   
