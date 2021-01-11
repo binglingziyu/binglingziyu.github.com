@@ -18,9 +18,10 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png">
 <meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/example-rainbow.gif">
+<meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/gif-block-image-data-hex.jpg">
 <meta property="og:image" content="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/example-rainbow.gif">
 <meta property="og:image" content="http://cloudstorage.ihubin.com/blog/common_img/Audio-Video-Footer.png">
-<meta property="og:updated_time" content="2020-12-03T14:18:27.305Z">
+<meta property="og:updated_time" content="2020-12-03T14:22:49.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音视频入门-18-手动生成一张GIF图片">
 <meta name="twitter:description" content="音视频入门文章目录  GIF 编码知识 GIF 包含的数据块：  文件头（Header） 逻辑屏幕标识符（Logical Screen Descriptor） 全局颜色表（Global Color Table）  Application Extension  Comment Extension  图形控制扩展(Graphic Control Extension)  图像标识符（Image Des">
@@ -275,7 +276,7 @@ var _hmt = _hmt || [];
 <h2 id="局部颜色表（Local-Color-Table）"><a href="#局部颜色表（Local-Color-Table）" class="headerlink" title="局部颜色表（Local Color Table）"></a>局部颜色表（Local Color Table）</h2><p>如果有局部颜色表，则跟 全局颜色表（Global Color Table） 一样的格式。</p>
 <h2 id="基于颜色表的图像数据（Image-Data）"><a href="#基于颜色表的图像数据（Image-Data）" class="headerlink" title="基于颜色表的图像数据（Image Data）"></a>基于颜色表的图像数据（Image Data）</h2><p>这里是最关键的图像数据，生成步骤如下：</p>
 <ul>
-<li>1，根据全局颜色表或者局部颜色表，生成一张图像的颜色索引数据</li>
+<li>1.根据全局颜色表或者局部颜色表，生成一张图像的颜色索引数据</li>
 <li>2.使用 LZW 算法压缩上一步生成的数据</li>
 <li>3.将压缩后的数据按照格式写入文件</li>
 </ul>
@@ -289,7 +290,7 @@ var _hmt = _hmt || [];
 <h3 id="3-按照格式写入文件"><a href="#3-按照格式写入文件" class="headerlink" title="3.按照格式写入文件"></a>3.按照格式写入文件</h3><p>第一个字节表示 LZW 编码初始表大小的位数，用于使用 LZW 算法解压数据。</p>
 <p>后面的是图像数据块：</p>
 <p>每个数据块第一个字节表示数据块大小（不包括这个字节）<br>数据块后面的一个字节表示后续数据块大小<br>当数据块后面的一个字节是 0 ，表示数据结束了</p>
-<p><a href="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/gif-block-image-data-hex.jpg" target="_blank" rel="noopener">gif-block-image-data-hex.jpg</a></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/gif-block-image-data-hex.jpg" alt="gif-block-image-data-hex.jpg"></p>
 <p>示例代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fputc(0x03, gif_file);</span><br><span class="line">unsigned long current_index = 0;</span><br><span class="line">while (current_index &lt; compressed_size) &#123;</span><br><span class="line">    if((current_index + 0xFF) &gt;= compressed_size) &#123;</span><br><span class="line">        unsigned long diff = compressed_size - current_index;</span><br><span class="line">        fputc(diff, gif_file);</span><br><span class="line">        fwrite(img+current_index, diff, 1, gif_file);</span><br><span class="line">        fputc(0x00, gif_file);</span><br><span class="line">        current_index += diff;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        fputc(0xFF, gif_file);</span><br><span class="line">        fwrite(img+current_index, 0xFF, 1, gif_file);</span><br><span class="line">        current_index += 0xFF;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Plain-Text-Extension"><a href="#Plain-Text-Extension" class="headerlink" title="Plain Text Extension"></a>Plain Text Extension</h2><p>这个特性不起作用; 浏览器和图片处理应用程序,如 Photoshop 忽略它, GIFLIB 并不试图解释它。</p>
@@ -453,6 +454,15 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/blog/audio-video-basic-19-giflib-handle-gif/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          音视频入门-19-使用giflib处理GIF图片
+        
+      </div>
+    </a>
+  
   
     <a href="/blog/audio-video-basic-17-gif-file-format-detail/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">音视频入门-17-GIF文件格式详解</div>
@@ -498,7 +508,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 binglingziyu
+    		&copy; 2021 binglingziyu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -605,11 +615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">trick</a>
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+                <a href="javascript:void(0)" class="js-tag color1">trick</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,15 +635,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
               </li>
              
               <li class="article-tag-list-item">
