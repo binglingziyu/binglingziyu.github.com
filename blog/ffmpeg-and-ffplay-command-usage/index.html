@@ -9,14 +9,14 @@
   <title>FFmpeg &amp; FFPlay 命令基本用法 | binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="FFmpeg图片转换成 YUV 格式1ffmpeg -i rainbow.jpeg -video_size 700x700 -pix_fmt yuv420p rainbow-yuv420p.yuv 图片转换成 RGB 格式1ffmpeg -i rainbow.bmp -video_size 700x700 -pix_fmt rgb24 rainbow-rgb24.rgb">
-<meta name="keywords" content="FFmpeg,音视频,音视频基础">
+<meta name="keywords" content="音视频,音视频基础,FFmpeg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FFmpeg &amp; FFPlay 命令基本用法">
 <meta property="og:url" content="http://www.ihubin.com/blog/ffmpeg-and-ffplay-command-usage/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
 <meta property="og:description" content="FFmpeg图片转换成 YUV 格式1ffmpeg -i rainbow.jpeg -video_size 700x700 -pix_fmt yuv420p rainbow-yuv420p.yuv 图片转换成 RGB 格式1ffmpeg -i rainbow.bmp -video_size 700x700 -pix_fmt rgb24 rainbow-rgb24.rgb">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-22T10:02:36.581Z">
+<meta property="og:updated_time" content="2021-01-17T10:38:48.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FFmpeg &amp; FFPlay 命令基本用法">
 <meta name="twitter:description" content="FFmpeg图片转换成 YUV 格式1ffmpeg -i rainbow.jpeg -video_size 700x700 -pix_fmt yuv420p rainbow-yuv420p.yuv 图片转换成 RGB 格式1ffmpeg -i rainbow.bmp -video_size 700x700 -pix_fmt rgb24 rainbow-rgb24.rgb">
@@ -214,7 +214,7 @@ var _hmt = _hmt || [];
 <h2 id="将视频画面生成图片-参数为每四秒截取一张-生成缩略图"><a href="#将视频画面生成图片-参数为每四秒截取一张-生成缩略图" class="headerlink" title="将视频画面生成图片,参数为每四秒截取一张,生成缩略图"></a>将视频画面生成图片,参数为每四秒截取一张,生成缩略图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -r 0.25 frames_%04d.png</span><br></pre></td></tr></table></figure>
 <h1 id="将-MP4-导出为-GIF-参数设置为宽度-100-帧率-10-只处理前五秒"><a href="#将-MP4-导出为-GIF-参数设置为宽度-100-帧率-10-只处理前五秒" class="headerlink" title="将 MP4 导出为 GIF,参数设置为宽度 100,帧率 10,只处理前五秒"></a>将 MP4 导出为 GIF,参数设置为宽度 100,帧率 10,只处理前五秒</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -vf sacle=100:-1 -t 5 -r 10 output.gif</span><br></pre></td></tr></table></figure>
 <h1 id="FFplay"><a href="#FFplay" class="headerlink" title="FFplay"></a>FFplay</h1><h2 id="ffplay-播放-yuv-文件命令"><a href="#ffplay-播放-yuv-文件命令" class="headerlink" title="ffplay 播放 yuv 文件命令"></a>ffplay 播放 yuv 文件命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f rawvideo -video_size 1920x1080 a.yuv</span><br></pre></td></tr></table></figure>
-<h2 id="ffplay-播放-rgb-文件命令"><a href="#ffplay-播放-rgb-文件命令" class="headerlink" title="ffplay 播放 rgb 文件命令"></a>ffplay 播放 rgb 文件命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f rawvideo -pixel_format rgb24 -s 480x480 texture.rgb</span><br></pre></td></tr></table></figure>
+<h2 id="ffplay-播放-rgb-文件命令"><a href="#ffplay-播放-rgb-文件命令" class="headerlink" title="ffplay 播放 rgb 文件命令"></a>ffplay 播放 rgb 文件命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f rawvideo -pixel_format rgb24 -video_size 480x480 texture.rgb</span><br></pre></td></tr></table></figure>
 <h2 id="ffplay-播放-h264-文件命令"><a href="#ffplay-播放-h264-文件命令" class="headerlink" title="ffplay 播放 h264 文件命令"></a>ffplay 播放 h264 文件命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -stats -f h264 test.264</span><br></pre></td></tr></table></figure>
 <h2 id="ffplay-播放-aac-文件命令"><a href="#ffplay-播放-aac-文件命令" class="headerlink" title="ffplay 播放 aac 文件命令"></a>ffplay 播放 aac 文件命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f f32le -ac 1 -ar 44100 test.aac</span><br></pre></td></tr></table></figure>
 <p>-ac指定通道个数，-ar指定采样率</p>
@@ -266,15 +266,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
         		</li>
       		
 		</ul>
@@ -488,6 +488,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -508,27 +516,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">trick</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,11 +532,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Raspbian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AndroidThings</a>
               </li>
              
               <li class="article-tag-list-item">
