@@ -172,30 +172,154 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ffmpeg-and-ffplay-command-usage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-20-static-image-to-animated-image" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/ffmpeg-and-ffplay-command-usage/">FFmpeg &amp; FFPlay 命令基本用法</a>
+      <a class="article-title" href="/blog/audio-video-basic-20-static-image-to-animated-image/">音视频入门-20-BMP、PNG、JPG、GIF静态图生成GIF动态图</a>
     </h1>
   
 
         
-        <a href="/blog/ffmpeg-and-ffplay-command-usage/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.522Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/audio-video-basic-20-static-image-to-animated-image/" class="archive-article-date">
+  	<time datetime="2021-01-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h1><h2 id="图片转换成-YUV-格式"><a href="#图片转换成-YUV-格式" class="headerlink" title="图片转换成 YUV 格式"></a>图片转换成 YUV 格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i rainbow.jpeg -video_size 700x700 -pix_fmt yuv420p rainbow-yuv420p.yuv</span><br></pre></td></tr></table></figure>
-<h2 id="图片转换成-RGB-格式"><a href="#图片转换成-RGB-格式" class="headerlink" title="图片转换成 RGB 格式"></a>图片转换成 RGB 格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i rainbow.bmp -video_size 700x700 -pix_fmt rgb24 rainbow-rgb24.rgb</span><br></pre></td></tr></table></figure>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="静态图-gt-动态图"><a href="#静态图-gt-动态图" class="headerlink" title="静态图 -&gt; 动态图"></a>静态图 -&gt; 动态图</h1><p>前面 <a href="https://www.ihubin.com/blog/audio-video-basic-18-generate-gif-by-hand/">【18-手动生成一张GIF图片】</a> 和 <a href="https://www.ihubin.com/blog/audio-video-basic-19-giflib-handle-gif/">【19-使用giflib处理GIF图片】</a> 生成的 GIF 每一帧都是一个颜色，平时用到的 GIF 每一帧都是图片，下面就做一张每一帧都是图片的 GIF。</p>
+<p>准备了 4 张静态图 <code>.bmp</code> 、 <code>.png</code> 、 <code>.jpg</code> 、 <code>.gif</code>(静态的GIF)：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">BMP</th>
+<th style="text-align:center">PNG</th>
+<th style="text-align:center">JPG</th>
+<th style="text-align:center">GIF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/Android.bmp" alt="Android.bmp"></td>
+<td style="text-align:center"><img src="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/Huawei.png" alt="Huawei.png"></td>
+<td style="text-align:center"><img src="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/Fuchsia.jpg" alt="Fuchsia.jpg"></td>
+<td style="text-align:center"><img src="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/iOS.gif" alt="iOS.gif"></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/Android.bmp" target="_blank" rel="noopener">Android.bmp</a></td>
+<td style="text-align:center"><a href="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/Huawei.png" target="_blank" rel="noopener">Huawei.png</a></td>
+<td style="text-align:center"><a href="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/Fuchsia.jpg" target="_blank" rel="noopener">Fuchsia.jpg</a></td>
+<td style="text-align:center"><a href="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/iOS.gif" target="_blank" rel="noopener">iOS.gif</a></td>
+</tr>
+</tbody>
+</table>
+<p>每张图片显示 1 秒，生成 GIF：</p>
+<p><img src="https://cloudstorage.ihubin.com/blog/audio-video/blog-20/image-to-gif-loop.gif" alt="image-to-gif-loop.gif"></p>
         
-          <a class="article-more-a" href="/blog/ffmpeg-and-ffplay-command-usage/#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-20-static-image-to-animated-image/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/audio-video-basic-20-static-image-to-animated-image/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-audio-video-basic-19-giflib-handle-gif" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/audio-video-basic-19-giflib-handle-gif/">音视频入门-19-使用giflib处理GIF图片</a>
+    </h1>
+  
+
+        
+        <a href="/blog/audio-video-basic-19-giflib-handle-gif/" class="archive-article-date">
+  	<time datetime="2021-01-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="GIFLIB"><a href="#GIFLIB" class="headerlink" title="GIFLIB"></a>GIFLIB</h1><p><a href="http://giflib.sourceforge.net/" target="_blank" rel="noopener">The GIFLIB project</a></p>
+<p>上一篇 <a href="https://www.ihubin.com/blog/audio-video-basic-18-generate-gif-by-hand/">【手动生成一张GIF图片】</a>, 自己生成了一张 GIF 动态图 <code>rainbow.gif</code>。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-18/example-rainbow.gif" alt="example-rainbow.gif"></p>
+<blockquote>
+<p>下面，使用 GIFLIB 分离出 GIF 每一帧的 RGB ，然后将分离出的 RGB 再合成 GIF。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/blog/audio-video-basic-19-giflib-handle-gif/#more">more >></a>
         
       
 
@@ -217,7 +341,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GIF文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -238,7 +362,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/ffmpeg-and-ffplay-command-usage/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-19-giflib-handle-gif/">展开全文 >></a>
         </p>
       
 
@@ -268,32 +392,51 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-raspberrypi-mac-install-androidthings" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-18-generate-gif-by-hand" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/raspberrypi-mac-install-androidthings/">树莓派---MAC下安装AndroidThings</a>
+      <a class="article-title" href="/blog/audio-video-basic-18-generate-gif-by-hand/">音视频入门-18-手动生成一张GIF图片</a>
     </h1>
   
 
         
-        <a href="/blog/raspberrypi-mac-install-androidthings/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.522Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/audio-video-basic-18-generate-gif-by-hand/" class="archive-article-date">
+  	<time datetime="2020-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/raspberry-logo.png?orig" alt="树莓派"></p>
-<blockquote>
-<p>MAC 下安装 AndroidThings，并运行官方 Demo。</p>
-</blockquote>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="GIF-编码知识"><a href="#GIF-编码知识" class="headerlink" title="GIF 编码知识"></a>GIF 编码知识</h1><p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png" alt="GIF File Format"></p>
+<p>GIF 包含的数据块：</p>
+<ul>
+<li>文件头（Header）</li>
+<li>逻辑屏幕标识符（Logical Screen Descriptor）</li>
+<li><p>全局颜色表（Global Color Table）</p>
+</li>
+<li><p>Application Extension</p>
+</li>
+<li><p>Comment Extension</p>
+</li>
+<li><p>图形控制扩展(Graphic Control Extension)</p>
+</li>
+<li>图像标识符（Image Descriptor）</li>
+<li>局部颜色表（Local Color Table）</li>
+<li><p>基于颜色表的图像数据（Image Data）</p>
+</li>
+<li><p>Plain Text Extension</p>
+</li>
+<li><p>文件结尾（Trailer）</p>
+</li>
+</ul>
         
-          <a class="article-more-a" href="/blog/raspberrypi-mac-install-androidthings/#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-18-generate-gif-by-hand/#more">more >></a>
         
       
 
@@ -307,11 +450,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AndroidThings</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GIF文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -323,11 +470,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派//" class="article-tag-list-link color4">树莓派</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派/AndroidThings//" class="article-tag-list-link color4">AndroidThings</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
@@ -336,7 +479,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/raspberrypi-mac-install-androidthings/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-18-generate-gif-by-hand/">展开全文 >></a>
         </p>
       
 
@@ -366,32 +509,32 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-raspberrypi-mac-install-raspbian" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-17-gif-file-format-detail" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/raspberrypi-mac-install-raspbian/">树莓派---MAC下安装Raspbian</a>
+      <a class="article-title" href="/blog/audio-video-basic-17-gif-file-format-detail/">音视频入门-17-GIF文件格式详解</a>
     </h1>
   
 
         
-        <a href="/blog/raspberrypi-mac-install-raspbian/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.522Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/audio-video-basic-17-gif-file-format-detail/" class="archive-article-date">
+  	<time datetime="2020-06-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/raspberry-logo.png?orig" alt="树莓派"></p>
-<blockquote>
-<p>MAC 下安装 Raspbian .</p>
-</blockquote>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="GIF-文件格式解析"><a href="#GIF-文件格式解析" class="headerlink" title="GIF 文件格式解析"></a>GIF 文件格式解析</h1><p>图像互换格式主要分为两个版本，即图像互换格式 87a 和图像互换格式 89a。<br>图像互换格式 87a：是在 1987 年制定的版本。<br>图像互换格式 89a：是在 1989 年制定的版本。在这个版本中，为图像互换格式文档扩充了图形控制区块、备注、说明、应用程序接口等四个区块，并提供了对透明色和多帧动画的支持。</p>
+<p>现在我们一般所说的 GIF 动画都是指 89a 的格式。</p>
+<p><img src="http://cloudstorage.ihubin.com/blog/audio-video/blog-17/gif_file_stream.png" alt="GIF File Format"></p>
         
-          <a class="article-more-a" href="/blog/raspberrypi-mac-install-raspbian/#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-17-gif-file-format-detail/#more">more >></a>
         
       
 
@@ -405,15 +548,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Raspbian</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GIF文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -425,11 +568,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派//" class="article-tag-list-link color4">树莓派</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/树莓派/Raspbian//" class="article-tag-list-link color4">Raspbian</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
@@ -438,7 +577,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/raspberrypi-mac-install-raspbian/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-17-gif-file-format-detail/">展开全文 >></a>
         </p>
       
 
@@ -468,29 +607,45 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-spring-boot-2-basic-catagory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-16-libjpeg-turbo-handle-jpeg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/spring-boot-2-basic-catagory/">Spring Boot2 入门-目录</a>
+      <a class="article-title" href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/">音视频入门-16-使用libjpeg-trubo处理JPEG图片</a>
     </h1>
   
 
         
-        <a href="/blog/spring-boot-2-basic-catagory/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.522Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/" class="archive-article-date">
+  	<time datetime="2020-03-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  Spring Boot2 入门文章记录</p>
+        <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
+<h1 id="RGB-to-JPEG-回顾"><a href="#RGB-to-JPEG-回顾" class="headerlink" title="RGB-to-JPEG 回顾"></a>RGB-to-JPEG 回顾</h1><p>上一篇 <a href="https://www.ihubin.com/blog/audio-video-basic-15-generate-jpeg-by-hand/">【手动生成一张JPEG图片】</a> 根据 <a href="https://www.ihubin.com/blog/audio-video-basic-14-jpeg-file-format-detail/">【JPEG文件格式详解】</a> 一步一步地实现了将 RGB 数据生成了一张 JPEG 图片。</p>
+<p>可以感受到，自己来实现 JPEG 的基本系统编码还是有相当的复杂度的，JPEG 压缩编码算法一共分为 11 个步骤：</p>
+<ol>
+<li><code>颜色模式转换</code></li>
+<li><code>采样</code></li>
+<li><code>分块</code></li>
+<li><code>离散余弦变换（DCT）</code></li>
+<li><code>量化</code></li>
+<li><code>Zigzag 扫描排序</code></li>
+<li><code>DC 系数的差分脉冲调制编码</code></li>
+<li><code>DC 系数的中间格式计算</code></li>
+<li><code>AC 系数的游程长度编码</code></li>
+<li><code>AC 系数的中间格式计算</code></li>
+<li><code>熵编码</code></li>
+</ol>
+<p>下面，我们使用 <a href="https://github.com/libjpeg-turbo/libjpeg-turbo" target="_blank" rel="noopener">libjpeg-turbo</a> 来处理 JPEG 图片。</p>
         
-          <a class="article-more-a" href="/blog/spring-boot-2-basic-catagory/#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/#more">more >></a>
         
       
 
@@ -504,11 +659,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring Security</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JPEG文件格式详解</a>
         		</li>
       		
 		</ul>
@@ -520,7 +679,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Spring-Boot//" class="article-tag-list-link color2">Spring Boot</a>
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
         		</li>
       		
 		</ul>
@@ -529,7 +688,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/spring-boot-2-basic-catagory/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-16-libjpeg-turbo-handle-jpeg/">展开全文 >></a>
         </p>
       
 
@@ -559,129 +718,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-spring-boot-2-s1p01-spring-security" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-android-ndk-jni-basic-day05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/spring-boot-2-s1p01-spring-security/">Spring Boot2 入门 S1P01 Spring Security 使用</a>
+      <a class="article-title" href="/blog/android-ndk-jni-basic-day05/">Android NDK JNI 入门笔记-day05-NDK应用签名校验</a>
     </h1>
   
 
         
-        <a href="/blog/spring-boot-2-s1p01-spring-security/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.522Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/android-ndk-jni-basic-day05/" class="archive-article-date">
+  	<time datetime="2020-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.ihubin.com/blog/spring-boot-2-basic-catagory/"><em> SpringBoot2入门目录 </em></a></p>
-<h1 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h1><blockquote>
-<p>Spring Security，这是一种基于 Spring AOP 和 Servlet 过滤器的安全框架。它提供全面的安全性解决方案，同时在 Web 请求级和方法调用级处理身份确认和授权。</p>
-</blockquote>
-<h1 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h1><pre><code>Spring Boot: 2.1.8.RELEASE
-Spring Security: 5.1.6.RELEASE
-</code></pre>
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>NDK 实践-应用签名校验。</p>
+<h2 id="应用签名"><a href="#应用签名" class="headerlink" title="应用签名"></a>应用签名</h2><p>Android 应用签名是应用打包过程的重要步骤之一，Google 要求所有的应用必须被签名才可以安装到 Android 操作系统中。</p>
+<p>应用签名不能保证 APK 不被篡改，只是为了能够校验出 APK 是否被篡改。在系统安装过程中，如果发现 APK 被篡改，安装就会失败。</p>
+<h2 id="NDK-应用签名校验"><a href="#NDK-应用签名校验" class="headerlink" title="NDK 应用签名校验"></a>NDK 应用签名校验</h2><p>为了相对安全，一些敏感操作往往会使用 Native 的方式来实现。但是别人可以通过 APK 文件获取到我们的 <code>.so</code> 文件，进而使用我们的 <code>.so</code>。</p>
+<p>但是应用签名的证书只有我们持有，我们可以通过 Native 校验签名来判断是否是我们自己的应用，如果不是可以返回错误或直接退出应用。</p>
         
-          <a class="article-more-a" href="/blog/spring-boot-2-s1p01-spring-security/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring Security</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Spring-Boot//" class="article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/spring-boot-2-s1p01-spring-security/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ndk-r20-cross-compile-ffmpeg4.2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/ndk-r20-cross-compile-ffmpeg4.2/">Android NDK-r20 交叉编译 FFmpeg 4.2</a>
-    </h1>
-  
-
-        
-        <a href="/blog/ndk-r20-cross-compile-ffmpeg4.2/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.521Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg" alt="FFmpeg"></p>
-<blockquote>
-<p>当前时间：2019-08-22，NDK 最新版本： ndk-r20，FFmpeg 最新版本：ffmpeg-4.2。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/blog/ndk-r20-cross-compile-ffmpeg4.2/#more">more >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day05/#more">more >></a>
         
       
 
@@ -696,14 +760,6 @@ Spring Security: 5.1.6.RELEASE
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CrossCompile</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -723,7 +779,11 @@ Spring Security: 5.1.6.RELEASE
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
         		</li>
       		
 		</ul>
@@ -732,7 +792,7 @@ Spring Security: 5.1.6.RELEASE
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/ndk-r20-cross-compile-ffmpeg4.2/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day05/">展开全文 >></a>
         </p>
       
 
@@ -762,32 +822,29 @@ Spring Security: 5.1.6.RELEASE
 
 
   
-    <article id="post-android-ffmpeg-demo-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-android-ndk-jni-basic-catagory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/android-ffmpeg-demo-1/">Android最简单的基于FFmpeg的例子(一)---编译FFmpeg类库</a>
+      <a class="article-title" href="/blog/android-ndk-jni-basic-catagory/">Android NDK JNI 入门笔记-目录</a>
     </h1>
   
 
         
-        <a href="/blog/android-ffmpeg-demo-1/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.521Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/android-ndk-jni-basic-catagory/" class="archive-article-date">
+  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
-<blockquote>
-<p>FFmpeg使用第一步，编译FFmpeg源码 –&gt; .so 库。</p>
-</blockquote>
+        <p>  Android NDK JNI 入门笔记记录</p>
         
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-1/#more">more >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-catagory/#more">more >></a>
         
       
 
@@ -802,10 +859,6 @@ Spring Security: 5.1.6.RELEASE
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -825,7 +878,11 @@ Spring Security: 5.1.6.RELEASE
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
         		</li>
       		
 		</ul>
@@ -834,7 +891,7 @@ Spring Security: 5.1.6.RELEASE
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-1/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-catagory/">展开全文 >></a>
         </p>
       
 
@@ -864,32 +921,88 @@ Spring Security: 5.1.6.RELEASE
 
 
   
-    <article id="post-android-ffmpeg-demo-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-android-ndk-jni-basic-day02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/android-ffmpeg-demo-5/">Android最简单的基于FFmpeg的例子(五)---ffmpeg从入门到放弃</a>
+      <a class="article-title" href="/blog/android-ndk-jni-basic-day02/">Android NDK JNI 入门笔记-day02-基本数据类型数据传递</a>
     </h1>
   
 
         
-        <a href="/blog/android-ffmpeg-demo-5/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.521Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/android-ndk-jni-basic-day02/" class="archive-article-date">
+  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
-<blockquote>
-<p>FFmpeg使用第五步，暂时放弃学习ffmpeg.</p>
-</blockquote>
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<h1 id="Java-amp-JNI-基本数据类型"><a href="#Java-amp-JNI-基本数据类型" class="headerlink" title="Java &amp; JNI 基本数据类型"></a>Java &amp; JNI 基本数据类型</h1><p>Java 中的基本数据类型包括 boolean，byte，char，short，int，long，float，double 这几种。</p>
+<p>而用 C/C++ 编写 native 代码时，是不能直接使用 Java 的数据类型的。</p>
+<p>所以 JNI 提供了 jboolean、jbyte、jchar、jshort、jint、jlong、jfloat、jdouble。</p>
+<h2 id="Java-基本数据类型与-JNI-数据类型的映射关系"><a href="#Java-基本数据类型与-JNI-数据类型的映射关系" class="headerlink" title="Java 基本数据类型与 JNI 数据类型的映射关系"></a>Java 基本数据类型与 JNI 数据类型的映射关系</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">Java Type</th>
+<th style="text-align:left">Native Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">jboolean</td>
+<td style="text-align:left">unsigned 8 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">byte</td>
+<td style="text-align:left">jbyte</td>
+<td style="text-align:left">signed 8 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:left">jchar</td>
+<td style="text-align:left">unsigned 16 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">short</td>
+<td style="text-align:left">jshort</td>
+<td style="text-align:left">signed 16 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:left">jint</td>
+<td style="text-align:left">signed 32 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:left">jlong</td>
+<td style="text-align:left">signed 64 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:left">jfloat</td>
+<td style="text-align:left">32 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">jdouble</td>
+<td style="text-align:left">64 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">void</td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">N/A</td>
+</tr>
+</tbody>
+</table>
         
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-5/#more">more >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day02/#more">more >></a>
         
       
 
@@ -904,10 +1017,6 @@ Spring Security: 5.1.6.RELEASE
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -927,7 +1036,11 @@ Spring Security: 5.1.6.RELEASE
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
         		</li>
       		
 		</ul>
@@ -936,7 +1049,7 @@ Spring Security: 5.1.6.RELEASE
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-5/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day02/">展开全文 >></a>
         </p>
       
 
@@ -966,32 +1079,109 @@ Spring Security: 5.1.6.RELEASE
 
 
   
-    <article id="post-android-ffmpeg-demo-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-android-ndk-jni-basic-day03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/android-ffmpeg-demo-3/">Android最简单的基于FFmpeg的例子(三)---编译FFmpeg成一个SO库</a>
+      <a class="article-title" href="/blog/android-ndk-jni-basic-day03/">Android NDK JNI 入门笔记-day03-引用数据类型</a>
     </h1>
   
 
         
-        <a href="/blog/android-ffmpeg-demo-3/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.521Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/android-ndk-jni-basic-day03/" class="archive-article-date">
+  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
-<blockquote>
-<p>FFmpeg使用第三步，编译FFmpeg成一个SO库.</p>
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<h1 id="Java-amp-JNI-引用数据类型"><a href="#Java-amp-JNI-引用数据类型" class="headerlink" title="Java &amp; JNI 引用数据类型"></a>Java &amp; JNI 引用数据类型</h1><blockquote>
+<p>对应于不同类型的 Java 对象, JNI 包含大量的引用类型</p>
 </blockquote>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/java-jni-reference-types.png" alt="java-jni-reference-types"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Java 的类类型</th>
+<th style="text-align:left">JNI 的引用类型</th>
+<th style="text-align:left">类型描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">java.lang.Object</td>
+<td style="text-align:left">jobject</td>
+<td style="text-align:left">可以表示任何 Java 的对象，或者没有 JNI 对应类型的 Java 对象（实例方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.String</td>
+<td style="text-align:left">jstring</td>
+<td style="text-align:left">Java 的 String 字符串类型的对象</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Class</td>
+<td style="text-align:left">jclass</td>
+<td style="text-align:left">Java 的 Class 类型对象（静态方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">Object[]</td>
+<td style="text-align:left">jobjectArray</td>
+<td style="text-align:left">Java 任何对象的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean[]</td>
+<td style="text-align:left">jbooleanArray</td>
+<td style="text-align:left">Java 基本类型 boolean 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">byte[]</td>
+<td style="text-align:left">jbyteArray</td>
+<td style="text-align:left">Java 基本类型 byte 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">char[]</td>
+<td style="text-align:left">jcharArray</td>
+<td style="text-align:left">Java 基本类型 char 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">short[]</td>
+<td style="text-align:left">jshortArray</td>
+<td style="text-align:left">Java 基本类型 short 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">int[]</td>
+<td style="text-align:left">jintArray</td>
+<td style="text-align:left">Java 基本类型 int 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">long[]</td>
+<td style="text-align:left">jlongArray</td>
+<td style="text-align:left">Java 基本类型 long 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">float[]</td>
+<td style="text-align:left">jfloatArray</td>
+<td style="text-align:left">Java 基本类型 float 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">double[]</td>
+<td style="text-align:left">jdoubleArray</td>
+<td style="text-align:left">Java 基本类型 double 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Throwable</td>
+<td style="text-align:left">jthrowable</td>
+<td style="text-align:left">Java 的 Throwable 类型，表示异常的所有类型和子类</td>
+</tr>
+</tbody>
+</table>
         
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-3/#more">more >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day03/#more">more >></a>
         
       
 
@@ -1006,10 +1196,6 @@ Spring Security: 5.1.6.RELEASE
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1029,7 +1215,11 @@ Spring Security: 5.1.6.RELEASE
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
         		</li>
       		
 		</ul>
@@ -1038,7 +1228,7 @@ Spring Security: 5.1.6.RELEASE
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-3/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day03/">展开全文 >></a>
         </p>
       
 
@@ -1068,32 +1258,30 @@ Spring Security: 5.1.6.RELEASE
 
 
   
-    <article id="post-android-ffmpeg-demo-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-android-ndk-jni-basic-day01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/android-ffmpeg-demo-2/">Android最简单的基于FFmpeg的例子(二)---测试编译好的SO库</a>
+      <a class="article-title" href="/blog/android-ndk-jni-basic-day01/">Android NDK JNI 入门笔记-day01-创建项目并运行</a>
     </h1>
   
 
         
-        <a href="/blog/android-ffmpeg-demo-2/" class="archive-article-date">
-  	<time datetime="2022-04-21T12:48:03.521Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
+        <a href="/blog/android-ndk-jni-basic-day01/" class="archive-article-date">
+  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://cloudstorage.ihubin.com/blog/common_img/FFmpeg_logo.jpg?orig" alt="FFmpeg"></p>
-<blockquote>
-<p>FFmpeg使用第二步，测试编译好的SO库。</p>
-</blockquote>
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/android-studio-version-3.6.1.png" alt="Android Studio 3.6.1"></p>
         
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-2/#more">more >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day01/#more">more >></a>
         
       
 
@@ -1108,10 +1296,6 @@ Spring Security: 5.1.6.RELEASE
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FFmpeg</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1131,7 +1315,11 @@ Spring Security: 5.1.6.RELEASE
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/FFmpeg//" class="article-tag-list-link color2">FFmpeg</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
         		</li>
       		
 		</ul>
@@ -1140,7 +1328,7 @@ Spring Security: 5.1.6.RELEASE
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/android-ffmpeg-demo-2/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day01/">展开全文 >></a>
         </p>
       
 
@@ -1172,7 +1360,7 @@ Spring Security: 5.1.6.RELEASE
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1184,7 +1372,7 @@ Spring Security: 5.1.6.RELEASE
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 binglingziyu
+    		&copy; 2023 binglingziyu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1293,15 +1481,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NDK</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JNI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,6 +1513,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Spring Security</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -1338,14 +1534,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring Security</a>
               </li>
             
             <div class="clearfix"></div>
