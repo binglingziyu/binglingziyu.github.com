@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://www.ihubin.com">
+  <link rel="dns-prefetch" href="https://www.ihubin.com">
   <title>binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="binglingziyu的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="binglingziyu的博客">
-<meta property="og:url" content="http://www.ihubin.com/index.html">
+<meta property="og:url" content="https://www.ihubin.com/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
 <meta property="og:description" content="binglingziyu的博客">
 <meta property="og:locale" content="zh-CN">
@@ -22,7 +22,7 @@
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="http://cloudstorage.ihubin.com/blog/profile/fav_icon.png">
+    <link rel="icon" href="https://cloudstorage.ihubin.com/blog/profile/fav_icon.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg" class="js-avatar">
+			<img src="https://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">binglingziyu</a></h1>
@@ -91,19 +91,11 @@ var _hmt = _hmt || [];
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
-    			
-            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
 					<a class="github" target="_blank" href="https://github.com/binglingziyu" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/de78e47927e6" title="jianshu"><i class="icon-jianshu"></i></a>
-		        
-					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/binglingziyu/articles" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:hubin.android@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -123,7 +115,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg" class="js-avatar">
+				<img src="https://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">binglingziyu</h1>
@@ -141,10 +133,6 @@ var _hmt = _hmt || [];
 				<div class="social">
 					
 						<a class="github" target="_blank" href="https://github.com/binglingziyu" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/de78e47927e6" title="jianshu"><i class="icon-jianshu"></i></a>
-			        
-						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/binglingziyu/articles" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:hubin.android@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -921,164 +909,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-android-ndk-jni-basic-day02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/android-ndk-jni-basic-day02/">Android NDK JNI 入门笔记-day02-基本数据类型数据传递</a>
-    </h1>
-  
-
-        
-        <a href="/blog/android-ndk-jni-basic-day02/" class="archive-article-date">
-  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
-<h1 id="Java-amp-JNI-基本数据类型"><a href="#Java-amp-JNI-基本数据类型" class="headerlink" title="Java &amp; JNI 基本数据类型"></a>Java &amp; JNI 基本数据类型</h1><p>Java 中的基本数据类型包括 boolean，byte，char，short，int，long，float，double 这几种。</p>
-<p>而用 C/C++ 编写 native 代码时，是不能直接使用 Java 的数据类型的。</p>
-<p>所以 JNI 提供了 jboolean、jbyte、jchar、jshort、jint、jlong、jfloat、jdouble。</p>
-<h2 id="Java-基本数据类型与-JNI-数据类型的映射关系"><a href="#Java-基本数据类型与-JNI-数据类型的映射关系" class="headerlink" title="Java 基本数据类型与 JNI 数据类型的映射关系"></a>Java 基本数据类型与 JNI 数据类型的映射关系</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">Java Type</th>
-<th style="text-align:left">Native Type</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">boolean</td>
-<td style="text-align:left">jboolean</td>
-<td style="text-align:left">unsigned 8 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">byte</td>
-<td style="text-align:left">jbyte</td>
-<td style="text-align:left">signed 8 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">char</td>
-<td style="text-align:left">jchar</td>
-<td style="text-align:left">unsigned 16 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">short</td>
-<td style="text-align:left">jshort</td>
-<td style="text-align:left">signed 16 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">int</td>
-<td style="text-align:left">jint</td>
-<td style="text-align:left">signed 32 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">long</td>
-<td style="text-align:left">jlong</td>
-<td style="text-align:left">signed 64 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">float</td>
-<td style="text-align:left">jfloat</td>
-<td style="text-align:left">32 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">double</td>
-<td style="text-align:left">jdouble</td>
-<td style="text-align:left">64 bits</td>
-</tr>
-<tr>
-<td style="text-align:left">void</td>
-<td style="text-align:left">void</td>
-<td style="text-align:left">N/A</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-android-ndk-jni-basic-day03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1358,6 +1188,164 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-android-ndk-jni-basic-day02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/android-ndk-jni-basic-day02/">Android NDK JNI 入门笔记-day02-基本数据类型数据传递</a>
+    </h1>
+  
+
+        
+        <a href="/blog/android-ndk-jni-basic-day02/" class="archive-article-date">
+  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
+<h1 id="Java-amp-JNI-基本数据类型"><a href="#Java-amp-JNI-基本数据类型" class="headerlink" title="Java &amp; JNI 基本数据类型"></a>Java &amp; JNI 基本数据类型</h1><p>Java 中的基本数据类型包括 boolean，byte，char，short，int，long，float，double 这几种。</p>
+<p>而用 C/C++ 编写 native 代码时，是不能直接使用 Java 的数据类型的。</p>
+<p>所以 JNI 提供了 jboolean、jbyte、jchar、jshort、jint、jlong、jfloat、jdouble。</p>
+<h2 id="Java-基本数据类型与-JNI-数据类型的映射关系"><a href="#Java-基本数据类型与-JNI-数据类型的映射关系" class="headerlink" title="Java 基本数据类型与 JNI 数据类型的映射关系"></a>Java 基本数据类型与 JNI 数据类型的映射关系</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">Java Type</th>
+<th style="text-align:left">Native Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">jboolean</td>
+<td style="text-align:left">unsigned 8 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">byte</td>
+<td style="text-align:left">jbyte</td>
+<td style="text-align:left">signed 8 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:left">jchar</td>
+<td style="text-align:left">unsigned 16 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">short</td>
+<td style="text-align:left">jshort</td>
+<td style="text-align:left">signed 16 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:left">jint</td>
+<td style="text-align:left">signed 32 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:left">jlong</td>
+<td style="text-align:left">signed 64 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:left">jfloat</td>
+<td style="text-align:left">32 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">jdouble</td>
+<td style="text-align:left">64 bits</td>
+</tr>
+<tr>
+<td style="text-align:left">void</td>
+<td style="text-align:left">void</td>
+<td style="text-align:left">N/A</td>
+</tr>
+</tbody>
+</table>
+        
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day02/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JNI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/NDK//" class="article-tag-list-link color4">NDK</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1422,21 +1410,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
-      
-        
-      
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
     </ul>
@@ -1481,6 +1461,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NDK</a>
               </li>
              
@@ -1489,7 +1473,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CrossCompile</a>
+                <a href="javascript:void(0)" class="js-tag color2">Google Play</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1501,11 +1485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PNG文件格式详解</a>
+                <a href="javascript:void(0)" class="js-tag color1">JPEG文件格式详解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JPEG文件格式详解</a>
+                <a href="javascript:void(0)" class="js-tag color5">PNG文件格式详解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1534,6 +1518,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">插件化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Tencent Shadow</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1581,12 +1573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;a href=&#34;/blog/my-app&#34;&gt;我的 APP&lt;/a&gt;</div>
-  	  	
-    	</section>
     
   </div>
   
