@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.ihubin.com">
   <title>binglingziyu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,9 +14,10 @@
 <meta property="og:url" content="https://www.ihubin.com/page/2/index.html">
 <meta property="og:site_name" content="binglingziyu的博客">
 <meta property="og:description" content="binglingziyu的博客">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="binglingziyu">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="binglingziyu的博客">
+<meta name="twitter:description" content="binglingziyu的博客">
   
     <link rel="alternative" href="/atom.xml" title="binglingziyu的博客" type="application/atom+xml">
   
@@ -57,8 +58,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-<meta name="generator" content="Hexo 7.3.0"></head>
-
+</head>
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -71,8 +72,10 @@ var _hmt = _hmt || [];
 			<img src="https://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">binglingziyu</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">binglingziyu的博客</p>
 		
 
 		<nav class="header-menu">
@@ -115,8 +118,10 @@ var _hmt = _hmt || [];
 				<img src="https://cloudstorage.ihubin.com/blog/profile/internet_icon.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">binglingziyu</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>binglingziyu的博客<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -155,19 +160,19 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-android/ndk-jni/basic/Android NDK JNI 入门笔记-day04-NDK实现Hash算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-android-ndk-jni-basic-day03/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/android-ndk-jni-basic-day04">Android NDK JNI 入门笔记-day04-NDK实现Hash算法</a>
+      <a class="article-title" href="/blog/android-ndk-jni-basic-day03/">Android NDK JNI 入门笔记-day03-引用数据类型</a>
     </h1>
   
 
         
-        <a href="/android-ndk-jni-basic-day04" class="archive-article-date">
+        <a href="/blog/android-ndk-jni-basic-day03/" class="archive-article-date">
   	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
@@ -176,16 +181,88 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.ihubin.com/blog/android-ndk-jni-basic-catagory/"><em> Android NDK JNI 入门笔记目录 </em></a></p>
-<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>前面的学习，我们已经掌握了 NDK 开发的必备知识。</p>
-<p>下一步就要多实践，通过创造问题并解决问题，来增加熟练度，提升经验。</p>
-<p>日常开发中，经常会用到 <code>MD5</code> <code>SHA1</code> <code>SHA256</code> 等 HASH 算法，我们可以在 Native 实现这些功能。</p>
-<h1 id="Hash-算法"><a href="#Hash-算法" class="headerlink" title="Hash 算法"></a>Hash 算法</h1><blockquote>
-<p>HASH 主要用于信息安全领域中加密算法，他把一些不同长度的信息转化成杂乱的 128 位的编码里，叫做 HASH 值。也可以说，hash 就是找到一种数据内容和数据存放地址之间的映射关系。</p>
+<h1 id="Java-amp-JNI-引用数据类型"><a href="#Java-amp-JNI-引用数据类型" class="headerlink" title="Java &amp; JNI 引用数据类型"></a>Java &amp; JNI 引用数据类型</h1><blockquote>
+<p>对应于不同类型的 Java 对象, JNI 包含大量的引用类型</p>
 </blockquote>
-<p>Android 开发中，查看证书指纹：</p>
-<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/day04/android-cert-fingerprint.jpg" alt="android-cert-fingerprint"></p>
+<p><img src="http://cloudstorage.ihubin.com/blog/Android/ndk-jni/java-jni-reference-types.png" alt="java-jni-reference-types"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Java 的类类型</th>
+<th style="text-align:left">JNI 的引用类型</th>
+<th style="text-align:left">类型描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">java.lang.Object</td>
+<td style="text-align:left">jobject</td>
+<td style="text-align:left">可以表示任何 Java 的对象，或者没有 JNI 对应类型的 Java 对象（实例方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.String</td>
+<td style="text-align:left">jstring</td>
+<td style="text-align:left">Java 的 String 字符串类型的对象</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Class</td>
+<td style="text-align:left">jclass</td>
+<td style="text-align:left">Java 的 Class 类型对象（静态方法的强制参数）</td>
+</tr>
+<tr>
+<td style="text-align:left">Object[]</td>
+<td style="text-align:left">jobjectArray</td>
+<td style="text-align:left">Java 任何对象的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean[]</td>
+<td style="text-align:left">jbooleanArray</td>
+<td style="text-align:left">Java 基本类型 boolean 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">byte[]</td>
+<td style="text-align:left">jbyteArray</td>
+<td style="text-align:left">Java 基本类型 byte 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">char[]</td>
+<td style="text-align:left">jcharArray</td>
+<td style="text-align:left">Java 基本类型 char 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">short[]</td>
+<td style="text-align:left">jshortArray</td>
+<td style="text-align:left">Java 基本类型 short 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">int[]</td>
+<td style="text-align:left">jintArray</td>
+<td style="text-align:left">Java 基本类型 int 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">long[]</td>
+<td style="text-align:left">jlongArray</td>
+<td style="text-align:left">Java 基本类型 long 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">float[]</td>
+<td style="text-align:left">jfloatArray</td>
+<td style="text-align:left">Java 基本类型 float 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">double[]</td>
+<td style="text-align:left">jdoubleArray</td>
+<td style="text-align:left">Java 基本类型 double 的数组表示形式</td>
+</tr>
+<tr>
+<td style="text-align:left">java.lang.Throwable</td>
+<td style="text-align:left">jthrowable</td>
+<td style="text-align:left">Java 的 Throwable 类型，表示异常的所有类型和子类</td>
+</tr>
+</tbody>
+</table>
         
-          <a class="article-more-a" href="/android-ndk-jni-basic-day04#more">more >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day03/#more">more >></a>
         
       
 
@@ -232,7 +309,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/android-ndk-jni-basic-day04">展开全文 >></a>
+          <a class="article-more-a" href="/blog/android-ndk-jni-basic-day03/">展开全文 >></a>
         </p>
       
 
@@ -262,19 +339,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-15-手动生成一张JPEG图片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-15-generate-jpeg-by-hand/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-15-generate-jpeg-by-hand">音视频入门-15-手动生成一张JPEG图片</a>
+      <a class="article-title" href="/blog/audio-video-basic-15-generate-jpeg-by-hand/">音视频入门-15-手动生成一张JPEG图片</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-15-generate-jpeg-by-hand" class="archive-article-date">
+        <a href="/blog/audio-video-basic-15-generate-jpeg-by-hand/" class="archive-article-date">
   	<time datetime="2020-02-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
 </a>
         
@@ -336,7 +413,7 @@ var _hmt = _hmt || [];
 <li><code>熵编码</code></li>
 </ol>
         
-          <a class="article-more-a" href="/audio-video-basic-15-generate-jpeg-by-hand#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-15-generate-jpeg-by-hand/#more">more >></a>
         
       
 
@@ -379,7 +456,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-15-generate-jpeg-by-hand">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-15-generate-jpeg-by-hand/">展开全文 >></a>
         </p>
       
 
@@ -409,19 +486,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-14-JPEG文件格式详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-14-jpeg-file-format-detail/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-14-jpeg-file-format-detail">音视频入门-14-JPEG文件格式详解</a>
+      <a class="article-title" href="/blog/audio-video-basic-14-jpeg-file-format-detail/">音视频入门-14-JPEG文件格式详解</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-14-jpeg-file-format-detail" class="archive-article-date">
+        <a href="/blog/audio-video-basic-14-jpeg-file-format-detail/" class="archive-article-date">
   	<time datetime="2019-12-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
 </a>
         
@@ -491,7 +568,7 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
         
-          <a class="article-more-a" href="/audio-video-basic-14-jpeg-file-format-detail#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-14-jpeg-file-format-detail/#more">more >></a>
         
       
 
@@ -534,7 +611,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-14-jpeg-file-format-detail">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-14-jpeg-file-format-detail/">展开全文 >></a>
         </p>
       
 
@@ -564,19 +641,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-13-使用开源库生成PNG图片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-13-generate-png-with-library/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-13-generate-png-with-library">音视频入门-13-使用开源库生成PNG图片</a>
+      <a class="article-title" href="/blog/audio-video-basic-13-generate-png-with-library/">音视频入门-13-使用开源库生成PNG图片</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-13-generate-png-with-library" class="archive-article-date">
+        <a href="/blog/audio-video-basic-13-generate-png-with-library/" class="archive-article-date">
   	<time datetime="2019-11-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
 </a>
         
@@ -589,13 +666,13 @@ var _hmt = _hmt || [];
 <p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/generate-png-by-hand.jpg" alt="generate-png-by-hand.jpg"></p>
 <p>有许多开源的 PNG 相关的库可以简化开发：</p>
 <ul>
-<li><a href="https://github.com/miloyip/svpng">svpng</a></li>
-<li><a href="https://github.com/misc0110/libattopng">libattopng</a></li>
-<li><a href="https://github.com/lvandeve/lodepng">lodepng</a></li>
-<li><a href="http://www.libpng.org/">libpng</a></li>
+<li><a href="https://github.com/miloyip/svpng" target="_blank" rel="noopener">svpng</a></li>
+<li><a href="https://github.com/misc0110/libattopng" target="_blank" rel="noopener">libattopng</a></li>
+<li><a href="https://github.com/lvandeve/lodepng" target="_blank" rel="noopener">lodepng</a></li>
+<li><a href="http://www.libpng.org/" target="_blank" rel="noopener">libpng</a></li>
 </ul>
         
-          <a class="article-more-a" href="/audio-video-basic-13-generate-png-with-library#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-13-generate-png-with-library/#more">more >></a>
         
       
 
@@ -638,7 +715,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-13-generate-png-with-library">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-13-generate-png-with-library/">展开全文 >></a>
         </p>
       
 
@@ -668,19 +745,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-12-手动生成一张PNG图片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-12-generate-png-by-hand/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-12-generate-png-by-hand">音视频入门-12-手动生成一张PNG图片</a>
+      <a class="article-title" href="/blog/audio-video-basic-12-generate-png-by-hand/">音视频入门-12-手动生成一张PNG图片</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-12-generate-png-by-hand" class="archive-article-date">
+        <a href="/blog/audio-video-basic-12-generate-png-by-hand/" class="archive-article-date">
   	<time datetime="2019-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
 </a>
         
@@ -719,7 +796,7 @@ var _hmt = _hmt || [];
 <p>目标图：</p>
 <p><img src="http://cloudstorage.ihubin.com/blog/audio-video/image-demo-rainbow.png" alt="彩虹条"></p>
         
-          <a class="article-more-a" href="/audio-video-basic-12-generate-png-by-hand#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-12-generate-png-by-hand/#more">more >></a>
         
       
 
@@ -762,7 +839,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-12-generate-png-by-hand">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-12-generate-png-by-hand/">展开全文 >></a>
         </p>
       
 
@@ -792,19 +869,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-11-PNG文件格式详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-11-png-file-format-detail/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-11-png-file-format-detail">音视频入门-11-PNG文件格式详解</a>
+      <a class="article-title" href="/blog/audio-video-basic-11-png-file-format-detail/">音视频入门-11-PNG文件格式详解</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-11-png-file-format-detail" class="archive-article-date">
+        <a href="/blog/audio-video-basic-11-png-file-format-detail/" class="archive-article-date">
   	<time datetime="2019-10-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
 </a>
         
@@ -818,7 +895,7 @@ var _hmt = _hmt || [];
 <p>用十六进制查看器打开任意一个 PNG 文件，都是可以看到这样的头部:</p>
 <p><img src="http://cloudstorage.ihubin.com/blog/audio-video/rgb-png/png-hex-file-signture.png" alt="png-hex-file-signture.png"></p>
         
-          <a class="article-more-a" href="/audio-video-basic-11-png-file-format-detail#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-11-png-file-format-detail/#more">more >></a>
         
       
 
@@ -861,7 +938,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-11-png-file-format-detail">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-11-png-file-format-detail/">展开全文 >></a>
         </p>
       
 
@@ -891,19 +968,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-10-使用libyuv对YUV数据进行缩放、旋转、镜像、裁剪、混合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-10-libyuv-usage/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-10-libyuv-usage">音视频入门-10-使用libyuv对YUV数据进行缩放、旋转、镜像、裁剪、混合</a>
+      <a class="article-title" href="/blog/audio-video-basic-10-libyuv-usage/">音视频入门-10-使用libyuv对YUV数据进行缩放、旋转、镜像、裁剪、混合</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-10-libyuv-usage" class="archive-article-date">
+        <a href="/blog/audio-video-basic-10-libyuv-usage/" class="archive-article-date">
   	<time datetime="2019-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
 </a>
         
@@ -913,10 +990,10 @@ var _hmt = _hmt || [];
       
         <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
 <h1 id="libyuv"><a href="#libyuv" class="headerlink" title="libyuv"></a>libyuv</h1><blockquote>
-<p><a href="https://chromium.googlesource.com/libyuv/libyuv/">libyuv</a> 是 Google 开源的实现各种 YUV 与 RGB 之间相互转换、旋转、缩放等的库。它是跨平台的，可在 Windows、Linux、Mac、Android 等操作系统，x86、x64、arm 架构上进行编译运行，支持 SSE、AVX、NEON 等 SIMD 指令加速。</p>
+<p><a href="https://chromium.googlesource.com/libyuv/libyuv/" target="_blank" rel="noopener">libyuv</a> 是 Google 开源的实现各种 YUV 与 RGB 之间相互转换、旋转、缩放等的库。它是跨平台的，可在 Windows、Linux、Mac、Android 等操作系统，x86、x64、arm 架构上进行编译运行，支持 SSE、AVX、NEON 等 SIMD 指令加速。</p>
 </blockquote>
         
-          <a class="article-more-a" href="/audio-video-basic-10-libyuv-usage#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-10-libyuv-usage/#more">more >></a>
         
       
 
@@ -955,7 +1032,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-10-libyuv-usage">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-10-libyuv-usage/">展开全文 >></a>
         </p>
       
 
@@ -985,19 +1062,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-09-RGB&amp;YUV互转-使用开源库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-09-rgb-and-yuv-library/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-09-rgb-and-yuv-library">音视频入门-09-RGB&amp;YUV互转-使用开源库</a>
+      <a class="article-title" href="/blog/audio-video-basic-09-rgb-and-yuv-library/">音视频入门-09-RGB&amp;YUV互转-使用开源库</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-09-rgb-and-yuv-library" class="archive-article-date">
+        <a href="/blog/audio-video-basic-09-rgb-and-yuv-library/" class="archive-article-date">
   	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
 </a>
         
@@ -1008,13 +1085,13 @@ var _hmt = _hmt || [];
         <p><a href="https://www.ihubin.com/blog/audio-video-basic-catagory/"><em> 音视频入门文章目录 </em></a></p>
 <h1 id="介绍开源库"><a href="#介绍开源库" class="headerlink" title="介绍开源库"></a>介绍开源库</h1><p>使用第三方开源库来简化开发，屏蔽一些底层的复杂度，节省大量编写代码的时间。</p>
 <blockquote>
-<p><a href="https://chromium.googlesource.com/libyuv/libyuv/">libyuv</a>： Google 开源的实现各种 YUV 与 RGB 之间相互转换、旋转、缩放的库。</p>
+<p><a href="https://chromium.googlesource.com/libyuv/libyuv/" target="_blank" rel="noopener">libyuv</a>： Google 开源的实现各种 YUV 与 RGB 之间相互转换、旋转、缩放的库。</p>
 </blockquote>
 <blockquote>
-<p><a href="https://github.com/descampsa/yuv2rgb">yuv2rgb</a>：C library for fast image conversion between yuv420p and rgb24.</p>
+<p><a href="https://github.com/descampsa/yuv2rgb" target="_blank" rel="noopener">yuv2rgb</a>：C library for fast image conversion between yuv420p and rgb24.</p>
 </blockquote>
         
-          <a class="article-more-a" href="/audio-video-basic-09-rgb-and-yuv-library#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-09-rgb-and-yuv-library/#more">more >></a>
         
       
 
@@ -1053,7 +1130,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-09-rgb-and-yuv-library">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-09-rgb-and-yuv-library/">展开全文 >></a>
         </p>
       
 
@@ -1083,19 +1160,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-08-RGB&amp;YUV" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-08-rgb-and-yuv/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-08-rgb-and-yuv">音视频入门-08-RGB&amp;YUV</a>
+      <a class="article-title" href="/blog/audio-video-basic-08-rgb-and-yuv/">音视频入门-08-RGB&amp;YUV</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-08-rgb-and-yuv" class="archive-article-date">
+        <a href="/blog/audio-video-basic-08-rgb-and-yuv/" class="archive-article-date">
   	<time datetime="2019-09-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
 </a>
         
@@ -1111,14 +1188,14 @@ var _hmt = _hmt || [];
 <li>RGB to YUV（YCbCr）</li>
 </ul>
 <p>RGB 范围 [0,255]，Y 范围 [16,235] ，UV 范围 [16,239]。如果计算结果超过了取值范围要进行截取。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y = 0.257*R + 0.504*G + 0.098*B + 16;</span><br><span class="line">U = -0.148*R - 0.291*G + 0.439*B + 128;</span><br><span class="line">V = 0.439*R - 0.368*G - 0.071*B + 128;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y = 0.257*R + 0.504*G + 0.098*B + 16;</span><br><span class="line">U = -0.148*R - 0.291*G + 0.439*B + 128;</span><br><span class="line">V = 0.439*R - 0.368*G - 0.071*B + 128;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>YUV（YCbCr）to RGB</li>
 </ul>
 <p>RGB 范围 [0,255]，Y 范围 [16,235] ，UV 范围 [16,239]。如果计算结果超过了取值范围要进行截取。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R = 1.164*(Y - 16) + 1.596*(V - 128);</span><br><span class="line">G = 1.164*(Y - 16) - 0.813*(V - 128) - 0.391*(U - 128);</span><br><span class="line">B = 1.164*(Y - 16) + 2.018*(U - 128);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R = 1.164*(Y - 16) + 1.596*(V - 128);</span><br><span class="line">G = 1.164*(Y - 16) - 0.813*(V - 128) - 0.391*(U - 128);</span><br><span class="line">B = 1.164*(Y - 16) + 2.018*(U - 128);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/audio-video-basic-08-rgb-and-yuv#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-08-rgb-and-yuv/#more">more >></a>
         
       
 
@@ -1157,7 +1234,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-08-rgb-and-yuv">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-08-rgb-and-yuv/">展开全文 >></a>
         </p>
       
 
@@ -1187,19 +1264,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-audio-video/basic/音视频入门-07-认识YUV" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-audio-video-basic-07-yuv-intro/" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/audio-video-basic-07-yuv-intro">音视频入门-07-认识YUV</a>
+      <a class="article-title" href="/blog/audio-video-basic-07-yuv-intro/">音视频入门-07-认识YUV</a>
     </h1>
   
 
         
-        <a href="/audio-video-basic-07-yuv-intro" class="archive-article-date">
+        <a href="/blog/audio-video-basic-07-yuv-intro/" class="archive-article-date">
   	<time datetime="2019-09-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
 </a>
         
@@ -1213,9 +1290,9 @@ var _hmt = _hmt || [];
 </li>
 <li><p>Y 表示明亮度（Luminance或Luma），也就是灰阶值，U 和 V 表示的则是色度（Chrominance或Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。</p>
 </li>
-<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr">Y’CbCr</a> 不是一种绝对的色彩空间，是一种针对 RGB 资讯所做的编码。真正的颜色显示是根据实际 RGB 色盘（colorant）来决定的。因此 Y’CbCr 所表示的值只有在标准 RGB 色盘或是 ICC 数据（ICC profile）有提供的时候才能计算。Y’CbCr 在模拟分量影像（analog component video）中也常被称为 YPbPr。</p>
+<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr" target="_blank" rel="noopener">Y’CbCr</a> 不是一种绝对的色彩空间，是一种针对 RGB 资讯所做的编码。真正的颜色显示是根据实际 RGB 色盘（colorant）来决定的。因此 Y’CbCr 所表示的值只有在标准 RGB 色盘或是 ICC 数据（ICC profile）有提供的时候才能计算。Y’CbCr 在模拟分量影像（analog component video）中也常被称为 YPbPr。</p>
 </li>
-<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr">YCbCr</a> 不是一种绝对色彩空间，是 YUV 压缩和偏移的版本。YCbCr 的 Y 与 YUV 中的 Y 含义一致，Cb 和 Cr 与 UV 同样都指色彩，Cb 指蓝色色度，Cr 指红色色度，在应用上很广泛，JPEG、MPEG、DVD、摄影机、数字电视等皆采此一格式。</p>
+<li><p><a href="https://zh.wikipedia.org/zh-cn/YCbCr" target="_blank" rel="noopener">YCbCr</a> 不是一种绝对色彩空间，是 YUV 压缩和偏移的版本。YCbCr 的 Y 与 YUV 中的 Y 含义一致，Cb 和 Cr 与 UV 同样都指色彩，Cb 指蓝色色度，Cr 指红色色度，在应用上很广泛，JPEG、MPEG、DVD、摄影机、数字电视等皆采此一格式。</p>
 </li>
 <li><p>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</p>
 </li>
@@ -1223,7 +1300,7 @@ var _hmt = _hmt || [];
 <li>[ [ [ 因此一般俗称的 YUV 大多是指 YCbCr ] ] ]。</li>
 </ul>
         
-          <a class="article-more-a" href="/audio-video-basic-07-yuv-intro#more">more >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-07-yuv-intro/#more">more >></a>
         
       
 
@@ -1262,7 +1339,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/audio-video-basic-07-yuv-intro">展开全文 >></a>
+          <a class="article-more-a" href="/blog/audio-video-basic-07-yuv-intro/">展开全文 >></a>
         </p>
       
 
@@ -1391,14 +1468,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1419,6 +1488,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">音视频基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
@@ -1428,6 +1505,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">trick</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PNG文件格式详解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1468,10 +1549,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Tencent Shadow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PNG文件格式详解</a>
               </li>
             
             <div class="clearfix"></div>
